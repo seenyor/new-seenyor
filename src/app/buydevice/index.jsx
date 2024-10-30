@@ -11,9 +11,9 @@ import {
 } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import RadioButtonGroup from "../(product)/RadioGroupFInstallation";
-import "../(product)/style.css";
-import TermsCheckbox from "../(product)/TermsCheckbox ";
+import RadioButtonGroup from "../(product)/systembuilder/RadioGroupFInstallation";
+import "../(product)/systembuilder/style.css";
+import TermsCheckbox from "../(product)/systembuilder/TermsCheckbox ";
 import ProductHero from "./ProductHero";
 
 export default function HomePage() {

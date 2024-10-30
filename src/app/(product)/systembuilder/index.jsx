@@ -10,7 +10,7 @@ import {
 } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button, Img } from "../../components";
+import { Button, Img } from "../../../components";
 import RadioButtonGroup from "./RadioGroupFInstallation";
 import TermsCheckbox from "./TermsCheckbox ";
 import "./style.css";
