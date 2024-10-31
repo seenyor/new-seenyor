@@ -6,10 +6,10 @@ import Image from "next/image";
 const PeaceOfMind = () => {
   return (
     <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5">
-      <p className="text-[1.4rem] font-semibold text-center py-2">
+      <p className="text-[2rem] font-semibold text-center py-2">
         Peace of Mind Made Easy – No fuss, no wearables
       </p>
-      <p className="text-center">
+      <p className="text-center text-xl">
         Effortless Peace of Mind with 24/7 Protection – No Wearables, Just
         Reliable Safety
       </p>

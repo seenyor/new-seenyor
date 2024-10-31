@@ -54,6 +54,43 @@ const Home = () => {
       {/*section 2- act now section */}
       <Artnow />
       <PeaceOfMind />
+
+      {/* empowering section */}
+      <div className="max-w-7xl my-0 mx-auto w-full  px-5">
+        <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
+          <h3 className="font-semibold text-4xl">
+            Empowering Care in Every Setting
+          </h3>
+          <p className="text-xl py-3">
+            Our solution adapts to every environment, <br />
+            offering peace of mind for families and caregivers.
+          </p>
+        </div>
+      </div>
+
+      {/* video section */}
+
+      <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5">
+        <p className="text-[2rem] font-semibold text-center py-2">
+          Stay in Control of Their Safety, Anytime
+        </p>
+        <p className="text-center text-xl">
+          Easily monitor your loved one&apos;s safety and activity from our
+          intuitive platform and app. Check in on <br /> them anytime they’re at
+          home, giving you peace of mind no matter where you are.
+        </p>
+
+        <div className="w-full max-w-3xl mx-auto mt-8">
+          <video
+            controls
+            width="100%"
+            poster="/images/videothumb.png"
+            className="rounded-md"
+          >
+            <source src="/videos/video.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
     </div>
   );
 };
