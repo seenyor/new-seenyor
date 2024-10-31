@@ -96,13 +96,13 @@ export default function Header({ accessToken, ...props }) {
             <li className="flex items-center gap-2">
               <Link
                 className="px-7 py-3 bg-[#DFE0E3] font-semibold rounded-lg m-auto"
-                href="/register"
+                href="/login"
               >
                 Sign In
               </Link>
               <Link
                 className="px-3 py-3 bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
-                href="/register"
+                href="/systembuilder"
               >
                 Get Started
               </Link>
