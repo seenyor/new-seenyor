@@ -6,6 +6,7 @@ import { ArrowDown } from "lucide-react";
 import { IconBase } from "react-icons";
 import Artnow from "@/components/Home/Artnow";
 import PeaceOfMind from "@/components/Home/PeaceOfMind";
+import ServiceForPeace from "@/components/Home/ServiceForPeace";
 const Home = () => {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");
@@ -91,6 +92,9 @@ const Home = () => {
           </video>
         </div>
       </div>
+
+      {/* Services for Peace of Mind */}
+      <ServiceForPeace />
     </div>
   );
 };
