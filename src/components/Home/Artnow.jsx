@@ -3,7 +3,7 @@ import { Img } from "..";
 
 const Artnow = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5">
+    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5">
       <div className="flex justify-center">
         <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.2rem] py-1 font-semibold">
           Act Now

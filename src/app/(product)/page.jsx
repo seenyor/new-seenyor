@@ -10,11 +10,11 @@ const Home = () => {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");
   return (
-    <div className=" flex w-full flex-col gap-10 bg-white p-5">
+    <div className=" flex w-full flex-col gap-10 bg-white px-6 py-5">
       <NavbarAvatar accessToken={accessToken} />
 
       {/* hero section* */}
-      <div className="relative flex md:flex-col gap-4 items-start justify-between max-w-7xl my-0 mx-auto w-full p-10 pb-0 rounded-xl px-16 md:p-5">
+      <div className="relative flex md:flex-col gap-4 items-start justify-between max-w-7xl my-0 mx-auto w-full py-10 pb-0 rounded-xl md:p-5 px-5">
         <div>
           <h3 className="font-bold text-[2rem]">
             Protect Your Loved Ones Before It’s Too Late
