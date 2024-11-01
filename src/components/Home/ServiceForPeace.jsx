@@ -4,7 +4,7 @@ import { Img } from "..";
 
 const ServiceForPeace = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl bg-[#F3F4F6] md:p-5">
+    <div className="max-w-7xl my-0 mb-40 mx-auto w-full p-10 rounded-xl bg-[#F3F4F6] md:p-5">
       <p className="text-[2rem] font-semibold text-center py-2">
         Services for Peace of Mind
       </p>
