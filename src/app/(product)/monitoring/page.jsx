@@ -1,4 +1,6 @@
 "use client";
+import Artnow from "@/components/Home/Artnow";
+import CallbackForm from "@/components/Home/CallbackForm";
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Navbar";
 import { ArrowDown } from "lucide-react";
@@ -49,8 +51,9 @@ const ProfessionalMonitoring = () => {
           <Image
             className="w-full h-auto"
             src="/images/alert.png"
-            width={200}
-            height={200}
+            width={1200}
+            height={800}
+            quality={100}
             alt="alert verification"
           />
           <div className="ms-16 sm:ms-0 grid grid-cols-4 sm:grid-cols-2 gap-20 sm:gap-5 absolute top-12">
@@ -162,6 +165,80 @@ const ProfessionalMonitoring = () => {
           </div>
         </div>
       </div>
+
+      {/* advance detection */}
+
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5">
+        <p className="text-[2rem] font-semibold text-center py-2">
+          Advanced Detection Features
+        </p>
+        <p className="text-center text-xl max-w-3xl mx-auto w-full px-5">
+          Ensuring safety by monitoring falls, vital signs, and health events.
+        </p>
+      </div>
+
+      {/* Ai driven safety */}
+      <div className="max-w-7xl my-0 mx-auto w-full  ">
+        <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
+          <h3 className="font-semibold text-4xl">
+            AI-Driven Safety for Peace of Mind
+          </h3>
+          <p className="text-xl py-3">
+            Our system learns and adapts to deliver real-time alerts and
+            proactive safety for the elderly.
+          </p>
+
+          <div className="flex md:flex-col gap-12 mt-16 justify-center">
+            <div className="w-56 h-auto">
+              <Image
+                className="h-auto w-full"
+                src="/images/ai1.png"
+                width={200}
+                height={200}
+                alt="monitoring"
+              />
+            </div>
+            <div className="w-56 h-auto">
+              <Image
+                className="h-auto w-full"
+                src="/images/ai2.png"
+                width={200}
+                height={200}
+                alt="monitoring"
+              />
+            </div>
+            <div className="w-56 h-auto">
+              <Image
+                className="h-auto w-full"
+                src="/images/ai3.png"
+                width={200}
+                height={200}
+                alt="monitoring"
+              />
+            </div>
+          </div>
+          <Image
+            className="h-auto w-full"
+            src="/images/aibanner.png"
+            width={800}
+            height={800}
+            quality={100}
+            alt="Ai Banner"
+          />
+        </div>
+      </div>
+
+      <Artnow />
+      <div className="max-w-7xl my-0 w-full mx-auto rounded-xl  md:p-5 bg-[#2C3142] flex justify-between items-center px-8 py-6">
+        <p className="text-white">
+          Your Journey to Safety and Peace of Mind Begins Here
+        </p>
+        <button className="bg-[#7F87FC] text-white font-semibold px-2 py-2 rounded">
+          Get Started
+        </button>
+      </div>
+
+      <CallbackForm />
     </div>
   );
 };
