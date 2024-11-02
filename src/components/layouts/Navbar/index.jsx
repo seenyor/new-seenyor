@@ -12,7 +12,7 @@ export default function Header({ accessToken, ...props }) {
   return (
     <header
       {...props}
-      className={`${props.className} max-w-7xl mx-auto flex w-full md:hidden sm:flex-col justify-between items-center gap-[1.25rem] pt-2`}
+      className={`${props.className} max-w-7xl mx-auto px-6 flex w-full md:hidden sm:flex-col justify-between items-center gap-[1.25rem] pt-2`}
     >
       <div className="flex w-full items-center justify-between md:flex-col md:px-[1.25rem]">
         {/* Wrap Img with Link to make it clickable */}
