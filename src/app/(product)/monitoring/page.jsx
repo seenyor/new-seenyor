@@ -101,8 +101,66 @@ const ProfessionalMonitoring = () => {
           </div>
         </div>
       </div>
-      <div className="">
-        <h2>Monitoring</h2>
+
+      {/* Intelligent care */}
+
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5">
+        <div className="flex justify-center">
+          <span className="text-[2rem] font-semibold text-center py-1 my-2 px-3 bg-[#000] rounded-md text-white">
+            Intelligent Care for Loved Ones
+          </span>
+        </div>
+        <p className="text-center text-xl max-w-3xl mx-auto w-full px-5">
+          Ensure Their Safety, Protect Your Peace of Mind
+        </p>
+
+        <div className="flex sm:flex-col justify-between gap-12 mx-5 sm:mx-0 my-5">
+          <Image
+            className="w-full mx-auto h-auto"
+            src="/images/care1.png"
+            width={200}
+            height={200}
+            alt="alert verification"
+          />
+          <Image
+            className="w-full mx-auto h-auto"
+            src="/images/care2.png"
+            width={200}
+            height={200}
+            alt="alert verification"
+          />
+          <Image
+            className="w-full mx-auto h-auto"
+            src="/images/care3.png"
+            width={200}
+            height={200}
+            alt="alert verification"
+          />
+        </div>
+        <div
+          className="relative w-full bg-cover bg-center bg-no-repeat flex md:flex-col justify-between px-8"
+          style={{ backgroundImage: "url(/images/gradient.png)" }}
+        >
+          <div className="py-4 w-full">
+            <h3 className="text-xl font-semibold">Detect</h3>
+            <p>Immediate detection of falls or emergencies.</p>
+          </div>
+          <div className="py-4 w-full border-l-[1.5px] border-slate-600 ps-5">
+            <h3 className="text-xl font-semibold">Verify</h3>
+            <p>
+              Our agents verify each alert, using two-way communication to check
+              in with your loved one, then contacting their emergency contacts
+              if needed.
+            </p>
+          </div>
+          <div className="py-4 w-full  border-l-[1.5px] border-slate-600 ps-5">
+            <h3 className="text-xl font-semibold">Response</h3>
+            <p>
+              If there’s no response from your loved one or their emergency
+              contacts, our team will contact 911 for immediate assistance.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
