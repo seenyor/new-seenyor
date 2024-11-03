@@ -79,7 +79,7 @@ export default function MonitoringCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4">
+    <div className="w-full max-h-[750px] max-w-7xl mx-auto p-4">
       {/* Top navigation tabs */}
       <div className="flex justify-start mb-4 border-b border-gray-200">
         {features.map((feature, index) => (
@@ -99,37 +99,53 @@ export default function MonitoringCarousel() {
         ))}
       </div>
 
-      <div className="flex md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
+      <div className="flex !h-full md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
         {/* Left side - Feature content */}
-        <motion.div
-          className="w-[55%] md:w-full p-8 text-white"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeFeature}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-4xl font-bold mb-4">
-                {features[activeFeature].title}
-              </h2>
-              <h2 className="text-2xl mb-6">
-                {features[activeFeature].subtitle}
-              </h2>
-              {features[activeFeature].content.map((item, index) => (
-                <p key={index} className="mb-3">
-                  {item}
-                </p>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
-
+        <div className="w-[55%] md:w-full p-8 text-white">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeFeature}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-4xl font-bold mb-4">
+                  {features[activeFeature].title}
+                </h2>
+                <h2 className="text-2xl mb-6">
+                  {features[activeFeature].subtitle}
+                </h2>
+                {features[activeFeature].content.map((item, index) => (
+                  <p key={index} className="mb-3">
+                    {item}
+                  </p>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
+          {/* Bottom navigation bars */}
+          <div className="flex justify-start mt-12 space-x-2">
+            {features.map((feature, index) => (
+              <motion.button
+                key={feature.id}
+                onClick={() => setActiveFeature(index)}
+                className={`h-1 rounded-full transition-all ${
+                  activeFeature === index ? "bg-white w-12" : "bg-gray-400 w-6"
+                }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <span className="sr-only">{feature.title}</span>
+              </motion.button>
+            ))}
+          </div>
+        </div>
         {/* Right side - Mobile app mockup */}
         <motion.div
           className="w-[45%] md:w-full bg-white flex items-center justify-center  mx-auto h-[500px] overflow-hidden"
@@ -144,23 +160,6 @@ export default function MonitoringCarousel() {
             alt=""
           />
         </motion.div>
-      </div>
-
-      {/* Bottom navigation bars */}
-      <div className="flex justify-center mt-6 space-x-2">
-        {features.map((feature, index) => (
-          <motion.button
-            key={feature.id}
-            onClick={() => setActiveFeature(index)}
-            className={`h-1 rounded-full transition-all ${
-              activeFeature === index ? "bg-[#6366f1] w-12" : "bg-gray-300 w-6"
-            }`}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <span className="sr-only">{feature.title}</span>
-          </motion.button>
-        ))}
       </div>
     </div>
   );
