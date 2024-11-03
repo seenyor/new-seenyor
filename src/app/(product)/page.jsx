@@ -10,6 +10,7 @@ import ServiceForPeace from "@/components/Home/ServiceForPeace";
 import Link from "next/link";
 import CallbackForm from "@/components/Home/CallbackForm";
 import Footer from "@/components/layouts/Footer";
+import HomeCarousel from "@/components/Home/HomeCarousel";
 const Home = () => {
   // const cookieStore = cookies();
   // const accessToken = cookieStore.get("access_token");
@@ -58,7 +59,7 @@ const Home = () => {
       {/*section 2- act now section */}
       <Artnow />
       <PeaceOfMind />
-
+      <HomeCarousel />
       {/* empowering section */}
       <div className="max-w-7xl my-0 mx-auto w-full  px-5">
         <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
