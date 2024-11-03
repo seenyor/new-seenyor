@@ -10,53 +10,60 @@ const features = [
     id: "fall-detection",
     title: "Fall Detection",
     image: "device1.png",
-    content: [
+    subtitle:
       "Instant alerts for falls, ensuring timely assistance when it matters most.",
+    content: [
       "• Immediate Alerts",
       "• 24/7 Monitoring of Each Move",
       "• Advanced AI algorithms for accurate detection",
       "• Two-Way Communication",
-      "• Auto Fall Location",
-      "• SOS Button",
+      "• Data Insights",
+      "• Exact Fall Location",
     ],
   },
   {
     id: "sleep-analysis",
     title: "Sleep Analysis",
+    subtitle:
+      "Gain insights into sleep patterns and quality for healthier, restorative rest.",
     image: "device2.png",
     content: [
-      "Comprehensive sleep tracking and analysis for better rest.",
-      "• Sleep Quality Metrics",
-      "• Pattern Recognition",
-      "• Personalized Insights",
-      "• Night Activity Tracking",
-      "• Rest Recommendations",
+      "• Sleep Summary & Patterns",
+      "• Sleep Events, Duration & Efficiency",
+      "• Sleep Statistic",
+      "• Sleep Apnea Detection",
+      "• Bed Exits Distribution",
+      "• Sleep Routine Distribution",
     ],
   },
   {
     id: "wellness-events",
     title: "Wellness Events",
+    subtitle:
+      "Real-time monitoring of vital signs and alerts for critical health changes.",
     image: "device3.png",
     content: [
-      "Stay connected with community wellness activities and events.",
-      "• Community Gatherings",
-      "• Virtual Health Sessions",
-      "• Expert Consultations",
-      "• Group Exercise Classes",
-      "• Personal Event Calendar",
+      "• Real-Time Heart Rate Monitoring",
+      "• Real-Time Respiratory Rate Monitoring",
+      "• Sleep Apnea Detection",
+      "• Health Insights",
+      "• Apnea-Hypopnea Index (AHI)",
+      "• Low & High Heart and Respiratory rate detection",
     ],
   },
   {
     id: "activities",
     title: "Activities",
+    subtitle:
+      "Track daily movements and routines to promote healthy, active living.",
     image: "device4.png",
     content: [
-      "Track and encourage daily activities for a healthier lifestyle.",
-      "• Step Counter",
-      "• Exercise Tracking",
-      "• Activity Reminders",
-      "• Goal Setting",
-      "• Progress Visualization",
+      "• Daytime Activity Data",
+      "• Sedentary Time",
+      "• Walking Steps and Speed",
+      "• Number of Rooms visited",
+      "• Body Movement Index",
+      "• Daily Activities Distribution",
     ],
   },
 ];
@@ -95,7 +102,7 @@ export default function MonitoringCarousel() {
       <div className="flex md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
         {/* Left side - Feature content */}
         <motion.div
-          className="w-full md:w-1/2 p-8 text-white"
+          className="w-[55%] md:w-full p-8 text-white"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -108,41 +115,35 @@ export default function MonitoringCarousel() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-4xl font-bold mb-4">
                 {features[activeFeature].title}
               </h2>
+              <h2 className="text-2xl mb-6">
+                {features[activeFeature].subtitle}
+              </h2>
               {features[activeFeature].content.map((item, index) => (
-                <p key={index} className="mb-2 text-sm">
+                <p key={index} className="mb-3">
                   {item}
                 </p>
               ))}
-              <motion.button
-                className="mt-4 bg-white text-[#6366f1] px-4 py-2 rounded-full font-semibold"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-              </motion.button>
             </motion.div>
           </AnimatePresence>
         </motion.div>
 
         {/* Right side - Mobile app mockup */}
-        <div className="w-full md:w-1/2 bg-white p-8 flex items-center justify-center">
-          <motion.div
-            className="w-64 h-[500px] bg-gray-100 rounded-3xl overflow-hidden shadow-xl"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Image
-              src={`/images/${features[activeFeature].image}`}
-              height={500}
-              width={300}
-              alt=""
-            />
-          </motion.div>
-        </div>
+        <motion.div
+          className="w-[45%] md:w-full bg-white flex items-center justify-center  mx-auto h-[500px] overflow-hidden"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Image
+            src={`/images/${features[activeFeature].image}`}
+            height={500}
+            width={300}
+            alt=""
+          />
+        </motion.div>
       </div>
 
       {/* Bottom navigation bars */}
