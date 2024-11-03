@@ -11,7 +11,9 @@ const page = () => {
           <div className="flex justify-start py-3">
             <Link href="/">Home</Link>
             <span>&nbsp;/&nbsp;</span>
-            <Link href="/blog">Blog</Link>
+            <Link className="font-semibold" href="/blog">
+              Blog
+            </Link>
           </div>
           <h3 className="text-[1.7rem] font-semibold pb-5">
             Recent Blog Posts
@@ -161,7 +163,7 @@ const page = () => {
                   </p>
                   <Link
                     className="flex items-center text-primary pt-4 font-semibold"
-                    href="/blog/details"
+                    href="/blog/89327jos"
                   >
                     <span> See More </span>
                     <ArrowRight />
