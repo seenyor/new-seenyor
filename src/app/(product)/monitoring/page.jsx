@@ -1,4 +1,5 @@
 "use client";
+import MonitoringCarousel from "@/components/Carousel/MonitoringCarousel";
 import Artnow from "@/components/Home/Artnow";
 import CallbackForm from "@/components/Home/CallbackForm";
 import Footer from "@/components/layouts/Footer";
@@ -175,6 +176,7 @@ const ProfessionalMonitoring = () => {
         <p className="text-center text-xl max-w-3xl mx-auto w-full px-5">
           Ensuring safety by monitoring falls, vital signs, and health events.
         </p>
+        <MonitoringCarousel />
       </div>
 
       {/* Ai driven safety */}
