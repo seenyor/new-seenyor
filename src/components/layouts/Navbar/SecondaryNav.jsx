@@ -2,10 +2,11 @@
 import { Heading, Img } from "@/components";
 import { useAuth } from "@/context/AuthContext";
 import { Avatar } from "@radix-ui/react-avatar";
+import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-export default function Header({ accessToken, ...props }) {
+export default function SecondaryNav({ accessToken, ...props }) {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const { isCom } = useAuth();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -30,7 +31,7 @@ export default function Header({ accessToken, ...props }) {
   return (
     <>
       {/*<!-- Component: Navbar with CTA --> */}
-      <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
+      <header className="relative z-20 w-full  bg-[#7F87FC] after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
         <div className="relative mx-auto w-full px-6 max-w-7xl">
           <nav className="flex h-[5.5rem] items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
@@ -39,7 +40,7 @@ export default function Header({ accessToken, ...props }) {
               href="/"
             >
               <Img
-                src="img_group_1.svg"
+                src="logowhite.png"
                 width={158}
                 height={32}
                 alt="Frame 1000008413"
@@ -93,7 +94,7 @@ export default function Header({ accessToken, ...props }) {
                 <Link href="/">
                   <Heading
                     as="p"
-                    className="text-[1rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1rem] gap-2 py-4 px-8 font-medium !text-white hover:text-blue-600 transition-colors duration-200"
                   >
                     Home
                   </Heading>
@@ -104,22 +105,11 @@ export default function Header({ accessToken, ...props }) {
                 <div className="flex items-center px-8">
                   <button
                     onClick={handleToggle}
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1rem] font-medium !text-white hover:text-blue-600 transition-colors duration-200"
                   >
                     Services
                   </button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#000000"
-                    width="16"
-                    height="16"
-                  >
-                    <rect x="0" fill="none" width="24" height="24"></rect>
-                    <g>
-                      <path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"></path>
-                    </g>
-                  </svg>
+                  <ArrowDown className="h-5 w-5 text-white" />
                 </div>
                 {isServicesOpen && (
                   <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-44">
@@ -150,7 +140,7 @@ export default function Header({ accessToken, ...props }) {
                 <Link href="/knowledge">
                   <Heading
                     as="p"
-                    className="text-[1rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1rem] gap-2 py-4 px-8 font-medium !text-white hover:text-blue-600 transition-colors duration-200"
                   >
                     Knowledge Base
                   </Heading>
@@ -163,7 +153,7 @@ export default function Header({ accessToken, ...props }) {
                 <Link href="/">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1rem] font-medium !text-white hover:text-blue-600 transition-colors duration-200"
                   >
                     Home
                   </Heading>
@@ -173,22 +163,11 @@ export default function Header({ accessToken, ...props }) {
                 <div className="flex items-center px-5">
                   <button
                     onClick={handleToggle}
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1rem] font-medium !text-white hover:text-blue-600 transition-colors duration-200"
                   >
                     Services
                   </button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#000000"
-                    width="16"
-                    height="16"
-                  >
-                    <rect x="0" fill="none" width="24" height="24"></rect>
-                    <g>
-                      <path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"></path>
-                    </g>
-                  </svg>
+                  <ArrowDown className="h-5 w-5 text-white" />
                 </div>
                 {isServicesOpen && (
                   <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-44">
@@ -196,7 +175,7 @@ export default function Header({ accessToken, ...props }) {
                       <li>
                         <Link
                           href="/monitoring"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-white hover:bg-gray-100"
                           onClick={() => setIsServicesOpen(false)}
                         >
                           24/7 Professional Monitoring
@@ -205,7 +184,7 @@ export default function Header({ accessToken, ...props }) {
                       <li>
                         <Link
                           href="/installation"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-white hover:bg-gray-100"
                           onClick={() => setIsServicesOpen(false)}
                         >
                           Installation Options
@@ -219,7 +198,7 @@ export default function Header({ accessToken, ...props }) {
                 <Link href="/knowledge">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-bold !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1rem] font-bold !text-white hover:text-blue-600 transition-colors duration-200"
                   >
                     Knowledge Base
                   </Heading>
