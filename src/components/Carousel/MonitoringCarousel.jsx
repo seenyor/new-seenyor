@@ -80,28 +80,27 @@ export default function MonitoringCarousel() {
 
   return (
     <div className="w-full max-h-[750px] max-w-7xl mx-auto p-4">
-      {/* Top navigation tabs */}
-      <div className="flex justify-start mb-4 border-b border-gray-200">
-        {features.map((feature, index) => (
-          <motion.button
-            key={feature.id}
-            onClick={() => setActiveFeature(index)}
-            className={`px-4 py-2 text-sm font-medium ${
-              activeFeature === index
-                ? "text-[#6366f1] border-b-2 border-[#6366f1]"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
-            whileHover={{ y: -2 }}
-            whileTap={{ y: 0 }}
-          >
-            {feature.title}
-          </motion.button>
-        ))}
-      </div>
-
       <div className="flex !h-full md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
         {/* Left side - Feature content */}
         <div className="w-[55%] md:w-full p-8 text-white">
+          {/* Top navigation tabs */}
+          <div className="flex justify-start mb-4">
+            {features.map((feature, index) => (
+              <motion.button
+                key={feature.id}
+                onClick={() => setActiveFeature(index)}
+                className={`text-white px-4 py-2 text-sm font-medium ${
+                  activeFeature === index
+                    ? "border-b-2 border-[#FFCB33]"
+                    : "hover:text-gray-100"
+                }`}
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
+              >
+                {feature.title}
+              </motion.button>
+            ))}
+          </div>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
