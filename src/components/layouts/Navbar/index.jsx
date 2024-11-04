@@ -3,12 +3,29 @@ import { Heading, Img } from "@/components";
 import { useAuth } from "@/context/AuthContext";
 import { Avatar } from "@radix-ui/react-avatar";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Header({ accessToken, ...props }) {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const { isCom } = useAuth();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Toggle dropdown open or close
+  const handleToggle = () => {
+    setIsServicesOpen((prev) => !prev);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -83,10 +100,10 @@ export default function Header({ accessToken, ...props }) {
                 </Link>
               </li>
 
-              <li className="relative flex items-stretch">
+              <li className="relative flex items-stretch" ref={dropdownRef}>
                 <div className="flex items-center px-8">
                   <button
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                    onClick={handleToggle}
                     className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Services
@@ -111,6 +128,7 @@ export default function Header({ accessToken, ...props }) {
                         <Link
                           href="/monitoring"
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => setIsServicesOpen(false)}
                         >
                           24/7 Professional Monitoring
                         </Link>
@@ -119,6 +137,7 @@ export default function Header({ accessToken, ...props }) {
                         <Link
                           href="/installation"
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => setIsServicesOpen(false)}
                         >
                           Installation Options
                         </Link>
@@ -150,10 +169,10 @@ export default function Header({ accessToken, ...props }) {
                   </Heading>
                 </Link>
               </li>
-              <li className="relative">
-                <div className="flex items-center">
+              <li className="relative " ref={dropdownRef}>
+                <div className="flex items-center px-5">
                   <button
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                    onClick={handleToggle}
                     className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Services
@@ -178,6 +197,7 @@ export default function Header({ accessToken, ...props }) {
                         <Link
                           href="/monitoring"
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => setIsServicesOpen(false)}
                         >
                           24/7 Professional Monitoring
                         </Link>
@@ -186,6 +206,7 @@ export default function Header({ accessToken, ...props }) {
                         <Link
                           href="/installation"
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => setIsServicesOpen(false)}
                         >
                           Installation Options
                         </Link>
@@ -209,13 +230,13 @@ export default function Header({ accessToken, ...props }) {
               {!accessToken ? (
                 <li className="flex items-center gap-2">
                   <Link
-                    className="px-7 py-3 bg-[#DFE0E3] font-semibold rounded-lg m-auto"
+                    className="sm:px-3 sm:py-2 sm:text-sm px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg m-auto"
                     href="/login"
                   >
                     Sign In
                   </Link>
                   <Link
-                    className="px-3 py-3 bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
+                    className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started
