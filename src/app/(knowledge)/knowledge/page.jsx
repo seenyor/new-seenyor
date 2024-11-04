@@ -1,20 +1,72 @@
 import { Button, Input } from "@/components";
 import { Search } from "lucide-react";
-import {
-  Download,
-  HelpCircle,
-  Monitor,
-  Phone,
-  Play,
-  User,
-  Users,
-  Wallet,
-  Wrench,
-} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
+const helpTopics = [
+  {
+    title: "First Time Use",
+    description: "Welcome to Senryor Application",
+    icon: "/images/help1.svg",
+    link: "#",
+  },
+  {
+    title: "Elderly Management",
+    description: "Creating Personalized Care and Monitoring",
+    icon: "/images/help2.svg",
+    link: "#",
+  },
+  {
+    title: "Device Management",
+    description: "Monitor Device Performance and Updates",
+    icon: "/images/help3.svg",
+    link: "#",
+  },
+  {
+    title: "Troubleshoot",
+    description: "Solutions for a Smooth Experience",
+    icon: "/images/help4.svg",
+    link: "#",
+  },
+  {
+    title: "Using the App",
+    description: "A Guide to Using Key App Features",
+    icon: "/images/help5.svg",
+    link: "#",
+  },
+  {
+    title: "Using the Platform",
+    description: "A Guide to Using Key Platform Features",
+    icon: "/images/help6.svg",
+    link: "#",
+  },
+  {
+    title: "Billing & Payments",
+    description: "Billing & Payments Troubleshoot",
+    icon: "/images/help7.svg",
+    link: "#",
+  },
+  {
+    title: "My Account",
+    description: "Managing Senryor Account",
+    icon: "/images/help8.svg",
+    link: "#",
+  },
+  {
+    title: "Videos",
+    description: "Interactive Video Materials",
+    icon: "/images/help9.svg",
+    link: "#",
+  },
+  {
+    title: "Download Zone",
+    description: "Welcome to Senryor Download Zone",
+    icon: "/images/help10.svg",
+    link: "#",
+  },
+];
+
 const Knowledge = () => {
-  // w-full max-w-7xl mx-auto
   return (
     <div>
       <div className="bg-[#7F87FC] py-12">
@@ -34,166 +86,49 @@ const Knowledge = () => {
           </div>
         </div>
       </div>
-      <div className=" flex  flex-col gap-10 bg-white mb-8">
+      <div className="flex flex-col gap-10 bg-white mb-8">
         <div className="mx-auto max-w-7xl bg-[#F5F5FB] w-full p-6">
           <h2 className="my-8 pb-2 border-b border-slate-400 text-2xl font-semibold">
             Help Topics
           </h2>
 
-          <div className="grid grid-cols-4 sm:block md:grid-cols-2 gap-4  ">
-            {/* Row 1 */}
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <HelpCircle className="h-6 w-6 text-blue-600" />
+          <div className="grid grid-cols-4 sm:block md:grid-cols-2 gap-4">
+            {helpTopics.map((topic, index) => (
+              <Link
+                href={`knowledge/${topic?.title}`}
+                key={index}
+                className="block"
+              >
+                <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
+                  <Image
+                    src={topic?.icon}
+                    height={10}
+                    width={10}
+                    alt=""
+                    className="h-7 w-7"
+                  />
+                  <div>
+                    <h3 className="font-semibold">{topic.title}</h3>
+                    <p className="text-sm text-gray-500">{topic.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold">First Time Use</h3>
-                  <p className="text-sm text-gray-500">
-                    Welcome to Senryor Application
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Users className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Elderly Management</h3>
-                  <p className="text-sm text-gray-500">
-                    Creating Personalized Care and Monitoring
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Monitor className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Device Management</h3>
-                  <p className="text-sm text-gray-500">
-                    Monitor Device Performance and Updates
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Wrench className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Troubleshoot</h3>
-                  <p className="text-sm text-gray-500">
-                    Solutions for a Smooth Experience
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Row 2 */}
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Phone className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Using the App</h3>
-                  <p className="text-sm text-gray-500">
-                    A Guide to Using Key App Features
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Monitor className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Using the Platform</h3>
-                  <p className="text-sm text-gray-500">
-                    A Guide to Using Key Platform Features
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Wallet className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Billing & Payments</h3>
-                  <p className="text-sm text-gray-500">
-                    Billing & Payments Troubleshoot
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <User className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">My Account</h3>
-                  <p className="text-sm text-gray-500">
-                    Managing Senryor Account
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Row 3 */}
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Play className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Videos</h3>
-                  <p className="text-sm text-gray-500">
-                    Interactive Video Materials
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="#" className="block">
-              <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <Download className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Download Zone</h3>
-                  <p className="text-sm text-gray-500">
-                    Welcome to Senryor Download Zone
-                  </p>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
 
             <div className="md:col-span-1 col-span-2">
               <div className="flex bg-white rounded-xl min-h-[100px] flex-row items-center gap-4 p-4">
-                <div className="rounded-lg bg-blue-100 p-2">
-                  <HelpCircle className="h-6 w-6 text-blue-600" />
-                </div>
+                <Image
+                  src="/images/help11.svg"
+                  height={10}
+                  width={10}
+                  alt=""
+                  className="h-7 w-7"
+                />
                 <div className="flex-1">
                   <h3 className="font-semibold">Need Support?</h3>
                   <p className="text-sm text-gray-500">
-                    Can not find the answer you are looking for? Dont worry we
-                    are here to help!
+                    Can’t find the answer you’re looking for? Don’t worry, we’re
+                    here to help!
                   </p>
                 </div>
                 <Button className="bg-[#80CAA7] hover:bg-emerald-300 text-white font-semibold py-2 px-4 rounded">
