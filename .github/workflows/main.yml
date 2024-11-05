@@ -13,7 +13,7 @@ jobs:
       with:
         node-version: 20.x
 
-    - run: npm install
+    - run: npm install --force
 
     - run: CI=false npm run build
 
