@@ -64,7 +64,7 @@ const Home = () => {
           </p>
 
           <div className="flex md:flex-col gap-12 mt-16 sm:mt-6 justify-center">
-            <div className="w-56 mx-auto h-auto">
+            <div className="w-56 md:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/monitor.png"
@@ -92,7 +92,7 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-56 mx-auto h-auto">
+            <div className="w-56 md:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/nursing.png"

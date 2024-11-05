@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const Installation = () => {
   return (
-    <div className=" flex  flex-col gap-10 bg-white py-5 mx-6">
+    <div className=" flex  flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-2">
       {/* hero */}
       <section
-        className="relative w-full max-w-7xl mx-auto flex items-center justify-start sm:justify-center h-screen max-h-[700px] bg-cover bg-center bg-no-repeat"
+        className="relative sm:mb-3 w-full max-w-7xl mx-auto flex items-center sm:ps-3 justify-start sm:justify-center h-screen sm:h-[50vh] max-h-[700px] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/servicebanner2.png)" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -18,7 +18,7 @@ const Installation = () => {
             Advanced Elderly Monitoring
           </h1>
           <h1 className="text-2xl pt-2 sm:text-xl ">Installed your way!</h1>
-          <p className="mt-4 text-xl md:text-lg">
+          <p className="mt-4 sm:mt-2 text-xl md:text-lg">
             Choose professional installation or easy self-setup for complete
             peace of mind.
           </p>
@@ -40,7 +40,7 @@ const Installation = () => {
       />
 
       {/* Two options start */}
-      <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5">
+      <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5 sm:p-2">
         <div className="flex justify-center">
           <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.2rem] py-[6px] font-semibold">
             Two Options
@@ -51,8 +51,8 @@ const Installation = () => {
         </p>
 
         {/* cards */}
-        <div className="flex justify-between items-center w-full sm:flex-col gap-6">
-          <div className="h-[750px] sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="flex justify-between items-center w-full md:flex-col gap-6">
+          <div className="h-[750px] sm:h-[650px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
             {/*  <!-- Image --> */}
             <figure>
               <Image
@@ -70,7 +70,7 @@ const Installation = () => {
                   width={156}
                   height={32}
                   alt="Group 1"
-                  className="w-12 h-12 mx-auto object-contain"
+                  className="w-12 h-12 sm:w-8 sm:h-8 mx-auto object-contain"
                 />
                 <p className="text-[1.4rem] font-semibold text-center py-2">
                   Set it up Yourselfe
@@ -94,7 +94,7 @@ const Installation = () => {
               performance.
             </p>
 
-            <div className="flex sm:flex-col justify-between gap-6 mx-8 my-5">
+            <div className="flex justify-between gap-6 mx-8 sm:mx-3 my-5">
               <div className="w-full max-w-48">
                 <Image
                   src="/images/mobile.svg"
@@ -103,7 +103,7 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm font-semibold">
+                <p className="text-center text-sm sm:text-xs font-semibold">
                   Easy Setup with Interactive Guidance
                 </p>
               </div>
@@ -115,13 +115,13 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm font-semibold">
+                <p className="text-center text-sm sm:text-xs font-semibold">
                   Save Money by Installing It Yourself
                 </p>
               </div>
             </div>
           </div>
-          <div className="h-[750px] sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+          <div className="h-[750px] sm:h-[650px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
             {/*  <!-- Image --> */}
             <figure>
               <Image
@@ -139,7 +139,7 @@ const Installation = () => {
                   width={156}
                   height={32}
                   alt="Group 1"
-                  className="w-12 h-12 mx-auto object-contain"
+                  className="w-12 h-12 sm:w-8 sm:h-8 mx-auto object-contain"
                 />
                 <p className="text-[1.4rem] font-semibold text-center py-2">
                   Professional Installation for Complete Peace of Mind
@@ -164,7 +164,7 @@ const Installation = () => {
               reliability and accuracy.
             </p>
 
-            <div className="flex sm:flex-col justify-between gap-6 mx-8 my-5">
+            <div className="flex justify-between gap-6 mx-8 sm:mx-3 my-5">
               <div className="w-full max-w-48">
                 <Image
                   src="/images/certified.svg"
@@ -173,7 +173,7 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm font-semibold">
+                <p className="text-center text-sm sm:text-xs font-semibold">
                   Installed by Certified Professionals
                 </p>
               </div>
@@ -185,7 +185,7 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm font-semibold">
+                <p className="text-center text-sm sm:text-xs font-semibold">
                   Turnkey Solution for Worry-Free Setup
                 </p>
               </div>
@@ -197,7 +197,7 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm font-semibold">
+                <p className="text-center text-sm sm:text-xs font-semibold">
                   100% Accurate Installation Guarantee
                 </p>
               </div>
@@ -210,25 +210,25 @@ const Installation = () => {
 
       {/* Intelligent care */}
 
-      <div className="max-w-6xl my-0 w-full mx-auto rounded-xl  md:p-5 bg-[#2C3142] flex justify-between items-center px-8 py-6">
+      <div className="max-w-7xl my-0 w-full mx-auto rounded-xl  md:p-5 sm:p-2 bg-[#2C3142] flex justify-between items-center px-8 py-6 sm:text-sm sm:px-4 sm:py-3">
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
-        <button className="bg-[#7F87FC] text-white font-semibold px-2 py-2 rounded">
+        <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
           Get Started
         </button>
       </div>
       {/* how it works */}
-      <div className="max-w-7xl my-0 mx-auto w-full  px-5">
+      <div className="max-w-7xl my-0 mx-auto w-full  px-5 sm:px-2">
         <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
           <h3 className="font-semibold text-4xl">How it works?</h3>
-          <p className="text-xl py-3">
+          <p className="text-xl sm:text-lg py-3">
             Follow these simple steps to purchase and set up your Seenyor
             system.
           </p>
 
           <div className="flex md:flex-col gap-12 mt-16 justify-center">
-            <div className="w-56 h-auto">
+            <div className="w-56 h-auto mx-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/system.png"
@@ -241,7 +241,7 @@ const Installation = () => {
                 Start Building
               </button>
             </div>
-            <div className="w-56 h-auto -mt-10">
+            <div className="w-56 h-auto mx-auto -mt-10">
               <Image
                 className="h-auto w-full"
                 src="/images/qr.png"
@@ -254,7 +254,7 @@ const Installation = () => {
                 Download App
               </button>
             </div>
-            <div className="w-56 h-auto">
+            <div className="w-56 h-auto mx-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/enjoy.png"

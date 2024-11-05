@@ -7,14 +7,14 @@ import Image from "next/image";
 const ProfessionalMonitoring = () => {
   // w-full max-w-7xl mx-auto
   return (
-    <div className=" flex  flex-col gap-10 bg-white py-5 mx-6">
+    <div className=" flex flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-3">
       {/* hero */}
       <section
-        className="relative w-full max-w-7xl mx-auto flex items-center justify-start sm:justify-center h-screen max-h-[700px] bg-cover bg-center bg-no-repeat"
+        className="relative sm:mb-6 w-full max-w-7xl mx-auto flex items-center justify-start sm:justify-center h-screen sm:h-[60vh] max-h-[700px] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/servicehero.png)" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 max-w-xl ps-16 sm:ps-0 px-4">
+        <div className="relative z-10 max-w-xl ps-16 sm:ps-5 px-4">
           <h1 className="text-4xl font-bold sm:text-2xl ">24/7 Monitoring</h1>
           <h1 className="text-2xl pt-2 sm:text-xl ">by Professional Agents.</h1>
           <p className="mt-4 text-xl md:text-lg">
@@ -29,11 +29,11 @@ const ProfessionalMonitoring = () => {
       <ScrollButton />
 
       {/* Alert verification */}
-      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5">
-        <p className="text-[2rem] font-semibold text-center py-2">
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
+        <p className="text-[2rem] sm:text-3xl font-semibold text-center py-2">
           Alerts Verification with Confidence
         </p>
-        <p className="text-center text-xl max-w-3xl mx-auto w-full px-5">
+        <p className="text-center text-xl max-w-3xl mx-auto w-full px-5 sm:px-2">
           Our platform empowers agents to confirm alerts and take swift action
           for elderly safety by following a predefined checklist.
         </p>
@@ -47,10 +47,10 @@ const ProfessionalMonitoring = () => {
             quality={100}
             alt="alert verification"
           />
-          <div className="ms-16 sm:ms-0 grid grid-cols-4 sm:grid-cols-2 gap-20 sm:gap-5 absolute top-12">
-            <div className="w-52 text-center">
+          <div className="ms-16 sm:ms-0 grid grid-cols-4 md:grid-cols-2 gap-20 md:gap-5 absolute top-12">
+            <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 mx-auto h-auto"
+                className="w-20 sm:w-12 mx-auto h-auto"
                 src="/images/detected.svg"
                 width={200}
                 height={200}
@@ -59,9 +59,9 @@ const ProfessionalMonitoring = () => {
               <p className="font-semibold text-xl">Alert Detected</p>
               <p className="">Instant Notifications and SMS sent</p>
             </div>
-            <div className="w-52 text-center">
+            <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 mx-auto h-auto"
+                className="w-20 sm:w-12 mx-auto h-auto"
                 src="/images/detected2.svg"
                 width={200}
                 height={200}
@@ -70,9 +70,9 @@ const ProfessionalMonitoring = () => {
               <p className="font-semibold text-xl">Calling Elderly</p>
               <p className="">2-Way Audio from Device</p>
             </div>
-            <div className="w-52 text-center">
+            <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 mx-auto h-auto"
+                className="w-20 sm:w-12 mx-auto h-auto"
                 src="/images/detected3.svg"
                 width={200}
                 height={200}
@@ -81,9 +81,9 @@ const ProfessionalMonitoring = () => {
               <p className="font-semibold text-xl">Calling Contacts</p>
               <p className="">Assigned to Aging loved ones</p>
             </div>
-            <div className="w-52 text-center">
+            <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 mx-auto h-auto"
+                className="w-20 sm:w-12 mx-auto h-auto"
                 src="/images/detected4.svg"
                 width={200}
                 height={200}
@@ -98,9 +98,9 @@ const ProfessionalMonitoring = () => {
 
       {/* Intelligent care */}
 
-      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5">
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
         <div className="flex justify-center">
-          <span className="text-[2rem] font-semibold text-center py-1 my-2 px-3 bg-[#000] rounded-md text-white">
+          <span className="text-[2rem] sm:text-lg font-semibold text-center py-1 my-2 px-3 sm:px-2 bg-[#000] rounded-md text-white">
             Intelligent Care for Loved Ones
           </span>
         </div>
@@ -108,7 +108,7 @@ const ProfessionalMonitoring = () => {
           Ensure Their Safety, Protect Your Peace of Mind
         </p>
 
-        <div className="flex sm:flex-col justify-between gap-12 mx-5 sm:mx-0 my-5">
+        <div className="flex md:flex-col justify-between gap-12 mx-5 sm:mx-0 my-5">
           <Image
             className="w-full mx-auto h-auto"
             src="/images/care1.png"
@@ -132,14 +132,14 @@ const ProfessionalMonitoring = () => {
           />
         </div>
         <div
-          className="relative w-full bg-cover bg-center bg-no-repeat flex md:flex-col justify-between px-8"
+          className="relative w-full bg-cover bg-center bg-no-repeat flex md:flex-col justify-between px-8 sm:px-2"
           style={{ backgroundImage: "url(/images/gradient.png)" }}
         >
           <div className="py-4 w-full">
             <h3 className="text-xl font-semibold">Detect</h3>
             <p>Immediate detection of falls or emergencies.</p>
           </div>
-          <div className="py-4 w-full border-l-[1.5px] border-slate-600 ps-5">
+          <div className="py-4 w-full border-l-[1.5px] sm:border-none border-slate-600 ps-5 sm:ps-0">
             <h3 className="text-xl font-semibold">Verify</h3>
             <p>
               Our agents verify each alert, using two-way communication to check
@@ -147,7 +147,7 @@ const ProfessionalMonitoring = () => {
               if needed.
             </p>
           </div>
-          <div className="py-4 w-full  border-l-[1.5px] border-slate-600 ps-5">
+          <div className="py-4 w-full  border-l-[1.5px] sm:border-none sm:ps-0 border-slate-600 ps-5">
             <h3 className="text-xl font-semibold">Response</h3>
             <p>
               If there’s no response from your loved one or their emergency
@@ -159,11 +159,11 @@ const ProfessionalMonitoring = () => {
 
       {/* advance detection */}
 
-      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5">
-        <p className="text-[2rem] font-semibold text-center py-2">
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
+        <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
           Advanced Detection Features
         </p>
-        <p className="text-center text-xl max-w-3xl mx-auto w-full px-5">
+        <p className="text-center text-xl sm:text-lg max-w-3xl mx-auto w-full px-5">
           Ensuring safety by monitoring falls, vital signs, and health events.
         </p>
         <MonitoringCarousel />
@@ -172,16 +172,16 @@ const ProfessionalMonitoring = () => {
       {/* Ai driven safety */}
       <div className="max-w-7xl my-0 mx-auto w-full  ">
         <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
-          <h3 className="font-semibold text-4xl">
+          <h3 className="font-semibold text-4xl sm:text-3xl sm:px-3">
             AI-Driven Safety for Peace of Mind
           </h3>
-          <p className="text-xl py-3">
+          <p className="text-xl sm:px-3 py-3">
             Our system learns and adapts to deliver real-time alerts and
             proactive safety for the elderly.
           </p>
 
-          <div className="flex md:flex-col gap-12 mt-16 justify-center">
-            <div className="w-56 h-auto">
+          <div className="flex md:grid md:grid-cols-2 sm:grid-cols-1 gap-12 md:gap-6 mt-16 sm:mt-5 justify-center">
+            <div className="w-56 md:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai1.png"
@@ -190,7 +190,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 h-auto">
+            <div className="w-56 md:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai2.png"
@@ -199,7 +199,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 h-auto">
+            <div className="w-56 md:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai3.png"
@@ -221,15 +221,14 @@ const ProfessionalMonitoring = () => {
       </div>
 
       <Artnow />
-      <div className="max-w-7xl my-0 w-full mx-auto rounded-xl  md:p-5 bg-[#2C3142] flex justify-between items-center px-8 py-6">
+      <div className="max-w-7xl my-0 w-full mx-auto rounded-xl  md:p-5 sm:p-2 bg-[#2C3142] flex justify-between items-center px-8 py-6 sm:text-sm sm:px-4 sm:py-3">
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
-        <button className="bg-[#7F87FC] text-white font-semibold px-2 py-2 rounded">
+        <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
           Get Started
         </button>
       </div>
-
       <CallbackForm />
     </div>
   );
