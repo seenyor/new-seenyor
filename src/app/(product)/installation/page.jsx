@@ -3,6 +3,7 @@ import { Img } from "@/components";
 import CallbackForm from "@/components/Home/CallbackForm";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Installation = () => {
   return (
@@ -214,9 +215,11 @@ const Installation = () => {
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
-        <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
-          Get Started
-        </button>
+        <Link href="/systembuilder">
+          <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
+            Get Started
+          </button>
+        </Link>
       </div>
       {/* how it works */}
       <div className="max-w-7xl my-0 mx-auto w-full  px-5 sm:px-2">

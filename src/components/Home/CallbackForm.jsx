@@ -1,6 +1,9 @@
 const CallbackForm = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5 sm:p-2">
+    <div
+      id="call_back_form"
+      className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5 sm:p-2"
+    >
       <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
         Request a Call-Back
       </p>
@@ -9,7 +12,7 @@ const CallbackForm = () => {
         to provide the best solution for you.
       </p>
       <div className="w-full max-w-3xl mx-auto p-4">
-        <form id="call_back_form" className="space-y-3">
+        <form className="space-y-3">
           <div className="flex  sm:flex-col sm:items-center text-sm mb-4">
             <span className="sm:w-full w-1/5 text-sm font-semibold mb-2 mb-0">
               I am a

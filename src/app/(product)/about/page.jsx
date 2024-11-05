@@ -1,4 +1,5 @@
 import { Activity, Bell, Brain, CheckCircle, Phone } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -110,7 +111,7 @@ const page = () => {
           </div>
         </section>
 
-        <section className="bg-indigo-500 py-16 px-4">
+        <section className="bg-[#7F87FC] py-16 px-8">
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold text-white text-center mb-12">
               Why Choose Us
@@ -118,14 +119,18 @@ const page = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-1 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-4">
+                <div
+                  key={index}
+                  className="flex items-start space-x-4 border border-white rounded-xl p-3"
+                >
                   <CheckCircle className="w-6 h-6 text-white shrink-0 mt-1" />
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-indigo-100">{feature.description}</p>
-                  </div>
+                  <p className="text-indigo-100">
+                    <span className="font-semibold text-white">
+                      {" "}
+                      {feature.title}:
+                    </span>{" "}
+                    {feature.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -136,9 +141,11 @@ const page = () => {
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
-        <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
-          Get Started
-        </button>
+        <Link href="/systembuilder">
+          <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
+            Get Started
+          </button>
+        </Link>
       </div>
     </div>
   );

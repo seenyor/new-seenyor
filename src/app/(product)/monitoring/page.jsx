@@ -3,6 +3,7 @@ import Artnow from "@/components/Home/Artnow";
 import CallbackForm from "@/components/Home/CallbackForm";
 import ScrollButton from "@/components/ScrollButton";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProfessionalMonitoring = () => {
   // w-full max-w-7xl mx-auto
@@ -225,9 +226,11 @@ const ProfessionalMonitoring = () => {
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
-        <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
-          Get Started
-        </button>
+        <Link href="/systembuilder">
+          <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
+            Get Started
+          </button>
+        </Link>
       </div>
       <CallbackForm />
     </div>
