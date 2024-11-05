@@ -7,7 +7,7 @@ import Image from "next/image";
 const ProfessionalMonitoring = () => {
   // w-full max-w-7xl mx-auto
   return (
-    <div className=" flex flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-3">
+    <div className=" flex flex-col gap-16 sm:gap-5 bg-white py-5 mx-6 sm:mx-3">
       {/* hero */}
       <section
         className="relative sm:mb-6 w-full max-w-7xl mx-auto flex items-center justify-start sm:justify-center h-screen sm:h-[60vh] max-h-[700px] bg-cover bg-center bg-no-repeat"
@@ -159,7 +159,7 @@ const ProfessionalMonitoring = () => {
 
       {/* advance detection */}
 
-      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
+      <div className="mb-3 max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
         <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
           Advanced Detection Features
         </p>

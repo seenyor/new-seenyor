@@ -2,6 +2,7 @@
 import { Heading, Img } from "@/components";
 import { useAuth } from "@/context/AuthContext";
 import { Avatar } from "@radix-ui/react-avatar";
+import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -83,7 +84,7 @@ export default function Header({ accessToken, ...props }) {
             <ul
               role="menubar"
               aria-label="Select page"
-              className={`absolute left-0 top-0 z-[-1] h-[28.5rem] w-full justify-center overflow-hidden  overflow-y-auto overscroll-contain bg-white/90 px-8 pb-12 pt-24 font-medium transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0  lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0  lg:pt-0 lg:opacity-100 ${
+              className={`absolute left-0 top-0 z-[-1] h-[28.5rem] w-full justify-center overflow-hidden  overflow-y-auto overscroll-contain bg-white px-8 pb-12 pt-24 font-medium transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0  lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0  lg:pt-0 lg:opacity-100 ${
                 isToggleOpen
                   ? "visible opacity-100 backdrop-blur-sm"
                   : "invisible opacity-0"
@@ -108,18 +109,7 @@ export default function Header({ accessToken, ...props }) {
                   >
                     Services
                   </button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#000000"
-                    width="16"
-                    height="16"
-                  >
-                    <rect x="0" fill="none" width="24" height="24"></rect>
-                    <g>
-                      <path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"></path>
-                    </g>
-                  </svg>
+                  <ArrowDown className="text-[#6c7482] h-5 w-5" />
                 </div>
                 {isServicesOpen && (
                   <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-44">
@@ -156,6 +146,33 @@ export default function Header({ accessToken, ...props }) {
                   </Heading>
                 </Link>
               </li>
+              {!accessToken ? (
+                <li className="flex flex-col gap-2 ps-5">
+                  <Link href="/login">
+                    <button className="sm:px-3 sm:py-2 sm:text-sm px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg">
+                      Sign In
+                    </button>
+                  </Link>
+                  <Link href="/systembuilder">
+                    <button className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
+                      Get Started
+                    </button>
+                  </Link>
+                </li>
+              ) : (
+                <Link href="/account" className="relative group">
+                  <Avatar.Root className="inline-flex size-[45px] select-none items-center justify-center overflow-hidden rounded-full bg-black-200 align-middle">
+                    <Avatar.Image
+                      className="size-full rounded-[inherit] object-cover"
+                      src="images/avater.png"
+                      alt="avatar"
+                    />
+                    <Avatar.Fallback className="leading-1 flex size-full items-center justify-center bg-blue-200 text-[15px] font-medium text-violet11">
+                      A
+                    </Avatar.Fallback>
+                  </Avatar.Root>
+                </Link>
+              )}
             </ul>
             {/* for dekstop */}
             <ul className="relative flex items-center flex-wrap gap-[2.13rem] md:ml-0 px-[2rem] md:hidden">
@@ -170,25 +187,14 @@ export default function Header({ accessToken, ...props }) {
                 </Link>
               </li>
               <li className="relative " ref={dropdownRef}>
-                <div className="flex items-center px-5">
+                <div className="flex items-center gap-2 px-2">
                   <button
                     onClick={handleToggle}
                     className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Services
                   </button>
-                  <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#000000"
-                    width="16"
-                    height="16"
-                  >
-                    <rect x="0" fill="none" width="24" height="24"></rect>
-                    <g>
-                      <path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"></path>
-                    </g>
-                  </svg>
+                  <ArrowDown className="text-[#6c7482] h-5 w-5" />
                 </div>
                 {isServicesOpen && (
                   <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-44">
@@ -225,8 +231,6 @@ export default function Header({ accessToken, ...props }) {
                   </Heading>
                 </Link>
               </li>
-            </ul>
-            <div className="flex items-center px-6 ml-auto lg:ml-0 lg:p-0">
               {!accessToken ? (
                 <li className="flex items-center gap-2">
                   <Link
@@ -256,7 +260,38 @@ export default function Header({ accessToken, ...props }) {
                   </Avatar.Root>
                 </Link>
               )}
-            </div>
+            </ul>
+            {/* <div className="flex items-center px-6 ml-auto lg:ml-0 lg:p-0">
+              {!accessToken ? (
+                <li className="flex items-center gap-2">
+                  <Link
+                    className="sm:px-3 sm:py-2 sm:text-sm px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg m-auto"
+                    href="/login"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
+                    href="/systembuilder"
+                  >
+                    Get Started
+                  </Link>
+                </li>
+              ) : (
+                <Link href="/account" className="relative group">
+                  <Avatar.Root className="inline-flex size-[45px] select-none items-center justify-center overflow-hidden rounded-full bg-black-200 align-middle">
+                    <Avatar.Image
+                      className="size-full rounded-[inherit] object-cover"
+                      src="images/avater.png"
+                      alt="avatar"
+                    />
+                    <Avatar.Fallback className="leading-1 flex size-full items-center justify-center bg-blue-200 text-[15px] font-medium text-violet11">
+                      A
+                    </Avatar.Fallback>
+                  </Avatar.Root>
+                </Link>
+              )}
+            </div> */}
           </nav>
         </div>
       </header>

@@ -105,9 +105,9 @@ export default function HomeCarousel() {
   }, [isAutoPlaying]);
 
   return (
-    <div className="flex flex-row sm:flex-col h-screen max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
+    <div className="flex flex-row sm:flex-col h-screen sm:h-[400px] max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
       {/* Sidebar */}
-      <div className="w-64  border-r border-gray-200 p-4">
+      <div className="w-64 sm:hidden  border-r border-gray-200 p-4">
         <div className="space-y-2 sm:space-y-1">
           {menuItems.map((item, index) => (
             <button

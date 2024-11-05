@@ -228,7 +228,7 @@ const Installation = () => {
           </p>
 
           <div className="flex md:flex-col gap-12 mt-16 justify-center">
-            <div className="w-56 h-auto mx-auto">
+            <div className="w-56 h-auto sm:mx-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/system.png"
@@ -241,7 +241,7 @@ const Installation = () => {
                 Start Building
               </button>
             </div>
-            <div className="w-56 h-auto mx-auto -mt-10">
+            <div className="w-56 h-auto sm:mx-auto -mt-10">
               <Image
                 className="h-auto w-full"
                 src="/images/qr.png"
@@ -254,7 +254,7 @@ const Installation = () => {
                 Download App
               </button>
             </div>
-            <div className="w-56 h-auto mx-auto">
+            <div className="w-56 h-auto sm:mx-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/enjoy.png"

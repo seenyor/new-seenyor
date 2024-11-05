@@ -54,7 +54,7 @@ const page = () => {
     <div className=" flex  flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-2">
       <div className="max-w-4xl mx-auto w-full">
         <h2 className="text-3xl font-semibold">About Seenyor</h2>
-        <p className="text-[#6C7482] py-3">
+        <p className="text-[#6C7482] pt-3 pb-16">
           We are dedicated to enhancing the quality of life for seniors through
           innovative smart devices designed to provide safety, security, and
           peace of mind. Learn more about who we are, our mission, and the
@@ -84,8 +84,8 @@ const page = () => {
         {/* what we do section */}
         <section className="container mx-auto px-4 py-12">
           <div className="text-center mb-2">
-            <h2 className="text-3xl font-bold mb-4">What We Do</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold my-4">What We Do</h2>
+            <p className="text-gray-600 pb-12">
               At Seniyor, We Specialize in Providing Cutting-Edge Tech Services
               Tailored For Elderly Care. Our Range Of Products Include:
             </p>

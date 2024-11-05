@@ -51,7 +51,17 @@ const Home = () => {
       {/*section 2- act now section */}
       <Artnow />
       <PeaceOfMind />
-      <HomeCarousel />
+
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl mb-12 sm:mb-0">
+        <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
+          Comprehensive Home Monitoring
+        </p>
+        <p className="text-center text-xl pb-10 sm:text-lg max-w-3xl mx-auto w-full px-5">
+          Effortlessly monitor your loved one’s health and safety, whether
+          they’re resting or moving around the house, day or night.
+        </p>
+        <HomeCarousel />
+      </div>
       {/* empowering section */}
       <div className="max-w-7xl my-0 mx-auto w-full  px-5 sm:px-0">
         <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
@@ -123,14 +133,26 @@ const Home = () => {
         </p>
 
         <div className="w-full max-w-3xl mx-auto mt-8">
-          <video
+          {/* <video
             controls
             width="100%"
             poster="/images/videothumb.png"
             className="rounded-md"
           >
             <source src="/videos/video.mp4" type="video/mp4" />
-          </video>
+          </video> */}
+          <div className="rounded-md" style={{ width: "100%" }}>
+            <iframe
+              width="100%"
+              height="370"
+              src="https://www.youtube.com/embed/D0UnqGm_miA?si=oMCeP5jti2Fz4jZ4"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-md"
+            ></iframe>
+          </div>
         </div>
       </div>
 
