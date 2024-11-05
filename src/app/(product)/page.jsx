@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <div className=" flex w-full flex-col gap-10 sm:gap-5 bg-white px-6 pt-5">
       {/* hero section* */}
-      <div className="relative flex sm:flex-col-reverse gap-4 items-start justify-between max-w-7xl my-0 mx-auto w-full py-10 pb-0 rounded-xl md:p-5 sm:px-2 px-5">
-        <div>
+      <div className="relative px-3 flex sm:flex-col-reverse gap-4 items-start justify-between max-w-7xl mx-auto w-full py-10 rounded-xl md:p-5 sm:p-2">
+        <div className="w-[65%] sm:w-full  ">
           <h3 className="font-bold text-[2rem] sm:text-2xl">
             Protect Your Loved Ones Before It’s Too Late
           </h3>
@@ -20,31 +20,27 @@ const Home = () => {
             1 in 4 People Over 65 Falls Each Year – Don’t Let Your Loved Ones Be
             Next
           </p>
-          <p className="text-md my-5">
+          <p className="text-md my-7">
             Stay connected and ensure 24/7 protection, even when you can’t be
             there. Our non-wearable device detects falls instantly and monitors
             their safety around the clock.
           </p>
-          <Button
-            // disabled={isChecked}
-            // onClick={handleCheckout}
-            // type="submit"
-            shape="round"
-            color="green_200_green_400_01"
-            className="w-auto my-0  rounded-[10px] px-[1.2rem] !py-0 font-semibold"
-          >
+          <button className="w-auto py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
             Protect Them Now
-          </Button>
-          <p className="mt-14 sm:mt-5">*Limited Stock Available!</p>
+          </button>
         </div>
-        {/* <Img src="product2.png" height={400} width={275} alt="Product" /> */}
-        <Image
-          src="/images/product2.png"
-          height={200}
-          width={300}
-          alt="Product"
-          className="!h-full w-auto sm:mx-auto"
-        />
+        <div className="w-[35%] -mt-10 sm:w-full">
+          <Image
+            src="/images/product2.png"
+            height={200}
+            width={300}
+            alt="Product"
+            className="w-auto scale-125 ms-20  h-full sm:mx-auto"
+          />
+        </div>
+      </div>
+      <div className="w-full max-w-7xl mx-auto">
+        <p className="px-5">*Limited Stock Available!</p>
       </div>
       <ScrollButton />
 
