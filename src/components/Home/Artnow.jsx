@@ -3,9 +3,9 @@ import { Img } from "..";
 
 const Artnow = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5">
+    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5 sm:p-2">
       <div className="flex justify-center">
-        <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.2rem] py-1 font-semibold">
+        <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.4rem] py-[6px] font-semibold">
           Act Now
         </button>
       </div>
@@ -15,7 +15,7 @@ const Artnow = () => {
 
       {/* cards */}
       <div className="flex justify-between items-center w-full sm:flex-col gap-6">
-        <div className="h-[500px] sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -54,7 +54,7 @@ const Artnow = () => {
             </div>
           </div>
         </div>
-        <div className="h-[500px] sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -95,7 +95,7 @@ const Artnow = () => {
             </div>
           </div>
         </div>
-        <div className="h-[500px] sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image

@@ -1,22 +1,21 @@
 import Image from "next/image";
 import React from "react";
-import { Img } from "..";
 
 const ServiceForPeace = () => {
   return (
-    <div className="max-w-7xl my-0 mb-40 mx-auto w-full p-10 rounded-xl bg-[#F3F4F6] md:p-5">
-      <p className="text-[2rem] font-semibold text-center py-2">
+    <div className="max-w-7xl my-0 mb-40 sm:mb-5 mx-auto w-full p-10 rounded-xl bg-[#F3F4F6] md:p-5 sm:p-3">
+      <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
         Services for Peace of Mind
       </p>
-      <p className="text-center text-xl">
+      <p className="text-center text-xl max-w-4xl mx-auto sm:text-lg">
         From professional installation to ongoing monitoring, we ensure that you
-        and your loved ones receive <br /> the highest level of support and
-        peace of mind.
+        and your loved ones receive the highest level of support and peace of
+        mind.
       </p>
 
       {/* cards */}
       <div className="flex justify-between items-center w-full sm:flex-col my-5 gap-6">
-        <div className="h-[450px] -mb-40 sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[450px] -mb-40 sm:mb-0 sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -41,7 +40,7 @@ const ServiceForPeace = () => {
             Safety starts with the right setup.
           </p>
         </div>
-        <div className="h-[450px] -mb-40 sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[450px] -mb-40 sm:mb-0 sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -69,7 +68,7 @@ const ServiceForPeace = () => {
             </p>
           </div>
         </div>
-        <div className="h-[450px] -mb-40 sm:h-auto overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[450px] -mb-40 sm:mb-0 sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image

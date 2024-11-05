@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const PeaceOfMind = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5">
-      <p className="text-[2rem] font-semibold text-center py-2">
+    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5 sm:p-2">
+      <p className="text-[2rem] sm:text-[1.6rem] font-semibold text-center py-2">
         Peace of Mind Made Easy – No fuss, no wearables
       </p>
       <p className="text-center text-xl">
@@ -15,11 +15,11 @@ const PeaceOfMind = () => {
       </p>
 
       <div className="flex justify-between md:flex-col gap-7 py-10">
-        <div className="w-1/2 sm:w-full bg-[#EAEAEA]">
+        <div className="w-1/2 md:w-full bg-[#EAEAEA]">
           <div className="text-center">
             <ClockIcon className="mx-auto mt-5" height={35} width={35} />
             <h3 className="text-2xl font-semibold pt-2">24/7 Protection</h3>
-            <p className="text-lg ">
+            <p className="text-lg px-2">
               Non-intrusive, without the hassle of wearable devices.
             </p>
           </div>
@@ -31,7 +31,7 @@ const PeaceOfMind = () => {
               alt="patience"
               className="h-full w-full"
             />
-            <div className="absolute top-5 px-3 flex justify-between md:grid md:grid-cols-2 md:gap-4 w-full ">
+            <div className="absolute top-5 px-3 flex justify-between sm:grid sm:grid-cols-3 sm:gap-3 w-full ">
               <div className="bg-white p-2 text-center w-[6.2rem]">
                 <Img
                   src="breath.svg"
@@ -90,7 +90,7 @@ const PeaceOfMind = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2 sm:w-full bg-[#EAEAEA]">
+        <div className="w-1/2 md:w-full bg-[#EAEAEA]">
           <div className="text-center">
             <ClockIcon className="mx-auto mt-5" height={35} width={35} />
             <h3 className="text-2xl font-semibold pt-2">24/7 Monitoring</h3>
@@ -99,7 +99,7 @@ const PeaceOfMind = () => {
             </p>
           </div>
           <div className="h-96 w-full px-5">
-            <div className="flex justify-between gap-3 py-5">
+            <div className="flex justify-between w-full gap-3 py-5">
               <div className="w-1/2 flex flex-col gap-2">
                 <Image
                   src="/images/monitoring1.png"
@@ -116,13 +116,15 @@ const PeaceOfMind = () => {
                   className="h-36 w-96"
                 />
               </div>
-              <Image
-                src="/images/monitoring2.png"
-                height={300}
-                width={300}
-                alt="patience"
-                className="h-[18.5rem] !w-auto"
-              />
+              <div className="w-1/2">
+                <Image
+                  src="/images/monitoring2.png"
+                  height={300}
+                  width={300}
+                  alt="patience"
+                  className="h-[18.5rem] w-full"
+                />
+              </div>
             </div>
             <p className="text-xs text-center">*This is NOT a Medical device</p>
           </div>

@@ -1,10 +1,7 @@
-"use client";
 import MonitoringCarousel from "@/components/Carousel/MonitoringCarousel";
 import Artnow from "@/components/Home/Artnow";
 import CallbackForm from "@/components/Home/CallbackForm";
-import Footer from "@/components/layouts/Footer";
-import Header from "@/components/layouts/Navbar";
-import { ArrowDown } from "lucide-react";
+import ScrollButton from "@/components/ScrollButton";
 import Image from "next/image";
 
 const ProfessionalMonitoring = () => {
@@ -29,14 +26,7 @@ const ProfessionalMonitoring = () => {
         </div>
       </section>
 
-      <ArrowDown
-        onClick={() =>
-          document
-            .getElementById("footer-section")
-            .scrollIntoView({ behavior: "smooth" })
-        }
-        className="h-[2.00rem] -mt-5 text-white w-[2rem] md:w-[30%] object-contain mx-auto p-2 rounded-[50%] bg-[#2C3142] cursor-pointer"
-      />
+      <ScrollButton />
 
       {/* Alert verification */}
       <div className="max-w-7xl my-0 mx-auto w-full rounded-xl  md:p-5">

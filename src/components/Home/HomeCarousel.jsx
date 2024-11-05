@@ -99,16 +99,16 @@ export default function HomeCarousel() {
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
 
   return (
-    <div className="flex flex-row h-screen max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
+    <div className="flex flex-row sm:flex-col h-screen max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
       {/* Sidebar */}
       <div className="w-64  border-r border-gray-200 p-4">
-        <div className="space-y-2">
+        <div className="space-y-2 sm:space-y-1">
           {menuItems.map((item, index) => (
             <button
               key={item.label}
@@ -144,13 +144,15 @@ export default function HomeCarousel() {
               {/* Header */}
               <div
                 style={{ backgroundColor: `#${slides[currentSlide].color}` }}
-                className="absolute top-0 py-5 text-white  z-40 w-full px-12 flex flex-row items-start justify-between mb-8"
+                className="absolute top-0 py-5 sm:py-1 sm:px-2 text-white  z-40 w-full px-12 flex flex-row items-start justify-between mb-8"
               >
-                <div className="space-y-2">
-                  <h1 className="text-2xl font-bold">
+                <div className="space-y-2 sm:space-y-0">
+                  <h1 className="text-2xl sm:text-[16px] font-bold">
                     {slides[currentSlide].title}
                   </h1>
-                  <p className="max-w-2xl">{slides[currentSlide].subtitle}</p>
+                  <p className="max-w-2xl sm:text-xs">
+                    {slides[currentSlide].subtitle}
+                  </p>
                 </div>
                 <div className="text-white my-auto">
                   <Image
