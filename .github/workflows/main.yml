@@ -3,7 +3,6 @@ name: Deploy Remotely
 on:
   push:
     branches: [ main ]
-
 jobs:
   Deploy-Remotely:
     runs-on: ubuntu-latest
@@ -17,24 +16,27 @@ jobs:
       with:
         node-version: '20.x'
 
-    - name: Transfer  Folder to EC2 Instance
+    - name: Install Dependencies and Build Locally
+      run: |
+        npm ci --production --force
+        npm run build
+
+    - name: Transfer Build Artifacts to EC2
       uses: easingthemes/ssh-deploy@v2.1.4
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-        SOURCE: "."  # Change to the directory where your build output is located
+        SOURCE: "build"  # Replace 'build' with the folder containing your output files
         TARGET: ${{ secrets.DEPLOY_TARGET }}
 
-    - name: Run Build and Restart Commands on EC2 Instance
+    - name: Restart Application on EC2
       run: |
-        echo "${{ secrets.DEPLOY_KEY }}" > deploy_key.pem  # Create a temporary key file
-        chmod 400 deploy_key.pem                           # Set permissions for the key file
+        echo "${{ secrets.DEPLOY_KEY }}" > deploy_key.pem
+        chmod 400 deploy_key.pem
         ssh -o StrictHostKeyChecking=no -i "deploy_key.pem" -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "
-          cd ${{ secrets.DEPLOY_TARGET }} &&
-          npm install --force &&
-          npm run build &&
-          pm2 restart new-app
+          pm2 reload new-app
         "
-        rm deploy_key.pem                                   # Clean up the key file after use
+        rm deploy_key.pem
+
