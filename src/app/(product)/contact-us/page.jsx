@@ -38,7 +38,7 @@ const ContactUs = () => {
       {/* hero */}
       <section
         className="relative sm:mb-3 w-full max-w-7xl mx-auto flex items-center sm:ps-3 justify-start sm:justify-center h-screen sm:h-[50vh] max-h-[700px] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/onlycare.png)" }}
+        style={{ backgroundImage: "url(/images/oldWoman.jpg)" }}
       >
         <div
           className="absolute inset-0 z-0"

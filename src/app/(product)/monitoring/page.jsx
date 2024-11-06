@@ -41,19 +41,19 @@ const ProfessionalMonitoring = () => {
           for elderly safety by following a predefined checklist.
         </p>
 
-        <div className="w-full h-auto mt-8 relative">
+        <div className="w-full h-auto sm:min-h-[400px] mx-auto  mt-8 relative">
           <Image
-            className="w-full h-auto"
+            className="w-full h-auto sm:hidden"
             src="/images/alert.png"
             width={1200}
             height={800}
             quality={100}
             alt="alert verification"
           />
-          <div className="ms-16 sm:ms-0 grid grid-cols-4 md:grid-cols-2 gap-20 md:gap-5 absolute top-12">
+          <div className=" grid grid-cols-4 md:grid-cols-2 w-full mx-auto md:ms-12 sm:ms-0 gap-12 px-10 md:px-2 md:gap-5 absolute top-12">
             <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 sm:w-12 mx-auto h-auto"
+                className="w-20 sm:w-12 md:w-16 mx-auto h-auto"
                 src="/images/detected.svg"
                 width={200}
                 height={200}
@@ -64,7 +64,7 @@ const ProfessionalMonitoring = () => {
             </div>
             <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 sm:w-12 mx-auto h-auto"
+                className="w-20 sm:w-12 md:w-16 mx-auto h-auto"
                 src="/images/detected2.svg"
                 width={200}
                 height={200}
@@ -75,7 +75,7 @@ const ProfessionalMonitoring = () => {
             </div>
             <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 sm:w-12 mx-auto h-auto"
+                className="w-20 sm:w-12 md:w-16 mx-auto h-auto"
                 src="/images/detected3.svg"
                 width={200}
                 height={200}
@@ -86,7 +86,7 @@ const ProfessionalMonitoring = () => {
             </div>
             <div className="w-52 sm:w-auto sm:bg-[#ffff] sm:bg-opacity-30  text-center">
               <Image
-                className="w-20 sm:w-12 mx-auto h-auto"
+                className="w-20 sm:w-12 md:w-16 mx-auto h-auto"
                 src="/images/detected4.svg"
                 width={200}
                 height={200}
