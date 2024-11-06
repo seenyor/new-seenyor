@@ -26,8 +26,9 @@ const PeaceOfMind = () => {
           <div className="h-96 w-full relative">
             <Image
               src="/images/test 223.png"
-              height={200}
-              width={200}
+              height={500}
+              width={500}
+              quality={80}
               alt="patience"
               className="h-full w-full"
             />

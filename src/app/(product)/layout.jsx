@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   const accessToken = cookieStore.get("access_token");
   return (
     <>
-      <Header accessToken={accessToken} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>
