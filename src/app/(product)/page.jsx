@@ -25,9 +25,11 @@ const Home = () => {
             there. Our non-wearable device detects falls instantly and monitors
             their safety around the clock.
           </p>
-          <button className="w-auto py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
-            Protect Them Now
-          </button>
+          <Link href="/systembuilder">
+            <button className="w-auto py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
+              Protect Them Now
+            </button>
+          </Link>
         </div>
         <div className="w-[35%] -mt-10 sm:w-full">
           <Image
@@ -59,7 +61,7 @@ const Home = () => {
         <HomeCarousel />
       </div>
       {/* empowering section */}
-      <div className="max-w-7xl my-0 mx-auto w-full  px-5 sm:px-0">
+      <div className="max-w-7xl mb-8 sm:mb-2 my-0 mx-auto w-full  px-5 sm:px-0">
         <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
           <h3 className="font-semibold text-4xl sm:text-3xl">
             Empowering Care in Every Setting
@@ -118,7 +120,7 @@ const Home = () => {
 
       {/* video section */}
 
-      <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5 sm:p-2">
+      {/* <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5 sm:p-2">
         <p className="text-[2rem] sm:text-[1.5rem] font-semibold text-center py-2">
           Stay in Control of Their Safety, Anytime
         </p>
@@ -129,14 +131,6 @@ const Home = () => {
         </p>
 
         <div className="w-full max-w-3xl mx-auto mt-8">
-          {/* <video
-            controls
-            width="100%"
-            poster="/images/videothumb.png"
-            className="rounded-md"
-          >
-            <source src="/videos/video.mp4" type="video/mp4" />
-          </video> */}
           <div className="rounded-md" style={{ width: "100%" }}>
             <iframe
               width="100%"
@@ -150,7 +144,7 @@ const Home = () => {
             ></iframe>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Services for Peace of Mind */}
       <ServiceForPeace />

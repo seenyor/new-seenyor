@@ -23,9 +23,11 @@ const Installation = () => {
             Choose professional installation or easy self-setup for complete
             peace of mind.
           </p>
-          <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
-            Protect Them Now
-          </button>
+          <Link href="/systembuilder">
+            <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
+              Protect Them Now
+            </button>
+          </Link>
         </div>
         <p className="text-sm absolute bottom-8 left-8">
           *Note: Incorrect installation may affect accuracy.

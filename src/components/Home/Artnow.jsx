@@ -5,9 +5,9 @@ const Artnow = () => {
   return (
     <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5 sm:p-2">
       <div className="flex justify-center">
-        <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.4rem] py-[6px] font-semibold">
+        <p className="bg-neutral-950 text-white my-0  rounded-md px-[1.4rem] py-[6px] font-semibold">
           Act Now
-        </button>
+        </p>
       </div>
       <p className="text-[1.4rem] text-center py-4">
         Protect Your Loved Ones Before It’s Too Late

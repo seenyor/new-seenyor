@@ -84,7 +84,7 @@ export default function Header({ accessToken, ...props }) {
             <ul
               role="menubar"
               aria-label="Select page"
-              className={`absolute left-0 top-0 z-[-1] h-[28.5rem] w-full justify-center overflow-hidden  overflow-y-auto overscroll-contain bg-white px-8 pb-12 pt-24 font-medium transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0  lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0  lg:pt-0 lg:opacity-100 ${
+              className={`absolute left-0 top-0 z-[-1] h-[28.5rem] w-full justify-center overflow-hidden  overflow-y-auto overscroll-contain bg-white sm:h-[100vh]  px-8 pb-12 pt-24 font-medium transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0  lg:z-0 lg:flex lg:h-full lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0  lg:pt-0 lg:opacity-100 ${
                 isToggleOpen
                   ? "visible opacity-100 backdrop-blur-sm"
                   : "invisible opacity-0"
@@ -94,7 +94,7 @@ export default function Header({ accessToken, ...props }) {
                 <Link href="/">
                   <Heading
                     as="p"
-                    className="text-[1rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Home
                   </Heading>
@@ -102,22 +102,22 @@ export default function Header({ accessToken, ...props }) {
               </li>
 
               <li className="relative flex items-stretch" ref={dropdownRef}>
-                <div className="flex items-center px-8">
-                  <button
-                    onClick={handleToggle}
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
-                  >
+                <div
+                  onClick={handleToggle}
+                  className="flex cursor-pointer items-center px-8"
+                >
+                  <button className="text-[1.3rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200">
                     Services
                   </button>
                   <ArrowDown className="text-[#6c7482] h-5 w-5" />
                 </div>
                 {isServicesOpen && (
-                  <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-44">
+                  <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-52">
                     <ul className="flex flex-col">
                       <li>
                         <Link
                           href="/monitoring"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2  text-gray-700 hover:bg-gray-100"
                           onClick={() => setIsServicesOpen(false)}
                         >
                           24/7 Professional Monitoring
@@ -126,7 +126,7 @@ export default function Header({ accessToken, ...props }) {
                       <li>
                         <Link
                           href="/installation"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2  text-gray-700 hover:bg-gray-100"
                           onClick={() => setIsServicesOpen(false)}
                         >
                           Installation Options
@@ -140,7 +140,7 @@ export default function Header({ accessToken, ...props }) {
                 <Link href="/knowledge">
                   <Heading
                     as="p"
-                    className="text-[1rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Knowledge Base
                   </Heading>
@@ -149,12 +149,12 @@ export default function Header({ accessToken, ...props }) {
               {!accessToken ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link href="/login">
-                    <button className="sm:px-3 sm:py-2 sm:text-sm px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg">
+                    <button className="sm:px-3 sm:py-2 px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg">
                       Sign In
                     </button>
                   </Link>
                   <Link href="/systembuilder">
-                    <button className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
+                    <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
                   </Link>
@@ -187,11 +187,11 @@ export default function Header({ accessToken, ...props }) {
                 </Link>
               </li>
               <li className="relative " ref={dropdownRef}>
-                <div className="flex items-center gap-2 px-2">
-                  <button
-                    onClick={handleToggle}
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
-                  >
+                <div
+                  onClick={handleToggle}
+                  className="flex cursor-pointer items-center gap-2 px-2"
+                >
+                  <button className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200">
                     Services
                   </button>
                   <ArrowDown className="text-[#6c7482] h-5 w-5" />

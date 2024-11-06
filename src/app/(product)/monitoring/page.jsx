@@ -21,9 +21,11 @@ const ProfessionalMonitoring = () => {
           <p className="mt-4 text-xl md:text-lg">
             Ensuring immediate response and peace of mind, day and night.
           </p>
-          <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
-            Protect Them Now
-          </button>
+          <Link href="/systembuilder">
+            <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
+              Protect Them Now
+            </button>
+          </Link>
         </div>
       </section>
 
