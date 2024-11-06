@@ -30,7 +30,7 @@ export default function HomePage() {
   const { getProducts, getStripeCustomerId, createStripeSession } =
     useUserService();
   const { accessToken } = useAuth();
-  const { isCom } = useAuth();
+  const { country } = useAuth();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -163,7 +163,7 @@ export default function HomePage() {
         .filter((p) => !p.isRecurring)
         .map((p) => ({
           price_data: {
-            currency: isCom ? "usd" : "aud",
+            currency: country === "au" ? "aud" : "usd",
             product_data: {
               name: p.name,
               description: p.description,
@@ -253,7 +253,7 @@ export default function HomePage() {
             alt="Group 1"
             className="h-[2.00rem] w-[12%] md:w-[30%] object-contain"
             onClick={() => {
-              window.open(isCom ? "https://seenyor.com" : "https://seenyor.au");
+              window.open("/", "_self");
             }}
           />
         </div>
@@ -275,7 +275,7 @@ export default function HomePage() {
         <div id="Price" className="price absolute right-16 md:text-center">
           <h1 className="font-semibold text-3xl">${kitPrice}</h1>
           <span className="font-normal text-md text-[#000]/80">
-            {isCom ? "TAX is Included in" : "GST is Included in"}
+            {country === "au" ? "GST is Included in" : "TAX is Included in"}
             <br />
             The Price
           </span>
@@ -504,38 +504,30 @@ export default function HomePage() {
                 By submitting this order, you agree to Seenyors&nbsp;
                 <span
                   className="cursor-pointer underline"
-                  onClick={() =>
-                    window.open(
-                      terms[isCom ? "com" : "au"].termsOfSales,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => window.open("/terms-and-conditions", "_blank")}
                 >
-                  Terms of Sale
+                  Terms & Conditions
                 </span>
                 ,&nbsp;
                 <span
                   className="cursor-pointer underline"
-                  onClick={() =>
-                    window.open(
-                      terms[isCom ? "com" : "au"].termsOfService,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => window.open("/terms-of-service", "_blank")}
                 >
                   Terms of Service
+                </span>
+                ,&nbsp;
+                <span
+                  className="cursor-pointer underline"
+                  onClick={() => window.open("/privacy-policy", "_blank")}
+                >
+                  Privacy Policy
                 </span>
                 ,&nbsp; and&nbsp;
                 <span
                   className="cursor-pointer underline"
-                  onClick={() =>
-                    window.open(
-                      terms[isCom ? "com" : "au"].privacyPolicy,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => window.open("/service-agreement", "_blank")}
                 >
-                  Privacy Policy
+                  Service Agreement
                 </span>
                 .
               </em>

@@ -7,7 +7,6 @@ import { useAuth } from "@/context/AuthContext";
 
 export default function Header({ ...props }) {
   const pathname = usePathname();
-  const { isCom } = useAuth();
 
   return (
     <header
@@ -24,7 +23,7 @@ export default function Header({ ...props }) {
           alt="Frame 1000008413"
           className="flex object-contain md:w-full hover:opacity-80 transition-opacity duration-300 cursor-pointer"
           onClick={() => {
-            window.open(isCom ? "https://seenyor.com" : "https://seenyor.au");
+            window.open("/");
           }}
         />
 

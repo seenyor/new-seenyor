@@ -1,9 +1,9 @@
 import "../terms-style.css";
 
-export default function UserAggreementPage() {
+export default function PrivacyPolicyPage() {
   return (
     <div class="main">
-      <h1>User Agreement</h1>
+      <h1>Privacy Policy</h1>
       <p>
         <strong>Introduction</strong>
       </p>

@@ -8,7 +8,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function Header({ accessToken, ...props }) {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
-  const { isCom } = useAuth();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -46,9 +45,7 @@ export default function Header({ accessToken, ...props }) {
                 alt="Frame 1000008413"
                 className="flex object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 onClick={() => {
-                  window.open(
-                    isCom ? "https://seenyor.com" : "https://seenyor.au"
-                  );
+                  window.open("/", "_self");
                 }}
               />
             </a>

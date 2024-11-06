@@ -1,6 +1,13 @@
 "use client";
 import Cookies from "js-cookie";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useMemo } from "react";
+// Utility function to determine the country code based on the hostname
+const getCountryCode = () => {
+  const hostname = window.location.hostname;
+  if (hostname.endsWith(".com")) return "global";
+  if (hostname.endsWith(".au")) return "au";
+  return "global";
+};
 
 const AuthContext = createContext();
 
@@ -58,15 +65,7 @@ export const AuthProvider = ({ children }) => {
     Cookies.remove("access_token", cookieOptions);
     setAccessToken(null);
   };
-  const [isCom, setIsCom] = useState(null);
-  useEffect(() => {
-    const currentURL = window.location.href;
-    if (currentURL.includes("seenyor.com")) {
-      setIsCom(true);
-    } else if (currentURL.includes("seenyor.au")) {
-      setIsCom(false);
-    }
-  }, []);
+  const country = useMemo(() => getCountryCode(), []);
   return (
     <AuthContext.Provider
       value={{
@@ -81,8 +80,7 @@ export const AuthProvider = ({ children }) => {
         setUserName,
         customerMail,
         setCustomerMail,
-        isCom,
-        setIsCom,
+        country,
       }}
     >
       {children}

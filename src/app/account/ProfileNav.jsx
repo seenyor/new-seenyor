@@ -28,7 +28,7 @@ export default function ProfileNav() {
   const handleLogout = () => {
     removeStripeCustomerId();
     logout();
-    window.location.href = "https://seenyor.com";
+    window.location.href = "/";
   };
   const handleSignOutClick = () => {
     setShowConfirmation(true); // Show the confirmation dialog
