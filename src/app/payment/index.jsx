@@ -11,15 +11,14 @@ export default function SixtySixPage() {
         <div className="flex flex-col items-center">
           <div className="container-xs mb-[1.63rem] flex flex-col items-center gap-[1.25rem] px-[3.50rem] md:px-[1.25rem]">
             <div className="flex w-[36%] flex-col items-center gap-[0.63rem] px-[2.25rem] md:w-full sm:px-[1.25rem]">
-             
-                <Img
-                  src="img_printer.svg"
-                  width={90}
-                  height={90}
-                  alt="Printer"
-                  className="h-[5.63rem] w-[5.63rem] transform hover:scale-105 transition-transform duration-300 mt-8"
-                />
-              
+              <Img
+                src="img_printer.svg"
+                width={90}
+                height={90}
+                alt="Printer"
+                className="h-[5.63rem] w-[5.63rem] transform hover:scale-105 transition-transform duration-300 mt-8"
+              />
+
               <Heading
                 size="text5xl"
                 as="h2"
@@ -28,18 +27,16 @@ export default function SixtySixPage() {
                 Download our mobile app
               </Heading>
             </div>
-              <Img
-                src="img_imockup_iphone.png"
-                width={280}
-                height={220}
-                alt="Imockup Iphone"
-                className="h-[13.75rem] w-[22%] object-contain"
-              />
-          
-            </div>
+            <Img
+              src="img_imockup_iphone.png"
+              width={280}
+              height={220}
+              alt="Imockup Iphone"
+              className="h-[13.75rem] w-[22%] object-contain"
+            />
           </div>
         </div>
       </div>
-  
+    </div>
   );
 }

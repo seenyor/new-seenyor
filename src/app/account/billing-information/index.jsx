@@ -341,7 +341,7 @@ function Page() {
                         card={method.card}
                         billing_details={method.billing_details}
                         isDefault={method.isDefault}
-                        // onDelete={handleDelete}
+                        onDelete={() => {}}
                         className="bg-gray-100" // Add any additional styling here
                       />
                     ))

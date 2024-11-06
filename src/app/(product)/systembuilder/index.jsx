@@ -10,7 +10,7 @@ import {
 } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button, Img } from "../../../components";
+import { Button, Img } from "@/components";
 import RadioButtonGroup from "./RadioGroupFInstallation";
 import TermsCheckbox from "./TermsCheckbox ";
 import "./style.css";
@@ -18,7 +18,7 @@ import "./style.css";
 export default function HomePage() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
-  let [kitPrice, setKitPrice] = useState(1100);
+  let [kitPrice, setKitPrice] = useState(1300);
   let [installationPrice, setInstallationPrice] = useState(250);
   let [addonDevicePrice, setAddonDevicePrice] = useState(400);
   let [aimonitoring, setAimonitoring] = useState(0);
@@ -163,7 +163,7 @@ export default function HomePage() {
         .filter((p) => !p.isRecurring)
         .map((p) => ({
           price_data: {
-            currency: "usd",
+            currency: isCom ? "usd" : "aud",
             product_data: {
               name: p.name,
               description: p.description,
@@ -200,7 +200,7 @@ export default function HomePage() {
         customer: stripeCustomerId,
         line_items: lineItems,
       });
-      console.log(session);
+      console.log(lineItems);
       window.location.href = session.url;
     } else {
       router.push("/payment");
@@ -275,7 +275,7 @@ export default function HomePage() {
         <div id="Price" className="price absolute right-16 md:text-center">
           <h1 className="font-semibold text-3xl">${kitPrice}</h1>
           <span className="font-normal text-md text-[#000]/80">
-            GST is Included in
+            {isCom ? "TAX is Included in" : "GST is Included in"}
             <br />
             The Price
           </span>

@@ -26,16 +26,16 @@ function Page() {
     const addressPharsed = JSON.parse(installation_address);
     const order = {
       total: orderData.amount_total / 100,
-      grand_total: orderData.amount_total / 100, // Adjust if you have discounts or shipping
+      grand_total: orderData.amount_total / 100,
       is_paid: orderData.payment_status === "paid",
-      payment_status: orderData.payment_status,
-      payment_method: orderData.payment_method_types[0], // Assuming credit card for now
-      transaction_id: orderData.payment_intent, // Use the payment intent ID
-      agent_unique_id: JSON.parse(agent_id), // Replace with actual agent ID if available
+      payment_status: "pending",
+      payment_method: orderData.payment_method_types[0],
+      transaction_id: orderData.payment_intent,
+      agent_unique_id: JSON.parse(agent_id),
       email: JSON.parse(user_credentials).email,
       password: JSON.parse(user_credentials).password,
       products: orderData.line_items.map((item) => ({
-        id: item.productId, // Assuming this is the product ID
+        id: item.productId,
         name: item.productName,
         type:
           item.productName === "AI Monitoring" ||

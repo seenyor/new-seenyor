@@ -61,9 +61,9 @@ export const AuthProvider = ({ children }) => {
   const [isCom, setIsCom] = useState(null);
   useEffect(() => {
     const currentURL = window.location.href;
-    if (currentURL.includes("user.seenyor.com")) {
+    if (currentURL.includes("seenyor.com")) {
       setIsCom(true);
-    } else if (currentURL.includes("user.seenyor.au")) {
+    } else if (currentURL.includes("seenyor.au")) {
       setIsCom(false);
     }
   }, []);

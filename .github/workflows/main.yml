@@ -26,15 +26,3 @@ jobs:
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
         SOURCE: "."  # Change to the directory where your build output is located
         TARGET: ${{ secrets.DEPLOY_TARGET }}
-
-    - name: Run Build and Restart Commands on EC2 Instance
-      run: |
-        echo "${{ secrets.DEPLOY_KEY }}" > deploy_key.pem  # Create a temporary key file
-        chmod 400 deploy_key.pem                           # Set permissions for the key file
-        ssh -o StrictHostKeyChecking=no -i "deploy_key.pem" -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "
-          cd ${{ secrets.DEPLOY_TARGET }} &&
-          npm install --force &&
-          npm run build &&
-          pm2 restart new-app
-        "
-        rm deploy_key.pem                                   # Clean up the key file after use
