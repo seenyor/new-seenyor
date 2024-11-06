@@ -14,7 +14,7 @@ export default function RefundModal({
   function handleRefund() {
     console.log("action", transactionDetails.action);
     refundRequest(transactionDetails.action, {
-      is_refund_requested: "true",
+      is_refund_requested: true,
     })
       .then((res) => {
         console.log("res", res);

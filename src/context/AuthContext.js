@@ -3,10 +3,12 @@ import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
 // Utility function to determine the country code based on the hostname
 const getCountryCode = () => {
-  const hostname = window.location.hostname;
-  if (hostname.endsWith(".com")) return "global";
-  if (hostname.endsWith(".au")) return "au";
-  return "global";
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    if (hostname.endsWith(".com")) return "global";
+    if (hostname.endsWith(".au")) return "au";
+  }
+  return "global"; // Default to "global" if window is not defined
 };
 
 const AuthContext = createContext();

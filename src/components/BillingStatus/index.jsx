@@ -22,7 +22,7 @@ export default function BillingStatus({ transactionDetails }) {
       totalAmount: `${(charge.amount / 100).toFixed(
         2
       )} ${charge.currency.toUpperCase()}`,
-      status: charge.refunded ? "Refunded" : charge.status,
+      status: charge.amount_refunded > 0 ? "Refunded" : charge.status,
       receiptUrl: charge.receipt_url,
       action: charge.payment_intent,
     })) || [];
