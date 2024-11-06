@@ -18,7 +18,7 @@ export default function RefundModal({
     })
       .then((res) => {
         console.log("res", res);
-        toast.success(res.message);
+        toast.success("Refund request submitted successfully");
         onOpenChange(false);
       })
       .catch((err) => {
