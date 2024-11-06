@@ -212,7 +212,9 @@ export const useUserService = () => {
       throw error;
     }
   };
-
+  const refundRequest = async (transactionId, refundData) => {
+    return patch(`orders/refunds-request/${transactionId}`, refundData);
+  };
   const updateUserName = async (nameData) => {
     try {
       const response = await patch("/auth/update-name", nameData);
@@ -354,7 +356,7 @@ export const useUserService = () => {
     updateEmail,
     updateUserInfo,
     getTransactionDetails,
-
+    refundRequest,
     resetPassword,
     getCustomerId,
     authEmail,

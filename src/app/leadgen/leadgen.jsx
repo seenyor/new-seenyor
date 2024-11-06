@@ -5,19 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { forwardRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Heading, Input, Text } from "@/components";
-import { useUserService } from "@/services/userService";
-
+import { Button, Heading, Input, Text } from "../../components";
+import { useUserService } from "../../services/userService";
+import { toast } from "react-toastify";
 const liveWith = [
-  { label: "Alone", value: "0" },
-  { label: "With Someone", value: "0" },
-];
-const SourceofLeads = [
-  { label: "Sales Agent", value: "sales_agent" },
-  { label: "Distributor", value: "distributor" },
-  { label: "Monitoring Station", value: "monitoring_station" },
-  { label: "Installer", value: "installer" },
-  { label: "Nursing Home", value: "nursing_home" },
+  { label: "Alone", value: "Alone" },
+  { label: "With Someone", value: "With Someone" },
 ];
 
 const SelectBox = forwardRef(
@@ -42,7 +35,7 @@ const SelectBox = forwardRef(
 
 SelectBox.displayName = "SelectBox";
 
-export default function RegisterPage() {
+export default function Leadgen() {
   const {
     register,
     handleSubmit,
@@ -57,64 +50,43 @@ export default function RegisterPage() {
     useUserService();
   const [countries, setCountries] = useState([]);
   const [agents, setAgents] = useState([]);
-  const { setEmail, email, user } = useAuth();
-  const [error, setError] = useState("");
-  const [cityOptions, setCityOptions] = useState([]);
-  const [isOtpSent, setIsOtpSent] = useState(false);
-  const [isOtpVerified, setIsOtpVerified] = useState(false);
-  const [passwordStrength, setPasswordStrength] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch countries
-        console.log("Fetching countries...");
-        const countriesResponse = await getCountries();
-        console.log("Countries response:", countriesResponse);
+        // Fetch the data from the REST Countries API
+        const response = await fetch("https://restcountries.com/v3.1/all");
 
-        if (
-          countriesResponse &&
-          countriesResponse.data &&
-          Array.isArray(countriesResponse.data)
-        ) {
-          const formattedCountries = countriesResponse.data.map((country) => ({
-            label: country.country_name,
-            value: country._id,
-          }));
-          setCountries(formattedCountries);
-          console.log("Formatted countries:", formattedCountries);
-        } else {
-          console.error("Invalid country data structure:", countriesResponse);
-          throw new Error(
-            "Invalid country data structure received from the API"
-          );
+        // Check if the response is OK
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
 
-        // Fetch agents
-        console.log("Fetching agents...");
-        const agentsResponse = await getAgents();
-        console.log("Agents response:", agentsResponse);
+        // Parse the JSON data
+        const countries = await response.json();
 
-        if (
-          agentsResponse &&
-          agentsResponse.data &&
-          Array.isArray(agentsResponse.data)
-        ) {
-          const formattedAgents = agentsResponse.data.map((agent) => ({
-            label: `${agent.agent_id}`,
-            value: agent.agent_id,
-          }));
-          setAgents(formattedAgents);
-          console.log("Formatted agents:", formattedAgents);
-        } else {
-          console.error("Invalid agent data structure:", agentsResponse);
-          throw new Error("Invalid agent data structure received from the API");
-        }
+        // Extract country names
+        const countryNames = countries.map((country) => country.name.common);
+
+        // Sort country names from A to Z
+        const sortedCountries = countryNames.sort();
+
+        // Output the sorted country names
+        console.log(sortedCountries);
+
+        // Format the countries for your application
+        const formattedCountries = sortedCountries.map((countryName) => ({
+          label: countryName,
+          value: countryName, // or any other unique identifier
+        }));
+
+        // Set the countries state
+        setCountries(formattedCountries);
       } catch (error) {
-        console.error("Error fetching data:", error);
-        if (error.response) {
-          console.error("Error response:", error.response.data);
-          console.error("Error status:", error.response.status);
-        }
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
         setError("Failed to load necessary data. Please try again.");
       }
     };
@@ -122,171 +94,67 @@ export default function RegisterPage() {
     fetchData();
   }, []);
 
-  const checkPasswordStrength = (password) => {
-    if (!password) {
-      setPasswordStrength("");
-      return;
-    }
-    if (password.length < 6) {
-      setPasswordStrength("Weak (minimum 6 characters)");
-    } else if (password.length < 10) {
-      setPasswordStrength("Medium");
-    } else {
-      setPasswordStrength("Strong");
-    }
-  };
-
-  const mypassword = watch("password");
-  // Update password strength on password change
-  useEffect(() => {
-    const subscription = watch((value) => {
-      checkPasswordStrength(value.password);
-    });
-    return () => subscription.unsubscribe();
-  }, [watch]);
-
   const onSubmit = async (data) => {
-    // // Perform client-side validation
-    // const validationErrors = validateForm(data);
-    // if (Object.keys(validationErrors).length > 0) {
-    //   // Set errors in the form
-    //   Object.keys(validationErrors).forEach(key => {
-    //     setError(key, {
-    //       type: "manual",
-    //       message: validationErrors[key]
-    //     });
-    //   });
-    //   return; // Stop submission if there are validation errors
-    // }
-    // Check if password is at least 6 characters long
-    if (data.password.length < 6) {
-      setError("Password must be at least 6 characters long.");
-      return; // Stop submission if the password is invalid
-    }
+    setIsLoading(true);
     const formattedData = {
-      agent_id: data.agent_id,
-      email: data.customer_email,
-      name: data.customer_first_name,
-      last_name: data.customer_last_name,
-      address: data.customer_address,
-      address2: data.customer_address_2,
-      city: data.customer_city,
-      country_id: data.customer_country_id,
-      post_Code: data.customer_zipcode,
-      state: data.customer_state,
-      contact_number: data.customer_contact_number,
-      password: data.password,
-      customer_info: {
-        country_id: data.installation_country_id,
-        address: data.installation_address,
-        address2: data.installation_address_2,
-        city: data.installation_city,
-        post_Code: data.installation_zipcode,
-        state: data.installation_state,
-        agent_name: data.agent_name,
-        installation_date: data.installation_date,
-        elderly_Count: data.live_with === "alone" ? 1 : 2, // Assuming "alone" means 1, otherwise 2
-        lead: data.source_lead,
-        // installer_id: , // Using customer's country_id as installer_id for now
-      },
+      Name: data.customer_first_name + " " + data.customer_last_name,
+      Email: data.customer_email,
+      "Phone Number": "‎" + data.customer_contact_number,
+      "Customer Address":
+        data.customer_address +
+        "," +
+        data.customer_address_2 +
+        "," +
+        data.customer_city +
+        "," +
+        data.customer_state +
+        "-" +
+        data.customer_zipcode +
+        "," +
+        data.customer_country_id,
+      "Installation Address":
+        data.installation_address +
+        "," +
+        data.installation_address_2 +
+        "," +
+        data.installation_city +
+        "," +
+        data.installation_state +
+        "-" +
+        data.installation_zipcode +
+        "," +
+        data.installation_country_id,
+      "Installation Date": data.installation_date,
+      "Agent Name": data.agent_name,
+      "Agent ID": "#" + data.agent_id,
+      "Live Alone or With Someone": data.live_with,
+      "Specialist Call Date": data.seenyor_call_date,
+      "Source of Lead": data.source_lead,
     };
-    localStorage.setItem("agent_id", JSON.stringify(data.agent_id));
-    localStorage.setItem(
-      "installation_address",
-      JSON.stringify({
-        address: formattedData?.customer_info?.address,
-        address2: formattedData?.customer_info?.address2,
-        city: formattedData?.customer_info?.city,
-        country: formattedData?.customer_info?.country_id,
-        postal_code: formattedData?.customer_info?.post_Code,
-        state: formattedData?.customer_info?.state,
-      })
-    );
-    try {
-      setError("");
-      console.log("formattedData", formattedData);
-      const response = await registerUser(formattedData);
-      // Check if user registration was successful
-      if (!response || !response.status) {
-        throw new Error(userResponse.message || "User registration failed.");
-      }
-      if (response.status) {
-        setEmail(formattedData.email);
-        localStorage.setItem(
-          "user_credentials",
-          JSON.stringify({
-            email: formattedData.email,
-            password: formattedData.password,
-          })
-        );
-        setIsOtpSent(true);
+    const url =
+      "https://script.google.com/macros/s/AKfycbz1gfzzJoZKEH9TWdpemvJl6L1AQFn0Ye1zMrI-QiSvK48i-piOL39NhR7nLCZVhTWGBQ/exec";
+    console.log(formattedData);
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(formattedData),
+    })
+      .then((res) => {
+        console.log(res);
         reset();
-      } else {
-        setError(response.message || "Registration failed. Please try again.");
-      }
-    } catch (err) {
-      console.log(err);
-
-      setError(err.message || "E-mail Address Already Exist!");
-    }
-  };
-
-  const handleOtpVerification = async (otp) => {
-    // Only proceed with OTP verification if there are no errors
-    //     if (error) {
-    //       console.error("Cannot verify OTP due to previous errors:", error);
-    //       return; // Prevent OTP verification if there are errors
-    //     }
-
-    try {
-      const response = await verifyOtp({
-        email,
-        otp: otp,
+        toast.success("Form submitted successfully!");
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("An error occurred. Please try again.");
+        setIsLoading(false);
       });
-      if (response.status) {
-        setIsOtpVerified(true);
-        router.push("/payment");
-      } else {
-        setError(
-          response.message || "OTP verification failed. Please try again."
-        );
-      }
-    } catch (err) {
-      setError(err.message || "An error occurred during OTP verification");
-    }
   };
 
-  const handleResendOtp = async () => {
-    console.log("resend OTP");
-    try {
-      const response = await resendOtp({
-        email,
-      });
-      if (response.status) {
-        setError("");
-      } else {
-        setError(response.message || "Failed to resend OTP. Please try again.");
-      }
-    } catch (err) {
-      setError(err.message || "An error occurred while resending OTP");
-    }
-  };
-
-  if (isOtpSent && !isOtpVerified) {
-    return (
-      <SingUpOpt
-        setIsOtpPageOpen={setIsOtpSent}
-        email={email}
-        onVerify={handleOtpVerification}
-        onResend={handleResendOtp}
-        error={error}
-        setError={setError}
-      />
-    );
-  }
-
-  // Watch the password field for validation in confirm password
-  const password = watch("password");
   // Helper function to render form fields
   const renderField = ({
     label,
@@ -363,7 +231,7 @@ export default function RegisterPage() {
               as="h1"
               className="text-[2.13rem] font-bold text-text md:text-[2.00rem] sm:text-[1.88rem]"
             >
-              Sign Up to Seenyor
+              Customer Pre-Order Form
             </Heading>
           </div>
 
@@ -588,7 +456,20 @@ export default function RegisterPage() {
                   })}
                 </div>
               </div>
-              {/* <============= Source of Lead - S.6 ==============> */}
+              {/* <============= Seenyor Product specialist call Date - S.6 ==============> */}
+              <div
+                id="Installation_Date"
+                className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
+              >
+                <div id="Fields" className="flex flex-col">
+                  {renderField({
+                    label: "Seenyor Product specialist call – Date and Time",
+                    name: "seenyor_call_date",
+                    type: "date",
+                  })}
+                </div>
+              </div>
+              {/* <============= Source of Lead - S.7 ==============> */}
               <div
                 id="Live_With"
                 className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
@@ -603,67 +484,19 @@ export default function RegisterPage() {
                   })}
                 </div>
               </div>
-              {/* <============= Password - S.7 ==============> */}
-              <div
-                id="Password"
-                className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
+            </div>
+          </div>
+          <div className="w-full flex flex-col items-center">
+            <div className="w-full flex flex-col items-center">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                shape="round"
+                color="green_200_green_400_01"
+                className=" w-[76%] sm:w-full rounded-[14px] px-[2.13rem] font-semibold sm:px-[1.25rem] mt-3"
               >
-                <div id="Fields" className="flex flex-col gap-4">
-                  {renderField({
-                    label: "Password",
-                    name: "password",
-                    type: "password",
-                    placeholder: "Password",
-                  })}
-                  {renderField({
-                    label: "Confirm Password",
-                    name: "confirm_password",
-                    type: "password",
-                    placeholder: "Confirm Password",
-                    validate: (value) =>
-                      value === password || "Passwords do not match",
-                  })}
-                  <Text
-                    className={`text-sm ${
-                      passwordStrength === "Strong"
-                        ? "text-green-600"
-                        : passwordStrength === "Weak"
-                        ? "text-red-600"
-                        : "text-yellow-600"
-                    }`}
-                  >
-                    {passwordStrength} <br />
-                  </Text>
-                  {/* <Text className="text-red-600">{error}</Text> */}
-                </div>
-              </div>
-              <div className="w-full flex flex-col items-center">
-                <Button
-                  type="submit"
-                  shape="round"
-                  color="green_200_green_400_01"
-                  className=" w-[76%] sm:w-full rounded-[14px] px-[2.13rem] font-semibold sm:px-[1.25rem] mt-3"
-                >
-                  Sign Up
-                </Button>
-                {error && (
-                  <Text className="text-red-500 text-center">{error}</Text>
-                )}
-                <Text
-                  as="p"
-                  className="text-center mt-5 text-lg text-body w-[75%] md:pb-2 md:w-auto"
-                >
-                  <span className="inline-flex items-center">
-                    Already have an account?
-                    <Link
-                      href="/login"
-                      className="font-semibold text-primary ml-2"
-                    >
-                      Sign In
-                    </Link>
-                  </span>
-                </Text>
-              </div>
+                {isLoading ? "Submitting..." : "Submit"}
+              </Button>
             </div>
           </div>
         </div>

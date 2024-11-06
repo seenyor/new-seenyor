@@ -1,22 +1,31 @@
 "use client";
 
 import { createColumnHelper } from "@tanstack/react-table";
-import { Download } from "lucide-react"; // Import the Download icon from Lucide React
-import React from "react";
+import { Download, Undo2 } from "lucide-react"; // Import the Download icon from Lucide React
+import React, { useState } from "react";
 import { Heading } from "../../components";
 import { ReactTable } from "../../components/ReactTable";
-
+import ActionPopover from "./ActionPopover";
+import RefundModal from "./RefundModal";
 export default function BillingStatus({ transactionDetails }) {
-
+  const [openPopoverIndex, setOpenPopoverIndex] = useState(null);
+  const [isRefundModalOpen, setIsRefundModalOpen] = useState(false);
+  const [refundTransactionDetails, setRefundTransactionDetails] =
+    useState(null);
   console.log("i am billing info", transactionDetails);
+
   // Check if transactionDetails is provided and has data
-  const tableData = transactionDetails?.data?.map(charge => ({
-    // chargeId: charge.payment_method_details.card.last4, // Last four digits of the card
-    date: new Date(charge.created * 1000).toLocaleDateString(), // Convert timestamp to date
-    totalAmount: `${(charge.amount / 100).toFixed(2)} ${charge.currency.toUpperCase()}`, 
-    status: charge.paid ? "Paid" : "Failed", 
-    receiptUrl: charge.receipt_url
-  })) || []; 
+  const tableData =
+    transactionDetails?.data?.map((charge) => ({
+      // chargeId: charge.payment_method_details.card.last4, // Last four digits of the card
+      date: new Date(charge.created * 1000).toLocaleDateString(), // Convert timestamp to date
+      totalAmount: `${(charge.amount / 100).toFixed(
+        2
+      )} ${charge.currency.toUpperCase()}`,
+      status: charge.refunded ? "Refunded" : charge.status,
+      receiptUrl: charge.receipt_url,
+      action: charge.payment_intent,
+    })) || [];
 
   const tableColumnHelper = createColumnHelper();
 
@@ -68,8 +77,10 @@ export default function BillingStatus({ transactionDetails }) {
           <div className="flex items-center">
             <Heading
               as="p"
-              className={`text-[1.00rem] font-normal ${
-                info.getValue() === "Paid" ? "!text-green-600" : "!text-red-600"
+              className={`text-[1.00rem] font-normal  capitalize ${
+                info.getValue() === "succeeded"
+                  ? "!text-green-600"
+                  : "!text-red-600"
               }`}
             >
               {info.getValue()}
@@ -95,21 +106,49 @@ export default function BillingStatus({ transactionDetails }) {
               className="flex items-center text-blue-500 cursor-pointer"
             >
               <Download className="w-5 h-5" />
-            
             </a>
           </div>
         ),
         header: (info) => (
           <div className="flex py-[0.50rem] items-center">
             <Heading as="p" className="text-[1.00rem] font-medium text-body">
-               Receipt
+              Receipt
             </Heading>
           </div>
         ),
         meta: { width: "8.00rem" },
       }),
+
+      tableColumnHelper.accessor("action", {
+        cell: (info) => {
+          const options = [
+            {
+              label: "Refund Request",
+              icon: <Undo2 size={18} />,
+              onClick: () => {
+                setIsRefundModalOpen(true);
+                setRefundTransactionDetails(info.row.original);
+              },
+            },
+          ];
+
+          return (
+            <ActionPopover
+              options={options}
+              isOpen={openPopoverIndex === info.row.index}
+              onToggle={() =>
+                setOpenPopoverIndex(
+                  openPopoverIndex === info.row.index ? null : info.row.index
+                )
+              }
+            />
+          );
+        },
+        header: (info) => <></>,
+        meta: { width: "8.00rem" },
+      }),
     ];
-  }, []);
+  }, [openPopoverIndex]);
 
   return (
     <div className="mb-[13.75rem] w-[34.37rem] flex flex-col gap-[2.50rem] md:self-stretch md:w-full">
@@ -120,6 +159,11 @@ export default function BillingStatus({ transactionDetails }) {
         cellProps={{ className: "border-border border-b border-solid" }}
         columns={tableColumns}
         data={tableData}
+      />
+      <RefundModal
+        isOpen={isRefundModalOpen}
+        onOpenChange={setIsRefundModalOpen}
+        transactionDetails={refundTransactionDetails}
       />
     </div>
   );
