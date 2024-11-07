@@ -89,7 +89,7 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
-                      href="javascript:void(0)"
+                      href="/terms-and-conditions"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Terms & Conditions
@@ -97,7 +97,7 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
-                      href="javascript:void(0)"
+                      href="/privacy-policy"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Privacy Policy
@@ -105,7 +105,7 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
-                      href="javascript:void(0)"
+                      href="/service-agreement"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Service Agreement
@@ -113,10 +113,10 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
-                      href="javascript:void(0)"
+                      href="/terms-of-service"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
-                      Shipping & Returns
+                      Terms Of Service
                     </a>
                   </li>
                 </ul>

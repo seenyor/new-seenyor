@@ -13,7 +13,7 @@ export default function AccountDone() {
   } = useUserService();
   const router = useRouter();
   const [isProcessing, setIsProcessing] = useState(false);
-  const { isCom } = useAuth();
+  const { country } = useAuth();
   const processPayment = async () => {
     const stripeCustomerId = await getStripeCustomerId();
     console.log("i am stripeCustomerId", stripeCustomerId);
@@ -65,7 +65,7 @@ export default function AccountDone() {
       const lineItems = orderDetails.products
         .map((product) => ({
           price_data: {
-            currency: isCom ? "usd" : "aud",
+            currency: country === "au" ? "aud" : "usd",
             product_data: {
               name: product.name,
               description: product.description || " ",
