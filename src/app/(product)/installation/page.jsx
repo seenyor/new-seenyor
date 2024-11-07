@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Installation = () => {
   return (
-    <div className=" flex  flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-2">
+    <div className=" flex  flex-col gap-16 tab:gap-5 bg-white px-6 tab:px-2">
       {/* hero */}
       <section
         className="relative sm:mb-6 mx-[100px] xxl:mx-0  h-screen sm:h-[60vh] max-h-[600px] bg-cover bg-center bg-no-repeat"
