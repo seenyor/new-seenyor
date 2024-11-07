@@ -237,7 +237,7 @@ const Installation = () => {
                 height={200}
                 alt="monitoring"
               />
-              <Link href="#call_back_form">
+              <Link href="/systembuilder">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
                   Start Building
                 </button>
@@ -251,7 +251,7 @@ const Installation = () => {
                 height={200}
                 alt="monitoring"
               />
-              <Link href="/systembuilder">
+              <Link href="#">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
                   Download App
                 </button>
@@ -265,7 +265,7 @@ const Installation = () => {
                 height={200}
                 alt="monitoring"
               />
-              <Link href="#call_back_form">
+              <Link href="/systembuilder">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
                   Get Started
                 </button>
