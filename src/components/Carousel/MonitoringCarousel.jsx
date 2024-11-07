@@ -79,7 +79,7 @@ export default function MonitoringCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-h-[750px] md:max-h-[1400px] max-w-7xl mx-auto p-4">
+    <div className="w-full max-h-[750px] md:max-h-[1400px] max-w-[1320px] mx-auto py-4">
       <div className="flex !h-full md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
         {/* Left side - Feature content */}
         <div className="w-[55%] md:w-full p-8 pb-0 text-white">

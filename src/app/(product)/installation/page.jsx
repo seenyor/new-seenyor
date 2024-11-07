@@ -1,6 +1,7 @@
 "use client";
 import { Img } from "@/components";
 import CallbackForm from "@/components/Home/CallbackForm";
+import ScrollButton from "@/components/ScrollButton";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,40 +11,35 @@ const Installation = () => {
     <div className=" flex  flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-2">
       {/* hero */}
       <section
-        className="relative sm:mb-3 w-full max-w-7xl mx-auto flex items-center sm:ps-3 justify-start sm:justify-center h-screen sm:h-[50vh] max-h-[700px] bg-cover bg-center bg-no-repeat"
+        className="relative sm:mb-6 mx-[100px] xxl:mx-0  h-screen sm:h-[60vh] max-h-[600px] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/servicebanner2.png)" }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 max-w-xl ps-16 sm:ps-0 px-4">
-          <h1 className="text-4xl font-bold sm:text-2xl ">
-            Advanced Elderly Monitoring
-          </h1>
-          <h1 className="text-2xl pt-2 sm:text-xl ">Installed your way!</h1>
-          <p className="mt-4 sm:mt-2 text-xl md:text-lg">
-            Choose professional installation or easy self-setup for complete
-            peace of mind.
-          </p>
-          <Link href="/systembuilder">
-            <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
-              Protect Them Now
-            </button>
-          </Link>
+        <div className="max-w-[1320px] w-full px-3 mx-auto flex items-center justify-start sm:justify-center h-full">
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative z-10 max-w-xl ps-16 sm:ps-0 px-4">
+            <h1 className="text-4xl font-bold sm:text-2xl ">
+              Advanced Elderly Monitoring
+            </h1>
+            <h1 className="text-2xl pt-2 sm:text-xl ">Installed your way!</h1>
+            <p className="mt-4 sm:mt-2 text-xl md:text-lg">
+              Choose professional installation or easy self-setup for complete
+              peace of mind.
+            </p>
+            <Link href="/systembuilder">
+              <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
+                Protect Them Now
+              </button>
+            </Link>
+            <p className="text-sm mt-32">
+              *Note: Incorrect installation may affect accuracy.
+            </p>
+          </div>
         </div>
-        <p className="text-sm absolute bottom-8 left-8">
-          *Note: Incorrect installation may affect accuracy.
-        </p>
       </section>
-      <ArrowDown
-        onClick={() =>
-          document
-            .getElementById("footer-section")
-            .scrollIntoView({ behavior: "smooth" })
-        }
-        className="h-[2rem] -mt-5 text-white w-[2rem]  object-contain mx-auto p-2 rounded-[50%] bg-[#2C3142] cursor-pointer"
-      />
+      <ScrollButton />
 
       {/* Two options start */}
-      <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5 sm:p-2">
+      <div className="max-w-[1320px] my-0 mx-auto w-full  rounded-xl md:p-5 sm:p-2">
         <div className="flex justify-center">
           <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.2rem] py-[6px] font-semibold">
             Two Options
@@ -213,7 +209,7 @@ const Installation = () => {
 
       {/* Intelligent care */}
 
-      <div className="max-w-7xl my-0 w-full mx-auto rounded-xl  md:p-5 sm:p-2 bg-[#2C3142] flex justify-between items-center px-8 py-6 sm:text-sm sm:px-4 sm:py-3">
+      <div className="max-w-[1320px] my-0 w-full mx-auto rounded-xl  md:p-5 sm:p-2 bg-[#2C3142] flex justify-between items-center px-8 py-6 gap-3 sm:text-sm sm:px-4 sm:py-3">
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
@@ -224,53 +220,56 @@ const Installation = () => {
         </Link>
       </div>
       {/* how it works */}
-      <div className="max-w-7xl my-0 mx-auto w-full  px-5 sm:px-2">
-        <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
-          <h3 className="font-semibold text-4xl">How it works?</h3>
-          <p className="text-xl sm:text-lg py-3">
+
+      <div className=" bg-[#7F87FC] py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
+        <div className="mx-auto w-full max-w-[1320px] rounded-xl text-white text-center">
+          <h3 className="font-semibold text-4xl sm:text-3xl">How it works?</h3>
+          <p className="max-w-xl mx-auto w-full text-xl sm:text-lg py-3">
             Follow these simple steps to purchase and set up your Seenyor
             system.
           </p>
-
-          <div className="flex md:flex-col gap-12 mt-16 justify-center">
-            <div className="w-56 h-auto sm:mx-auto">
+          <div className="flex tab:flex-col gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
+            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/system.png"
-                width={300}
-                height={300}
-                quality={100}
+                width={200}
+                height={200}
                 alt="monitoring"
               />
-              <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
-                Start Building
-              </button>
+              <Link href="#call_back_form">
+                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                  Start Building
+                </button>
+              </Link>
             </div>
-            <div className="w-56 h-auto sm:mx-auto -mt-10">
+            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
               <Image
                 className="h-auto w-full"
                 src="/images/qr.png"
-                width={300}
-                height={300}
-                quality={100}
+                width={200}
+                height={200}
                 alt="monitoring"
               />
-              <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
-                Download App
-              </button>
+              <Link href="/systembuilder">
+                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                  Download App
+                </button>
+              </Link>
             </div>
-            <div className="w-56 h-auto sm:mx-auto">
+            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/enjoy.png"
-                width={300}
-                height={300}
-                quality={100}
+                width={200}
+                height={200}
                 alt="monitoring"
               />
-              <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
-                Get Started
-              </button>
+              <Link href="#call_back_form">
+                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -26,10 +26,10 @@ const Footer = () => {
                     </p>
                   </li>
                   <li className="mb-2 leading-6">
-                    <p>Address Australia: XXXXXXXXXXXXXXXX</p>
+                    <p>Address:232 Unley Road,Unley SA 5061,Australia</p>
                   </li>
                   <li className="mb-2 leading-6">
-                    <p>Contact Australia: XXXXXXXXXXXXXXXXXX</p>
+                    <p>Contact Australia: 1800329162</p>
                   </li>
                 </ul>
               </nav>

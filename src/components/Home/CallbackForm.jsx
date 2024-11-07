@@ -17,7 +17,7 @@ const CallbackForm = () => {
             <span className="sm:w-full w-1/5 text-sm font-semibold mb-2 mb-0">
               I am a
             </span>
-            <div className="flex flex-wrap gap-4 sm:w-full w-4/5">
+            <div className="flex flex-wrap gap-2 sm:w-full w-4/5">
               {[
                 "End User",
                 "Monitoring Company",
