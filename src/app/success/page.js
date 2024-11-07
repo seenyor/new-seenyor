@@ -3,7 +3,7 @@ import { Heading, Img, Text } from "@/components";
 import { useUserService } from "@/services/userService";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function Page() {
   const router = useRouter();
@@ -78,14 +78,14 @@ function Page() {
       setIsProcessing(false);
     }
   };
-
+  const hasRunRef = useRef(false); // Use useRef to persist the flag across renders
   useEffect(() => {
-    let customerId;
-    let hasRun = false;
-
-    if (sessionId && !hasRun) {
-      hasRun = true;
+    // Ensure this runs only once
+    if (sessionId && !hasRunRef.current) {
+      hasRunRef.current = true; // Set the ref to true to prevent future executions
       setIsProcessing(true);
+
+      let customerId;
 
       getSessionDetails(sessionId)
         .then((session) => {
@@ -94,6 +94,8 @@ function Page() {
         })
         .then(() => handlePaymentStatus(sessionId))
         .then((response) => {
+          setIsProcessing(true);
+
           if (response.success) {
             const subscriptionProducts = JSON.parse(
               localStorage.getItem("subscriptionProducts")
@@ -102,6 +104,7 @@ function Page() {
 
             if (subscriptionProducts && subscriptionProducts.length > 0) {
               console.log(user_credentials);
+              setIsProcessing(true);
 
               return handlePaymentSubscription(
                 customerId,
@@ -211,8 +214,8 @@ function Page() {
               as="p"
               className="w-[50%] text-center text-[1.13rem] font-normal leading-[1.69rem] text-body md:w-full"
             >
-              There is a confirmation mail sent to your E-mail. Please check and
-              Click on the link attached to setup your password.
+              Your payment was successful! You can now sign in to access your
+              account. Welcome, and enjoy our services!
             </Text>
           </div>
         </div>
@@ -222,15 +225,19 @@ function Page() {
               as="p"
               className="text-[1.13rem] font-medium text-text cursor-pointer"
             >
-              <Link href="/login">Sign in</Link>
+              <Link href="/login">
+                {isProcessing ? "Please Wait..." : "Sign in"}
+              </Link>
             </Text>
-            <Img
-              src="img_arrowleft_text.svg"
-              width={24}
-              height={24}
-              alt="Arrow Left"
-              className="h-[1.50rem] w-[1.50rem]"
-            />
+            {!isProcessing && (
+              <Img
+                src="img_arrowleft_text.svg"
+                width={24}
+                height={24}
+                alt="Arrow Left"
+                className="h-[1.50rem] w-[1.50rem]"
+              />
+            )}
           </div>
         </div>
       </div>
