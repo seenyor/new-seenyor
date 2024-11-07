@@ -61,7 +61,7 @@ const Home = () => {
         <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
           Comprehensive Home Monitoring
         </p>
-        <p className="text-center text-[28px] md:text-xl tab:text-lg pb-10 sm:text-lg max-w-3xl mx-auto w-full px-5">
+        <p className="text-center text-[24px] md:text-xl tab:text-lg pb-10 sm:text-lg max-w-4xl mx-auto w-full px-5">
           Effortlessly monitor your loved one’s health and safety, whether
           they’re resting or moving around the house, day or night.
         </p>
@@ -78,8 +78,8 @@ const Home = () => {
             families and caregivers.
           </p>
 
-          <div className="flex tab:flex-col gap-12 md:gap-5 mt-16 sm:mt-6 justify-center">
-            <div className="w-56 md:w-[200px] tab:mx-auto h-auto">
+          <div className="flex tab:flex-col gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
+            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/monitor.png"
@@ -93,7 +93,7 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-56 md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
+            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
               <Image
                 className="h-auto w-full"
                 src="/images/home.png"
@@ -107,7 +107,7 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-56 md:w-[200px] tab:mx-auto h-auto">
+            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/nursing.png"

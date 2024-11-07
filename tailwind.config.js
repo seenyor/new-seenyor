@@ -176,7 +176,7 @@ module.exports = {
     },
     screens: {
       md: { max: "1024px" },
-      tab: { max: "768px" },
+      tab: { max: "760px" },
       sm: { max: "550px" },
       xss: { max: "480px" },
       xxl: { max: "1440px" },

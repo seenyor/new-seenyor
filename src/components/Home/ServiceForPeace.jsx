@@ -31,7 +31,7 @@ const ServiceForPeace = () => {
   return (
     <div className="my-0 mb-40 sm:mb-5 mx-auto w-full rounded-xl bg-[#F3F4F6] ">
       <div className="max-w-[1320px] md:p-5 sm:p-3  mx-auto w-full">
-        <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
+        <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] pt-8 text-[#FF6633] font-semibold text-center py-2">
           Services for Peace of Mind
         </p>
         <p className="text-center text-[28px] md:text-xl tab:text-lg max-w-4xl mx-auto sm:text-lg">
@@ -59,7 +59,7 @@ const ServiceForPeace = () => {
               </figure>
 
               {/* Body Section */}
-              <div className="p-3">
+              <div className="p-3 md:p-2">
                 <h3 className="text-xl md:text-[16px] font-semibold">
                   {service.title}
                 </h3>

@@ -52,11 +52,11 @@ const Artnow = () => {
       </p>
 
       {/* cards */}
-      <div className="flex justify-between items-center w-full tab:flex-col gap-6">
+      <div className="flex justify-between items-center w-full tab:flex-col gap-6 md:gap-3">
         {cardData.map((card) => (
           <div
             key={card.id}
-            className="h-[450px] tab:h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
+            className="h-[450px] md:w-full tab:h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
           >
             {/* Image */}
             <figure>
@@ -66,13 +66,13 @@ const Artnow = () => {
                 height={300}
                 width={200}
                 quality={80}
-                className="aspect-video h-60 tab:!h-1/2 w-full"
+                className="object-cover h-60 md:h-62 tab-h-auto w-full"
               />
             </figure>
 
             {/* Body */}
-            <div className="p-3">
-              <h3 className="text-xl md:text-[16px] font-semibold">
+            <div className="p-2">
+              <h3 className="text-xl py-2 md:text-[16px] font-semibold">
                 {card.title}
               </h3>
               <p className="text-sm">{card.description}</p>
@@ -85,7 +85,7 @@ const Artnow = () => {
             <div className="absolute top-3 z-10 w-full">
               <div className="flex justify-between items-center px-5">
                 <p
-                  className="text-xs font-semibold inline-block px-3 md:px-2 py-2 rounded-3xl"
+                  className="text-xs md:text-[10px] font-semibold inline-block px-3 md:px-2 py-2 rounded-3xl"
                   style={{ backgroundColor: card.tagBgColor }}
                 >
                   {card.tagText}
