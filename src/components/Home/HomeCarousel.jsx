@@ -105,9 +105,9 @@ export default function HomeCarousel() {
   }, [isAutoPlaying]);
 
   return (
-    <div className="flex flex-row sm:flex-col h-screen sm:h-[400px] max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
+    <div className="flex flex-row md:flex-col h-screen md:h-[500px] max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
       {/* Sidebar */}
-      <div className="w-64 sm:hidden  border-r border-gray-200 p-4">
+      <div className="w-64 md:hidden  border-r border-gray-200 p-4">
         <div className="space-y-2 sm:space-y-1">
           {menuItems.map((item, index) => (
             <button
@@ -150,7 +150,7 @@ export default function HomeCarousel() {
                   <h1 className="text-2xl sm:text-[16px] font-bold">
                     {slides[currentSlide].title}
                   </h1>
-                  <p className="max-w-2xl sm:text-xs">
+                  <p className="max-w-2xl md:text-sm sm:text-xs">
                     {slides[currentSlide].subtitle}
                   </p>
                 </div>
@@ -170,7 +170,7 @@ export default function HomeCarousel() {
                 <motion.img
                   src={slides[currentSlide].image}
                   alt="Monitoring visualization"
-                  className="w-full h-full rounded-2xl"
+                  className="w-full h-full rounded-2xl object-cover"
                   initial={{ scale: 0.95 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5 }}

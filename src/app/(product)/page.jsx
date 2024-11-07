@@ -9,7 +9,7 @@ import ScrollButton from "@/components/ScrollButton";
 import Link from "next/link";
 const Home = () => {
   return (
-    <div className=" flex w-full flex-col gap-10 tab:gap-5 bg-white px-6 tab:px-2 pt-5">
+    <div className=" flex w-full flex-col gap-16 tab:gap-5 bg-white px-6 tab:px-2 pt-5">
       {/* hero section* */}
       <div className="mx-auto w-full">
         <div className="bg-[#F3F4F6] overflow-hidden relative px-10 tab:px-5 mx-[100px] xxl:mx-0 md:mx-0 py-32 md:py-20 rounded-xl">
@@ -57,19 +57,19 @@ const Home = () => {
       <Artnow />
       <PeaceOfMind />
 
-      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl mb-12 tab:mb-0">
-        <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
+      <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl mb-12 tab:mb-0">
+        <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
           Comprehensive Home Monitoring
         </p>
-        <p className="text-center text-xl pb-10 sm:text-lg max-w-3xl mx-auto w-full px-5">
+        <p className="text-center text-[28px] md:text-xl tab:text-lg pb-10 sm:text-lg max-w-3xl mx-auto w-full px-5">
           Effortlessly monitor your loved one’s health and safety, whether
           they’re resting or moving around the house, day or night.
         </p>
         <HomeCarousel />
       </div>
       {/* empowering section */}
-      <div className="max-w-7xl mb-8 sm:mb-2 my-0 mx-auto w-full  px-5 sm:px-0">
-        <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
+      <div className=" bg-[#7F87FC] py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
+        <div className="mx-auto w-full max-w-[1320px] rounded-xl text-white text-center">
           <h3 className="font-semibold text-4xl sm:text-3xl">
             Empowering Care in Every Setting
           </h3>
@@ -78,8 +78,8 @@ const Home = () => {
             families and caregivers.
           </p>
 
-          <div className="flex md:flex-col gap-12 mt-16 sm:mt-6 justify-center">
-            <div className="w-56 md:mx-auto h-auto">
+          <div className="flex tab:flex-col gap-12 md:gap-5 mt-16 sm:mt-6 justify-center">
+            <div className="w-56 md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/monitor.png"
@@ -93,7 +93,7 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-56 md:mx-auto h-auto -mt-10">
+            <div className="w-56 md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
               <Image
                 className="h-auto w-full"
                 src="/images/home.png"
@@ -107,7 +107,7 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-56 md:mx-auto h-auto">
+            <div className="w-56 md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/nursing.png"

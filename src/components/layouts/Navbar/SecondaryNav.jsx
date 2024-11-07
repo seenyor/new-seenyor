@@ -31,8 +31,8 @@ export default function SecondaryNav({ accessToken, ...props }) {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-[#7F87FC] after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full px-6 max-w-7xl">
-          <nav className="flex h-[5.5rem] items-stretch justify-between font-medium text-[#2C3142]">
+        <div className="relative mx-auto w-full px-6 max-w-[1320px]">
+          <nav className="flex h-[6.5rem] pt-4 items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
               className="md:flex items-center gap-2 py-3 my-auto text-lg whitespace-nowrap focus:outline-none flex-1"
@@ -173,7 +173,7 @@ export default function SecondaryNav({ accessToken, ...props }) {
               )}
             </ul>
             {/* for dekstop */}
-            <ul className="relative flex items-center flex-wrap gap-[2.13rem] md:ml-0 px-[2rem] md:hidden">
+            <ul className="relative flex items-center flex-wrap gap-[2.13rem] md:ml-0 ps-[2rem] md:hidden">
               <li>
                 <Link href="/">
                   <Heading

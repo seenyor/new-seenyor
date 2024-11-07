@@ -3,13 +3,40 @@ import { ClockIcon } from "@radix-ui/react-icons";
 import { Img } from "..";
 import Image from "next/image";
 
+const monitoringData = [
+  {
+    id: 1,
+    imgSrc: "/images/breath.svg",
+    title: "Breathing Rate",
+    subtitle: "Monitoring",
+  },
+  {
+    id: 2,
+    imgSrc: "/images/heart.svg",
+    title: "Heart Rate",
+    subtitle: "Monitoring",
+  },
+  { id: 3, imgSrc: "/images/fall.svg", title: "Fall", subtitle: "Monitoring" },
+  {
+    id: 4,
+    imgSrc: "/images/breath.svg",
+    title: "Breathing Rate",
+    subtitle: "Monitoring",
+  },
+  {
+    id: 5,
+    imgSrc: "/images/breath.svg",
+    title: "Breathing Rate",
+    subtitle: "Monitoring",
+  },
+];
 const PeaceOfMind = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full  rounded-xl  md:p-5 sm:p-2">
-      <p className="text-[2rem] sm:text-[1.6rem] font-semibold text-center py-2">
+    <div className="max-w-[1320px] my-0 mx-auto w-full  rounded-xl">
+      <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
         Peace of Mind Made Easy – No fuss, no wearables
       </p>
-      <p className="text-center text-xl">
+      <p className="text-center text-[28px] md:text-xl tab:text-lg">
         Effortless Peace of Mind with 24/7 Protection – No Wearables, Just
         Reliable Safety
       </p>
@@ -30,64 +57,27 @@ const PeaceOfMind = () => {
               width={500}
               quality={80}
               alt="patience"
-              className="h-full w-full"
+              className="h-full w-full object-cover"
             />
-            <div className="absolute top-5 px-3 flex justify-between sm:grid sm:grid-cols-3 sm:gap-3 w-full ">
-              <div className="bg-white p-2 text-center w-[6.2rem]">
-                <Img
-                  src="breath.svg"
-                  width={156}
-                  height={32}
-                  alt="Group 1"
-                  className="w-12 h-12 p-3 mx-auto  object-contain"
-                />
-                <p className="font-semibold text-[10px]">Breathing Rate</p>
-                <p className="text-[10px]">Monitoring</p>
-              </div>
-              <div className="bg-white p-2 text-center w-[6.2rem]">
-                <Img
-                  src="heart.svg"
-                  width={156}
-                  height={32}
-                  alt="Group 1"
-                  className="w-12 h-12 p-3 mx-auto  object-contain"
-                />
-                <p className="font-semibold text-[10px]">Heart Rate</p>
-                <p className="text-[10px]">Monitoring</p>
-              </div>
-              <div className="bg-white p-2 text-center w-[6.2rem]">
-                <Img
-                  src="fall.svg"
-                  width={156}
-                  height={32}
-                  alt="Group 1"
-                  className="w-12 h-12 p-3 mx-auto  object-contain"
-                />
-                <p className="font-semibold text-[10px]">Fall</p>
-                <p className="text-[10px]">Monitoring</p>
-              </div>
-              <div className="bg-white p-2 text-center w-[6.2rem]">
-                <Img
-                  src="breath.svg"
-                  width={156}
-                  height={32}
-                  alt="Group 1"
-                  className="w-12 h-12 p-3 mx-auto  object-contain"
-                />
-                <p className="font-semibold text-[10px]">Breathing Rate</p>
-                <p className="text-[10px]">Monitoring</p>
-              </div>
-              <div className="bg-white p-2 text-center w-[6.2rem]">
-                <Img
-                  src="breath.svg"
-                  width={156}
-                  height={32}
-                  alt="Group 1"
-                  className="w-12 h-12 p-3 mx-auto  object-contain"
-                />
-                <p className="font-semibold text-[10px]">Breathing Rate</p>
-                <p className="text-[10px]">Monitoring</p>
-              </div>
+            <div className="absolute top-5 left-1/2 transform -translate-x-1/2 px-5 md:px-2 flex justify-center gap-3 md:gap-2 tab:grid tab:grid-cols-3 tab:gap-3 w-[90%] tab:w-auto sm:w-full">
+              {monitoringData.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-white py-3 text-center w-[19%] md:w-[6.5rem]"
+                >
+                  <>
+                    <Image
+                      src={item.imgSrc}
+                      width={156}
+                      height={32}
+                      alt={item.title}
+                      className="w-12 h-12 p-3 mx-auto object-cover "
+                    />
+                    <p className="font-semibold text-[10px]">{item.title}</p>
+                    <p className="text-[10px]">{item.subtitle}</p>
+                  </>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -107,14 +97,14 @@ const PeaceOfMind = () => {
                   height={200}
                   width={300}
                   alt="patience"
-                  className="h-36 w-96"
+                  className="h-36 w-96 object-cover"
                 />
                 <Image
                   src="/images/monitoring3.png"
                   height={200}
                   width={300}
                   alt="patience"
-                  className="h-36 w-96"
+                  className="h-36 w-96 object-cover"
                 />
               </div>
               <div className="w-1/2">
@@ -123,7 +113,7 @@ const PeaceOfMind = () => {
                   height={300}
                   width={300}
                   alt="patience"
-                  className="h-[18.5rem] w-full"
+                  className="h-[18.5rem] w-full object-cover"
                 />
               </div>
             </div>

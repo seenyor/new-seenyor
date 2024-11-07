@@ -1,6 +1,44 @@
 import Image from "next/image";
 import { Img } from "..";
 
+const cardData = [
+  {
+    id: 1,
+    imageSrc: "/images/card1.png",
+    altText: "stroke",
+    title: "A Single Fall Can Change Everything",
+    description:
+      "Falls are the #1 cause of injury for seniors. What happens if no one is around to help them in time?",
+    bottomText: "Don’t wait—protect them today.",
+    tagText: "1 IN 4 SENIORS FALL",
+    tagBgColor: "#F1D9E6",
+    iconSrc: "cardIcon1.svg",
+  },
+  {
+    id: 2,
+    imageSrc: "/images/card2.png",
+    altText: "stroke",
+    title: "Emergencies Don’t Wait",
+    description:
+      "Health emergencies can strike in an instant. Be sure help is always there when they need it most.",
+    bottomText: "Every second counts. Don’t risk waiting.",
+    tagText: "1 IN 5 FACE CRISES",
+    tagBgColor: "#E3EFF8",
+    iconSrc: "cardIcon2.svg",
+  },
+  {
+    id: 3,
+    imageSrc: "/images/card3.png",
+    altText: "stroke",
+    title: "Caring for Them Is Caring for You",
+    description:
+      "Keep your loved ones safe, and gain peace of mind, even when you’re not around.",
+    bottomText: "Stop worrying and start protecting.",
+    tagText: "80% CAREGIVERS WORRY",
+    tagBgColor: "#FFFFFF",
+    iconSrc: "cardIcon3.svg",
+  },
+];
 const Artnow = () => {
   return (
     <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl">
@@ -15,125 +53,54 @@ const Artnow = () => {
 
       {/* cards */}
       <div className="flex justify-between items-center w-full tab:flex-col gap-6">
-        <div className="h-[500px] tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
-          {/*  <!-- Image --> */}
-          <figure>
-            <Image
-              src="/images/card1.png"
-              alt="stroke"
-              height={300}
-              width={200}
-              className="aspect-video h-60 tab:h-auto w-full"
-            />
-          </figure>
-          {/*  <!-- Body--> */}
-          <div className="p-3">
-            <h3 className="text-[1.3rem] font-semibold">
-              A Single Fall Can Change Everything
-            </h3>
-            <p>
-              Falls are the 1 cause of injury for seniors. What happens if no
-              one is around to help them in time?
-            </p>
-          </div>
-          <p className="text-sm absolute bottom-5 left-3">
-            Don’t wait—protect them today.
-          </p>
-          <div className="absolute top-3 z-10 w-full">
-            <div className="flex justify-between items-center px-5 ">
-              <p className="text-sm font-semibold inline-block bg-[#F1D9E6] px-3 py-2 rounded-3xl">
-                1 IN 4 SENIORS FALL
-              </p>
-              <Img
-                src="cardIcon1.svg"
-                width={156}
-                height={32}
-                alt="Group 1"
-                className="bg-[#2C3142] w-12 h-12 p-3 rounded-full  object-contain"
+        {cardData.map((card) => (
+          <div
+            key={card.id}
+            className="h-[450px] tab:h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
+          >
+            {/* Image */}
+            <figure>
+              <Image
+                src={card.imageSrc}
+                alt={card.altText}
+                height={300}
+                width={200}
+                quality={80}
+                className="aspect-video h-60 tab:!h-1/2 w-full"
               />
+            </figure>
+
+            {/* Body */}
+            <div className="p-3">
+              <h3 className="text-xl md:text-[16px] font-semibold">
+                {card.title}
+              </h3>
+              <p className="text-sm">{card.description}</p>
             </div>
-          </div>
-        </div>
-        <div className="h-[500px] tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
-          {/*  <!-- Image --> */}
-          <figure>
-            <Image
-              src="/images/card2.png"
-              alt="stroke"
-              height={300}
-              width={200}
-              className="aspect-video h-60 tab:h-auto w-full"
-            />
-          </figure>
-          {/*  <!-- Body--> */}
-          <div className="p-3">
-            <h3 className="text-[1.3rem] font-semibold">
-              Emergencies Don’t Wait
-            </h3>
-            <p>
-              Health emergencies can strike in an instant. Be sure help is
-              always there when they need it most.
+            <p className="text-xs md:text-[10px] absolute bottom-5 left-3">
+              {card.bottomText}
             </p>
 
-            <p className="text-sm absolute bottom-5 left-3">
-              {" "}
-              Every second counts. Don’t risk waiting.
-            </p>
-          </div>
-          <div className="absolute top-3 z-10 w-full">
-            <div className="flex justify-between items-center px-5 ">
-              <p className="text-sm font-semibold inline-block bg-[#E3EFF8] px-3 py-2 rounded-3xl">
-                1 IN 5 FACE CRISES
-              </p>
-              <Img
-                src="cardIcon2.svg"
-                width={156}
-                height={32}
-                alt="Group 1"
-                className="bg-[#2C3142] w-12 h-12 p-3 rounded-full  object-contain"
-              />
+            {/* Tag and Icon */}
+            <div className="absolute top-3 z-10 w-full">
+              <div className="flex justify-between items-center px-5">
+                <p
+                  className="text-xs font-semibold inline-block px-3 md:px-2 py-2 rounded-3xl"
+                  style={{ backgroundColor: card.tagBgColor }}
+                >
+                  {card.tagText}
+                </p>
+                <Image
+                  src={`/images/${card.iconSrc}`}
+                  width={48}
+                  height={48}
+                  alt="Icon"
+                  className="bg-[#2C3142] w-12 h-12 md:h-10 md:w-10 p-3 rounded-full object-contain"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="h-[500px] tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
-          {/*  <!-- Image --> */}
-          <figure>
-            <Image
-              src="/images/card3.png"
-              alt="stroke"
-              height={300}
-              width={200}
-              className="aspect-video h-60 tab:h-auto w-full"
-            />
-          </figure>
-          {/*  <!-- Body--> */}
-          <div className="p-3">
-            <h3 className="text-[1.3rem] font-semibold">
-              Caring for Them Is Caring for You
-            </h3>
-            <p>
-              Keep your loved ones safe, and gain peace of mind, even when
-              you’re not around.
-            </p>
-          </div>
-          <p className="text-sm absolute bottom-5 left-3">
-            Stop worrying and start protecting.
-          </p>
-          <div className="absolute top-3 z-10 w-full">
-            <div className="flex justify-between items-center px-5 ">
-              <p className="text-sm font-semibold inline-block bg-[#ffff] px-3 py-2 rounded-3xl">
-                80% CAREGIVERS WORRY
-              </p>
-              <Img
-                src="cardIcon3.svg"
-                width={156}
-                height={32}
-                alt="Group 1"
-                className="bg-[#2C3142] w-12 h-12 p-3 rounded-full  object-contain"
-              />
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
       <div className="border border-b-1 border-black-900 mt-12"></div>
     </div>
