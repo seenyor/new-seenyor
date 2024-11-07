@@ -32,7 +32,7 @@ export default function Header({ accessToken, ...props }) {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full px-6 max-w-7xl">
+        <div className="relative mx-auto w-full px-6 max-w-[1320px]">
           <nav className="flex h-[5.5rem] items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
@@ -175,7 +175,7 @@ export default function Header({ accessToken, ...props }) {
               )}
             </ul>
             {/* for dekstop */}
-            <ul className="relative flex items-center flex-wrap gap-[2.13rem] md:ml-0 px-[2rem] md:hidden">
+            <ul className="relative flex items-center flex-wrap gap-[2.13rem] md:ml-0 ps-[2rem] md:hidden">
               <li>
                 <Link href="/">
                   <Heading
