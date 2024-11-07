@@ -10,7 +10,6 @@ export default function Header({ accessToken, ...props }) {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
-
   // Toggle dropdown open or close
   const handleToggle = () => {
     setIsServicesOpen((prev) => !prev);
