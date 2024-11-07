@@ -3,7 +3,7 @@ import { Img } from "..";
 
 const Artnow = () => {
   return (
-    <div className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl md:p-5 sm:p-2">
+    <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl">
       <div className="flex justify-center">
         <p className="bg-neutral-950 text-white my-0  rounded-md px-[1.4rem] py-[6px] font-semibold">
           Act Now
@@ -14,8 +14,8 @@ const Artnow = () => {
       </p>
 
       {/* cards */}
-      <div className="flex justify-between items-center w-full sm:flex-col gap-6">
-        <div className="h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+      <div className="flex justify-between items-center w-full tab:flex-col gap-6">
+        <div className="h-[500px] tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -23,7 +23,7 @@ const Artnow = () => {
               alt="stroke"
               height={300}
               width={200}
-              className="aspect-video h-60 sm:h-auto w-full"
+              className="aspect-video h-60 tab:h-auto w-full"
             />
           </figure>
           {/*  <!-- Body--> */}
@@ -54,7 +54,7 @@ const Artnow = () => {
             </div>
           </div>
         </div>
-        <div className="h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[500px] tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -62,7 +62,7 @@ const Artnow = () => {
               alt="stroke"
               height={300}
               width={200}
-              className="aspect-video h-60 sm:h-auto w-full"
+              className="aspect-video h-60 tab:h-auto w-full"
             />
           </figure>
           {/*  <!-- Body--> */}
@@ -95,7 +95,7 @@ const Artnow = () => {
             </div>
           </div>
         </div>
-        <div className="h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+        <div className="h-[500px] tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
           {/*  <!-- Image --> */}
           <figure>
             <Image
@@ -103,7 +103,7 @@ const Artnow = () => {
               alt="stroke"
               height={300}
               width={200}
-              className="aspect-video h-60 sm:h-auto w-full"
+              className="aspect-video h-60 tab:h-auto w-full"
             />
           </figure>
           {/*  <!-- Body--> */}

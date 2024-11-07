@@ -32,7 +32,7 @@ export default function Header({ accessToken, ...props }) {
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
         <div className="relative mx-auto w-full px-6 max-w-[1320px]">
-          <nav className="flex h-[5.5rem] items-stretch justify-between font-medium text-[#2C3142]">
+          <nav className="flex h-[6.5rem] pt-4 md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
               className="md:flex items-center gap-2 py-3 my-auto text-lg whitespace-nowrap focus:outline-none flex-1"

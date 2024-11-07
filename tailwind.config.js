@@ -179,6 +179,7 @@ module.exports = {
       tab: { max: "768px" },
       sm: { max: "550px" },
       xss: { max: "480px" },
+      xxl: { max: "1440px" },
     },
   },
   plugins: [require("tailwindcss-animate")],

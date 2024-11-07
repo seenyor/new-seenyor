@@ -9,49 +9,55 @@ import ScrollButton from "@/components/ScrollButton";
 import Link from "next/link";
 const Home = () => {
   return (
-    <div className=" flex w-full flex-col gap-10 sm:gap-5 bg-white px-6 pt-5">
+    <div className=" flex w-full flex-col gap-10 tab:gap-5 bg-white px-6 tab:px-2 pt-5">
       {/* hero section* */}
-      <div className="bg-[#F3F4F6] relative px-10 max-w-7xl mx-auto w-full py-32 rounded-xl md:p-5 sm:p-2">
-        <div className="flex sm:flex-col-reverse gap-4 items-start justify-between ">
-          <div className="w-[68%] sm:w-full  ">
-            <h3 className="font-bold text-[2rem] sm:text-2xl">
-              Protect Your Loved Ones Before It’s Too Late
-            </h3>
-            <p className="text-[1.3rem]">
-              1 in 4 People Over 65 Falls Each Year – Don’t Let Your Loved Ones
-              Be Next
-            </p>
-            <p className="text-md my-7">
-              Stay connected and ensure 24/7 protection, even when you can’t be
-              there. Our non-wearable device detects falls instantly and
-              monitors their safety around the clock.
-            </p>
-            <Link href="/systembuilder">
-              <button className="w-auto py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
-                Protect Them Now
-              </button>
-            </Link>
+      <div className="mx-auto w-full">
+        <div className="bg-[#F3F4F6] overflow-hidden relative px-10 tab:px-5 mx-[100px] xxl:mx-0 md:mx-0 py-32 md:py-20 rounded-xl">
+          <div className="flex tab:flex-col gap-4 items-start justify-between ">
+            <div className="w-[68%] tab:w-full  ">
+              <h3 className="font-bold text-[2rem] md:text-2xl">
+                Protect Your Loved Ones Before It’s Too Late
+              </h3>
+              <p className="text-[1.3rem] md:text-[16px] md:pt-4 tab:pt-2">
+                1 in 4 People Over 65 Falls Each Year – Don’t Let Your Loved
+                Ones Be Next
+              </p>
+              <p className="text-md my-7 tab:my-4 md:text-sm">
+                Stay connected and ensure 24/7 protection, even when you can’t
+                be there. Our non-wearable device detects falls instantly and
+                monitors their safety around the clock.
+              </p>
+              <Link
+                href="/systembuilder"
+                className="tab:flex tab:justify-center"
+              >
+                <button className="w-auto py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
+                  Protect Them Now
+                </button>
+              </Link>
+            </div>
+            <div className="w-[32%] -mt-10 md:mt-0 tab:w-full">
+              <Image
+                src="/images/product2.png"
+                height={200}
+                width={300}
+                alt="Product"
+                className="w-auto scale-125 tab:scale-100 ms-20 md:ms-10  h-full tab:mx-auto"
+              />
+            </div>
           </div>
-          <div className="w-[32%] -mt-10 sm:w-full">
-            <Image
-              src="/images/product2.png"
-              height={200}
-              width={300}
-              alt="Product"
-              className="w-auto scale-125 ms-20  h-full sm:mx-auto"
-            />
-          </div>
+          <p className="px-5 text-sm absolute bottom-5">
+            *Limited Stock Available!
+          </p>
         </div>
-        <p className="px-5  absolute bottom-5">*Limited Stock Available!</p>
       </div>
-
       <ScrollButton />
 
       {/*section 2- act now section */}
       <Artnow />
       <PeaceOfMind />
 
-      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl mb-12 sm:mb-0">
+      <div className="max-w-7xl my-0 mx-auto w-full rounded-xl mb-12 tab:mb-0">
         <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
           Comprehensive Home Monitoring
         </p>

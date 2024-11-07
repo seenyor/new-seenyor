@@ -4,7 +4,7 @@ import { ArrowDown } from "lucide-react";
 
 const ScrollButton = () => {
   return (
-    <div>
+    <div className="md:hidden">
       <ArrowDown
         onClick={() =>
           document
