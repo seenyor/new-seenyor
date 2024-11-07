@@ -61,7 +61,8 @@ export default function AccountDone() {
       //     adjustable_quantity: { enabled: false },
       //   });
       // }
-
+      let successUrl = window.location.origin + "/success";
+      let cancelUrl = window.location.origin + "/cancel";
       const lineItems = orderDetails.products
         .map((product) => ({
           price_data: {
@@ -88,6 +89,8 @@ export default function AccountDone() {
       const session = await createStripeSession({
         customer: stripeCustomerId,
         line_items: lineItems,
+        success_url: successUrl,
+        cancel_url: cancelUrl,
       });
 
       // Redirect to Stripe Checkout

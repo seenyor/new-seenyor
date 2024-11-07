@@ -211,8 +211,8 @@ function Page() {
               as="p"
               className="w-[50%] text-center text-[1.13rem] font-normal leading-[1.69rem] text-body md:w-full"
             >
-              There is a confirmation mail sent to your E-mail. Please check and
-              Click on the link attached to setup your password.
+              Your payment was successful! You can now sign in to access your
+              account. Welcome, and enjoy our services!
             </Text>
           </div>
         </div>
