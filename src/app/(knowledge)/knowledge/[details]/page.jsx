@@ -72,7 +72,7 @@ const KnowledgeDetails = () => {
   return (
     <div>
       <div className="bg-[#7F87FC] py-5">
-        <div className="mx-auto flex items-start gap-5 max-w-7xl w-full p-6">
+        <div className="mx-auto flex items-start gap-5 max-w-[1320px] w-full p-6">
           <button
             onClick={() => router.back()}
             className="text-white min-h-[100px] bg-[#A5ABFD] rounded-lg px-2"

@@ -87,17 +87,17 @@ const Knowledge = () => {
         </div>
       </div>
       <div className="flex flex-col gap-10 bg-white mb-8">
-        <div className="mx-auto max-w-7xl bg-[#F5F5FB] w-full p-6">
+        <div className="mx-auto max-w-[1320px] bg-[#F5F5FB] w-full p-6">
           <h2 className="my-8 pb-2 border-b border-slate-400 text-2xl font-semibold">
             Help Topics
           </h2>
 
-          <div className="grid grid-cols-4 sm:block md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-4 tab:block md:grid-cols-2 gap-4">
             {helpTopics.map((topic, index) => (
               <Link
                 href={`knowledge/${topic?.title}`}
                 key={index}
-                className="block"
+                className="block tab:my-3"
               >
                 <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
                   <Image
@@ -108,32 +108,38 @@ const Knowledge = () => {
                     className="h-7 w-7"
                   />
                   <div>
-                    <h3 className="font-semibold">{topic.title}</h3>
+                    <h3 className="font-semibold md:text-[14px]">
+                      {topic.title}
+                    </h3>
                     <p className="text-sm text-gray-500">{topic.description}</p>
                   </div>
                 </div>
               </Link>
             ))}
 
-            <div className="md:col-span-1 col-span-2">
-              <div className="flex bg-white rounded-xl min-h-[100px] flex-row items-center gap-4 p-4">
-                <Image
-                  src="/images/help11.svg"
-                  height={10}
-                  width={10}
-                  alt=""
-                  className="h-7 w-7"
-                />
-                <div className="flex-1">
-                  <h3 className="font-semibold">Need Support?</h3>
-                  <p className="text-sm text-gray-500">
-                    Can’t find the answer you’re looking for? Don’t worry, we’re
-                    here to help!
-                  </p>
+            <div className="tab:col-span-1 col-span-2">
+              <div className="flex tab:block bg-white rounded-xl min-h-[100px] flex-row items-center gap-3 p-4">
+                <div className="flex justify-between items-center gap-4">
+                  <Image
+                    src="/images/help11.svg"
+                    height={10}
+                    width={10}
+                    alt=""
+                    className="h-7 w-7"
+                  />
+                  <div className="flex-1">
+                    <h3 className="font-semibold md:text-[14px]">
+                      Need Support?
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      Can’t find the answer you’re looking for? Don’t worry,
+                      we’re here to help!
+                    </p>
+                  </div>
                 </div>
-                <Button className="bg-[#80CAA7] hover:bg-emerald-300 text-white font-semibold py-2 px-4 rounded">
+                <button className="bg-[#80CAA7] tab:mt-5 w-56 text-sm hover:bg-emerald-300 text-white font-semibold py-[8px] px-4 rounded">
                   Contact Support
-                </Button>
+                </button>
               </div>
             </div>
           </div>
