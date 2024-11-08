@@ -81,7 +81,7 @@ export default function AccountDone() {
             ? {
                 enabled: true,
                 minimum: 0,
-                maximum: 10,
+                maximum: 1000,
               }
             : undefined,
         }))
