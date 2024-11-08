@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setIsLogin(false);
     }
-  }, []);
+  }, [email, customerMail]);
 
   const login = (token) => {
     const cookieOptions = {

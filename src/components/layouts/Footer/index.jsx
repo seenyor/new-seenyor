@@ -81,7 +81,7 @@ const Footer = () => {
                 <ul>
                   <li className="mb-2 leading-6">
                     <a
-                      href="javascript:void(0)"
+                      href="/knowledge"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Help Center

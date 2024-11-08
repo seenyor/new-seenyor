@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   const accessToken = cookieStore.get("access_token");
   return (
     <>
-      <SecondaryNav accessToken={accessToken} />
+      <SecondaryNav />
       <main>{children}</main>
       <Footer />
     </>

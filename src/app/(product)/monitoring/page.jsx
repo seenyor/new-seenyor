@@ -5,6 +5,31 @@ import ScrollButton from "@/components/ScrollButton";
 import Image from "next/image";
 import Link from "next/link";
 
+const features = [
+  {
+    title: "Detect",
+    description: "Immediate detection of falls or emergencies.",
+    image: "/images/care1.png",
+    bg: "/images/care4.svg",
+    border: true,
+  },
+  {
+    title: "Verify",
+    description:
+      "Our agents verify each alert, using two-way communication to check in with your loved one, then contacting their emergency contacts if needed.",
+    image: "/images/care2.png",
+    bg: "/images/care5.svg",
+    border: true,
+  },
+  {
+    title: "Response",
+    description:
+      "If there’s no response from your loved one or their emergency contacts, our team will contact 911 for immediate assistance.",
+    image: "/images/care3.png",
+    bg: "/images/care6.svg",
+    border: false,
+  },
+];
 const ProfessionalMonitoring = () => {
   // w-full max-w-7xl mx-auto
   return (
@@ -16,8 +41,10 @@ const ProfessionalMonitoring = () => {
       >
         <div className="max-w-[1320px] w-full mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 max-w-xl ps-16 sm:ps-5 px-4">
-            <h1 className="text-4xl font-bold sm:text-2xl ">24/7 Monitoring</h1>
+          <div className="relative z-10 max-w-xl px-10 tab:px-5">
+            <h1 className="font-bold text-[2rem] md:text-2xl">
+              24/7 Monitoring
+            </h1>
             <h1 className="text-2xl pt-2 sm:text-xl ">
               by Professional Agents.
             </h1>
@@ -36,7 +63,7 @@ const ProfessionalMonitoring = () => {
       <ScrollButton />
 
       {/* Alert verification */}
-      <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
+      <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl  tab:p-5 sm:p-2">
         <p className="text-[2rem] sm:text-3xl font-semibold text-center py-2">
           Alerts Verification with Confidence
         </p>
@@ -45,7 +72,7 @@ const ProfessionalMonitoring = () => {
           for elderly safety by following a predefined checklist.
         </p>
 
-        <div className="w-full h-auto tab:min-h-[400px] mx-auto  mt-8 relative">
+        <div className="w-full h-auto tab:min-h-[400px] sm:min-h-[300px] mx-auto  mt-8 relative">
           <Image
             className="w-full h-auto tab:hidden"
             src="/images/alert.png"
@@ -54,50 +81,58 @@ const ProfessionalMonitoring = () => {
             quality={100}
             alt="alert verification"
           />
-          <div className=" grid grid-cols-4 md:grid-cols-2 w-full mx-auto md:ms-12  tab:ms-0 gap-12 px-10 md:px-2 md:gap-5 absolute top-12">
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+          <div className=" grid grid-cols-4 tab:grid-cols-2 w-full mx-auto  gap-12 px-10 tab:px-3 md:px-2 md:gap-5 absolute top-12 md:top-5">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Alert Detected</p>
-              <p className="">Instant Notifications and SMS sent</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Alert Detected
+              </p>
+              <p className="md:text-sm">Instant Notifications and SMS sent</p>
             </div>
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected2.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Calling Elderly</p>
-              <p className="">2-Way Audio from Device</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Calling Elderly
+              </p>
+              <p className="md:text-sm">2-Way Audio from Device</p>
             </div>
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected3.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Calling Contacts</p>
-              <p className="">Assigned to Aging loved ones</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Calling Contacts
+              </p>
+              <p className="md:text-sm">Assigned to Aging loved ones</p>
             </div>
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected4.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Calling Emergency</p>
-              <p className="">Service</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Calling Emergency
+              </p>
+              <p className="md:text-sm">Service</p>
             </div>
           </div>
         </div>
@@ -107,60 +142,86 @@ const ProfessionalMonitoring = () => {
 
       <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
         <div className="flex justify-center">
-          <span className="text-[2rem] tab:text-xl font-semibold text-center py-1 my-2 px-3 sm:px-2 bg-[#000] rounded-md text-white">
+          <span className="text-[2rem] tab:text-lg font-semibold text-center py-1 my-2 px-3 sm:px-2 bg-[#000] rounded-md text-white">
             Intelligent Care for Loved Ones
           </span>
         </div>
         <p className="text-center text-xl max-w-3xl mx-auto w-full px-5">
           Ensure Their Safety, Protect Your Peace of Mind
         </p>
-
-        <div className="flex md:flex-col justify-between gap-12 mx-5 tab:mx-2 my-5">
-          <Image
-            className="w-full mx-auto h-auto"
-            src="/images/care1.png"
-            width={200}
-            height={200}
-            alt="alert verification"
-          />
-          <Image
-            className="w-full mx-auto h-auto"
-            src="/images/care2.png"
-            width={200}
-            height={200}
-            alt="alert verification"
-          />
-          <Image
-            className="w-full mx-auto h-auto"
-            src="/images/care3.png"
-            width={200}
-            height={200}
-            alt="alert verification"
-          />
+        <div className="tab:hidden">
+          <div className=" flex justify-between gap-12 md:gap-4 md:mx-0 my-5">
+            <Image
+              className="w-full md:w-[200px] mx-auto h-auto"
+              src="/images/care1.png"
+              width={200}
+              height={200}
+              alt="alert verification"
+            />
+            <Image
+              className="w-full md:w-[200px] mx-auto h-auto"
+              src="/images/care2.png"
+              width={200}
+              height={200}
+              alt="alert verification"
+            />
+            <Image
+              className="w-full md:w-[200px] mx-auto h-auto"
+              src="/images/care3.png"
+              width={200}
+              height={200}
+              alt="alert verification"
+            />
+          </div>
+          <div
+            className="relative w-full bg-cover bg-center bg-no-repeat flex justify-between"
+            style={{ backgroundImage: "url(/images/gradient.png)" }}
+          >
+            <div className="py-4 w-full px-5 md:px-3">
+              <h3 className="text-xl md:text-lg font-semibold">Detect</h3>
+              <p className="md:text-sm">
+                Immediate detection of falls or emergencies.
+              </p>
+            </div>
+            <div className="py-4 w-full px-5 md:px-3 border-l-[1.5px]  border-slate-600 ">
+              <h3 className="text-xl md:text-lg font-semibold">Verify</h3>
+              <p className="md:text-sm">
+                Our agents verify each alert, using two-way communication to
+                check in with your loved one, then contacting their emergency
+                contacts if needed.
+              </p>
+            </div>
+            <div className="py-4 w-full px-5 md:px-3  border-l-[1.5px]  border-slate-600 ">
+              <h3 className="text-xl md:text-lg font-semibold">Response</h3>
+              <p className="md:text-sm">
+                If there’s no response from your loved one or their emergency
+                contacts, our team will contact 911 for immediate assistance.
+              </p>
+            </div>
+          </div>
         </div>
-        <div
-          className="relative w-full bg-cover bg-center bg-no-repeat flex md:flex-col justify-between px-8 sm:px-2"
-          style={{ backgroundImage: "url(/images/gradient.png)" }}
-        >
-          <div className="py-4 w-full">
-            <h3 className="text-xl font-semibold">Detect</h3>
-            <p>Immediate detection of falls or emergencies.</p>
-          </div>
-          <div className="py-4 w-full border-l-[1.5px] tab:border-none border-slate-600 ps-5 tab:ps-0">
-            <h3 className="text-xl font-semibold">Verify</h3>
-            <p>
-              Our agents verify each alert, using two-way communication to check
-              in with your loved one, then contacting their emergency contacts
-              if needed.
-            </p>
-          </div>
-          <div className="py-4 w-full  border-l-[1.5px] tab:border-none tab:ps-0 border-slate-600 ps-5">
-            <h3 className="text-xl font-semibold">Response</h3>
-            <p>
-              If there’s no response from your loved one or their emergency
-              contacts, our team will contact 911 for immediate assistance.
-            </p>
-          </div>
+
+        <div className="hidden tab:flex flex-col gap-5">
+          {features?.map((item, i) => (
+            <div key={i} className="bg-white py-3 text-center">
+              <>
+                <Image
+                  src={item.image}
+                  width={156}
+                  height={32}
+                  alt={item.title}
+                  className="w-full  mx-auto object-cover "
+                />
+                <div
+                  style={{ backgroundImage: `url(${item?.bg})` }}
+                  className="text-start p-4 mt-2"
+                >
+                  <p className="font-semibold text-xl">{item.title}</p>
+                  <p className="text-[16px]">{item.description}</p>
+                </div>
+              </>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -179,16 +240,16 @@ const ProfessionalMonitoring = () => {
       {/* Ai driven safety */}
       <div className="max-w-[1320px] my-0 mx-auto w-full  ">
         <div className="bg-[#7F87FC] py-10 rounded-xl text-white text-center">
-          <h3 className="font-semibold text-4xl tab:text-3xl tab:px-3">
+          <h3 className="font-semibold text-4xl md:text-3xl tab:px-3">
             AI-Driven Safety for Peace of Mind
           </h3>
-          <p className="text-xl tab:px-3 py-3">
+          <p className="text-xl md:px-5 tab:px-3 py-3">
             Our system learns and adapts to deliver real-time alerts and
             proactive safety for the elderly.
           </p>
 
           <div className="flex tab:flex-col gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
-            <div className="w-56 md:mx-auto  h-auto">
+            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai1.png"
@@ -197,7 +258,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 md:mx-auto  h-auto">
+            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai2.png"
@@ -206,7 +267,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 md:mx-auto  h-auto">
+            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai3.png"
