@@ -22,7 +22,6 @@ const RightSection = () => {
       console.log("Login response:", response); // Debug log
       localStorage.setItem("user_id", response.data._id);
       if (response && response.data && response.data.access_token) {
-        // Set cookie to expire in 2 days
         router.push("/account");
       } else {
         console.log("Login failed, unexpected response structure:", response);

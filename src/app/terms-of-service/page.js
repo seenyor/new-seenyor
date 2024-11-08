@@ -4,7 +4,6 @@ import "../terms-style.css";
 import { useAuth } from "@/context/AuthContext";
 import { useState, useEffect } from "react";
 import Footer from "@/components/layouts/Footer";
-
 export default function TermsOfServicePage() {
   const { country } = useAuth();
   const [TermsComponent, setTermsComponent] = useState(null);

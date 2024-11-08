@@ -63,6 +63,7 @@ export default function RegisterPage() {
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState("");
+  const [orderDetails, setOrderDetails] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -118,7 +119,11 @@ export default function RegisterPage() {
         setError("Failed to load necessary data. Please try again.");
       }
     };
-
+    const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
+    setOrderDetails(orderDetails);
+    // if (orderDetails) {
+    //   setOrderDetails(JSON.parse(orderDetails));
+    // }
     fetchData();
   }, []);
 
@@ -220,7 +225,6 @@ export default function RegisterPage() {
           })
         );
         setIsOtpSent(true);
-        reset();
       } else {
         setError(response.message || "Registration failed. Please try again.");
       }
@@ -245,6 +249,7 @@ export default function RegisterPage() {
       });
       if (response.status) {
         setIsOtpVerified(true);
+        reset();
         router.push("/payment");
       } else {
         setError(
@@ -533,18 +538,20 @@ export default function RegisterPage() {
                 </div>
               </div>
               {/* <============= Preferred Installation Date - S.3 ==============> */}
-              <div
-                id="Installation_Date"
-                className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
-              >
-                <div id="Fields" className="flex flex-col">
-                  {renderField({
-                    label: "Preferred Installation Date",
-                    name: "installation_date",
-                    type: "date",
-                  })}
+              {orderDetails?.installationPrice !== 0 && (
+                <div
+                  id="Installation_Date"
+                  className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
+                >
+                  <div id="Fields" className="flex flex-col">
+                    {renderField({
+                      label: "Preferred Installation Date",
+                      name: "installation_date",
+                      type: "date",
+                    })}
+                  </div>
                 </div>
-              </div>
+              )}
               {/* <============= Agent Name and Badge ID - S.4 ==============> */}
               <div
                 id="Agent_Name&Badge_ID"

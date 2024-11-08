@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState("");
   const [customerMail, setCustomerMail] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(null);
   // Helper function to determine the appropriate cookie domain
   const getCookieDomain = () => {
     if (typeof window !== "undefined") {
@@ -37,9 +37,9 @@ export const AuthProvider = ({ children }) => {
     const token = Cookies.get("access_token");
     if (token) {
       setAccessToken(token);
-      setIsLogin(true);
+      setIsLogin(token);
     } else {
-      setIsLogin(false);
+      setIsLogin(null);
     }
   }, [email, customerMail]);
 

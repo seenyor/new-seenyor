@@ -1,5 +1,5 @@
 "use client";
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useAuth } from "@/context/AuthContext";
 import { useUserService } from "@/services/userService";
@@ -14,9 +14,12 @@ import { Button, Img } from "@/components";
 import RadioButtonGroup from "./RadioGroupFInstallation";
 import TermsCheckbox from "./TermsCheckbox ";
 import "./style.css";
+import { jwtDecode } from "jwt-decode";
 
 export default function HomePage() {
   const router = useRouter();
+  const { isLogin } = useAuth();
+
   const [products, setProducts] = useState([]);
   let [kitPrice, setKitPrice] = useState(1300);
   let [installationPrice, setInstallationPrice] = useState(250);
@@ -27,9 +30,13 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [selecteInstallation, setselecteInstallation] = useState(1);
   const [isChecked, setIsChecked] = useState(false);
-  const { getProducts, getStripeCustomerId, createStripeSession } =
-    useUserService();
-  const { accessToken } = useAuth();
+  const {
+    getProducts,
+    getStripeCustomerId,
+    createStripeSession,
+    createStripeCustomer,
+    getUserDetailsById,
+  } = useUserService();
   const { country } = useAuth();
   useEffect(() => {
     const fetchProducts = async () => {
@@ -40,7 +47,7 @@ export default function HomePage() {
 
         // Set prices based on fetched products
         const kit = fetchedProducts.find(
-          (p) => p.name === "Required with your system"
+          (p) => p.name === "Required with your system" && !isLogin
         );
         const addon = fetchedProducts.find(
           (p) => p.name === "All in One AI Sensor"
@@ -49,7 +56,7 @@ export default function HomePage() {
           (p) => p.name === "Installation"
         );
         const aimonitoring = fetchedProducts.find(
-          (p) => p.name === "AI Monitoring" && !p.isRecurring
+          (p) => p.name === "AI Monitoring" && !p.isRecurring && !isLogin
         );
         console.log(aimonitoring);
         if (kit) setKitPrice(kit.price);
@@ -76,7 +83,7 @@ export default function HomePage() {
   // Total Price calculation
   useEffect(() => {
     const calculatedTotal =
-      kitPrice +
+      (!isLogin ? kitPrice : 0) +
       (selecteInstallation === 1 ? installationPrice : 0) +
       addonDevicePrice * quantity;
     setTotal(calculatedTotal);
@@ -95,9 +102,17 @@ export default function HomePage() {
       addonDevicePrice,
       addonQuantity: quantity,
       aiMonitoringPrice: aimonitoring,
-      total: total + aimonitoring, // Include AI monitoring in the total
+      total: total + aimonitoring,
       products: products
-        .filter((p) => !p.isRecurring)
+        .filter(
+          (p) =>
+            !p.isRecurring &&
+            !(
+              isLogin &&
+              p.name === "AI Monitoring" &&
+              p.name === "Required with your system"
+            )
+        )
         .map((p) => ({
           id: p.id,
           priceId: p.priceId,
@@ -143,13 +158,15 @@ export default function HomePage() {
   ]);
 
   const handleCheckout = async () => {
-    const stripeCustomerId = await getStripeCustomerId();
-    console.log(stripeCustomerId, accessToken);
-    if (!stripeCustomerId) {
-      // User is not logged in, redirect to registration page
-      router.push("/register");
-    }
+    let userDetails;
+    if (isLogin) {
+      let userData = jwtDecode(isLogin);
+      await getUserDetailsById(userData._id).then((res) => {
+        console.log(res);
 
+        userDetails = res?.data;
+      });
+    }
     // Ensure order details are up to date in localStorage
     updateOrderDetails();
 
@@ -157,21 +174,36 @@ export default function HomePage() {
     if (!orderDetails) {
       throw new Error("No order details found");
     }
-
-    if (accessToken) {
+    let successUrl = window.location.origin + "/success";
+    let cancelUrl = window.location.origin + "/cancel";
+    if (isLogin) {
       const lineItems = products
-        .filter((p) => !p.isRecurring)
+        .filter((p) => {
+          // Exclude recurring products
+          if (p.isRecurring) return false;
+
+          // Exclude "AI Monitoring" and "Required with your system" if logged in
+          if (
+            isLogin &&
+            (p.name === "AI Monitoring" ||
+              p.name === "Required with your system")
+          ) {
+            return false;
+          }
+
+          return true;
+        })
         .map((p) => ({
           price_data: {
             currency: country === "au" ? "aud" : "usd",
             product_data: {
               name: p.name,
-              description: p.description,
+              ...(p.description && { description: p.description }), // Include description only if it exists
               metadata: {
                 category: p.category,
               },
             },
-            unit_amount: p.price * 100, // Convert to cents
+            unit_amount: p.price * 100,
           },
           quantity:
             p.name === "AI Monitoring"
@@ -195,15 +227,37 @@ export default function HomePage() {
                 },
         }))
         .filter((item) => item.quantity > 0);
-
-      const session = await createStripeSession({
-        customer: stripeCustomerId,
-        line_items: lineItems,
-      });
       console.log(lineItems);
-      window.location.href = session.url;
+
+      // Start the first API call
+      const stripeCustomerPromise = createStripeCustomer({
+        email: userDetails.email,
+        name: userDetails.name,
+      });
+
+      // Once the first API call is resolved, use its result for the second call
+      stripeCustomerPromise
+        .then((stripeCustomerResponse) => {
+          const stripeCustomerId = stripeCustomerResponse.id;
+
+          // Start the second API call
+          return createStripeSession({
+            customer: stripeCustomerId,
+            line_items: lineItems,
+            success_url: successUrl,
+            cancel_url: cancelUrl,
+          });
+        })
+        .then((session) => {
+          // Handle the session result
+          window.location.href = session.url;
+        })
+        .catch((error) => {
+          // Handle any errors
+          console.error("Error during checkout process:", error);
+        });
     } else {
-      router.push("/payment");
+      router.push("/register");
     }
   };
   const [terms, setTerms] = useState({
@@ -221,90 +275,57 @@ export default function HomePage() {
 
   return (
     <div className="flex w-full flex-col gap-10 bg-white p-5">
-      {isLoading ? ( // Show spinner while loading
-        <LoadingSpinner />
-      ) : accessToken ? (
-        <>
-          <Header />
-          {/* 
-          <ProductHero /> */}
-          <div
-            id="PageHeader"
-            className=" w-full p-4 flex items-center justify-center"
-          >
-            <Img
-              src="img_group_1.svg"
-              width={156}
-              height={32}
-              alt="Group 1"
-              className="h-[2.00rem] w-[12%] md:w-[30%] object-contain"
-            />
-          </div>
-        </>
-      ) : (
+      {!isLogin && (
         <div
-          id="PageHeader"
-          className=" w-full p-4 flex items-center justify-center"
+          id="Required_Products_Section"
+          className="relative flex flex-col gap-2 md:gap-6 items-center justify-center bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
         >
-          <Img
-            src="img_group_1.svg"
-            width={156}
-            height={32}
-            alt="Group 1"
-            className="h-[2.00rem] w-[12%] md:w-[30%] object-contain"
-            onClick={() => {
-              window.open("/", "_self");
-            }}
-          />
+          <div
+            id="Section_Header"
+            className="flex flex-col items-center gap-2 "
+          >
+            <h2 className="font-semibold text-3xl text-center">
+              Required with your system
+            </h2>
+            <p className="font-normal text-md text-[#000]/80 text-center">
+              3X All in One AI Sensor Pack for the entire house. Fall Detection
+              and Sleep Monitoring Solution
+            </p>
+          </div>
+          <div id="Price" className="price absolute right-16 md:text-center">
+            <h1 className="font-semibold text-3xl">${kitPrice}</h1>
+            <span className="font-normal text-md text-[#000]/80">
+              {country === "au" ? "GST is Included in" : "TAX is Included in"}
+              <br />
+              The Price
+            </span>
+          </div>
+          <div
+            id="Products_Showcase"
+            className="flex items-center md:grid md:grid-cols-2 gap-2"
+          >
+            {["Bedroom", "Livingroom", "Bathroom"].map((item, ind) => {
+              return (
+                <div
+                  id="Product"
+                  key={ind}
+                  className={`flex flex-col items-center justify-center ${
+                    ind === 2 ? "md:col-span-2 text-center" : ""
+                  }`} // Use col-span-2 for the third item
+                >
+                  <Img
+                    src="Product-1.png"
+                    width={250}
+                    height={180}
+                    alt="Product"
+                  />
+                  <h4 className="font-medium text-lg">{item}</h4>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
-
-      <div
-        id="Required_Products_Section"
-        className="relative flex flex-col gap-2 md:gap-6 items-center justify-center bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
-      >
-        <div id="Section_Header" className="flex flex-col items-center gap-2 ">
-          <h2 className="font-semibold text-3xl text-center">
-            Required with your system
-          </h2>
-          <p className="font-normal text-md text-[#000]/80 text-center">
-            3X All in One AI Sensor Pack for the entire house. Fall Detection
-            and Sleep Monitoring Solution
-          </p>
-        </div>
-        <div id="Price" className="price absolute right-16 md:text-center">
-          <h1 className="font-semibold text-3xl">${kitPrice}</h1>
-          <span className="font-normal text-md text-[#000]/80">
-            {country === "au" ? "GST is Included in" : "TAX is Included in"}
-            <br />
-            The Price
-          </span>
-        </div>
-        <div
-          id="Products_Showcase"
-          className="flex items-center md:grid md:grid-cols-2 gap-2"
-        >
-          {["Bedroom", "Livingroom", "Bathroom"].map((item, ind) => {
-            return (
-              <div
-                id="Product"
-                key={ind}
-                className={`flex flex-col items-center justify-center ${
-                  ind === 2 ? "md:col-span-2 text-center" : ""
-                }`} // Use col-span-2 for the third item
-              >
-                <Img
-                  src="Product-1.png"
-                  width={250}
-                  height={180}
-                  alt="Product"
-                />
-                <h4 className="font-medium text-lg">{item}</h4>
-              </div>
-            );
-          })}
-        </div>
-      </div>
 
       <div
         id="More_Device_Section"
@@ -343,9 +364,11 @@ export default function HomePage() {
             >
               <button
                 className="text-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={quantity == 0}
+                disabled={isLogin ? quantity <= 1 : quantity == 0} // Prevent decrementing to 0 if logged in
                 onClick={() => {
-                  setQuantity(quantity > 0 ? quantity - 1 : 0);
+                  setQuantity(
+                    quantity > (isLogin ? 1 : 0) ? quantity - 1 : quantity
+                  );
                 }}
               >
                 <MinusCircledIcon className="w-8 h-8" />
@@ -440,15 +463,17 @@ export default function HomePage() {
             className="w-[75%] bg-white p-8 py-10 rounded-xl md:w-full md:p-4"
           >
             <ul className="flex flex-col gap-5">
-              <li className="flex items-center text-nowrap gap-5">
-                <p className="font-semibold text-lg md:text-base">
-                  1 Seenyor Kit
-                </p>
-                <hr className="w-full border-2" />
-                <span className="text-nowrap text-lg font-normal">
-                  ${kitPrice}
-                </span>
-              </li>
+              {!isLogin && (
+                <li className="flex items-center text-nowrap gap-5">
+                  <p className="font-semibold text-lg md:text-base">
+                    1 Seenyor Kit
+                  </p>
+                  <hr className="w-full border-2" />
+                  <span className="text-nowrap text-lg font-normal">
+                    ${kitPrice}
+                  </span>
+                </li>
+              )}
               <li className="flex items-center text-nowrap gap-5">
                 <p className="font-semibold text-lg md:text-base">
                   {quantity} Additional Device
@@ -477,7 +502,7 @@ export default function HomePage() {
                 </span>
               </li>
             </ul>
-            {!accessToken && (
+            {!isLogin && (
               <div
                 id="AI_Monitoring_Addon"
                 className="flex items-center justify-between p-3 border border-gray-400 border-opacity-50 rounded-xl mt-5"

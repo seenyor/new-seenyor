@@ -4,11 +4,9 @@ import { useAuth } from "@/context/AuthContext";
 import { useState, useEffect } from "react";
 import Header from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-
 export default function PrivacyPolicyPage() {
   const { country } = useAuth();
   const [TermsComponent, setTermsComponent] = useState(null);
-
   useEffect(() => {
     async function loadComponent() {
       try {

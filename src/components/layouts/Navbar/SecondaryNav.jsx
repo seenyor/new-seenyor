@@ -1,15 +1,17 @@
 "use client";
 import { Heading, Img } from "@/components";
 import { useAuth } from "@/context/AuthContext";
-import { Avatar } from "@radix-ui/react-avatar";
+import * as Avatar from "@radix-ui/react-avatar";
+
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-export default function SecondaryNav({ accessToken, ...props }) {
+export default function SecondaryNav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { isLogin } = useAuth();
   // Toggle dropdown open or close
   const handleToggle = () => {
     setIsServicesOpen((prev) => !prev);
@@ -161,7 +163,7 @@ export default function SecondaryNav({ accessToken, ...props }) {
                   </Heading>
                 </Link>
               </li>
-              {!accessToken ? (
+              {!isLogin ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link href="/login">
                     <button className="sm:px-3 mb-2 sm:py-2 px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg">
@@ -179,12 +181,9 @@ export default function SecondaryNav({ accessToken, ...props }) {
                   <Avatar.Root className="inline-flex size-[45px] select-none items-center justify-center overflow-hidden rounded-full bg-black-200 align-middle">
                     <Avatar.Image
                       className="size-full rounded-[inherit] object-cover"
-                      src="images/avater.png"
+                      src="images/Avater2.svg"
                       alt="avatar"
                     />
-                    <Avatar.Fallback className="leading-1 flex size-full items-center justify-center bg-blue-200 text-[15px] font-medium text-violet11">
-                      A
-                    </Avatar.Fallback>
                   </Avatar.Root>
                 </Link>
               )}
@@ -243,7 +242,7 @@ export default function SecondaryNav({ accessToken, ...props }) {
                   </Heading>
                 </Link>
               </li>
-              {!accessToken ? (
+              {!isLogin ? (
                 <li className="flex items-center gap-2">
                   <Link
                     className="sm:px-3 sm:py-2 sm:text-sm px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg m-auto"
@@ -263,12 +262,9 @@ export default function SecondaryNav({ accessToken, ...props }) {
                   <Avatar.Root className="inline-flex size-[45px] select-none items-center justify-center overflow-hidden rounded-full bg-black-200 align-middle">
                     <Avatar.Image
                       className="size-full rounded-[inherit] object-cover"
-                      src="images/avater.png"
+                      src="images/Avater2.svg"
                       alt="avatar"
                     />
-                    <Avatar.Fallback className="leading-1 flex size-full items-center justify-center bg-blue-200 text-[15px] font-medium text-violet11">
-                      A
-                    </Avatar.Fallback>
                   </Avatar.Root>
                 </Link>
               )}

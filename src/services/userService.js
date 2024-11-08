@@ -111,7 +111,7 @@ export const useUserService = () => {
       const accessToken = response.data.access_token;
       // Set the access token in a cookie
       const cookieOptions = {
-        expires: 1, // 1 day
+        expires: 10, // 1 day
         secure: process.env.NODE_ENV === "production",
         sameSite: "Lax",
       };

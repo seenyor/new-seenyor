@@ -1,6 +1,5 @@
 import Footer from "@/components/layouts/Footer";
-import Header from "@/components/layouts/Navbar";
-import { useAuth } from "@/context/AuthContext";
+import Header from "@/components/layouts/Navbar/index";
 export default function Layout({ children }) {
   return (
     <>
