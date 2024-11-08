@@ -214,7 +214,7 @@ const ProfessionalMonitoring = () => {
                 />
                 <div
                   style={{ backgroundImage: `url(${item?.bg})` }}
-                  className="text-start p-4"
+                  className="text-start p-4 mt-2"
                 >
                   <p className="font-semibold text-xl">{item.title}</p>
                   <p className="text-[16px]">{item.description}</p>
