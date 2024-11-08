@@ -16,8 +16,8 @@ const Installation = () => {
       >
         <div className="max-w-[1320px] w-full px-3 mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 max-w-xl ps-16 sm:ps-0 px-4">
-            <h1 className="text-4xl font-bold sm:text-2xl ">
+          <div className="relative z-10 max-w-xl px-10 tab:px-5">
+            <h1 className="font-bold text-[2rem] md:text-2xl">
               Advanced Elderly Monitoring
             </h1>
             <h1 className="text-2xl pt-2 sm:text-xl ">Installed your way!</h1>

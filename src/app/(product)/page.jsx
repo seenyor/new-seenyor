@@ -70,10 +70,10 @@ const Home = () => {
       {/* empowering section */}
       <div className=" bg-[#7F87FC] py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
         <div className="mx-auto w-full max-w-[1320px] rounded-xl text-white text-center">
-          <h3 className="font-semibold text-4xl sm:text-3xl">
+          <h3 className="font-semibold text-4xl md:px-5 tab:px-2 md:text-3xl">
             Empowering Care in Every Setting
           </h3>
-          <p className="max-w-xl mx-auto w-full text-xl sm:text-lg py-3">
+          <p className="max-w-xl mx-auto w-full text-xl md:px-5 tab:px-2 sm:text-lg py-3">
             Our solution adapts to every environment, offering peace of mind for
             families and caregivers.
           </p>
