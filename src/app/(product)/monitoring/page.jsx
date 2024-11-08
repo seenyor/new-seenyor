@@ -146,7 +146,7 @@ const ProfessionalMonitoring = () => {
             <h3 className="text-xl font-semibold">Detect</h3>
             <p>Immediate detection of falls or emergencies.</p>
           </div>
-          <div className="py-4 w-full border-l-[1.5px] tab:border-none border-slate-600 ps-5 tab:ps-0">
+          <div className="py-4 w-full border-l-[1.5px] md:border-none border-slate-600 ps-5 md:ps-0">
             <h3 className="text-xl font-semibold">Verify</h3>
             <p>
               Our agents verify each alert, using two-way communication to check
@@ -154,7 +154,7 @@ const ProfessionalMonitoring = () => {
               if needed.
             </p>
           </div>
-          <div className="py-4 w-full  border-l-[1.5px] tab:border-none tab:ps-0 border-slate-600 ps-5">
+          <div className="py-4 w-full  border-l-[1.5px] md:border-none md:ps-0 border-slate-600 ps-5">
             <h3 className="text-xl font-semibold">Response</h3>
             <p>
               If there’s no response from your loved one or their emergency
@@ -188,7 +188,7 @@ const ProfessionalMonitoring = () => {
           </p>
 
           <div className="flex tab:flex-col gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
-            <div className="w-56 md:mx-auto  h-auto">
+            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai1.png"
@@ -197,7 +197,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 md:mx-auto  h-auto">
+            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai2.png"
@@ -206,7 +206,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 md:mx-auto  h-auto">
+            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai3.png"

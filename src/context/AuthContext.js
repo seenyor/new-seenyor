@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       setAccessToken(token);
     }
-  }, []);
+  }, [email, customerMail]);
 
   const login = (token) => {
     const cookieOptions = {

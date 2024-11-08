@@ -10,6 +10,8 @@ export default function Header({ accessToken, ...props }) {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const token = useAuth();
+  console.log("tanvir", token?.accessToken);
 
   // Toggle dropdown open or close
   const handleToggle = () => {
