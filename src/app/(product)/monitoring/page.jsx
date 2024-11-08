@@ -39,7 +39,7 @@ const ProfessionalMonitoring = () => {
         className="relative sm:mb-6 mx-[100px] xxl:mx-0  h-screen sm:h-[60vh] max-h-[600px] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/servicehero.png)" }}
       >
-        <div className="max-w-[1320px] w-full mx-auto flex items-center justify-start sm:justify-center h-full">
+        <div className="w-full mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="relative z-10 max-w-xl px-10 tab:px-5">
             <h1 className="font-bold text-[2rem] md:text-2xl">

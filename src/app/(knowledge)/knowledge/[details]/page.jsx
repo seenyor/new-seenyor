@@ -79,7 +79,7 @@ const KnowledgeDetails = () => {
           >
             <ArrowLeft className="w-7 h-7" />
           </button>
-          <div className="flex w-full gap-6  overflow-x-scroll scrollbar-thin scrollbar-thumb-[#7F87FC] scrollbar-track-[#F5F5FB] pb-3">
+          <div className="flex w-full gap-6  overflow-x-scroll scrollbar-thin scrollbar-thumb-[#C6C9FE] scrollbar-track-[#8C93FC] pb-3">
             {helpTopics.map((topic, index) => (
               <Link
                 href={`/knowledge/${topic?.title}`}

@@ -27,6 +27,11 @@ export default function SecondaryNav({ accessToken, ...props }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+  const toggleSubMenu = () => {
+    setIsSubMenuOpen(!isSubMenuOpen);
+  };
   return (
     <>
       {/*<!-- Component: Navbar with CTA --> */}
@@ -99,40 +104,53 @@ export default function SecondaryNav({ accessToken, ...props }) {
                 </Link>
               </li>
 
-              <li className="relative flex items-stretch" ref={dropdownRef}>
-                <div className="flex items-center px-8">
-                  <button
-                    onClick={handleToggle}
-                    className="text-[1.3rem] cursor-pointer font-medium text-white"
-                  >
-                    Services
-                  </button>
-                  <ArrowDown className="text-[#6c7482] h-5 w-5" />
-                </div>
-                {isServicesOpen && (
-                  <div className="absolute top-10 left-0 z-10 bg-white border border-gray-200 rounded shadow-md w-52">
-                    <ul className="flex flex-col">
-                      <li>
-                        <Link
-                          href="/monitoring"
-                          className="block px-4 py-2  text-gray-700 hover:bg-gray-100"
-                          onClick={() => setIsServicesOpen(false)}
-                        >
-                          24/7 Professional Monitoring
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/installation"
-                          className="block px-4 py-2  text-gray-700 hover:bg-gray-100"
-                          onClick={() => setIsServicesOpen(false)}
-                        >
-                          Installation Options
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
+              <li>
+                <button
+                  onClick={toggleSubMenu}
+                  className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-white hover:text-blue-600 transition-colors duration-200"
+                >
+                  Services
+                  <span className="inline-block ml-1 w-4 h-4 fill-current">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className={`chevron transition-transform text-white duration-200 ${
+                        isSubMenuOpen ? "rotate-180" : ""
+                      }`}
+                    >
+                      <path
+                        transform="rotate(270, 12, 12)"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M9 12C9 12.2652 9.10536 12.5196 9.29289 12.7071L13.2929 16.7071C13.6834 17.0976 14.3166 17.0976 14.7071 16.7071C15.0976 16.3166 15.0976 15.6834 14.7071 15.2929L11.4142 12L14.7071 8.70711C15.0976 8.31658 15.0976 7.68342 14.7071 7.29289C14.3166 6.90237 13.6834 6.90237 13.2929 7.29289L9.29289 11.2929C9.10536 11.4804 9 11.7348 9 12Z"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  className={`bg-black text-[15px] subMenu ${
+                    isSubMenuOpen ? "" : "hidden"
+                  }`}
+                >
+                  <li>
+                    <Link
+                      href="/monitoring"
+                      className="block px-4 py-2 ms-7 text-[18px] text-white "
+                      onClick={() => setIsToggleOpen(false)}
+                    >
+                      24/7 Professional Monitoring
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      href="/installation"
+                      className="block px-4 py-2 ms-7 text-[18px] text-white "
+                      onClick={() => setIsToggleOpen(false)}
+                    >
+                      Installation Options
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li role="none" className="flex items-stretch">
                 <Link href="/knowledge">
@@ -147,7 +165,7 @@ export default function SecondaryNav({ accessToken, ...props }) {
               {!accessToken ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link href="/login">
-                    <button className="sm:px-3 sm:py-2 px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg">
+                    <button className="sm:px-3 mb-2 sm:py-2 px-7 py-[10px] bg-[#DFE0E3] font-semibold rounded-lg">
                       Sign In
                     </button>
                   </Link>
