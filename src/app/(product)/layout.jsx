@@ -1,10 +1,7 @@
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Navbar";
-import { cookies } from "next/headers";
-
+import { useAuth } from "@/context/AuthContext";
 export default function Layout({ children }) {
-  const cookieStore = cookies();
-  const accessToken = cookieStore.get("access_token");
   return (
     <>
       <Header />
