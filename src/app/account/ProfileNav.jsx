@@ -55,7 +55,7 @@ export default function ProfileNav() {
   const fetchUserDetails = async (id) => {
     try {
       const userDetails = await getUserDetailsById(id);
-      setUserName(userDetails.data.name);
+      setUserName(userDetails.data.name + " " + userDetails.data.last_name);
       setEmail(userDetails.data.email);
       setCustomerMail(userDetails.data.email);
       console.log("i am userdat", userDetails);
@@ -71,12 +71,9 @@ export default function ProfileNav() {
         <Avatar.Root className="inline-flex size-[45px] select-none items-center justify-center overflow-hidden rounded-full bg-black-200 align-middle">
           <Avatar.Image
             className="size-full rounded-[inherit] object-cover"
-            src="images/avater.png"
+            src="images/Avater.svg"
             alt="avatar"
           />
-          <Avatar.Fallback className="leading-1 flex size-full items-center justify-center bg-blue-200 text-[20px] font-medium text-violet11">
-            A
-          </Avatar.Fallback>
         </Avatar.Root>
         <div className="flex flex-1 flex-col items-start md:items-center">
           <Heading
