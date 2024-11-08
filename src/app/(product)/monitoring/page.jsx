@@ -36,7 +36,7 @@ const ProfessionalMonitoring = () => {
       <ScrollButton />
 
       {/* Alert verification */}
-      <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl  md:p-5 sm:p-2">
+      <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl  tab:p-5 sm:p-2">
         <p className="text-[2rem] sm:text-3xl font-semibold text-center py-2">
           Alerts Verification with Confidence
         </p>
@@ -45,7 +45,7 @@ const ProfessionalMonitoring = () => {
           for elderly safety by following a predefined checklist.
         </p>
 
-        <div className="w-full h-auto tab:min-h-[400px] mx-auto  mt-8 relative">
+        <div className="w-full h-auto tab:min-h-[400px] sm:min-h-[300px] mx-auto  mt-8 relative">
           <Image
             className="w-full h-auto tab:hidden"
             src="/images/alert.png"
@@ -54,50 +54,58 @@ const ProfessionalMonitoring = () => {
             quality={100}
             alt="alert verification"
           />
-          <div className=" grid grid-cols-4 md:grid-cols-2 w-full mx-auto md:ms-12  tab:ms-0 gap-12 px-10 md:px-2 md:gap-5 absolute top-12">
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+          <div className=" grid grid-cols-4 tab:grid-cols-2 w-full mx-auto  gap-12 px-10 tab:px-3 md:px-2 md:gap-5 absolute top-12 md:top-5">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Alert Detected</p>
-              <p className="">Instant Notifications and SMS sent</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Alert Detected
+              </p>
+              <p className="md:text-sm">Instant Notifications and SMS sent</p>
             </div>
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected2.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Calling Elderly</p>
-              <p className="">2-Way Audio from Device</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Calling Elderly
+              </p>
+              <p className="md:text-sm">2-Way Audio from Device</p>
             </div>
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected3.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Calling Contacts</p>
-              <p className="">Assigned to Aging loved ones</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Calling Contacts
+              </p>
+              <p className="md:text-sm">Assigned to Aging loved ones</p>
             </div>
-            <div className="w-52 tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
+            <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
               <Image
-                className="w-20 tab:w-12 md:w-16 mx-auto h-auto"
+                className="w-20 md:w-12 mx-auto h-auto"
                 src="/images/detected4.svg"
                 width={200}
                 height={200}
                 alt="alert verification"
               />
-              <p className="font-semibold text-xl">Calling Emergency</p>
-              <p className="">Service</p>
+              <p className="font-semibold text-xl md:text-[15px]">
+                Calling Emergency
+              </p>
+              <p className="md:text-sm">Service</p>
             </div>
           </div>
         </div>
