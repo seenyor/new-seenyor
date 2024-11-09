@@ -13,11 +13,14 @@ function Page() {
     handlePaymentStatus,
     handlePaymentSubscription,
   } = useUserService();
-  const [isProcessing, setIsProcessing] = useState(false); // State to track processing
+  const [isProcessing, setIsProcessing] = useState(true);
+  const [error, setError] = useState("");
   let sessionId;
   if (typeof window !== "undefined") {
     sessionId = new URLSearchParams(window.location.search).get("session_id");
   }
+  const isUserVerified =
+    JSON.parse(localStorage.getItem("isUserVerified")) || false;
 
   const handleOrder = async (orderData) => {
     const agent_id = localStorage.getItem("agent_id");
@@ -74,16 +77,16 @@ function Page() {
     } catch (error) {
       console.error("Error creating order:", error);
       // Handle error (e.g., show error message to user)
-    } finally {
-      setIsProcessing(false);
     }
   };
   const hasRunRef = useRef(false); // Use useRef to persist the flag across renders
   useEffect(() => {
+    if (!isUserVerified) {
+      router.push("/");
+    }
     // Ensure this runs only once
     if (sessionId && !hasRunRef.current) {
       hasRunRef.current = true; // Set the ref to true to prevent future executions
-      setIsProcessing(true);
 
       let customerId;
 
@@ -94,8 +97,6 @@ function Page() {
         })
         .then(() => handlePaymentStatus(sessionId))
         .then((response) => {
-          setIsProcessing(true);
-
           if (response.success) {
             const subscriptionProducts = JSON.parse(
               localStorage.getItem("subscriptionProducts")
@@ -103,9 +104,6 @@ function Page() {
             const user_credentials = localStorage.getItem("user_credentials");
 
             if (subscriptionProducts && subscriptionProducts.length > 0) {
-              console.log(user_credentials);
-              setIsProcessing(true);
-
               return handlePaymentSubscription(
                 customerId,
                 subscriptionProducts[0].priceId,
@@ -119,6 +117,7 @@ function Page() {
         })
         .then((response) => {
           if (response) console.log(response);
+          setIsProcessing(false);
           // Clear localStorage
           [
             "subscriptionProducts",
@@ -126,13 +125,13 @@ function Page() {
             "installation_address",
             "user_credentials",
             "agent_id",
+            "isUserVerified",
           ].forEach((item) => localStorage.removeItem(item));
         })
         .catch((error) => {
-          console.error("Error in payment process:", error);
-        })
-        .finally(() => {
+          setError("Something went wrong! Please Contact with Support");
           setIsProcessing(false);
+          console.error("Error in payment process:", error);
         });
     }
   }, [sessionId]);
@@ -196,40 +195,106 @@ function Page() {
       <div className="flex flex-col items-center justify-center gap-[1.50rem] border-b border-solid border-border py-[18.50rem] h-[100vh]">
         <div className="flex flex-col items-center self-stretch">
           <div className="container-xs flex flex-col items-center gap-[0.75rem] px-[3.50rem] md:px-[1.25rem]">
-            <Img
+            <div className="flex items-center justify-center">
+              <div
+                className={`relative w-[44px] h-[44px] flex items-center justify-center rounded-full transition-all duration-500 ease-in-out ${
+                  isProcessing
+                    ? "animate-spin border-t-transparent border-[#09032c2c]"
+                    : error
+                    ? "bg-gradient-to-t from-[#FF0000] to-[#FF4C4C]" // Red gradient for error
+                    : "bg-gradient-to-t from-[#308700] to-[#49ce00]"
+                }`}
+              >
+                <div
+                  className={`${
+                    isProcessing
+                      ? "border-t-transparent border-[#09032c2c]"
+                      : "border-transparent"
+                  } absolute bg-[#FBFDFF] inset-0 rounded-full border-[3px] w-[38px] h-[38px] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]`}
+                ></div>
+
+                {!isProcessing && (
+                  <svg
+                    className={`w-[24px] h-[24px] ${
+                      error ? "text-[#FF0000]" : "text-[#3FB400]"
+                    } animate-checkmark`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {error ? (
+                      <path d="M6 6l12 12M6 18L18 6" /> // Cross icon for error
+                    ) : (
+                      <path d="M5 13l4 4L19 7" /> // Checkmark icon for success
+                    )}
+                  </svg>
+                )}
+              </div>
+            </div>
+            {isProcessing && (
+              <p className="text-[1.13rem] font-normal leading-[1.69rem] text-body">
+                Your Order is Processing...
+              </p>
+            )}
+            {/* <Img
               src="img_checkmark.svg"
               width={44}
               height={44}
               alt="Frame 1261153926"
               className="h-[2.75rem] w-[2.75rem] rounded-[50%]"
-            />
-            <Heading
-              size="heading4xl"
-              as="h1"
-              className="text-[1.75rem] font-semibold text-text md:text-[1.63rem] sm:text-[1.50rem]"
-            >
-              Payment Successfully!
-            </Heading>
-            <Text
-              as="p"
-              className="w-[50%] text-center text-[1.13rem] font-normal leading-[1.69rem] text-body md:w-full"
-            >
-              Your payment was successful! You can now sign in to access your
-              account. Welcome, and enjoy our services!
-            </Text>
+            /> */}
+            {error && (
+              <p className="text-[1.13rem] font-normal leading-[1.69rem] text-body">
+                {error}
+              </p>
+            )}
+            {!error && (
+              <>
+                <Heading
+                  size="heading4xl"
+                  as="h1"
+                  className={` relative text-[1.75rem] font-semibold text-text md:text-[1.63rem] sm:text-[1.50rem] ${
+                    !isProcessing
+                      ? "opacity-100 bottom-0"
+                      : "opacity-0 !h-0 bottom-[-10%]"
+                  } transition-all duration-500 ease-in-out`}
+                >
+                  Order Successful!
+                </Heading>
+                <Text
+                  as="p"
+                  className={`w-[50%] text-center text-[1.13rem] font-normal leading-[1.69rem] text-body md:w-full ${
+                    !isProcessing
+                      ? "opacity-100 bottom-0"
+                      : "opacity-0 !h-0 bottom-[-15%]"
+                  } transition-all duration-500 ease-in-out`}
+                >
+                  Your order was successful! You can now sign in to access your
+                  account. Welcome, and enjoy our services!
+                </Text>
+              </>
+            )}
           </div>
         </div>
-        <div className="container-xs flex flex-col items-center px-[3.50rem] md:px-[1.25rem]">
-          <div className="flex items-center gap-[0.63rem]">
-            <Text
-              as="p"
-              className="text-[1.13rem] font-medium text-text cursor-pointer"
-            >
-              <Link href="/login">
-                {isProcessing ? "Please Wait..." : "Sign in"}
-              </Link>
-            </Text>
-            {!isProcessing && (
+        {!error && (
+          <div
+            className={`container-xs flex flex-col items-center px-[3.50rem] md:px-[1.25rem] ${
+              !isProcessing
+                ? "opacity-100 bottom-0"
+                : "opacity-0 !h-0 bottom-[-15%]"
+            } transition-all duration-500 ease-in-out`}
+          >
+            <div className="flex items-center gap-[0.63rem]">
+              <Text
+                as="p"
+                className="text-[1.13rem] font-medium text-text cursor-pointer"
+              >
+                <Link href="/login">Sign in</Link>
+              </Text>
+
               <Img
                 src="img_arrowleft_text.svg"
                 width={24}
@@ -237,10 +302,41 @@ function Page() {
                 alt="Arrow Left"
                 className="h-[1.50rem] w-[1.50rem]"
               />
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
+      <style jsx>{`
+        .border-gradient {
+          border-image: linear-gradient(to top, ##49ce00, #308700) 1;
+          border-radius: 50%;
+        }
+        @keyframes checkmarkAnimation {
+          0% {
+            opacity: 0;
+            transform: scale(0.5);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-checkmark {
+          animation: checkmarkAnimation 0.4s ease-in-out forwards;
+        }
+        .opacity-0 {
+          opacity: 0;
+        }
+
+        .transition-opacity {
+          transition: opacity 0.5s ease-in-out;
+        }
+      `}</style>
     </div>
   );
 }

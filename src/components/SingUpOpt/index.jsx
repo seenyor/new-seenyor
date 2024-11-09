@@ -3,7 +3,7 @@
 import Logo from "@/components/Logo";
 import { useAuth } from "@/context/AuthContext";
 import React, { useCallback, useRef, useState } from "react";
-import { Heading, Img, Text } from "..";
+import { Heading, Img, Text, Button } from "..";
 
 const OtpInput = React.memo(({ onChange, onKeyDown, onPaste, inputRef }) => (
   <input
@@ -90,10 +90,10 @@ const SingUpOpt = ({
     <>
       {/* Right side */}
       <div className="flex w-full items-center bg-white md:flex-col">
-        <Logo />
+        {/* <Logo /> */}
         <div className="flex flex-col gap-[1rem] h-screen  w-full justify-center ">
           {/* Back button */}
-          <button className="flex text-body  hover:text-primary transition-colors items-center w-full sm:w-10 justify-center">
+          <button className="flex text-body  hover:text-primary transition-colors items-center w-fit sm:w-10 justify-center mx-auto">
             <Img
               src="img_arrow_left.svg"
               width={18}
@@ -106,7 +106,7 @@ const SingUpOpt = ({
               as="span"
               className="text-[1.13rem] font-medium"
             >
-              Back
+              Back To Register
             </Text>
           </button>
           {/* Header */}
@@ -129,7 +129,7 @@ const SingUpOpt = ({
           </div>
 
           {/* OTP Input */}
-          <div className="flex flex-col items-center justify-center gap-6 w-full">
+          <div className="flex flex-col items-center justify-center gap-6 max-w-[550px] w-full mx-auto">
             <div className="flex justify-center md:justify-center w-[100%] flex-2 md:w-full gap-4 px-6 py-3.5 sm:px-5">
               {Array(6)
                 .fill(0)
@@ -148,12 +148,14 @@ const SingUpOpt = ({
                 {error}
               </Text>
             )}
-            <button
+            <Button
               onClick={verifyCode}
-              className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+              shape="round"
+              color="green_200_green_400_01"
+              className="w-full"
             >
               Verify Code
-            </button>
+            </Button>
             <Text as="p" className="text-[1.13rem] font-normal text-text">
               Didn&apos;t get the code?{" "}
               <button

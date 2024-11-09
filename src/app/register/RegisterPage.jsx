@@ -20,6 +20,36 @@ const SourceofLeads = [
   { label: "Nursing Home", value: "nursing_home" },
 ];
 
+const Checkbox = ({ checked, onChange, disabled, id }) => (
+  <>
+    <div
+      onClick={onChange}
+      className={`flex items-center justify-center !h-6 !w-6 border-2 rounded-md cursor-pointer transition-colors duration-300 ${
+        checked ? "bg-primary border-transparent" : "bg-white border-gray-300"
+      } ${disabled ? "opacity-80 bg-slate-200" : "opacity-100"}`}
+    >
+      {checked && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      )}
+    </div>
+    <p onClick={onChange} className="text-body text-slate-600 select-none">
+      Same as Customer Address
+    </p>
+  </>
+);
 const SelectBox = forwardRef(
   ({ name, placeholder, options = [], onChange, className, ...rest }, ref) => (
     <select
@@ -64,6 +94,8 @@ export default function RegisterPage() {
   const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState("");
   const [orderDetails, setOrderDetails] = useState(null);
+  const [useCustomerAddress, setUseCustomerAddress] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -189,7 +221,7 @@ export default function RegisterPage() {
         post_Code: data.installation_zipcode,
         state: data.installation_state,
         agent_name: data.agent_name,
-        installation_date: data.installation_date,
+        installation_date: data.installation_date || null,
         elderly_Count: data.live_with === "alone" ? 1 : 2, // Assuming "alone" means 1, otherwise 2
         lead: data.source_lead,
         // installer_id: , // Using customer's country_id as installer_id for now
@@ -209,11 +241,10 @@ export default function RegisterPage() {
     );
     try {
       setError("");
-      console.log("formattedData", formattedData);
       const response = await registerUser(formattedData);
       // Check if user registration was successful
       if (!response || !response.status) {
-        throw new Error(userResponse.message || "User registration failed.");
+        throw new Error(response.message || "User registration failed.");
       }
       if (response.status) {
         setEmail(formattedData.email);
@@ -230,8 +261,11 @@ export default function RegisterPage() {
       }
     } catch (err) {
       console.log(err);
-
-      setError(err.message || "E-mail Address Already Exist!");
+      if (err.message) setError(err.message);
+      if (err.errorResponse.keyValue) {
+        let key = Object.keys(err.errorResponse.keyValue)[0];
+        setError(key === "contact_number" ? "Phone Number Already Exist!" : "");
+      }
     }
   };
 
@@ -248,6 +282,7 @@ export default function RegisterPage() {
         otp: otp,
       });
       if (response.status) {
+        localStorage.setItem("isUserVerified", JSON.stringify(true));
         setIsOtpVerified(true);
         reset();
         router.push("/payment");
@@ -355,6 +390,27 @@ export default function RegisterPage() {
     </div>
   );
 
+  const handleUseCustomerAddressChange = (e) => {
+    console.log(e);
+
+    setUseCustomerAddress(!useCustomerAddress);
+
+    if (!useCustomerAddress) {
+      setValue("installation_address", watch("customer_address"));
+      setValue("installation_address_2", watch("customer_address_2"));
+      setValue("installation_city", watch("customer_city"));
+      setValue("installation_country_id", watch("customer_country_id"));
+      setValue("installation_zipcode", watch("customer_zipcode"));
+      setValue("installation_state", watch("customer_state"));
+    } else {
+      setValue("installation_address", "");
+      setValue("installation_address_2", "");
+      setValue("installation_city", "");
+      setValue("installation_country_id", "");
+      setValue("installation_zipcode", "");
+      setValue("installation_state", "");
+    }
+  };
   return (
     <>
       <form
@@ -484,6 +540,13 @@ export default function RegisterPage() {
                   >
                     Information about The Installation and Installation address
                   </Text>
+                </div>
+                <div className="flex items-center gap-2 w-full mb-4 ">
+                  <Checkbox
+                    checked={useCustomerAddress}
+                    onChange={handleUseCustomerAddressChange}
+                    id="sameAddress"
+                  />
                 </div>
                 <div id="Fields" className="flex flex-col gap-4">
                   {renderField({

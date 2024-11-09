@@ -6,7 +6,7 @@ export default function AccountLayout({ children }) {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");
   return (
-    <div className="flex w-full flex-col items-center py-[1.50rem] sm:py-[1.25rem]">
+    <div className="flex w-full flex-col items-center">
       <Header accessTokenProp={accessToken} />
       <div className="container-xss min-h-[70vh] mb-[0.25rem] flex flex-col gap-[4.38rem] md:gap-[3.25rem] md:px-[1.25rem] sm:gap-[2.19rem] h-full pt-12">
         {/* here will be header */}
