@@ -32,11 +32,11 @@ const monitoringData = [
 ];
 const PeaceOfMind = () => {
   return (
-    <div className="max-w-[1320px] my-0 mx-auto w-full  rounded-xl">
-      <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
+    <div className="max-w-[1720px] my-0 mx-auto w-full  rounded-xl">
+      <p className="text-[40px] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
         Peace of Mind Made Easy – No fuss, no wearables
       </p>
-      <p className="text-center text-[28px] md:text-xl tab:text-lg">
+      <p className="text-center text-[30px] md:text-xl tab:text-lg">
         Effortless Peace of Mind with 24/7 Protection – No Wearables, Just
         Reliable Safety
       </p>
@@ -45,12 +45,14 @@ const PeaceOfMind = () => {
         <div className="w-1/2 md:w-full bg-[#EAEAEA]">
           <div className="text-center">
             <ClockIcon className="mx-auto mt-5" height={35} width={35} />
-            <h3 className="text-2xl font-semibold pt-2">24/7 Protection</h3>
-            <p className="text-lg px-2">
+            <h3 className="text-3xl md:text-2xl font-semibold pt-2">
+              24/7 Protection
+            </h3>
+            <p className=" text-lg px-2">
               Non-intrusive, without the hassle of wearable devices.
             </p>
           </div>
-          <div className="h-96 w-full relative">
+          <div className="h-[500px] md:h-[420px] w-full relative">
             <Image
               src="/images/test 223.png"
               height={500}
@@ -84,12 +86,14 @@ const PeaceOfMind = () => {
         <div className="w-1/2 md:w-full bg-[#EAEAEA]">
           <div className="text-center">
             <ClockIcon className="mx-auto mt-5" height={35} width={35} />
-            <h3 className="text-2xl font-semibold pt-2">24/7 Monitoring</h3>
+            <h3 className="text-3xl md:text-2xl font-semibold pt-2">
+              24/7 Monitoring
+            </h3>
             <p className="text-lg ">
               with AI-driven insights for smarter protection.
             </p>
           </div>
-          <div className="h-96 w-full px-5">
+          <div className="h-[500px] md:h-auto w-full px-5">
             <div className="flex justify-between w-full gap-3 py-5">
               <div className="w-1/2 flex flex-col gap-2">
                 <Image
@@ -97,14 +101,14 @@ const PeaceOfMind = () => {
                   height={200}
                   width={300}
                   alt="patience"
-                  className="h-36 w-96 object-cover"
+                  className="h-[219px] w-[382px] md:h-full md:w-auto"
                 />
                 <Image
                   src="/images/monitoring3.png"
                   height={200}
                   width={300}
                   alt="patience"
-                  className="h-36 w-96 object-cover"
+                  className="h-[219px] w-[382px] md:h-full md:w-auto"
                 />
               </div>
               <div className="w-1/2">
@@ -113,7 +117,7 @@ const PeaceOfMind = () => {
                   height={300}
                   width={300}
                   alt="patience"
-                  className="h-[18.5rem] w-full object-cover"
+                  className="h-[451px] md:h-auto w-full object-cover"
                 />
               </div>
             </div>

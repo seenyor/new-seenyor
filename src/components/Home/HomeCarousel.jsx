@@ -20,7 +20,7 @@ const slides = [
     title: "Peace of Mind Monitoring",
     subtitle:
       "Your loved one is safe, day and night. Every breath, every moment - gently watched over, so you never have to worry",
-    image: "/images/safety.png",
+    image: "/images/slider1/safety.webp",
     color: "7F87FC",
     icon: "/images/icon1.svg",
   },
@@ -29,7 +29,7 @@ const slides = [
     title: "Rest Easy, Night After Night",
     subtitle:
       "Know they’re safe and sound as they drift into a peaceful sleep. Seenyor watches over every quiet moment.",
-    image: "/images/sleeping.png",
+    image: "/images/slider1/sleeping.webp",
     color: "34CECE",
     icon: "/images/icon2.svg",
   },
@@ -38,7 +38,7 @@ const slides = [
     title: "Activity Monitoring",
     subtitle:
       "From morning walks to quiet moments, Seenyor keeps a gentle eye on their every steps-so you don't have to.",
-    image: "/images/activity.png",
+    image: "/images/slider1/activity.webp",
     color: "9747FF",
     icon: "/images/icon3.svg",
   },
@@ -47,7 +47,7 @@ const slides = [
     title: "Safety, When It Matters Most",
     subtitle:
       "With every step they take, you can rest assured that Seenyor is there to catch them if they fall.",
-    image: "/images/falls.png",
+    image: "/images/slider1/falls.webp",
     color: "FF6633",
     icon: "/images/icon4.svg",
   },
@@ -56,7 +56,7 @@ const slides = [
     title: "Smart Insights for Peace of Mind",
     subtitle:
       "Seenyor analyzes all data and turns it into simple updates, helping you easily understand your loved one's well-being.",
-    image: "/images/ai.png",
+    image: "/images/slider1/ai.webp",
     color: "B9B0CD",
     icon: "/images/icon5.svg",
   },
@@ -65,7 +65,7 @@ const slides = [
     title: "Know Where They Are, When It Matters",
     subtitle:
       "Seenyor tracks their exact location at home, so you’ll know immediately if they fall or are resting safely.",
-    image: "/images/location.png",
+    image: "/images/slider1/location.webp",
     color: "FF006E",
     icon: "/images/icon6.svg",
   },
@@ -74,7 +74,7 @@ const slides = [
     title: "Stay Connected When They Need You",
     subtitle:
       "With Two-Way Communication, they can call for help, and you’ll respond instantly—whether it's a quick check-in or something more serious.",
-    image: "/images/communication.png",
+    image: "/images/slider1/communication.webp",
     color: "4285F4",
     icon: "/images/icon7.svg",
   },
@@ -105,7 +105,7 @@ export default function HomeCarousel() {
   }, [isAutoPlaying]);
 
   return (
-    <div className="flex flex-row md:flex-col h-screen md:h-[500px] max-h-[650px] max-w-7xl my-0 w-full mx-auto  bg-[#F3F4F6]">
+    <div className="flex flex-row md:flex-col h-screen md:h-[450px] tab:h-[320px] max-h-[800px] xxl:max-h-[650px] max-w-[1720px] my-0 w-full mx-auto  bg-[#F3F4F6]">
       {/* Sidebar */}
       <div className="w-64 md:hidden  border-r border-gray-200 p-4">
         <div className="space-y-2 sm:space-y-1">
@@ -144,13 +144,13 @@ export default function HomeCarousel() {
               {/* Header */}
               <div
                 style={{ backgroundColor: `#${slides[currentSlide].color}` }}
-                className="absolute top-0 py-5 sm:py-1 sm:px-2 text-white  z-40 w-full px-12 flex flex-row items-start justify-between mb-8"
+                className="absolute top-0 py-5 tab:py-1 tab:px-2 text-white  z-40 w-full px-12 flex flex-row items-start justify-between mb-8"
               >
                 <div className="space-y-2 sm:space-y-0">
-                  <h1 className="text-2xl sm:text-[16px] font-bold">
+                  <h1 className="text-2xl tab:text-[16px] font-bold">
                     {slides[currentSlide].title}
                   </h1>
-                  <p className="max-w-2xl md:text-sm sm:text-xs">
+                  <p className="max-w-2xl md:text-sm tab:text-xs">
                     {slides[currentSlide].subtitle}
                   </p>
                 </div>

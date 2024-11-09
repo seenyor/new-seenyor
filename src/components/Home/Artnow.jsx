@@ -43,11 +43,11 @@ const Artnow = () => {
   return (
     <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl">
       <div className="flex justify-center">
-        <p className="bg-neutral-950 text-white my-0  rounded-md px-[1.4rem] py-[6px] font-semibold">
+        <p className="bg-neutral-950 tab:mt-8 text-white my-0 text-[40px] tab:text-2xl md:text-3xl px-16 py-[8px] font-semibold">
           Act Now
         </p>
       </div>
-      <p className="text-[1.4rem] text-center py-4">
+      <p className="text-[40px] tab:text-2xl md:text-3xl pb-12 tab:pb-5 text-center py-4">
         Protect Your Loved Ones Before It’s Too Late
       </p>
 
@@ -56,7 +56,7 @@ const Artnow = () => {
         {cardData.map((card) => (
           <div
             key={card.id}
-            className="h-[450px] md:w-full tab:h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
+            className="h-[569px] md:h-[350px] w-full max-w-[426px] tab:h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
           >
             {/* Image */}
             <figure>
@@ -66,24 +66,24 @@ const Artnow = () => {
                 height={300}
                 width={200}
                 quality={80}
-                className="object-cover h-60 md:h-62 tab-h-auto w-full"
+                className="object-cover h-[278px] tab:h-auto md:h-[146px] tab-h-auto w-full"
               />
             </figure>
 
             {/* Body */}
             <div className="p-2">
-              <h3 className="text-xl py-2 md:text-[16px] font-semibold">
+              <h3 className="text-[22px] py-2 md:text-[16px] font-semibold">
                 {card.title}
               </h3>
-              <p className="text-sm">{card.description}</p>
+              <p className="text-[18px] md:text-sm">{card.description}</p>
             </div>
-            <p className="text-xs md:text-[10px] absolute bottom-5 left-3">
+            <p className="text-sm md:text-[12px] absolute bottom-5 left-3">
               {card.bottomText}
             </p>
 
             {/* Tag and Icon */}
             <div className="absolute top-3 z-10 w-full">
-              <div className="flex justify-between items-center px-5">
+              <div className="flex justify-between items-center px-5 md:px-2 tab:px-5">
                 <p
                   className="text-xs md:text-[10px] font-semibold inline-block px-3 md:px-2 py-2 rounded-3xl"
                   style={{ backgroundColor: card.tagBgColor }}

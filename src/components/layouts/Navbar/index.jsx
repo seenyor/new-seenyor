@@ -39,8 +39,8 @@ export default function Header() {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full px-6 max-w-[1320px]">
-          <nav className="flex h-[6.5rem] py-4 md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
+        <div className="relative mx-auto w-full py-12 px-6 max-w-[1720px]">
+          <nav className="flex h-[6.5rem] md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
               className="md:flex items-center gap-2 py-3 my-auto text-lg whitespace-nowrap focus:outline-none flex-1"
@@ -49,9 +49,9 @@ export default function Header() {
               <Img
                 src="img_group_1.svg"
                 width={158}
-                height={32}
+                height={48}
                 alt="Frame 1000008413"
-                className="flex object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                className="flex h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 onClick={() => {
                   window.open("/", "_self");
                 }}
@@ -176,7 +176,7 @@ export default function Header() {
                     onClick={() => setIsToggleOpen(false)}
                     href="/systembuilder"
                   >
-                    <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
+                    <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#80CAA7] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
                   </Link>
@@ -260,7 +260,7 @@ export default function Header() {
                     Sign In
                   </Link>
                   <Link
-                    className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
+                    className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#80CAA7] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started

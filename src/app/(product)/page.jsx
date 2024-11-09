@@ -7,22 +7,23 @@ import CallbackForm from "@/components/Home/CallbackForm";
 import HomeCarousel from "@/components/Home/HomeCarousel";
 import ScrollButton from "@/components/ScrollButton";
 import Link from "next/link";
+import GetStartArea from "@/components/GetStartArea";
 const Home = () => {
   return (
-    <div className=" flex w-full flex-col gap-16 tab:gap-5 bg-white px-6 tab:px-2 pt-5">
+    <div className=" flex w-full flex-col gap-20 tab:gap-5 bg-white px-6 tab:px-2 ">
       {/* hero section* */}
       <div className="mx-auto w-full">
-        <div className="bg-[#F3F4F6] overflow-hidden relative px-10 tab:px-5 mx-[100px] xxl:mx-0 md:mx-0 py-32 md:py-20 rounded-xl">
-          <div className="flex tab:flex-col gap-4 items-start justify-between ">
-            <div className="w-[68%] tab:w-full  ">
-              <h3 className="font-bold text-[2rem] md:text-2xl">
+        <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto px-20 md:px-10 tab:px-5 max-w-[1720px] w-full mx-auto md:mx-0 py-32 md:py-20 rounded-xl">
+          <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
+            <div className="w-[70%] tab:w-full  ">
+              <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
                 Protect Your Loved Ones Before It’s Too Late
               </h3>
-              <p className="text-[1.3rem] md:text-[16px] md:pt-4 tab:pt-2">
+              <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
                 1 in 4 People Over 65 Falls Each Year – Don’t Let Your Loved
                 Ones Be Next
               </p>
-              <p className="text-md my-7 tab:my-4 md:text-sm">
+              <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
                 Stay connected and ensure 24/7 protection, even when you can’t
                 be there. Our non-wearable device detects falls instantly and
                 monitors their safety around the clock.
@@ -36,13 +37,13 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-[32%] -mt-10 md:mt-0 tab:w-full">
+            <div className="w-[30%] -mt-10 md:mt-0 tab:w-full">
               <Image
                 src="/images/product2.png"
                 height={200}
                 width={300}
                 alt="Product"
-                className="w-auto scale-125 tab:scale-100 ms-20 md:ms-10  h-full tab:mx-auto"
+                className="w-auto scale-125 tab:scale-100 ms-20 md:ms-10  h-full tab:ms:5"
               />
             </div>
           </div>
@@ -57,18 +58,18 @@ const Home = () => {
       <Artnow />
       <PeaceOfMind />
 
-      <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl mb-12 tab:mb-0">
-        <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
+      <div className="max-w-[1720px] my-0 mx-auto w-full rounded-xl mb-12 tab:mb-0">
+        <p className="text-[40px] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
           Comprehensive Home Monitoring
         </p>
-        <p className="text-center text-[24px] md:text-xl tab:text-lg pb-10 sm:text-lg max-w-4xl mx-auto w-full px-5">
+        <p className="text-center text-[30px] md:text-xl tab:text-lg pb-10 sm:text-lg max-w-5xl mx-auto w-full px-5">
           Effortlessly monitor your loved one’s health and safety, whether
           they’re resting or moving around the house, day or night.
         </p>
         <HomeCarousel />
       </div>
       {/* empowering section */}
-      <div className=" bg-[#7F87FC] py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
+      <div className=" bg-[#7F87FC] h-[750px] md:h-auto flex justify-center items-center py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
         <div className="mx-auto w-full max-w-[1320px] rounded-xl text-white text-center">
           <h3 className="font-semibold text-4xl md:px-5 tab:px-2 md:text-3xl">
             Empowering Care in Every Setting
@@ -156,16 +157,7 @@ const Home = () => {
       {/* Services for Peace of Mind */}
       <ServiceForPeace />
 
-      <div className="max-w-7xl my-0 w-full mx-auto rounded-xl  md:p-5 sm:p-2 bg-[#2C3142] flex justify-between items-center px-8 py-6 sm:text-sm sm:px-4 sm:py-3">
-        <p className="text-white">
-          Your Journey to Safety and Peace of Mind Begins Here
-        </p>
-        <Link href="/systembuilder">
-          <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
-            Get Started
-          </button>
-        </Link>
-      </div>
+      <GetStartArea />
 
       <CallbackForm />
       {/* <Footer /> */}

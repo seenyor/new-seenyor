@@ -30,22 +30,22 @@ const services = [
 const ServiceForPeace = () => {
   return (
     <div className="my-0 mb-40 sm:mb-5 mx-auto w-full rounded-xl bg-[#F3F4F6] ">
-      <div className="max-w-[1320px] md:p-5 sm:p-3  mx-auto w-full">
-        <p className="text-[2.3rem] md:text-[1.8rem] tab:text-[1.6rem] pt-8 text-[#FF6633] font-semibold text-center py-2">
+      <div className="max-w-[1320px] md:p-3 sm:p-3  mx-auto w-full">
+        <p className="text-[40px] md:text-[1.8rem] tab:text-[1.6rem] pt-8 font-semibold text-center py-2">
           Services for Peace of Mind
         </p>
-        <p className="text-center text-[28px] md:text-xl tab:text-lg max-w-4xl mx-auto sm:text-lg">
+        <p className="text-center text-[30px] md:text-xl tab:text-lg max-w-7xl mx-auto sm:text-lg">
           From professional installation to ongoing monitoring, we ensure that
           you and your loved ones receive the highest level of support and peace
           of mind.
         </p>
 
         {/* cards */}
-        <div className="flex justify-between items-center w-full tab:flex-col my-5 gap-6">
+        <div className="flex justify-between items-center w-full tab:flex-col my-5 gap-6 md:gap-3">
           {services.map((service) => (
             <div
               key={service.id}
-              className="h-[450px] -mb-40 tab:mb-0 tab:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
+              className="h-[520px] md:h-[450px] w-full -mb-40 tab:mb-0 tab:h-[650px] sm:h-[450px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
             >
               {/* Image Section */}
               <figure>
@@ -54,20 +54,20 @@ const ServiceForPeace = () => {
                   alt={service.title}
                   height={300}
                   width={200}
-                  className="h-60 md:h-48 tab-h-auto object-cover w-full"
+                  className="object-cover h-[258px] tab:h-auto md:h-[146px] tab-h-auto w-full"
                 />
               </figure>
 
               {/* Body Section */}
               <div className="p-3 md:p-2">
-                <h3 className="text-xl md:text-[16px] font-semibold">
+                <h3 className="text-[22px] md:text-[14px] py-3 font-semibold">
                   {service.title}
                 </h3>
-                <p className="text-sm">{service.description}</p>
+                <p className="text-[16px] md:text-sm">{service.description}</p>
               </div>
 
               {/* Footer Text */}
-              <p className="text-xs absolute bottom-5 left-3">
+              <p className="text-sm md:text-xs absolute bottom-5 left-3">
                 {service.footerText}
               </p>
             </div>
