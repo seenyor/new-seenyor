@@ -23,10 +23,10 @@ function Page() {
     JSON.parse(localStorage.getItem("isUserVerified")) || false;
 
   const handleOrder = async (orderData) => {
-    const agent_id = localStorage.getItem("agent_id");
-    const installation_address = localStorage.getItem("installation_address");
+    const agent_details = localStorage.getItem("agent_details");
+    const installation_details = localStorage.getItem("installation_details");
     const user_credentials = localStorage.getItem("user_credentials");
-    const addressPharsed = JSON.parse(installation_address);
+    const addressPharsed = JSON.parse(installation_details);
     const order = {
       total: orderData.amount_total / 100,
       grand_total: orderData.amount_total / 100,
@@ -34,7 +34,8 @@ function Page() {
       payment_status: "pending",
       payment_method: orderData.payment_method_types[0],
       transaction_id: orderData.payment_intent,
-      agent_unique_id: JSON.parse(agent_id),
+      agent_unique_id: JSON.parse(agent_details).agent_id,
+      installation_date: addressPharsed.installation_date,
       email: JSON.parse(user_credentials).email,
       password: JSON.parse(user_credentials).password,
       products: orderData.line_items.map((item) => ({
@@ -122,9 +123,9 @@ function Page() {
           [
             "subscriptionProducts",
             "orderDetails",
-            "installation_address",
+            "installation_details",
             "user_credentials",
-            "agent_id",
+            "agent_details",
             "isUserVerified",
           ].forEach((item) => localStorage.removeItem(item));
         })
