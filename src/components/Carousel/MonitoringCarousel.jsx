@@ -79,17 +79,17 @@ export default function MonitoringCarousel() {
   }, []);
 
   return (
-    <div className="w-full max-h-[750px] md:max-h-[1400px] max-w-[1320px] mx-auto py-4">
+    <div className="w-full h-screen md:h-auto max-h-[825px] md:max-h-[1400px] max-w-[1720px] mx-auto py-4">
       <div className="flex !h-full md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
         {/* Left side - Feature content */}
-        <div className="w-[55%] md:w-full p-8 pb-0 text-white">
+        <div className="w-[55%] md:h-[650px] tab:h-[600px] relative md:w-full p-8 px-16 md:px-8 tab:px-3 pb-0 text-white">
           {/* Top navigation tabs */}
-          <div className="flex justify-start sm:grid sm:grid-cols-2 sm:gap-3 mb-4">
+          <div className="flex justify-start sm:grid sm:grid-cols-2 sm:gap-3 mb-12 tab:mb-5 my-7 ">
             {features.map((feature, index) => (
               <motion.button
                 key={feature.id}
                 onClick={() => setActiveFeature(index)}
-                className={`text-white px-4 sm:px-0 py-2 text-sm font-medium ${
+                className={`text-white px-4 xxl:px-2 tab:px-0 py-2 tab:py-0 text-[22px]  xxl:text-[16px] tab:text-[14px] font-medium ${
                   activeFeature === index
                     ? "border-b-2 border-[#FFCB33]"
                     : "hover:text-gray-100"
@@ -105,6 +105,7 @@ export default function MonitoringCarousel() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            className="tab:px-5"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -114,14 +115,17 @@ export default function MonitoringCarousel() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-4xl sm:text-2xl font-bold mb-4 sm:mb-2">
+                <h2 className="text-[40px] tab:text-xl font-bold mb-4 sm:mb-2">
                   {features[activeFeature].title}
                 </h2>
-                <h2 className="text-2xl mb-6">
+                <h2 className="text-3xl md:text-2xl tab:text-lg mb-10 md:mb-6">
                   {features[activeFeature].subtitle}
                 </h2>
                 {features[activeFeature].content.map((item, index) => (
-                  <p key={index} className="mb-3">
+                  <p
+                    key={index}
+                    className="mb-5 md:mb-3 tab:mb-2 text-xl md:text-[16px]"
+                  >
                     {item}
                   </p>
                 ))}
@@ -129,12 +133,12 @@ export default function MonitoringCarousel() {
             </AnimatePresence>
           </motion.div>
           {/* Bottom navigation bars */}
-          <div className="flex justify-start mt-10 mb-5 space-x-2">
+          <div className="flex absolute bottom-6 tab:bottom-3 left-12 tab:left-10 justify-start mt-16 md:mt-10 mb-5 space-x-2">
             {features.map((feature, index) => (
               <motion.button
                 key={feature.id}
                 onClick={() => setActiveFeature(index)}
-                className={`h-1 rounded-full transition-all ${
+                className={`h-2 rounded-full transition-all ${
                   activeFeature === index ? "bg-white w-12" : "bg-gray-400 w-6"
                 }`}
                 whileHover={{ scale: 1.1 }}
@@ -147,7 +151,7 @@ export default function MonitoringCarousel() {
         </div>
         {/* Right side - Mobile app mockup */}
         <motion.div
-          className="w-[45%] md:w-full bg-white flex items-center justify-center  mx-auto h-[500px] overflow-hidden"
+          className="w-[45%] md:w-full md:h-[45%] bg-white  flex items-end justify-center  mx-auto h-full overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -155,6 +159,7 @@ export default function MonitoringCarousel() {
           <Image
             src={`/images/${features[activeFeature].image}`}
             height={500}
+            className="h-[90%] w-auto"
             width={300}
             alt=""
           />
