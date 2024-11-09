@@ -14,6 +14,14 @@ export default function AccountDone() {
   const router = useRouter();
   const [isProcessing, setIsProcessing] = useState(false);
   const { country } = useAuth();
+  const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
+  const isUserVerified =
+    JSON.parse(localStorage.getItem("isUserVerified")) || false;
+  console.log("i am orderDetails", isUserVerified);
+  if (!orderDetails || !isUserVerified) {
+    router.push("/");
+    return;
+  }
   const processPayment = async () => {
     const stripeCustomerId = await getStripeCustomerId();
     console.log("i am stripeCustomerId", stripeCustomerId);
@@ -23,12 +31,6 @@ export default function AccountDone() {
       return;
     }
 
-    const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
-    console.log("i am orderDetails", orderDetails);
-    if (!orderDetails) {
-      router.push("/");
-      return;
-    }
     setIsProcessing(true);
 
     try {
