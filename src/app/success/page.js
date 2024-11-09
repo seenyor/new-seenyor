@@ -19,8 +19,7 @@ function Page() {
   if (typeof window !== "undefined") {
     sessionId = new URLSearchParams(window.location.search).get("session_id");
   }
-  const isUserVerified =
-    JSON.parse(localStorage.getItem("isUserVerified")) || false;
+  const [isUserVerified, setIsUserVerified] = useState(false);
 
   const handleOrder = async (orderData) => {
     const agent_details = localStorage.getItem("agent_details");
@@ -82,8 +81,13 @@ function Page() {
   };
   const hasRunRef = useRef(false); // Use useRef to persist the flag across renders
   useEffect(() => {
-    if (!isUserVerified) {
-      router.push("/");
+    if (typeof window !== "undefined") {
+      const verified =
+        JSON.parse(localStorage.getItem("isUserVerified")) || false;
+      setIsUserVerified(verified);
+      if (!verified) {
+        router.push("/");
+      }
     }
     // Ensure this runs only once
     if (sessionId && !hasRunRef.current) {
