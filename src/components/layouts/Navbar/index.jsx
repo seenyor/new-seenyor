@@ -39,7 +39,7 @@ export default function Header() {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full py-12 px-6 max-w-[1720px]">
+        <div className="relative mx-auto w-full py-12 md:py-6 px-6 max-w-[1720px]">
           <nav className="flex h-[6.5rem] md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a

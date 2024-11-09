@@ -2,7 +2,7 @@ const CallbackForm = () => {
   return (
     <div
       id="call_back_form"
-      className="max-w-7xl my-0 mx-auto w-full p-10 rounded-xl  md:p-5 sm:p-2"
+      className="max-w-[1320px] my-0 mx-auto w-full p-5 rounded-xl  md:p-5 sm:p-2"
     >
       <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
         Request a Call-Back

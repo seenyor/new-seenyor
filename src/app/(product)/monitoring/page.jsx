@@ -36,16 +36,14 @@ const ProfessionalMonitoring = () => {
     <div className=" flex flex-col gap-16 tab:gap-5 bg-white px-6 tab:px-2">
       {/* hero */}
       <section
-        className="relative sm:mb-6 mx-[100px] xxl:mx-0  h-screen sm:h-[60vh] max-h-[600px] bg-cover bg-center bg-no-repeat"
+        className="relative sm:mb-6 max-w-[1720px] w-full mx-auto max-h-[780px] md:h-[400px] tab:h-[300px]  px-20 md:px-10 tab:px-5 h-screen  bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/servicehero.png)" }}
       >
         <div className="w-full mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 max-w-xl px-10 tab:px-5">
-            <h1 className="font-bold text-[2rem] md:text-2xl">
-              24/7 Monitoring
-            </h1>
-            <h1 className="text-2xl pt-2 sm:text-xl ">
+          <div className="relative z-10 max-w-xl ">
+            <h1 className="font-bold text-5xl md:text-3xl">24/7 Monitoring</h1>
+            <h1 className="text-3xl md:text-2xl pt-2 sm:text-xl ">
               by Professional Agents.
             </h1>
             <p className="mt-4 text-xl md:text-lg">

@@ -1,5 +1,6 @@
 "use client";
 import { Img } from "@/components";
+import GetStartArea from "@/components/GetStartArea";
 import CallbackForm from "@/components/Home/CallbackForm";
 import ScrollButton from "@/components/ScrollButton";
 import { ArrowDown } from "lucide-react";
@@ -8,19 +9,21 @@ import Link from "next/link";
 
 const Installation = () => {
   return (
-    <div className=" flex  flex-col gap-16 tab:gap-5 bg-white px-6 tab:px-2">
+    <div className=" flex  flex-col gap-20 tab:gap-5 bg-white px-6 tab:px-2">
       {/* hero */}
       <section
-        className="relative sm:mb-6 mx-[100px] xxl:mx-0  h-screen sm:h-[60vh] max-h-[600px] bg-cover bg-center bg-no-repeat"
+        className="relative sm:mb-6 max-w-[1720px] w-full mx-auto max-h-[780px] md:h-[400px] tab:h-[370px]  px-20 md:px-10 tab:px-5 h-screen  bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/servicebanner2.png)" }}
       >
         <div className="w-full  mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative z-10 max-w-xl px-10 tab:px-5">
-            <h1 className="font-bold text-[2rem] md:text-2xl">
+          <div className="relative z-10 max-w-3xl">
+            <h1 className="font-bold text-[48px] md:text-3xl tab:text-2xl">
               Advanced Elderly Monitoring
             </h1>
-            <h1 className="text-2xl pt-2 sm:text-xl ">Installed your way!</h1>
+            <h1 className="text-3xl md:text-2xl tab:text-xl pt-2 ">
+              Installed your way!
+            </h1>
             <p className="mt-4 sm:mt-2 text-xl md:text-lg">
               Choose professional installation or easy self-setup for complete
               peace of mind.
@@ -30,28 +33,28 @@ const Installation = () => {
                 Protect Them Now
               </button>
             </Link>
-            <p className="text-sm mt-32">
-              *Note: Incorrect installation may affect accuracy.
-            </p>
           </div>
         </div>
+        <p className="text-sm absolute bottom-5 left-5">
+          *Note: Incorrect installation may affect accuracy.
+        </p>
       </section>
       <ScrollButton />
 
       {/* Two options start */}
-      <div className="max-w-[1320px] my-0 mx-auto w-full  rounded-xl md:p-5 sm:p-2">
+      <div className="max-w-[1720px] my-0 mx-auto w-full  rounded-xl md:p-5 sm:p-2">
         <div className="flex justify-center">
-          <button className="bg-neutral-950 text-white my-0  rounded-[10px] px-[1.2rem] py-[6px] font-semibold">
+          <button className="bg-neutral-950 text-[40px] md:text-2xl text-white my-0  rounded-[10px] px-[1.2rem] py-[6px] font-semibold">
             Two Options
           </button>
         </div>
-        <p className="text-[1.4rem] text-center py-4">
+        <p className=" text-center pb-8 py-4 text-[40px] md:text-2xl">
           Same, Advanced Elderly Care System
         </p>
 
         {/* cards */}
         <div className="flex justify-between items-center w-full md:flex-col gap-6">
-          <div className="h-[750px] sm:h-[650px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+          <div className="h-[1080px] md:h-[920px] w-full tab:h-[780px] sm:h-[750px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
             {/*  <!-- Image --> */}
             <figure>
               <Image
@@ -59,11 +62,11 @@ const Installation = () => {
                 alt="stroke"
                 height={500}
                 width={500}
-                className="h-auto max-h-[400px] w-full"
+                className="h-auto max-h-[650px] sm:h-[374px] w-full"
               />
             </figure>
             <div className="absolute top-6 z-10 w-full ">
-              <div className="px-5 ">
+              <div className="px-5 pt-8 md:pt-0 ">
                 <Img
                   src="setting.svg"
                   width={156}
@@ -71,10 +74,10 @@ const Installation = () => {
                   alt="Group 1"
                   className="w-12 h-12 sm:w-8 sm:h-8 mx-auto object-contain"
                 />
-                <p className="text-[1.4rem] font-semibold text-center py-2">
+                <p className=" text-[30px] md:text-[1.4rem] sm:text-[16px] font-semibold text-center py-2">
                   Set it up Yourselfe
                 </p>
-                <p className="max-w-3xl text-center">
+                <p className="max-w-3xl text-xl md:text-[16px] sm:text-sm text-center">
                   Install Your Seenyor System in Minutes with Interactive
                   Guidance
                 </p>
@@ -84,7 +87,7 @@ const Installation = () => {
               Please note: Incorrect installation may affect accuracy.
             </p>
             {/*  <!-- Body--> */}
-            <p className="text-center text-sm p-2">
+            <p className="text-center text-[18px] tab:text-sm px-5 sm:px-0 py-5">
               Your Seenyor system can be installed on the ceiling or wall,
               guided by our app’s interactive setup process. From mounting to
               network pairing, our step-by-step instructions make it easy for
@@ -93,7 +96,7 @@ const Installation = () => {
               performance.
             </p>
 
-            <div className="flex justify-between gap-6 mx-8 sm:mx-3 my-5">
+            <div className="flex justify-between gap-6 mx-20 md:mx-8 sm:mx-3 my-5">
               <div className="w-full max-w-48">
                 <Image
                   src="/images/mobile.svg"
@@ -120,7 +123,7 @@ const Installation = () => {
               </div>
             </div>
           </div>
-          <div className="h-[750px] sm:h-[650px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
+          <div className="h-[1080px] md:h-[920px] w-full tab:h-[780px] sm:h-[750px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md">
             {/*  <!-- Image --> */}
             <figure>
               <Image
@@ -128,11 +131,11 @@ const Installation = () => {
                 alt="stroke"
                 height={500}
                 width={500}
-                className="h-auto max-h-[400px] w-full"
+                className="h-auto max-h-[650px] sm:h-[374px] w-full"
               />
             </figure>
             <div className="absolute top-6 z-10 w-full ">
-              <div className="px-5 ">
+              <div className="px-5  pt-8 md:pt-0 ">
                 <Img
                   src="hand.svg"
                   width={156}
@@ -140,21 +143,21 @@ const Installation = () => {
                   alt="Group 1"
                   className="w-12 h-12 sm:w-8 sm:h-8 mx-auto object-contain"
                 />
-                <p className="text-[1.4rem] font-semibold text-center py-2">
+                <p className=" text-[30px] md:text-[1.4rem] sm:text-[16px] font-semibold text-center sm:py-0 py-2">
                   Professional Installation for Complete Peace of Mind
                 </p>
-                <p className="max-w-3xl text-center">
+                <p className="max-w-3xl text-xl md:text-[16px] sm:text-sm text-center">
                   Expert setup for optimal performance and worry-free use.
                 </p>
               </div>
             </div>
             <div className="absolute bottom-0 flex justify-center w-full">
-              <p className="text-sm bg-[#000] text-white font-semibold px-3 py-2 rounded-md">
+              <p className="text-sm bg-[#000] text-white font-semibold px-3 py-2 rounded-t-md">
                 Peace of Mind
               </p>
             </div>
             {/*  <!-- Body--> */}
-            <p className="text-center text-sm p-2">
+            <p className="text-center text-[18px] tab:text-sm px-5 sm:px-0 py-5">
               Schedule a professional installation with one of our trained
               technicians. They’ll handle everything from wiring to Wi-Fi setup
               and thorough device testing, ensuring your Seenyor system is
@@ -203,33 +206,26 @@ const Installation = () => {
             </div>
           </div>
         </div>
-        <div className="border border-b-1 border-black-900 mt-12"></div>
+        {/* <div className="border border-b-1 border-black-900 mt-12"></div> */}
       </div>
       {/* Two options end */}
 
       {/* Intelligent care */}
 
-      <div className="max-w-[1320px] my-0 w-full mx-auto rounded-xl  md:p-5 sm:p-2 bg-[#2C3142] flex justify-between items-center px-8 py-6 gap-3 sm:text-sm sm:px-4 sm:py-3">
-        <p className="text-white">
-          Your Journey to Safety and Peace of Mind Begins Here
-        </p>
-        <Link href="/systembuilder">
-          <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
-            Get Started
-          </button>
-        </Link>
-      </div>
+      <GetStartArea />
       {/* how it works */}
 
-      <div className=" bg-[#7F87FC] py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
+      <div className=" bg-[#7F87FC] h-[750px] flex justify-center items-center md:h-auto py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
         <div className="mx-auto w-full max-w-[1320px] rounded-xl text-white text-center">
-          <h3 className="font-semibold text-4xl sm:text-3xl">How it works?</h3>
-          <p className="max-w-xl mx-auto w-full text-xl sm:text-lg py-3">
+          <h3 className="font-semibold text-[40px] sm:text-3xl">
+            How it works?
+          </h3>
+          <p className=" text-center px-5 w-full text-2xl sm:text-lg py-3">
             Follow these simple steps to purchase and set up your Seenyor
             system.
           </p>
           <div className="flex tab:flex-col gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
-            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/system.png"
@@ -238,12 +234,12 @@ const Installation = () => {
                 alt="monitoring"
               />
               <Link href="/systembuilder">
-                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
                   Start Building
                 </button>
               </Link>
             </div>
-            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
               <Image
                 className="h-auto w-full"
                 src="/images/qr.png"
@@ -252,12 +248,12 @@ const Installation = () => {
                 alt="monitoring"
               />
               <Link href="#">
-                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
                   Download App
                 </button>
               </Link>
             </div>
-            <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/enjoy.png"
@@ -266,7 +262,7 @@ const Installation = () => {
                 alt="monitoring"
               />
               <Link href="/systembuilder">
-                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
                   Get Started
                 </button>
               </Link>
