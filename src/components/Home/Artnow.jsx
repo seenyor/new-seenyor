@@ -43,7 +43,7 @@ const Artnow = () => {
   return (
     <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl">
       <div className="flex justify-center">
-        <p className="bg-neutral-950 tab:mt-8 text-white my-0 text-[40px] tab:text-2xl md:text-3xl px-16 py-[8px] font-semibold">
+        <p className="cursor-pointer bg-neutral-950 tab:mt-8 text-white my-0 text-[40px] tab:text-2xl md:text-3xl px-16 py-[8px] font-semibold">
           Act Now
         </p>
       </div>

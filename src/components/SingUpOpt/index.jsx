@@ -89,7 +89,7 @@ const SingUpOpt = ({
   return (
     <>
       {/* Right side */}
-      <div className="flex w-full items-center bg-white md:flex-col">
+      <div className="flex w-full items-center bg-white md:flex-col px-6">
         {/* <Logo /> */}
         <div className="flex flex-col gap-[1rem] h-screen  w-full justify-center ">
           {/* Back button */}
@@ -104,7 +104,7 @@ const SingUpOpt = ({
             <Text
               onClick={() => setIsOtpPageOpen(false)}
               as="span"
-              className="text-[1.13rem] font-medium"
+              className="text-[1.13rem] font-medium cursor-pointer text-nowrap"
             >
               Back To Register
             </Text>
@@ -156,7 +156,10 @@ const SingUpOpt = ({
             >
               Verify Code
             </Button>
-            <Text as="p" className="text-[1.13rem] font-normal text-text">
+            <Text
+              as="p"
+              className="text-[1.13rem] font-normal text-text text-center"
+            >
               Didn&apos;t get the code?{" "}
               <button
                 onClick={handleResend}
