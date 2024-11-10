@@ -69,6 +69,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     Cookies.remove("access_token", cookieOptions);
+    setIsLogin(null);
     setAccessToken(null);
   };
   const country = useMemo(() => getCountryCode(), []);

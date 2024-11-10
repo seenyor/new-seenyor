@@ -123,25 +123,25 @@ export default function RegisterPage() {
         }
 
         // Fetch agents
-        console.log("Fetching agents...");
-        const agentsResponse = await getAgents();
-        console.log("Agents response:", agentsResponse);
+        // console.log("Fetching agents...");
+        // const agentsResponse = await getAgents();
+        // console.log("Agents response:", agentsResponse);
 
-        if (
-          agentsResponse &&
-          agentsResponse.data &&
-          Array.isArray(agentsResponse.data)
-        ) {
-          const formattedAgents = agentsResponse.data.map((agent) => ({
-            label: `${agent.agent_id}`,
-            value: agent.agent_id,
-          }));
-          setAgents(formattedAgents);
-          console.log("Formatted agents:", formattedAgents);
-        } else {
-          console.error("Invalid agent data structure:", agentsResponse);
-          throw new Error("Invalid agent data structure received from the API");
-        }
+        // if (
+        //   agentsResponse &&
+        //   agentsResponse.data &&
+        //   Array.isArray(agentsResponse.data)
+        // ) {
+        //   const formattedAgents = agentsResponse.data.map((agent) => ({
+        //     label: `${agent.agent_id}`,
+        //     value: agent.agent_id,
+        //   }));
+        //   setAgents(formattedAgents);
+        //   console.log("Formatted agents:", formattedAgents);
+        // } else {
+        //   console.error("Invalid agent data structure:", agentsResponse);
+        //   throw new Error("Invalid agent data structure received from the API");
+        // }
       } catch (error) {
         console.error("Error fetching data:", error);
         if (error.response) {
@@ -227,10 +227,17 @@ export default function RegisterPage() {
         // installer_id: , // Using customer's country_id as installer_id for now
       },
     };
-    localStorage.setItem("agent_id", JSON.stringify(data.agent_id));
     localStorage.setItem(
-      "installation_address",
+      "agent_details",
       JSON.stringify({
+        agent_id: formattedData.agent_id,
+        agent_name: formattedData.customer_info.agent_name,
+      })
+    );
+    localStorage.setItem(
+      "installation_details",
+      JSON.stringify({
+        installation_date: formattedData?.customer_info?.installation_date,
         address: formattedData?.customer_info?.address,
         address2: formattedData?.customer_info?.address2,
         city: formattedData?.customer_info?.city,
@@ -261,10 +268,16 @@ export default function RegisterPage() {
       }
     } catch (err) {
       console.log(err);
-      if (err.message) setError(err.message);
-      if (err.errorResponse.keyValue) {
+      if (err?.message) setError(err.message);
+      if (err?.errorResponse?.keyValue) {
         let key = Object.keys(err.errorResponse.keyValue)[0];
-        setError(key === "contact_number" ? "Phone Number Already Exist!" : "");
+        setError(
+          key === "contact_number"
+            ? "Phone Number Already Exist!"
+            : key === "email"
+            ? "E-mail Address Already Exist!"
+            : ""
+        );
       }
     }
   };
