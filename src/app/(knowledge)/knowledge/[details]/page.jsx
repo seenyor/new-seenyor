@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const helpTopics = [
   {
@@ -67,7 +68,10 @@ const helpTopics = [
   },
 ];
 
-const KnowledgeDetails = () => {
+const KnowledgeDetails = ({ params }) => {
+  const [currentTab, setCurrentTab] = useState(
+    decodeURIComponent(params?.details)
+  );
   const router = useRouter();
   return (
     <div>
@@ -80,27 +84,37 @@ const KnowledgeDetails = () => {
             <ArrowLeft className="w-7 h-7" />
           </button>
           <div className="flex w-full gap-6  overflow-x-scroll scrollbar-thin scrollbar-thumb-[#C6C9FE] scrollbar-track-[#8C93FC] pb-3">
-            {helpTopics.map((topic, index) => (
-              <Link
-                href={`/knowledge/${topic?.title}`}
-                key={index}
-                className="block"
-              >
-                <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 w-full min-w-[280px] min-h-[100px]">
-                  <Image
-                    src={topic?.icon}
-                    height={10}
-                    width={10}
-                    alt=""
-                    className="h-7 w-7"
-                  />
-                  <div>
-                    <h3 className="font-semibold">{topic.title}</h3>
-                    <p className="text-sm text-gray-500">{topic.description}</p>
+            {[...helpTopics]
+              .sort((a, b) =>
+                a.title === currentTab ? -1 : b.title === currentTab ? 1 : 0
+              )
+              .map((topic, index) => (
+                <div
+                  onClick={() => setCurrentTab(topic?.title)}
+                  key={index}
+                  className="block"
+                >
+                  <div
+                    className={`flex cursor-pointer ${
+                      currentTab === topic?.title ? "opacity-100" : "opacity-40"
+                    } flex-row items-center bg-white rounded-xl gap-4 p-4 w-full min-w-[280px] min-h-[100px]`}
+                  >
+                    <Image
+                      src={topic?.icon}
+                      height={10}
+                      width={10}
+                      alt=""
+                      className="h-7 w-7"
+                    />
+                    <div>
+                      <h3 className="font-semibold">{topic.title}</h3>
+                      <p className="text-sm text-gray-500">
+                        {topic.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </Link>
-            ))}
+              ))}
           </div>
         </div>
       </div>
