@@ -15,8 +15,6 @@ import RadioButtonGroup from "./RadioGroupFInstallation";
 import TermsCheckbox from "./TermsCheckbox ";
 import "./style.css";
 import { jwtDecode } from "jwt-decode";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function HomePage() {
   const router = useRouter();
@@ -278,107 +276,91 @@ export default function HomePage() {
   return (
     <div className="flex w-full flex-col gap-10 bg-white p-5">
       {!isLogin && (
-        <div className="max-w-[1720px] w-full mx-auto">
-          <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
-            <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
-              <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
-                <div className="w-[60%] tab:w-full  ">
-                  <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
-                    Required with your system
-                  </h3>
-                  <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
-                    All in One AI Sensor Pack for entire house.
-                  </p>
-                  <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
-                    Fall Detection and Sleep Monitoring Solution
-                  </p>
-                  <p className="cursor-text tab:flex tab:justify-center">
-                    <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
-                      Set of 3x AI Devices
-                    </button>
-                  </p>
-                </div>
-                <div className="w-[40%] tab:ms-[-30px] -mt-10 md:mt-0 tab:w-full">
-                  <Image
-                    src="/images/3device.png"
-                    height={200}
-                    width={300}
+        <div
+          id="Required_Products_Section"
+          className="relative flex flex-col gap-2 md:gap-6 items-center justify-center bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
+        >
+          <div
+            id="Section_Header"
+            className="flex flex-col items-center gap-2 "
+          >
+            <h2 className="font-semibold text-3xl text-center">
+              Required with your system
+            </h2>
+            <p className="font-normal text-md text-[#000]/80 text-center">
+              3X All in One AI Sensor Pack for the entire house. Fall Detection
+              and Sleep Monitoring Solution
+            </p>
+          </div>
+          <div id="Price" className="price absolute right-16 md:text-center">
+            <h1 className="font-semibold text-3xl">${kitPrice}</h1>
+            <span className="font-normal text-md text-[#000]/80">
+              {country === "au" ? "GST is Included in" : "TAX is Included in"}
+              <br />
+              The Price
+            </span>
+          </div>
+          <div
+            id="Products_Showcase"
+            className="flex items-center md:grid md:grid-cols-2 gap-2"
+          >
+            {["Bedroom", "Livingroom", "Bathroom"].map((item, ind) => {
+              return (
+                <div
+                  id="Product"
+                  key={ind}
+                  className={`flex flex-col items-center justify-center ${
+                    ind === 2 ? "md:col-span-2 text-center" : ""
+                  }`} // Use col-span-2 for the third item
+                >
+                  <Img
+                    src="Product-1.png"
+                    width={250}
+                    height={180}
                     alt="Product"
-                    className="w-[90%] h-auto scale-150 tab:scale-100  ms-5   tab:ms:5"
                   />
+                  <h4 className="font-medium text-lg">{item}</h4>
                 </div>
-              </div>
-              <p className="px-5 text-sm absolute bottom-5">
-                *GST is included in the price
-              </p>
-            </div>
-            <div
-              id="Price"
-              className="text-end xxl:text-start w-[20%] tab:w-full px-7 xxl:mx-5"
-            >
-              <h1 className="font-semibold  text-end xxl:text-start text-5xl xxl:text-3xl">
-                ${kitPrice}
-              </h1>
-              <span className="font-normal text-xl text-[#000]/80">
-                {country === "au" ? "GST is Included in" : "TAX is Included in"}
-                The Price
-              </span>
-            </div>
+              );
+            })}
           </div>
         </div>
       )}
 
-      {/* second section */}
+      <div
+        id="More_Device_Section"
+        className="relative flex flex-col gap-6 items-start justify-start bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
+      >
+        <div id="Section_Header" className="flex flex-col items-start gap-2">
+          <h2 className="font-semibold text-3xl">Need more devices?</h2>
+          <p className="font-normal text-md text-[#000]/80">
+            You can always add more devices if you have more rooms.
+          </p>
+        </div>
 
-      <div className="max-w-[1720px] w-full mx-auto">
-        <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
-          <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
-            <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
-              <div className="w-[60%] tab:w-full  ">
-                <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
-                  Need more devices?
-                </h3>
-                <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
-                  All in One AI Sensor for additional rooms
-                </p>
-                <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
-                  You can always add more devices if you have more rooms.
-                </p>
-                <p className="cursor-text tab:flex tab:justify-center">
-                  <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
-                    1x AI Device
-                  </button>
-                </p>
-              </div>
-              <div className="w-[40%] tab:ms-[-30px] -mt-10 md:mt-0 tab:w-full">
-                <Image
-                  src="/images/1device.png"
-                  height={200}
-                  width={300}
-                  alt="Product"
-                  className="w-[95%] h-auto scale-150 tab:scale-100  ms-5   tab:ms:5"
-                />
-              </div>
-            </div>
-            <p className="px-5 text-sm absolute bottom-5">
-              *GST is included in the price
-            </p>
-          </div>
+        <div
+          id="Addon_Product_and_Price"
+          className="flex items-center w-full gap-6 md:flex-col"
+        >
           <div
-            id="Price"
-            className="text-end  xxl:text-start w-[20%] tab:w-full px-7 md:px-2 xxl:mx-5"
+            id="Addon_Product"
+            className="flex md:flex-col gap-2 md:gap-5 w-full bg-white items-center justify-between p-2 pr-6 rounded-xl md:pb-6"
           >
-            <div id="Price" className="text-start">
-              <h1 className="font-semibold text-center text-5xl xxl:text-3xl">
-                ${addonDevicePrice * quantity}
-              </h1>
-              <p className="font-normal !text-center text-md text-[#000]/80 ">
-                For 1 Additional device
-              </p>
+            <div
+              id="Product"
+              className="flex md:flex-col items-center justify-center "
+            >
+              <Img src="Product-1.png" width={250} height={180} alt="Product" />
+              <div id="Product_Details">
+                <h4 className="font-semibold text-lg">All in One AI Sensor</h4>
+                <span className="text-[#000]/80">
+                  Fall Detection + Sleep Monitoring
+                </span>
+              </div>
             </div>
             <div
               id="Quantity_Selector"
-              className="flex items-center my-4 gap-3 border-gray-300 px-3 py-2 w-full max-w-44 mx-auto rounded-md border-2 h-fit"
+              className="flex items-center gap-3 border-gray-300 px-3 py-2 rounded-md border-2 h-fit"
             >
               <button
                 className="text-primary disabled:opacity-50 disabled:cursor-not-allowed"
@@ -403,76 +385,46 @@ export default function HomePage() {
                 <PlusCircledIcon className="w-8 h-8" />
               </button>
             </div>
-            <span className="font-normal text-md text-[#000]/80 ">
-              1 Additional Device Selected
+          </div>
+          <div id="Price" className="md:text-center">
+            <h1 className="font-semibold text-3xl">
+              ${addonDevicePrice * quantity}
+            </h1>
+            <span className="font-normal text-md text-[#000]/80 text-nowrap">
+              One Time Payment
             </span>
           </div>
         </div>
       </div>
-      {/* 3rd section */}
-      <div className="max-w-[1720px] w-full mx-auto">
-        <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
-          <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-[480px] tab:h-[790px] w-[80%] tab:w-full  ps-20 md:px-10 tab:px-5  md:mx-0 py-0 md:py-20 rounded-xl">
-            <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
-              <div className="w-[60%] tab:w-full  ">
-                <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
-                  Expert Installation
-                </h3>
-                <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
-                  Do you want expert to do installation?
-                </p>
-                <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
-                  Avoid setup risks and gain peace of mind with a professional
-                  installation.
-                </p>
 
-                <div
-                  id="YN_and_Price"
-                  className="flex justify-start tab:justify-center "
-                >
-                  <RadioButtonGroup
-                    selectedOption={selecteInstallation}
-                    setSelectedOption={setselecteInstallation}
-                  />
-                </div>
-              </div>
-              <div className="w-[40%] h-full tab:w-full">
-                <Image
-                  src="/images/system3.png"
-                  height={200}
-                  width={300}
-                  alt="Product"
-                  className="w-auto tab:mx-auto h-full "
-                />
-              </div>
-            </div>
-            <div className="absolute bottom-8">
-              <p className="cursor-text tab:flex my-5 tab:justify-center">
-                <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
-                  Set of 3x AI Devices
-                </button>
-              </p>
-              <p className="text-sm ">*GST is included in the price</p>
-            </div>
-          </div>
-          <div
-            id="Price"
-            className="text-end xxl:text-start w-[20%] tab:w-full px-2 xxl:mx-5"
-          >
-            <h1 className="font-semibold  text-end xxl:text-start text-5xl xxl:text-3xl">
+      <div
+        id="Intallation_Section"
+        className="relative flex md:flex-col gap-4 items-center justify-between bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
+      >
+        <div id="Section_Header" className="flex flex-col items-start gap-2">
+          <h2 className="font-semibold text-3xl">Installation</h2>
+          <p className="font-normal text-md text-[#000]/80">
+            Do you want an expert to handle your installation
+          </p>
+        </div>
+        <div id="YN_and_Price" className="flex gap-24 md:flex-col md:gap-10">
+          <RadioButtonGroup
+            selectedOption={selecteInstallation}
+            setSelectedOption={setselecteInstallation}
+          />
+          <div id="Price" className="md:text-center">
+            <h1 className="font-semibold text-3xl">
               ${selecteInstallation === 1 ? installationPrice : 0}
             </h1>
-            <span className="font-normal text-xl text-[#000]/80">
-              Installation Price for 4 Devices
+            <span className="font-normal text-md text-[#000]/80">
+              One Time Payment
             </span>
           </div>
         </div>
       </div>
-
-      {/* 4th */}
       <div
         id="CheckOut_Section"
-        className="relative flex flex-col gap-6 items-start justify-between bg-[#F1F1F2] max-w-[1720px] my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
+        className="relative flex flex-col gap-6 items-start justify-between bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
       >
         <div id="Section_Header" className="flex flex-col items-start gap-2">
           <h2 className="font-semibold text-3xl">Equipment</h2>
