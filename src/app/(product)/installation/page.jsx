@@ -13,7 +13,7 @@ const Installation = () => {
       {/* hero */}
       <section
         className="relative sm:mb-6 max-w-[1720px] w-full mx-auto max-h-[780px] md:h-[400px] tab:h-[370px]  px-20 md:px-10 tab:px-5 h-screen  bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/servicebanner2.png)" }}
+        style={{ backgroundImage: "url(/images/service/servicebanner2.webp)" }}
       >
         <div className="w-full  mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -58,10 +58,11 @@ const Installation = () => {
             {/*  <!-- Image --> */}
             <figure>
               <Image
-                src="/images/option1.png"
+                src="/images/service/option1.webp"
                 alt="stroke"
                 height={500}
                 width={500}
+                quality={100}
                 className="h-auto max-h-[650px] sm:h-[374px] w-full"
               />
             </figure>
@@ -127,10 +128,11 @@ const Installation = () => {
             {/*  <!-- Image --> */}
             <figure>
               <Image
-                src="/images/option2.png"
+                src="/images/service/option2.webp"
                 alt="stroke"
                 height={500}
                 width={500}
+                quality={100}
                 className="h-auto max-h-[650px] sm:h-[374px] w-full"
               />
             </figure>
@@ -232,6 +234,7 @@ const Installation = () => {
                 width={200}
                 height={200}
                 alt="monitoring"
+                quality={100}
               />
               <Link href="/systembuilder">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
@@ -246,6 +249,7 @@ const Installation = () => {
                 width={200}
                 height={200}
                 alt="monitoring"
+                quality={100}
               />
               <Link href="#">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
@@ -260,6 +264,7 @@ const Installation = () => {
                 width={200}
                 height={200}
                 alt="monitoring"
+                quality={100}
               />
               <Link href="/systembuilder">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
