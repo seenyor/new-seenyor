@@ -24,13 +24,14 @@ export default function HomePage() {
 
   const [products, setProducts] = useState([]);
   let [kitPrice, setKitPrice] = useState(1300);
-  let [installationPrice, setInstallationPrice] = useState(250);
-  let [addonDevicePrice, setAddonDevicePrice] = useState(400);
+  let [installationPrice, setInstallationPrice] = useState(150);
+  let [addonDevicePrice, setAddonDevicePrice] = useState(450);
   let [aimonitoring, setAimonitoring] = useState(0);
   let [total, setTotal] = useState(0);
   let [quantity, setQuantity] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [selecteInstallation, setselecteInstallation] = useState(1);
+  let [selecteInstallation, setselecteInstallation] = useState(1);
+  let [installationQuantity, setInstallationQuantity] = useState(3);
   const [isChecked, setIsChecked] = useState(false);
   const {
     getProducts,
@@ -63,7 +64,7 @@ export default function HomePage() {
         console.log(aimonitoring);
         if (kit) setKitPrice(kit.price);
         if (addon) setAddonDevicePrice(addon.price);
-        if (installation) setInstallationPrice(installation.price);
+        if (installation) setInstallationPrice(installation.price * 3);
         if (aimonitoring) setAimonitoring(aimonitoring.price);
 
         //Store Subcription Product Details in Local Storage that has isRecurring true
@@ -81,7 +82,9 @@ export default function HomePage() {
 
     fetchProducts();
   }, []);
-
+  useEffect(() => {
+    console.log(selecteInstallation, installationQuantity);
+  }, [selecteInstallation, installationQuantity]);
   // Total Price calculation
   useEffect(() => {
     const calculatedTotal =
@@ -129,7 +132,7 @@ export default function HomePage() {
               : p.name === "Required with your system"
               ? 1
               : p.name === "Installation" && selecteInstallation === 1
-              ? 1
+              ? installationQuantity
               : 0,
           adjustable_quantity:
             p.name === "AI Monitoring"
@@ -222,7 +225,7 @@ export default function HomePage() {
               ? {
                   enabled: true,
                   minimum: 1,
-                  maximum: 10,
+                  maximum: 1000,
                 }
               : {
                   enabled: false,
@@ -308,9 +311,9 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-              <p className="px-5 text-sm absolute bottom-5">
+              {/* <p className="px-5 text-sm absolute bottom-5">
                 *GST is included in the price
-              </p>
+              </p> */}
             </div>
             <div
               id="Price"
@@ -320,8 +323,7 @@ export default function HomePage() {
                 ${kitPrice}
               </h1>
               <span className="font-normal text-xl text-[#000]/80">
-                {country === "au" ? "GST is Included in" : "TAX is Included in"}
-                The Price
+                For the set of 3x AI Devices
               </span>
             </div>
           </div>
@@ -360,9 +362,9 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <p className="px-5 text-sm absolute bottom-5">
+            {/* <p className="px-5 text-sm absolute bottom-5">
               *GST is included in the price
-            </p>
+            </p> */}
           </div>
           <div
             id="Price"
@@ -370,7 +372,7 @@ export default function HomePage() {
           >
             <div id="Price" className="text-start">
               <h1 className="font-semibold text-center text-5xl xxl:text-3xl">
-                ${addonDevicePrice * quantity}
+                ${addonDevicePrice}
               </h1>
               <p className="font-normal !text-center text-md text-[#000]/80 ">
                 For 1 Additional device
@@ -387,6 +389,8 @@ export default function HomePage() {
                   setQuantity(
                     quantity > (isLogin ? 1 : 0) ? quantity - 1 : quantity
                   );
+                  setInstallationPrice(installationPrice - 50);
+                  setInstallationQuantity(installationQuantity - 1);
                 }}
               >
                 <MinusCircledIcon className="w-8 h-8" />
@@ -398,13 +402,15 @@ export default function HomePage() {
                 className="text-primary"
                 onClick={() => {
                   setQuantity(quantity + 1);
+                  setInstallationPrice(installationPrice + 50);
+                  setInstallationQuantity(installationQuantity + 1);
                 }}
               >
                 <PlusCircledIcon className="w-8 h-8" />
               </button>
             </div>
             <span className="font-normal text-md text-[#000]/80 ">
-              1 Additional Device Selected
+              {quantity} Additional Device Selected
             </span>
           </div>
         </div>
@@ -440,9 +446,9 @@ export default function HomePage() {
                 <Image
                   src="/images/system3.png"
                   height={200}
-                  width={300}
+                  width={800}
                   alt="Product"
-                  className="w-auto tab:mx-auto h-full "
+                  className=" h-full object-cover tab:mx-auto"
                 />
               </div>
             </div>
@@ -452,7 +458,6 @@ export default function HomePage() {
                   Set of 3x AI Devices
                 </button>
               </p>
-              <p className="text-sm ">*GST is included in the price</p>
             </div>
           </div>
           <div
@@ -463,7 +468,7 @@ export default function HomePage() {
               ${selecteInstallation === 1 ? installationPrice : 0}
             </h1>
             <span className="font-normal text-xl text-[#000]/80">
-              Installation Price for 4 Devices
+              Installation Price for {installationQuantity} Devices
             </span>
           </div>
         </div>
