@@ -54,10 +54,10 @@ const PeaceOfMind = () => {
           </div>
           <div className="h-[500px] md:h-[420px] w-full relative">
             <Image
-              src="/images/test 223.png"
+              src="/images/home/test 223.webp"
               height={500}
               width={500}
-              quality={80}
+              quality={100}
               alt="patience"
               className="h-full w-full object-cover"
             />
@@ -97,14 +97,14 @@ const PeaceOfMind = () => {
             <div className="flex justify-between w-full gap-3 py-5">
               <div className="w-1/2 flex flex-col gap-2">
                 <Image
-                  src="/images/monitoring1.png"
+                  src="/images/home/monitoring1.png"
                   height={200}
                   width={300}
                   alt="patience"
                   className="h-[219px] w-[382px] md:h-full md:w-auto"
                 />
                 <Image
-                  src="/images/monitoring3.png"
+                  src="/images/home/monitoring3.png"
                   height={200}
                   width={300}
                   alt="patience"
@@ -113,7 +113,7 @@ const PeaceOfMind = () => {
               </div>
               <div className="w-1/2">
                 <Image
-                  src="/images/monitoring2.png"
+                  src="/images/home/monitoring2.png"
                   height={300}
                   width={300}
                   alt="patience"

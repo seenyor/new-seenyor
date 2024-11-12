@@ -10,8 +10,7 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const AddBlog = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
-  const [slug, setSlug] = useState("");
-  const [publishedAt, setPublishedAt] = useState("");
+  const [subTitle, setSubtitle] = useState("");
   const [featuredImage, setFeaturedImage] = useState(null);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -24,31 +23,30 @@ const AddBlog = () => {
 
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("slug", slug);
+    formData.append("subtitle", subTitle);
     formData.append("content", content);
-    formData.append("publishedAt", publishedAt);
 
     // If an image is selected, append it to the form data
     if (featuredImage) {
       formData.append("featuredImage", featuredImage);
     }
     console.log(formData);
-    // try {
-    //   const response = await fetch("/api/add-blog", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
+    try {
+      const response = await fetch("/api/add-blog", {
+        method: "POST",
+        body: formData,
+      });
 
-    //   if (!response.ok) {
-    //     throw new Error("Failed to post blog");
-    //   }
+      if (!response.ok) {
+        throw new Error("Failed to post blog");
+      }
 
-    //   const data = await response.json();
-    //   setSuccess(data.message);
-    // } catch (error) {
-    //   setError("There was an error submitting the form.");
-    //   console.error(error);
-    // }
+      const data = await response.json();
+      setSuccess(data.message);
+    } catch (error) {
+      setError("There was an error submitting the form.");
+      console.error(error);
+    }
   };
   const handleFileChange = (file) => {
     setFeaturedImage(file);
@@ -76,15 +74,15 @@ const AddBlog = () => {
 
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">
-                Slug *
+                Subtitle *
               </label>
               <input
                 style={{ border: "1px solid" }}
                 type="text"
                 className="w-full py-2 px-3 !border-slate-300 rounded-md"
                 placeholder="subTitle"
-                value={slug}
-                onChange={(e) => setSlug(e.target.value)}
+                value={subTitle}
+                onChange={(e) => setSubtitle(e.target.value)}
                 required
               />
             </div>
@@ -107,7 +105,7 @@ const AddBlog = () => {
           </div>
 
           <div className="flex flex-col justify-between gap-5 items-start">
-            <div
+            {/* <div
               onClick={() => document?.getElementById("input-date").click()}
               className="w-1/2"
             >
@@ -122,7 +120,7 @@ const AddBlog = () => {
                 value={publishedAt}
                 onChange={(e) => setPublishedAt(e.target.value)}
               />
-            </div>
+            </div> */}
 
             <div className="w-1/2">
               <label className="block text-sm font-medium text-gray-700">

@@ -1,8 +1,16 @@
 /** @format */
 
 import PageTitle from "@/components/dashboard/pageTitle";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("access_token");
+
+  if (!accessToken) {
+    redirect("/");
+  }
   return (
     <div className="flex flex-col gap-5  w-full">
       <PageTitle title="Dashboard" />

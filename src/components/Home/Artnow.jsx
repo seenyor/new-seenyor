@@ -4,7 +4,7 @@ import { Img } from "..";
 const cardData = [
   {
     id: 1,
-    imageSrc: "/images/card1.png",
+    imageSrc: "/images/home/card1.webp",
     altText: "stroke",
     title: "A Single Fall Can Change Everything",
     description:
@@ -16,7 +16,7 @@ const cardData = [
   },
   {
     id: 2,
-    imageSrc: "/images/card2.png",
+    imageSrc: "/images/home/card2.webp",
     altText: "stroke",
     title: "Emergencies Don’t Wait",
     description:
@@ -28,7 +28,7 @@ const cardData = [
   },
   {
     id: 3,
-    imageSrc: "/images/card3.png",
+    imageSrc: "/images/home/card3.webp",
     altText: "stroke",
     title: "Caring for Them Is Caring for You",
     description:
@@ -65,7 +65,7 @@ const Artnow = () => {
                 alt={card.altText}
                 height={300}
                 width={200}
-                quality={80}
+                quality={100}
                 className="object-cover h-[278px] tab:h-auto md:h-[146px] tab-h-auto w-full"
               />
             </figure>
