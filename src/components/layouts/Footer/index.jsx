@@ -79,14 +79,14 @@ const Footer = () => {
                   HELP
                 </h3>
                 <ul>
-                  <li className="mb-2 leading-6">
+                  {/* <li className="mb-2 leading-6">
                     <a
                       href="/knowledge"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Help Center
                     </a>
-                  </li>
+                  </li> */}
                   <li className="mb-2 leading-6">
                     <a
                       href="/terms-and-conditions"
