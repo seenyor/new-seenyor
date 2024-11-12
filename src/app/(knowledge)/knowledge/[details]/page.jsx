@@ -720,7 +720,9 @@ const KnowledgeDetails = ({ params }) => {
               </details>
             ))
           ) : (
-            <p className="text-center text-slate-500">No data found</p>
+            <p className="h-[50vh] flex justify-center items-center text-3xl font-semibold text-slate-500">
+              No data found
+            </p>
           )}
         </section>
       </div>
