@@ -153,7 +153,7 @@ export default function SecondaryNav() {
                   </li>
                 </ul>
               </li>
-              <li role="none" className="flex items-stretch">
+              {/* <li role="none" className="flex items-stretch">
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -162,7 +162,7 @@ export default function SecondaryNav() {
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li>
+              </li> */}
               {!isLogin ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link href="/login">
@@ -235,13 +235,13 @@ export default function SecondaryNav() {
                   </div>
                 )}
               </li>
-              <li>
+              {/* <li>
                 <Link href="/knowledge">
                   <Heading as="p" className="text-[1rem] font-bold text-white">
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li>
+              </li> */}
               {!isLogin ? (
                 <li className="flex items-center gap-2">
                   <Link
