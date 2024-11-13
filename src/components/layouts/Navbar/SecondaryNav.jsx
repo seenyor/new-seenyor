@@ -37,7 +37,7 @@ export default function SecondaryNav() {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-[#7F87FC] after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full py-12 px-6 max-w-[1320px]">
+        <div className="relative mx-auto w-full py-12 xxl:py-7 md:py-6 px-6 max-w-[1720px]">
           <nav className="flex h-[6.5rem]  items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
@@ -49,7 +49,7 @@ export default function SecondaryNav() {
                 width={158}
                 height={32}
                 alt="Frame 1000008413"
-                className="flex h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                className="flex h-12 xxl:!h-10 md:!h-8 tab:!h-7 w-auto object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 onClick={() => {
                   window.open("/", "_self");
                 }}
@@ -153,7 +153,7 @@ export default function SecondaryNav() {
                   </li>
                 </ul>
               </li>
-              {/* <li role="none" className="flex items-stretch">
+              <li role="none" className="flex items-stretch">
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -162,7 +162,7 @@ export default function SecondaryNav() {
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li> */}
+              </li>
               {!isLogin ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link href="/login">
@@ -235,13 +235,13 @@ export default function SecondaryNav() {
                   </div>
                 )}
               </li>
-              {/* <li>
+              <li>
                 <Link href="/knowledge">
                   <Heading as="p" className="text-[1rem] font-bold text-white">
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li> */}
+              </li>
               {!isLogin ? (
                 <li className="flex items-center gap-2">
                   <Link

@@ -42,22 +42,22 @@ const CallbackForm = () => {
             {
               id: "full-name",
               label: "Full name:",
-              placeholder: "Please enter a Full Name",
+              placeholder: "enter a Full Name",
             },
             {
               id: "email",
               label: "E-Mail:",
-              placeholder: "Please enter your E-Mail address",
+              placeholder: "enter your E-Mail address",
             },
             {
               id: "phone",
               label: "Phone Number:",
-              placeholder: "Please enter a Phone Number including country code",
+              placeholder: "enter a Phone Number including country code",
             },
             {
               id: "company",
               label: "Company name:",
-              placeholder: "Please enter a Company name if applicable",
+              placeholder: "enter a Company name if applicable",
             },
           ].map((field) => (
             <div
@@ -88,7 +88,7 @@ const CallbackForm = () => {
             <div className="sm:w-full w-4/5 flex  sm:flex-col gap-4">
               <input
                 type="text"
-                placeholder="Please enter a country"
+                placeholder="enter a country"
                 className="sm:w-full w-1/2 px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
               />
               <div className="sm:w-full w-1/2 flex  sm:flex-col items-center">
@@ -97,7 +97,7 @@ const CallbackForm = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="Please enter a Area Code"
+                  placeholder="enter a Area Code"
                   className="sm:w-full w-3/5 px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
                 />
               </div>
@@ -108,7 +108,7 @@ const CallbackForm = () => {
             {
               id: "preferred-time",
               label: "Preferred Time:",
-              placeholder: "Please enter a Preferred Contact Time",
+              placeholder: "enter a Preferred Contact Time",
             },
           ].map((field) => (
             <div key={field.id} className="flex sm:flex-col items-center">
@@ -135,7 +135,7 @@ const CallbackForm = () => {
             </label>
             <div className="sm:w-full w-4/5">
               <textarea
-                placeholder="Please write a message"
+                placeholder="write a message"
                 className="w-full px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none resize-none"
                 rows={4}
               />

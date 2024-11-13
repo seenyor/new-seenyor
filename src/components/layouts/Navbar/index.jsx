@@ -39,7 +39,7 @@ export default function Header() {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full py-12 md:py-6 px-6 max-w-[1720px]">
+        <div className="relative mx-auto w-full py-12 xxl:py-7 md:py-6 px-6 max-w-[1720px]">
           <nav className="flex h-[6.5rem] md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
@@ -51,7 +51,7 @@ export default function Header() {
                 width={158}
                 height={48}
                 alt="Frame 1000008413"
-                className="flex h-12 w-auto object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                className="flex h-12 xxl:!h-10 md:!h-8 tab:!h-7 w-auto object-contain hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 onClick={() => {
                   window.open("/", "_self");
                 }}
@@ -155,7 +155,7 @@ export default function Header() {
                 </ul>
               </li>
 
-              {/* <li role="none" className="flex items-stretch">
+              <li role="none" className="flex items-stretch">
                 <Link onClick={() => setIsToggleOpen(false)} href="/knowledge">
                   <Heading
                     as="p"
@@ -164,7 +164,7 @@ export default function Header() {
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li> */}
+              </li>
               {!isLogin ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link onClick={() => setIsToggleOpen(false)} href="/login">
@@ -241,7 +241,7 @@ export default function Header() {
                   </div>
                 )}
               </li>
-              {/* <li>
+              <li>
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -250,7 +250,7 @@ export default function Header() {
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li> */}
+              </li>
               {!isLogin ? (
                 <li className="flex items-center gap-2">
                   <Link

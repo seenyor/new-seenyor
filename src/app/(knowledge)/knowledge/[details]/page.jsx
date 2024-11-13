@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const helpTopics = [
   {
@@ -13,55 +13,43 @@ const helpTopics = [
     link: "#",
   },
   {
-    title: "Elderly Management",
+    title: "Product Features and Overview",
     description: "Creating Personalized Care and Monitoring",
     icon: "/images/help2.svg",
     link: "#",
   },
   {
-    title: "Device Management",
+    title: "Device Issues",
     description: "Monitor Device Performance and Updates",
     icon: "/images/help3.svg",
     link: "#",
   },
   {
-    title: "Troubleshoot",
+    title: "Device Troubleshooting",
     description: "Solutions for a Smooth Experience",
     icon: "/images/help4.svg",
     link: "#",
   },
   {
-    title: "Using the App",
+    title: "Device Logins and Account Management",
     description: "A Guide to Using Key App Features",
     icon: "/images/help5.svg",
     link: "#",
   },
   {
-    title: "Using the Platform",
-    description: "A Guide to Using Key Platform Features",
-    icon: "/images/help6.svg",
-    link: "#",
-  },
-  {
-    title: "Billing & Payments",
-    description: "Billing & Payments Troubleshoot",
-    icon: "/images/help7.svg",
-    link: "#",
-  },
-  {
-    title: "My Account",
+    title: "Account Login",
     description: "Managing Senryor Account",
     icon: "/images/help8.svg",
     link: "#",
   },
+  // {
+  //   title: "Videos",
+  //   description: "Interactive Video Materials",
+  //   icon: "/images/help9.svg",
+  //   link: "#",
+  // },
   {
-    title: "Videos",
-    description: "Interactive Video Materials",
-    icon: "/images/help9.svg",
-    link: "#",
-  },
-  {
-    title: "Download Zone",
+    title: "Installation FAQs",
     description: "Welcome to Senryor Download Zone",
     icon: "/images/help10.svg",
     link: "#",
@@ -71,6 +59,7 @@ const helpTopics = [
 const faq = [
   {
     category: "First Time Use",
+    showFor: "First Time Use",
     questions: [
       {
         question: "What is the Seenyor AI Care Guardian, and who is it for?",
@@ -118,7 +107,8 @@ const faq = [
     ],
   },
   {
-    category: "Using the app",
+    category: "Product Features and Overview",
+    showFor: "Product Features and Overview",
     questions: [
       {
         question: "What is the Seenyor device, and who is it for?",
@@ -318,7 +308,108 @@ const faq = [
     ],
   },
   {
-    category: "Troubleshoot",
+    category: "Device Troubleshooting",
+    showFor: "Device Troubleshooting",
+    questions: [
+      {
+        question: "Why isn’t my Seenyor device connecting to Wi-Fi?",
+        answer:
+          "Ensure your Wi-Fi network is set to 2.4GHz, as Seenyor does not support 5GHz networks. Confirm the Wi-Fi password is correct and that your router is working properly.",
+      },
+      {
+        question:
+          "How close does the Seenyor device need to be to the Wi-Fi router?",
+        answer:
+          "For a stable connection, place the device within 12-15 feet of your Wi-Fi router. Thick walls, metal objects, or other electronic devices may interfere with the signal if they’re in between.",
+      },
+      {
+        question:
+          "What should I do if the Wi-Fi signal is weak or intermittent?",
+        answer:
+          "Use a Wi-Fi extender to boost the signal, especially if the device is far from the router. Make sure the extender is placed midway between the device and router for the best results.",
+      },
+      {
+        question: "Why does my device keep disconnecting from Wi-Fi?",
+        answer:
+          "Frequent disconnections can happen if there’s interference or if the Wi-Fi signal is weak. Try switching to a less congested Wi-Fi channel in your router settings or reducing the number of devices connected to the network.",
+      },
+      {
+        question:
+          "Why am I experiencing a delay in alerts from the Seenyor device?",
+        answer:
+          "Delays may result from slow or weak Wi-Fi connectivity. Make sure your internet speed is sufficient for real-time alerts, and consider rebooting the router to improve network performance.",
+      },
+      {
+        question: "What if my Wi-Fi drops unexpectedly?",
+        answer:
+          "Restart your router and the Seenyor device to re-establish the connection. Ensure the device is within a reasonable distance of the router or use a Wi-Fi extender if needed.",
+      },
+      {
+        question: "Can I connect Seenyor to a guest or public Wi-Fi network?",
+        answer:
+          "Seenyor works best on a secure, private Wi-Fi network. Public or guest networks may have security restrictions that can cause connection issues.",
+      },
+      {
+        question:
+          "How do I know if my Wi-Fi signal is strong enough for the Seenyor device?",
+        answer:
+          "Open the Seenyor app to view connection status. A strong, stable signal ensures timely alerts and data updates. If signal strength is below 70%, consider relocating the device or adding a Wi-Fi extender.",
+      },
+      {
+        question: "What should I do if the Seenyor device isn’t turning on?",
+        answer:
+          "Confirm the device is connected to a power source and that the outlet is functioning. If the device still doesn’t power on, contact Seenyor support for assistance.",
+      },
+      {
+        question:
+          "Why am I not receiving alerts even though the device is connected?",
+        answer:
+          "Ensure that notifications are enabled in the Seenyor app and that your Wi-Fi connection is stable. If issues persist, restart both the device and the app.",
+      },
+      {
+        question:
+          "What should I do if the device isn’t detecting falls accurately?",
+        answer:
+          "Confirm the device is mounted at the recommended height of 1.6 meters and is positioned correctly. Check that fall detection is enabled in the app and that the line of sight is clear.",
+      },
+      {
+        question: "How do I reset the Seenyor device?",
+        answer:
+          "Hold the reset button on the device (if available) or follow reset instructions in the Seenyor app. For further help, contact Seenyor support.",
+      },
+      {
+        question:
+          "What should I do if the device is not tracking health metrics?",
+        answer:
+          "Make sure the device is placed in an optimal position, free from obstructions, and connected to Wi-Fi. Check that health monitoring features are enabled in the app.",
+      },
+      {
+        question:
+          "How do I troubleshoot if the Seenyor app isn’t displaying data?",
+        answer:
+          "Verify that the device is connected to Wi-Fi and that the app has the necessary permissions. Restart the app or reinstall it if needed.",
+      },
+      {
+        question: "Why is the device sending false alerts?",
+        answer:
+          "False alerts can occur if the device is incorrectly positioned or if the settings need adjustment. Make sure the device is securely mounted and positioned as per the instructions.",
+      },
+      {
+        question:
+          "How can I improve the device’s connection if my Wi-Fi signal is weak?",
+        answer:
+          "Consider moving the router closer to the device, using a Wi-Fi extender, or upgrading your internet speed if multiple devices are connected to the same network.",
+      },
+      {
+        question: "What should I do if the device isn’t turning off?",
+        answer:
+          "If the device doesn’t respond to power-off commands, unplug it from the power source. Contact Seenyor support if the issue persists.",
+      },
+    ],
+  },
+  {
+    category: "Device Issues",
+    showFor: "Device Issues",
     questions: [
       {
         question: "Why isn’t my Seenyor device connecting to Wi-Fi?",
@@ -418,6 +509,65 @@ const faq = [
   },
   {
     category: "My Account",
+    showFor: "Account Login",
+    questions: [
+      {
+        question: "How do I log into my Seenyor account?",
+        answer:
+          "Visit the Seenyor website, click on the 'Sign In' button, and enter your login credentials created during account sign-up.",
+      },
+      {
+        question: "Can I update my payment information in the Seenyor app?",
+        answer:
+          "No, payment updates are managed through the Seenyor website. Log into your account on the website to update your payment card details.",
+      },
+      {
+        question: "What should I do if I forget my website login password?",
+        answer:
+          "On the Seenyor website, click 'Forgot Password' on the sign-in page. Follow the instructions to reset your password via email.",
+      },
+      {
+        question: "Can multiple people access the same Seenyor account?",
+        answer:
+          "Yes, you can share login credentials with authorized individuals to access the website for payment updates, account changes, and login management.",
+      },
+      {
+        question: "Where can I change my password for my Seenyor account?",
+        answer:
+          "Log into your account on the Seenyor website, go to account settings, and select 'Change Password' to update it.",
+      },
+      {
+        question:
+          "Is it possible to use the Seenyor app to log into my account for updates?",
+        answer:
+          "No, all account management, including payment updates and password changes, is handled on the Seenyor website. The app is used primarily for monitoring and alerts.",
+      },
+      {
+        question: "How do I update my payment card information?",
+        answer:
+          "Log into your Seenyor account on the website, go to billing settings, and follow the prompts to update your payment information.",
+      },
+      {
+        question:
+          "What should I do if my account is locked after too many failed login attempts?",
+        answer:
+          "Wait a few minutes and try again, or use the 'Forgot Password' option on the website. For further help, contact Seenyor support.",
+      },
+      {
+        question: "How do I log out of my Seenyor website account?",
+        answer:
+          "Select the 'Log Out' button on the Seenyor website to end your session. Remember to log out on shared devices for security.",
+      },
+      {
+        question: "How can I ensure the security of my Seenyor account?",
+        answer:
+          "Use a strong password and avoid sharing your login details. Log out from public or shared computers to protect your account.",
+      },
+    ],
+  },
+  {
+    category: "My Account",
+    showFor: "Device Logins and Account Management",
     questions: [
       {
         question: "How do I log into my Seenyor account?",
@@ -475,6 +625,7 @@ const faq = [
   },
   {
     category: "Download Zone",
+    showFor: "Installation FAQs",
     questions: [
       {
         question: "How do I install the Seenyor device?",
@@ -577,9 +728,32 @@ const KnowledgeDetails = ({ params }) => {
 
   const selectedTopic = faq.find(
     (topic) =>
-      topic?.category?.toLocaleLowerCase() === currentTab?.toLocaleLowerCase()
+      topic?.showFor?.toLocaleLowerCase() === currentTab?.toLocaleLowerCase()
   );
-  console.log(selectedTopic);
+  //  drag for pc
+  const scrollRef = useRef(null);
+
+  const onMouseDown = (e) => {
+    const el = scrollRef.current;
+    el.isDragging = true;
+    el.startX = e.pageX - el.offsetLeft;
+    el.scrollLeftStart = el.scrollLeft;
+    el.style.cursor = "grabbing";
+  };
+
+  const onMouseLeaveOrUp = () => {
+    const el = scrollRef.current;
+    el.isDragging = false;
+    el.style.cursor = "grab";
+  };
+
+  const onMouseMove = (e) => {
+    const el = scrollRef.current;
+    if (!el.isDragging) return;
+    const x = e.pageX - el.offsetLeft;
+    const distance = (x - el.startX) * 2; // স্ক্রল স্পীড কাস্টমাইজ করতে চান তো এখানে পরিবর্তন করুন
+    el.scrollLeft = el.scrollLeftStart - distance;
+  };
   return (
     <div>
       <div className="bg-[#7F87FC] py-5">
@@ -590,38 +764,43 @@ const KnowledgeDetails = ({ params }) => {
           >
             <ArrowLeft className="w-7 h-7" />
           </button>
-          <div className="flex w-full gap-6  overflow-x-scroll scrollbar-thin scrollbar-thumb-[#C6C9FE] scrollbar-track-[#8C93FC] pb-3">
-            {[...helpTopics]
+          <div
+            ref={scrollRef}
+            className="flex w-full gap-6 overflow-x-scroll scrollbar-thin scrollbar-thumb-[#C6C9FE] scrollbar-track-[#8C93FC] pb-3 cursor-grab"
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseLeaveOrUp}
+            onMouseLeave={onMouseLeaveOrUp}
+            onMouseMove={onMouseMove}
+          >
+            {/* [...helpTopics]
               .sort((a, b) =>
                 a.title === currentTab ? -1 : b.title === currentTab ? 1 : 0
-              )
-              .map((topic, index) => (
+              ) */}
+            {helpTopics.map((topic, index) => (
+              <div
+                onClick={() => setCurrentTab(topic?.title)}
+                key={index}
+                className={`pt-1 bg-white min-h-[120px] cursor-pointer rounded-xl ${
+                  currentTab === topic?.title ? "opacity-100" : "opacity-40"
+                }`}
+              >
                 <div
-                  onClick={() => setCurrentTab(topic?.title)}
-                  key={index}
-                  className="block"
+                  className={`flex flex-row items-start  gap-4 p-4 w-full min-w-[280px] `}
                 >
-                  <div
-                    className={`flex cursor-pointer ${
-                      currentTab === topic?.title ? "opacity-100" : "opacity-40"
-                    } flex-row items-center bg-white rounded-xl gap-4 p-4 w-full min-w-[280px] min-h-[100px]`}
-                  >
-                    <Image
-                      src={topic?.icon}
-                      height={10}
-                      width={10}
-                      alt=""
-                      className="h-7 w-7"
-                    />
-                    <div>
-                      <h3 className="font-semibold">{topic.title}</h3>
-                      <p className="text-sm text-gray-500">
-                        {topic.description}
-                      </p>
-                    </div>
+                  <Image
+                    src={topic?.icon}
+                    height={10}
+                    width={10}
+                    alt=""
+                    className="h-7 w-7 pt-2"
+                  />
+                  <div>
+                    <h3 className="font-semibold">{topic.title}</h3>
+                    <p className="text-sm text-gray-500">{topic.description}</p>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>

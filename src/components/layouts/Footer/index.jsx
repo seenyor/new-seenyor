@@ -1,4 +1,5 @@
 import { Img } from "@/components";
+import { MailIcon, MapPin, Phone } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
@@ -19,17 +20,11 @@ const Footer = () => {
                   className="flex object-contain md:w-full hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                 />
                 <ul>
-                  <li className="mb-2 leading-6">
+                  <li className="my-2 leading-6">
                     <p>
                       AI Powered All-In-One Solution for Fall Detection and
                       Sleep Monitoring.
                     </p>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <p>Address:232 Unley Road,Unley SA 5061,Australia</p>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <p>Contact Australia: 1800329162</p>
                   </li>
                 </ul>
               </nav>
@@ -40,32 +35,35 @@ const Footer = () => {
                   className="mb-6 text-base font-medium text-slate-700"
                   id="footer-docs-5-logo-sub"
                 >
-                  SERVICES
+                  Contact Information
                 </h3>
                 <ul>
                   <li className="mb-2 leading-6">
-                    <a
-                      href="#"
-                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
-                    >
-                      Professional Installation
-                    </a>
+                    <p>Seenyor PTY LTD</p>
                   </li>
                   <li className="mb-2 leading-6">
-                    <a
-                      href="#"
-                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
-                    >
-                      Professional Monitoring
-                    </a>
+                    <div className="flex items-center gap-1">
+                      <div className="w-[15%]">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                      <p>232 Unley Road,Unley SA 5061,Australia</p>
+                    </div>
                   </li>
                   <li className="mb-2 leading-6">
-                    <a
-                      href="#"
-                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
-                    >
-                      Free Consultations
-                    </a>
+                    <div className="flex items-center gap-1">
+                      <div className="w-[15%]">
+                        <Phone className="h-5 w-5" />
+                      </div>
+                      <p>1800329162</p>
+                    </div>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <div className="flex items-center gap-1">
+                      <div className="w-[15%]">
+                        <MailIcon className="h-5 w-5" />
+                      </div>
+                      <p>1800329162</p>
+                    </div>
                   </li>
                 </ul>
               </nav>
@@ -76,7 +74,7 @@ const Footer = () => {
                   className="mb-6 text-base font-medium text-slate-700"
                   id="footer-about-5-logo-sub"
                 >
-                  HELP
+                  Legal
                 </h3>
                 <ul>
                   {/* <li className="mb-2 leading-6">
@@ -105,18 +103,26 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
-                      href="/service-agreement"
-                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
-                    >
-                      Service Agreement
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a
                       href="/terms-of-service"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Terms Of Service
+                    </a>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <a
+                      href="/service-agreement"
+                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
+                    >
+                      User Agreement and Liability
+                    </a>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <a
+                      href="/service-agreement"
+                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
+                    >
+                      Disclaimer
                     </a>
                   </li>
                 </ul>
@@ -131,12 +137,20 @@ const Footer = () => {
                   COMPANY
                 </h3>
                 <ul>
-                  <li className="mb-2 leading-6">
+                  {/* <li className="mb-2 leading-6">
                     <a
                       href="/about"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       About Us
+                    </a>
+                  </li> */}
+                  <li className="mb-2 leading-6">
+                    <a
+                      href="/contact-us"
+                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
+                    >
+                      Contact Us
                     </a>
                   </li>
                   <li className="mb-2 leading-6">
@@ -145,14 +159,6 @@ const Footer = () => {
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Blog
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a
-                      href="/contact-us"
-                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
-                    >
-                      Contact Us
                     </a>
                   </li>
                 </ul>

@@ -11,55 +11,43 @@ const helpTopics = [
     link: "#",
   },
   {
-    title: "Elderly Management",
+    title: "Product Features and Overview",
     description: "Creating Personalized Care and Monitoring",
     icon: "/images/help2.svg",
     link: "#",
   },
   {
-    title: "Device Management",
+    title: "Device Issues",
     description: "Monitor Device Performance and Updates",
     icon: "/images/help3.svg",
     link: "#",
   },
   {
-    title: "Troubleshoot",
+    title: "Device Troubleshooting",
     description: "Solutions for a Smooth Experience",
     icon: "/images/help4.svg",
     link: "#",
   },
   {
-    title: "Using the App",
+    title: "Device Logins and Account Management",
     description: "A Guide to Using Key App Features",
     icon: "/images/help5.svg",
     link: "#",
   },
   {
-    title: "Using the Platform",
-    description: "A Guide to Using Key Platform Features",
-    icon: "/images/help6.svg",
-    link: "#",
-  },
-  {
-    title: "Billing & Payments",
-    description: "Billing & Payments Troubleshoot",
-    icon: "/images/help7.svg",
-    link: "#",
-  },
-  {
-    title: "My Account",
+    title: "Account Login",
     description: "Managing Senryor Account",
     icon: "/images/help8.svg",
     link: "#",
   },
+  // {
+  //   title: "Videos",
+  //   description: "Interactive Video Materials",
+  //   icon: "/images/help9.svg",
+  //   link: "#",
+  // },
   {
-    title: "Videos",
-    description: "Interactive Video Materials",
-    icon: "/images/help9.svg",
-    link: "#",
-  },
-  {
-    title: "Download Zone",
+    title: "Installation FAQs",
     description: "Welcome to Senryor Download Zone",
     icon: "/images/help10.svg",
     link: "#",
@@ -92,23 +80,23 @@ const Knowledge = () => {
             Help Topics
           </h2>
 
-          <div className="grid grid-cols-4 tab:block md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-4 sm:block md:grid-cols-2 gap-4">
             {helpTopics.map((topic, index) => (
               <Link
                 href={`knowledge/${topic?.title}`}
                 key={index}
-                className="block tab:my-3"
+                className="flex sm:my-4 justify-center sm:justify-start items-center bg-white rounded-xl p-4 min-h-[140px] md:min-h-[100px]"
               >
-                <div className="flex flex-row items-center bg-white rounded-xl gap-4 p-4 min-h-[100px]">
+                <div className="flex flex-row items-start  gap-4 ">
                   <Image
                     src={topic?.icon}
                     height={10}
                     width={10}
                     alt=""
-                    className="h-7 w-7"
+                    className="h-[30px] w-[30px] mt-2"
                   />
                   <div>
-                    <h3 className="font-semibold md:text-[14px]">
+                    <h3 className="font-semibold text-lg md:text-[16px]">
                       {topic.title}
                     </h3>
                     <p className="text-sm text-gray-500">{topic.description}</p>
