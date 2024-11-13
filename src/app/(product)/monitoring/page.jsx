@@ -74,7 +74,7 @@ const ProfessionalMonitoring = () => {
         <div className="w-full h-auto tab:min-h-[300px] sm:min-h-[300px] mx-auto  mt-8 relative">
           <Image
             className="w-full h-auto tab:hidden"
-            src="/images/service/alert.webp"
+            src="/images/service/alert3.webp"
             width={1200}
             height={800}
             quality={100}

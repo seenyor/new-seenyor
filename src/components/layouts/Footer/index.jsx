@@ -6,10 +6,11 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      {/*    <!-- Component: Five Columns Footer with Logo and Sub Footer --> */}
-      <footer id="footer-section" className="w-full pt-16 text-sm bg-[#F3F4F6]">
-        {/*      <!-- Main footer --> */}
-        <div className="mx-auto xxl:px-5 max-w-[1320px] w-full">
+      <footer id="footer-section" className="w-full pt-16 text-sm ">
+        {/* ############## ############
+          need this bg on top (line no 9) when comment out the footer  bg-[#F3F4F6] 
+          ###################################*/}
+        {/* <div className="mx-auto xxl:px-5 max-w-[1320px] w-full">
           <div className="grid grid-cols-4 gap-5  tab:grid-cols-2">
             <div className="flex">
               <nav
@@ -50,37 +51,37 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <div className="flex items-start gap-1">
-                      {/* <div className=" mt-1">
+                      <div className=" mt-1">
                         <Image
                           src="/images/home/location.svg"
                           alt=""
                           height={10}
                           width={10}
-                          className="!w-5 !h-5"
+                          className="!w-7 !h-auto md:hidden"
                         />
-                      </div> */}
+                      </div>
                       <p>232 Unley Road,Unley SA 5061,Australia</p>
                     </div>
                   </li>
                   <li className="mb-2 leading-6">
                     <div className="flex items-start gap-1">
-                      {/* <div className=" mt-1">
-                        <Phone fill="#000" className="!w-5 !h-5" />
-                      </div> */}
+                      <div className=" mt-1">
+                        <Phone fill="#000" className="!w-4 !h-auto md:hidden" />
+                      </div>
                       <p>1800329162</p>
                     </div>
                   </li>
                   <li className="mb-2 leading-6">
                     <div className="flex items-start gap-1">
-                      {/* <div className=" mt-1">
+                      <div className=" mt-1">
                         <Image
                           src="/images/home/mail.svg"
                           alt=""
                           height={10}
                           width={10}
-                          className="!w-5 !h-5"
+                          className="!w-5 !h-5 md:hidden"
                         />
-                      </div> */}
+                      </div>
                       <p>Support@seenyor.com</p>
                     </div>
                   </li>
@@ -99,14 +100,14 @@ const Footer = () => {
                   Legal
                 </h3>
                 <ul className="text-lg md:text-[16px] tab:text-sm">
-                  {/* <li className="mb-2 leading-6">
+                  <li className="mb-2 leading-6">
                     <a
                       href="/knowledge"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Help Center
                     </a>
-                  </li> */}
+                  </li>
                   <li className="mb-2 leading-6">
                     <a
                       href="/terms-and-conditions"
@@ -154,14 +155,14 @@ const Footer = () => {
                   COMPANY
                 </h3>
                 <ul className="text-lg md:text-[16px] tab:text-sm">
-                  {/* <li className="mb-2 leading-6">
+                  <li className="mb-2 leading-6">
                     <a
                       href="/about"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       About Us
                     </a>
-                  </li> */}
+                  </li>
                   <li className="mb-2 leading-6">
                     <a
                       href="/contact-us"
@@ -170,22 +171,22 @@ const Footer = () => {
                       Contact Us
                     </a>
                   </li>
-                  {/* <li className="mb-2 leading-6">
+                  <li className="mb-2 leading-6">
                     <a
                       href="/blog"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Blog
                     </a>
-                  </li> */}
+                  </li>
                 </ul>
               </nav>
             </div>
           </div>
-        </div>
+        </div> */}
         {/*      <!-- Sub Footer --> */}
         <div className="bg-[#E3E7EF] py-5 mt-5 text-sm">
-          <p className="text-center">
+          <p className="text-center text-lg md:text-base tab:text-sm">
             Copyrighty @2024; All Rights Reserved by Seenyor
           </p>
         </div>

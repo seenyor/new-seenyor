@@ -82,9 +82,9 @@ export default function MonitoringCarousel() {
     <div className="w-full h-screen md:h-auto max-h-[825px] md:max-h-[1400px] max-w-[1720px] mx-auto py-4">
       <div className="flex !h-full md:flex-col bg-[#6366f1] rounded-xl overflow-hidden">
         {/* Left side - Feature content */}
-        <div className="w-[55%] md:h-[650px] tab:h-[600px] relative md:w-full p-8 px-16 md:px-8 tab:px-3 pb-0 text-white">
+        <div className="w-[55%] md:h-[650px] tab:h-[650px] relative md:w-full p-8 px-16 md:px-8 tab:px-3 pb-0 text-white">
           {/* Top navigation tabs */}
-          <div className="flex justify-start sm:grid sm:grid-cols-2 sm:gap-3 mb-12 tab:mb-5 my-7 ">
+          <div className="flex justify-start sm:grid sm:grid-cols-2 sm:gap-3 mb-12 xxl:mb-5 tab:mb-5 my-7 ">
             {features.map((feature, index) => (
               <motion.button
                 key={feature.id}
@@ -115,16 +115,16 @@ export default function MonitoringCarousel() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-[40px] tab:text-xl font-bold mb-4 sm:mb-2">
+                <h2 className="text-[40px] xxl:text-2xl tab:text-xl font-bold mb-4 sm:mb-2">
                   {features[activeFeature].title}
                 </h2>
-                <h2 className="text-3xl md:text-2xl tab:text-lg mb-10 md:mb-6">
+                <h2 className="text-3xl xxl:text-2xl tab:text-base mb-10 xxl:mb-6 md:mb-6">
                   {features[activeFeature].subtitle}
                 </h2>
                 {features[activeFeature].content.map((item, index) => (
                   <p
                     key={index}
-                    className="mb-5 md:mb-3 tab:mb-2 text-xl md:text-[16px]"
+                    className="mb-5  xxl:mb-3 tab:mb-2 text-xl xxl:text-[16px]"
                   >
                     {item}
                   </p>
