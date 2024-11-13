@@ -1,20 +1,77 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const CallbackForm = () => {
+  const [countryData, setCountryData] = useState([]);
+  const [formData, setFormData] = useState({
+    userType: "",
+    fullName: "",
+    email: "",
+    company: "",
+    phoneNumber: "",
+    selectedCountry: "",
+    selectedDialCode: "",
+    city: "",
+    preferredTime: "",
+    message: "",
+  });
+
+  // Fetch country data
+  useEffect(() => {
+    fetch("/countryData.json")
+      .then((response) => response.json())
+      .then((data) => setCountryData(data))
+      .catch((error) => console.error("Error loading country data:", error));
+  }, []);
+
+  // Centralized change handler
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle country and dial code changes
+  const handleCountryChange = (event) => {
+    const country = event.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      selectedCountry: country,
+    }));
+  };
+
+  const handleDialCodeChange = (event) => {
+    const dialCode = event.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      selectedDialCode: dialCode,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData); // send the data to your backend here
+  };
+
   return (
     <div
       id="call_back_form"
-      className="max-w-[1320px] my-0 mx-auto w-full p-5 rounded-xl  md:p-5 sm:p-2"
+      className="max-w-[1320px] my-0 mx-auto w-full p-5 rounded-xl md:p-5 sm:p-2"
     >
-      <p className="text-[2rem] sm:text-2xl font-semibold text-center py-2">
+      <p className="text-[40px] md:text-3xl tab:text-2xl font-semibold text-center py-2">
         Request a Call-Back
       </p>
-      <p className="text-center text-xl sm:text-lg">
-        Tell us a little about your needs, and our team will reach out <br />
-        to provide the best solution for you.
+      <p className="text-center text-3xl md:text-2xl tab:text-lg">
+        Tell us a little about your needs, and our team will <br /> reach out to
+        provide the best solution for you.
       </p>
-      <div className="w-full max-w-3xl mx-auto p-4">
-        <form className="space-y-3">
-          <div className="flex  sm:flex-col sm:items-center text-sm mb-4">
-            <span className="sm:w-full w-1/5 text-sm font-semibold mb-2 mb-0">
+      <div className="w-full max-w-5xl mx-auto p-4">
+        <form className="space-y-3" onSubmit={handleSubmit}>
+          <div className="flex sm:flex-col sm:items-center text-sm mb-4">
+            <span className="sm:w-full text-xl md:text-base w-1/5 font-semibold ">
               I am a
             </span>
             <div className="flex flex-wrap gap-2 sm:w-full w-4/5">
@@ -29,10 +86,14 @@ const CallbackForm = () => {
                   <input
                     type="radio"
                     className="form-radio h-4 w-4 text-gray-600"
-                    name="user-type"
+                    name="userType"
                     value={type.toLowerCase().replace(" ", "-")}
+                    checked={
+                      formData.userType === type.toLowerCase().replace(" ", "-")
+                    }
+                    onChange={handleInputChange}
                   />
-                  <span className="ml-2 text-sm">{type}</span>
+                  <span className="ml-2 text-base md:text-sm">{type}</span>
                 </label>
               ))}
             </div>
@@ -42,22 +103,20 @@ const CallbackForm = () => {
             {
               id: "full-name",
               label: "Full name:",
-              placeholder: "enter a Full Name",
+              placeholder: "Enter a Full Name",
+              name: "fullName",
             },
             {
               id: "email",
               label: "E-Mail:",
-              placeholder: "enter your E-Mail address",
-            },
-            {
-              id: "phone",
-              label: "Phone Number:",
-              placeholder: "enter a Phone Number including country code",
+              placeholder: "Enter your E-Mail address",
+              name: "email",
             },
             {
               id: "company",
               label: "Company name:",
-              placeholder: "enter a Company name if applicable",
+              placeholder: "Enter a Company name if applicable",
+              name: "company",
             },
           ].map((field) => (
             <div
@@ -66,77 +125,122 @@ const CallbackForm = () => {
             >
               <label
                 htmlFor={field.id}
-                className="w-1/5 sm:w-full text-sm font-semibold mb-1 sm:mb-0"
+                className="w-1/5 sm:w-full text-xl md:text-base font-semibold mb-1 sm:mb-0"
               >
                 {field.label}
               </label>
-              <div className="w-4/5 sm:w-full ">
+              <div className="w-4/5 sm:w-full">
                 <input
                   id={field.id}
                   type="text"
+                  name={field.name}
                   placeholder={field.placeholder}
-                  className="w-full px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
                 />
               </div>
             </div>
           ))}
 
           <div className="flex sm:flex-col items-center">
-            <label className="sm:w-full w-1/5 text-sm font-semibold mb-1 sm:mb-0">
+            <label
+              htmlFor="phone"
+              className="sm:w-full w-1/5 text-xl md:text-base font-semibold mb-1 sm:mb-0"
+            >
+              Phone Number:
+            </label>
+            <div className="flex items-center w-4/5 sm:w-full">
+              <select
+                className="px-3 py-3 md:py-2 w-[35%] bg-[#f5f5f5] rounded-l text-sm focus:outline-none"
+                value={formData.selectedDialCode}
+                name="selectedDialCode"
+                onChange={handleDialCodeChange}
+              >
+                <option value="">Code</option>
+                {countryData.map((country, i) => (
+                  <option key={i} value={country.dial_code}>
+                    {country.dial_code} ({country.name})
+                  </option>
+                ))}
+              </select>
+              <input
+                id="phone"
+                type="text"
+                name="phoneNumber"
+                placeholder="Enter phone number"
+                value={formData.phoneNumber}
+                onChange={handleInputChange}
+                className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded-r placeholder-gray-400 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div className="flex sm:flex-col items-center">
+            <label className="sm:w-full w-1/5 text-xl md:text-base font-semibold mb-1 sm:mb-0">
               Country
             </label>
-            <div className="sm:w-full w-4/5 flex  sm:flex-col gap-4">
-              <input
-                type="text"
-                placeholder="enter a country"
-                className="sm:w-full w-1/2 px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
-              />
-              <div className="sm:w-full w-1/2 flex  sm:flex-col items-center">
-                <label className="sm:w-full w-2/5 text-sm font-semibold mb-1 sm:mb-0">
-                  Area Code
+            <div className="sm:w-full w-4/5 flex sm:flex-col gap-4">
+              <select
+                className="sm:w-full w-4/5 px-3 py-2 text-sm bg-[#f5f5f5] rounded focus:outline-none"
+                value={formData.selectedCountry}
+                name="selectedCountry"
+                onChange={handleCountryChange}
+              >
+                <option value="">Select Country</option>
+                {countryData.map((country, i) => (
+                  <option key={i} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+              <div className="sm:w-full w-1/2 flex sm:flex-col items-center">
+                <label className="sm:w-full w-2/5 text-xl md:text-base font-semibold mb-1 sm:mb-0">
+                  City
                 </label>
                 <input
                   type="text"
-                  placeholder="enter a Area Code"
-                  className="sm:w-full w-3/5 px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
+                  name="city"
+                  placeholder="Enter a city"
+                  value={formData.city}
+                  onChange={handleInputChange}
+                  className="sm:w-full w-3/5 px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
                 />
               </div>
             </div>
           </div>
 
-          {[
-            {
-              id: "preferred-time",
-              label: "Preferred Time:",
-              placeholder: "enter a Preferred Contact Time",
-            },
-          ].map((field) => (
-            <div key={field.id} className="flex sm:flex-col items-center">
-              <label
-                htmlFor={field.id}
-                className="sm:w-full w-1/5 text-sm font-semibold mb-1 sm:mb-0"
-              >
-                {field.label}
-              </label>
-              <div className="sm:w-full w-4/5">
-                <input
-                  id={field.id}
-                  type="text"
-                  placeholder={field.placeholder}
-                  className="w-full px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
-                />
-              </div>
+          <div className="flex sm:flex-col items-center">
+            <label
+              htmlFor="preferred-time"
+              className="sm:w-full w-1/5 text-xl md:text-base font-semibold mb-1 sm:mb-0"
+            >
+              Preferred Time:
+            </label>
+            <div className="sm:w-full w-4/5">
+              <input
+                id="preferred-time"
+                type="time"
+                name="preferredTime"
+                placeholder="Enter a Preferred Contact Time"
+                value={formData.preferredTime}
+                onChange={handleInputChange}
+                className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
+              />
             </div>
-          ))}
+          </div>
 
-          <div className="flex  sm:flex-col items-start">
-            <label className="sm:w-full w-1/5 text-sm font-semibold mb-1 sm:mb-0 pt-2">
+          <div className="flex sm:flex-col items-start">
+            <label className="sm:w-full w-1/5 text-xl md:text-base font-semibold mb-1 sm:mb-0 pt-2">
               Message:
             </label>
             <div className="sm:w-full w-4/5">
               <textarea
-                placeholder="write a message"
-                className="w-full px-3 py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none resize-none"
+                name="message"
+                placeholder="Write a message"
+                value={formData.message}
+                onChange={handleInputChange}
+                className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none resize-none"
                 rows={4}
               />
             </div>
@@ -145,9 +249,9 @@ const CallbackForm = () => {
           <div className="flex justify-center mt-6">
             <button
               type="submit"
-              className="px-6 py-2 bg-[#7F87FC] text-white text-sm rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              className="py-2 px-8 bg-primary rounded text-white hover:bg-primary/90 transition duration-300"
             >
-              Request Call Back
+              Submit
             </button>
           </div>
         </form>
