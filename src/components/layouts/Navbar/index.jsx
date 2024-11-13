@@ -39,8 +39,8 @@ export default function Header() {
     <>
       {/*<!-- Component: Navbar with CTA --> */}
       <header className="relative z-20 w-full  bg-white/90 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full">
-        <div className="relative mx-auto w-full py-12 xxl:py-7 md:py-6 px-6 max-w-[1720px]">
-          <nav className="flex h-[6.5rem] md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
+        <div className="relative mx-auto w-full py-12 xxl:py-7 md:py-6 tab:py-2 px-6 max-w-[1720px]">
+          <nav className="flex h-[6.5rem] tab:h-auto md:pt-0 items-stretch justify-between font-medium text-[#2C3142]">
             {/*      <!-- Brand logo --> */}
             <a
               className="md:flex items-center gap-2 py-3 my-auto text-lg whitespace-nowrap focus:outline-none flex-1"

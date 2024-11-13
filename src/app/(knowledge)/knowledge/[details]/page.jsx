@@ -766,7 +766,7 @@ const KnowledgeDetails = ({ params }) => {
           </button>
           <div
             ref={scrollRef}
-            className="flex w-full gap-6 overflow-x-scroll scrollbar-thin scrollbar-thumb-[#C6C9FE] scrollbar-track-[#8C93FC] pb-3 cursor-grab"
+            className="flex select-none w-full gap-6 overflow-x-scroll scrollbar-thin scrollbar-thumb-[#C6C9FE] scrollbar-track-[#8C93FC] pb-3 cursor-grab"
             onMouseDown={onMouseDown}
             onMouseUp={onMouseLeaveOrUp}
             onMouseLeave={onMouseLeaveOrUp}

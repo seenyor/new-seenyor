@@ -19,14 +19,14 @@ const monitoringData = [
   { id: 3, imgSrc: "/images/fall.svg", title: "Fall", subtitle: "Monitoring" },
   {
     id: 4,
-    imgSrc: "/images/breath.svg",
-    title: "Breathing Rate",
+    imgSrc: "/images/sleep.svg",
+    title: "Sleep",
     subtitle: "Monitoring",
   },
   {
     id: 5,
-    imgSrc: "/images/breath.svg",
-    title: "Breathing Rate",
+    imgSrc: "/images/activity.svg",
+    title: "Activity",
     subtitle: "Monitoring",
   },
 ];
@@ -48,7 +48,7 @@ const PeaceOfMind = () => {
             <h3 className="text-3xl md:text-2xl font-semibold pt-2">
               24/7 Protection
             </h3>
-            <p className=" text-lg px-2">
+            <p className=" text-xl md:text-lg px-2">
               Non-intrusive, without the hassle of wearable devices.
             </p>
           </div>
@@ -73,10 +73,14 @@ const PeaceOfMind = () => {
                       width={156}
                       height={32}
                       alt={item.title}
-                      className="w-12 h-12 p-3 mx-auto object-cover "
+                      className="w-12 h-12 p-3 mx-auto "
                     />
-                    <p className="font-semibold text-[10px]">{item.title}</p>
-                    <p className="text-[10px]">{item.subtitle}</p>
+                    <p className="font-semibold text-[12px] xxl:text-[10px]">
+                      {item.title}
+                    </p>
+                    <p className="text-[12px] xxl:text-[10px]">
+                      {item.subtitle}
+                    </p>
                   </>
                 </div>
               ))}

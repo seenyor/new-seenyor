@@ -96,9 +96,9 @@ const Installation = () => {
               sure it’s positioned at the recommended height for the best
               performance.
             </p>
-
-            <div className="flex justify-between gap-6 mx-20 md:mx-8 sm:mx-3 my-5">
-              <div className="w-full max-w-48">
+            {/* changeable1 */}
+            <div className="flex justify-center gap-12 md:gap-6 mx-8 sm:mx-3 my-5">
+              <div className="w-full max-w-[208px]">
                 <Image
                   src="/images/mobile.svg"
                   alt="stroke"
@@ -106,11 +106,11 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm sm:text-xs font-semibold">
+                <p className="text-center text-lg md:text-sm tab:text-xs font-semibold">
                   Easy Setup with Interactive Guidance
                 </p>
               </div>
-              <div className="w-full max-w-48">
+              <div className="w-full max-w-[208px]">
                 <Image
                   src="/images/donation.svg"
                   alt="stroke"
@@ -118,7 +118,7 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm sm:text-xs font-semibold">
+                <p className="text-center text-lg md:text-sm tab:text-xs font-semibold">
                   Save Money by Installing It Yourself
                 </p>
               </div>
@@ -153,23 +153,23 @@ const Installation = () => {
                 </p>
               </div>
             </div>
-            <div className="absolute bottom-0 flex justify-center w-full">
+            {/* <div className="absolute bottom-0 flex justify-center w-full">
               <p className="text-sm bg-[#000] text-white font-semibold px-3 py-2 rounded-t-md">
                 Peace of Mind
               </p>
-            </div>
+            </div> */}
             {/*  <!-- Body--> */}
             <p className="text-center text-[18px] tab:text-sm px-5 sm:px-0 py-5">
               Schedule a professional installation with one of our trained
               technicians. They’ll handle everything from wiring to Wi-Fi setup
-              and thorough device testing, ensuring your Seenyor system is
-              perfectly configured and ready to keep your loved ones safe. Rest
-              easy knowing your system is set up to the highest standards for
+              and thorough device testing, ensuring your system is perfectly
+              configured and ready to keep your loved ones safe. Rest easy
+              knowing your system is set up to the highest standards for
               reliability and accuracy.
             </p>
 
             <div className="flex justify-between gap-6 mx-8 sm:mx-3 my-5">
-              <div className="w-full max-w-48">
+              <div className="w-full max-w-[208px]">
                 <Image
                   src="/images/certified.svg"
                   alt="stroke"
@@ -177,11 +177,11 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm sm:text-xs font-semibold">
+                <p className="text-center text-lg md:text-sm tab:text-xs font-semibold">
                   Installed by Certified Professionals
                 </p>
               </div>
-              <div className="w-full max-w-48">
+              <div className="w-full max-w-[208px]">
                 <Image
                   src="/images/thumb.svg"
                   alt="stroke"
@@ -189,11 +189,11 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm sm:text-xs font-semibold">
+                <p className="text-center text-lg md:text-sm tab:text-xs font-semibold">
                   Turnkey Solution for Worry-Free Setup
                 </p>
               </div>
-              <div className="w-full max-w-48">
+              <div className="w-full max-w-[208px]">
                 <Image
                   src="/images/aqurate.svg"
                   alt="stroke"
@@ -201,7 +201,7 @@ const Installation = () => {
                   width={200}
                   className="h-auto w-auto mx-auto"
                 />
-                <p className="text-center text-sm sm:text-xs font-semibold">
+                <p className="text-center text-lg md:text-sm tab:text-xs font-semibold">
                   100% Accurate Installation Guarantee
                 </p>
               </div>
@@ -222,7 +222,7 @@ const Installation = () => {
           <h3 className="font-semibold text-[40px] sm:text-3xl">
             How it works?
           </h3>
-          <p className=" text-center px-5 w-full text-2xl sm:text-lg py-3">
+          <p className=" text-center px-5 w-full text-[30px] sm:text-lg py-3">
             Follow these simple steps to purchase and set up your Seenyor
             system.
           </p>
@@ -242,20 +242,20 @@ const Installation = () => {
                 </button>
               </Link>
             </div>
-            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto -mt-10 tab:mt-0">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto mt-3 xxl:mt-0">
               <Image
-                className="h-auto w-full"
+                className="h-auto w-full "
                 src="/images/qr.png"
                 width={200}
                 height={200}
                 alt="monitoring"
                 quality={100}
               />
-              <Link href="#">
+              {/* <Link href="#">
                 <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
                   Download App
                 </button>
-              </Link>
+              </Link> */}
             </div>
             <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
               <Image

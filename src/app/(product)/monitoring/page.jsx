@@ -81,7 +81,7 @@ const ProfessionalMonitoring = () => {
             alt="alert verification"
           />
           <div className="max-w-[1320px] w-full left-1/2 transform -translate-x-1/2 absolute top-12 md:top-5  px-10 tab:px-3 md:px-2">
-            <div className=" grid grid-cols-4 tab:grid-cols-2 w-full   gap-12  md:gap-5">
+            <div className=" grid grid-cols-4 tab:grid-cols-2 w-full gap-12  md:gap-5">
               <div className="w-52 md:w-auto tab:w-auto tab:bg-[#ffff] tab:bg-opacity-30  text-center">
                 <Image
                   className="w-20 md:w-12 mx-auto h-auto"
@@ -246,14 +246,14 @@ const ProfessionalMonitoring = () => {
             <h3 className="font-semibold text-[40px] md:text-3xl tab:px-3">
               AI-Driven Safety for Peace of Mind
             </h3>
-            <p className="text-[40px] md:text-2xl md:px-5 tab:px-3 py-3">
+            <p className="text-[30px] md:text-2xl md:px-5 tab:px-3 py-3">
               Our system learns and adapts to deliver real-time alerts and
               proactive safety for the elderly.
             </p>
           </div>
 
           <div className="flex tab:flex-col gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
-            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai1.png"
@@ -262,7 +262,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai2.png"
@@ -271,7 +271,7 @@ const ProfessionalMonitoring = () => {
                 alt="monitoring"
               />
             </div>
-            <div className="w-56 md:w-48 tab:mx-auto  h-auto">
+            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
               <Image
                 className="h-auto w-full"
                 src="/images/ai3.png"
