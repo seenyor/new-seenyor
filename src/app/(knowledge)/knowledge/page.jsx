@@ -1,5 +1,4 @@
-import { Button, Input } from "@/components";
-import { Search } from "lucide-react";
+import SearchBar from "@/components/searchBar/SearchBar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,27 +52,10 @@ const helpTopics = [
     link: "#",
   },
 ];
-
 const Knowledge = () => {
   return (
     <div>
-      <div className="bg-[#7F87FC] py-12">
-        <div className="flex flex-col items-center gap-4 w-full max-w-2xl mx-auto px-8">
-          <h1 className="text-2xl font-semibold text-white">
-            How can we Help?
-          </h1>
-          <div className="relative w-full">
-            <div className="absolute inset-y-0 left-3 flex items-center">
-              <Search className="h-6 w-6 text-gray-500" />
-            </div>
-            <Input
-              type="search"
-              placeholder="Search the knowledge base..."
-              className="w-full rounded-full bg-white pl-10 pr-4 py-0 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-600"
-            />
-          </div>
-        </div>
-      </div>
+      <SearchBar />
       <div className="flex flex-col gap-10 bg-white mb-8">
         <div className="mx-auto max-w-[1320px] bg-[#F5F5FB] w-full p-6">
           <h2 className="my-8 pb-2 border-b border-slate-400 text-2xl font-semibold">
