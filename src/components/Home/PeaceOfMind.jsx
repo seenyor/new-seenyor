@@ -65,7 +65,7 @@ const PeaceOfMind = () => {
               {monitoringData.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white py-3 text-center w-[19%] md:w-[6.5rem]"
+                  className="bg-[#F1F2F4] border border-[#D8D9D7] py-3 text-center w-[19%] md:w-[6.5rem]"
                 >
                   <>
                     <Image
