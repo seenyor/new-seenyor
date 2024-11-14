@@ -455,7 +455,7 @@ const faq = [
     ],
   },
   {
-    category: "My Account",
+    category: "Account Login",
     showFor: "Account Login",
     questions: [
       {
@@ -513,7 +513,7 @@ const faq = [
     ],
   },
   {
-    category: "My Account",
+    category: "Device Logins and Account Management",
     showFor: "Device Logins and Account Management",
     questions: [
       {
@@ -571,7 +571,7 @@ const faq = [
     ],
   },
   {
-    category: "Download Zone",
+    category: "Installation FAQs",
     showFor: "Installation FAQs",
     questions: [
       {
@@ -711,7 +711,9 @@ const SearchBar = () => {
                 {filteredQuestions.map((question, index) => (
                   <li key={index} className="text-gray-700">
                     <Link
-                      href={`/knowledge/${question?.category}`}
+                      href={`/knowledge/${
+                        question?.category
+                      }?question=${encodeURIComponent(question?.question)}`}
                       className="p-3 border border-slate-300 bg-slate-100 my-[2px]"
                     >
                       <strong className="w-full ">{question.question}</strong>

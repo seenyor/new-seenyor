@@ -9,7 +9,7 @@ export default function Home() {
   const accessToken = cookieStore.get("access_token");
 
   if (!accessToken) {
-    redirect("/");
+    redirect("/adminlogin");
   }
   return (
     <div className="flex flex-col gap-5  w-full">

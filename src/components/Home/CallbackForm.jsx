@@ -220,7 +220,7 @@ const CallbackForm = () => {
             <div className="sm:w-full w-4/5">
               <input
                 id="preferred-time"
-                type="time"
+                type="date"
                 name="preferredTime"
                 placeholder="Enter a Preferred Contact Time"
                 value={formData.preferredTime}

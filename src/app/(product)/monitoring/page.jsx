@@ -74,10 +74,11 @@ const ProfessionalMonitoring = () => {
         <div className="w-full h-auto tab:min-h-[300px] sm:min-h-[300px] mx-auto  mt-8 relative">
           <Image
             className="w-full h-auto tab:hidden"
-            src="/images/service/alert3.webp"
+            src="/images/service/aler10.png"
             width={1200}
-            height={800}
+            height={2400}
             quality={100}
+            priority
             alt="alert verification"
           />
           <div className="max-w-[1320px] w-full left-1/2 transform -translate-x-1/2 absolute top-12 md:top-5  px-10 tab:px-3 md:px-2">
