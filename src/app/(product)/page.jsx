@@ -39,7 +39,7 @@ const Home = () => {
             </div>
             <div className="w-[30%] -mt-10 md:mt-0 tab:w-full">
               <Image
-                src="/public/images/home/product2.webp"
+                src="/images/home/product2.webp"
                 height={200}
                 width={300}
                 alt="Product"

@@ -4,7 +4,7 @@ import { Img } from "..";
 const cardData = [
   {
     id: 1,
-    imageSrc: "/public/images/home/card1.webp",
+    imageSrc: "/images/home/card1.webp",
     altText: "stroke",
     title: "A Single Fall Can Change Everything",
     description:
@@ -16,7 +16,7 @@ const cardData = [
   },
   {
     id: 2,
-    imageSrc: "/public/images/home/card2.webp",
+    imageSrc: "/images/home/card2.webp",
     altText: "stroke",
     title: "Emergencies Don’t Wait",
     description:
@@ -28,7 +28,7 @@ const cardData = [
   },
   {
     id: 3,
-    imageSrc: "/public/images/home/card3.webp",
+    imageSrc: "/images/home/card3.webp",
     altText: "stroke",
     title: "Caring for Them Is Caring for You",
     description:
