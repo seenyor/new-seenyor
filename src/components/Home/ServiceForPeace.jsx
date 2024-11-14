@@ -3,7 +3,7 @@ import React from "react";
 const services = [
   {
     id: 1,
-    imgSrc: "/images/home/installation.webp",
+    imgSrc: "/public/images/home/installation.webp",
     title: "Professional Installation",
     description:
       "Ensure a seamless setup of your monitoring system with our expert installation service, tailored to fit your home and needs.",
@@ -11,7 +11,7 @@ const services = [
   },
   {
     id: 2,
-    imgSrc: "/images/home/monitoring.webp",
+    imgSrc: "/public/images/home/monitoring.webp",
     title: "Professional Monitoring",
     description:
       "Enjoy peace of mind with our 24/7 monitoring by trained professionals, delivering immediate alerts and rapid responses for continuous safety.",
@@ -19,7 +19,7 @@ const services = [
   },
   {
     id: 3,
-    imgSrc: "/images/home/consulting.webp",
+    imgSrc: "/public/images/home/consulting.webp",
     title: "Free Consultations",
     description:
       "Take advantage of our free consultations to discuss your specific requirements and receive personalized recommendations for optimal care solutions.",

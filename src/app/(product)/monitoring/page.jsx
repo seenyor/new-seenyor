@@ -38,7 +38,9 @@ const ProfessionalMonitoring = () => {
       {/* hero */}
       <section
         className="relative sm:mb-6 max-w-[1720px] w-full mx-auto max-h-[780px] md:h-[400px] tab:h-[300px]  px-20 md:px-10 tab:px-5 h-screen  bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/images/service/servicehero.webp)" }}
+        style={{
+          backgroundImage: "url(/public/images/service/servicehero.webp)",
+        }}
       >
         <div className="w-full mx-auto flex items-center justify-start sm:justify-center h-full">
           <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -74,7 +76,7 @@ const ProfessionalMonitoring = () => {
         <div className="w-full h-auto tab:min-h-[300px] sm:min-h-[300px] mx-auto  mt-8 relative">
           <Image
             className="w-full h-auto tab:hidden"
-            src="/images/service/alert3.webp"
+            src="/public/images/service/alert3.webp"
             width={1200}
             height={800}
             quality={100}

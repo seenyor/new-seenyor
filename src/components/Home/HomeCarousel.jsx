@@ -20,7 +20,7 @@ const slides = [
     title: "Peace of Mind Monitoring",
     subtitle:
       "Your loved one is safe, day and night. Every breath, every moment - gently watched over, so you never have to worry",
-    image: "/images/slider1/safety.webp",
+    image: "/public/images/slider1/safety.webp",
     color: "7F87FC",
     icon: "/images/icon1.svg",
   },
@@ -29,7 +29,7 @@ const slides = [
     title: "Rest Easy, Night After Night",
     subtitle:
       "Know they’re safe and sound as they drift into a peaceful sleep. Seenyor watches over every quiet moment.",
-    image: "/images/slider1/sleeping.webp",
+    image: "/public/images/slider1/sleeping.webp",
     color: "34CECE",
     icon: "/images/icon2.svg",
   },
@@ -38,45 +38,45 @@ const slides = [
     title: "Activity Monitoring",
     subtitle:
       "From morning walks to quiet moments, Seenyor keeps a gentle eye on their every steps-so you don't have to.",
-    image: "/images/slider1/activity.webp",
+    image: "/public/images/slider1/activity.webp",
     color: "9747FF",
-    icon: "/images/icon3.svg",
+    icon: "/public/images/icon3.svg",
   },
   {
     id: 4,
     title: "Safety, When It Matters Most",
     subtitle:
       "With every step they take, you can rest assured that Seenyor is there to catch them if they fall.",
-    image: "/images/slider1/falls.webp",
+    image: "/public/images/slider1/falls.webp",
     color: "FF6633",
-    icon: "/images/icon4.svg",
+    icon: "/public/images/icon4.svg",
   },
   {
     id: 5,
     title: "Smart Insights for Peace of Mind",
     subtitle:
       "Seenyor analyzes all data and turns it into simple updates, helping you easily understand your loved one's well-being.",
-    image: "/images/slider1/ai.webp",
+    image: "/public/images/slider1/ai.webp",
     color: "B9B0CD",
-    icon: "/images/icon5.svg",
+    icon: "/public/images/icon5.svg",
   },
   {
     id: 6,
     title: "Know Where They Are, When It Matters",
     subtitle:
       "Seenyor tracks their exact location at home, so you’ll know immediately if they fall or are resting safely.",
-    image: "/images/slider1/location.webp",
+    image: "/public/images/slider1/location.webp",
     color: "FF006E",
-    icon: "/images/icon6.svg",
+    icon: "/public/images/icon6.svg",
   },
   {
     id: 7,
     title: "Stay Connected When They Need You",
     subtitle:
       "With Two-Way Communication, they can call for help, and you’ll respond instantly—whether it's a quick check-in or something more serious.",
-    image: "/images/slider1/communication.webp",
+    image: "/public/images/slider1/communication.webp",
     color: "4285F4",
-    icon: "/images/icon7.svg",
+    icon: "/public/images/icon7.svg",
   },
 ];
 

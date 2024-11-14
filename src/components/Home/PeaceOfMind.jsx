@@ -54,7 +54,7 @@ const PeaceOfMind = () => {
           </div>
           <div className="h-[500px] md:h-[420px] w-full relative">
             <Image
-              src="/images/home/test 223.webp"
+              src="/public/images/home/test 223.webp"
               height={500}
               width={500}
               quality={100}
