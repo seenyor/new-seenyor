@@ -726,8 +726,7 @@ const KnowledgeDetails = ({ params }) => {
   );
   const router = useRouter();
   const query = useSearchParams();
-  const question = query.get("question");
-  console.log(question);
+  const questionFromQuery = query.get("question");
 
   const selectedTopic = faq.find(
     (topic) =>
@@ -872,6 +871,7 @@ const KnowledgeDetails = ({ params }) => {
             selectedTopic?.questions.map((question, index) => (
               <details
                 key={index}
+                open={question.question === questionFromQuery}
                 className="group p-6 my-4 mx-4 bg-white rounded-md"
               >
                 <summary className="relative flex cursor-pointer list-none gap-4 pr-8 font-medium text-slate-700 transition-colors duration-300 focus-visible:outline-none group-hover:text-slate-900 [&::-webkit-details-marker]:hidden">
@@ -905,9 +905,7 @@ const KnowledgeDetails = ({ params }) => {
                     />
                   </svg>
                 </summary>
-                <p className="mt-4 ps-10 text-slate-500 text-sm">
-                  {question.answer}
-                </p>
+                <p className="mt-4 ps-10 text-base ">{question.answer}</p>
               </details>
             ))
           ) : (
