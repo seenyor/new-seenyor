@@ -152,12 +152,12 @@ const CallbackForm = () => {
             </label>
             <div className="flex items-center w-4/5 sm:w-full">
               <select
-                className="px-3 py-3 md:py-2 w-[35%] bg-[#f5f5f5] rounded-l text-sm focus:outline-none"
+                className="px-3 py-3 md:py-2 w-[20%] bg-[#f5f5f5] rounded-l text-sm focus:outline-none"
                 value={formData.selectedDialCode}
                 name="selectedDialCode"
                 onChange={handleDialCodeChange}
               >
-                <option value="">Code</option>
+                <option value="">Country Code</option>
                 {countryData.map((country, i) => (
                   <option key={i} value={country.dial_code}>
                     {country.dial_code} ({country.name})
@@ -177,10 +177,10 @@ const CallbackForm = () => {
           </div>
 
           <div className="flex sm:flex-col items-center">
-            <label className="sm:w-full w-1/5 text-xl md:text-base font-semibold mb-1 sm:mb-0">
+            <label className="sm:w-full w-1/4 text-xl md:text-base font-semibold mb-1 sm:mb-0">
               Country
             </label>
-            <div className="sm:w-full w-4/5 flex sm:flex-col gap-4">
+            <div className="sm:w-full w-full flex sm:flex-col gap-4">
               <select
                 className="sm:w-full w-4/5 px-3 py-2 text-sm bg-[#f5f5f5] rounded focus:outline-none"
                 value={formData.selectedCountry}
@@ -194,8 +194,8 @@ const CallbackForm = () => {
                   </option>
                 ))}
               </select>
-              <div className="sm:w-full w-1/2 flex sm:flex-col items-center">
-                <label className="sm:w-full w-2/5 text-xl md:text-base font-semibold mb-1 sm:mb-0">
+              <div className="sm:w-full w-full flex sm:flex-col items-center">
+                <label className="sm:w-full w-1/4 text-xl md:text-base font-semibold mb-1 sm:mb-0">
                   City
                 </label>
                 <input
@@ -204,7 +204,7 @@ const CallbackForm = () => {
                   placeholder="Enter a city"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="sm:w-full w-3/5 px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
+                  className="sm:w-full w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
                 />
               </div>
             </div>

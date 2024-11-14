@@ -297,7 +297,7 @@ function Page() {
                 as="p"
                 className="text-[1.13rem] font-medium text-text cursor-pointer"
               >
-                <Link href="/login">Sign in</Link>
+                <Link href="/">Go Home</Link>
               </Text>
 
               <Img

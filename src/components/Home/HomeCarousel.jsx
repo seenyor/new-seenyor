@@ -99,7 +99,7 @@ export default function HomeCarousel() {
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
@@ -134,11 +134,10 @@ export default function HomeCarousel() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 1, x: 0 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            className="h-full "
+            exit={{ opacity: 1, x: -0 }}
+            transition={{ duration: 0.5 }} // Added delay of 2 seconds
           >
             <div className="relative h-full">
               {/* Header */}
@@ -171,7 +170,7 @@ export default function HomeCarousel() {
                   src={slides[currentSlide].image}
                   alt="Monitoring visualization"
                   className="w-full h-full rounded-2xl object-cover"
-                  initial={{ scale: 0.95 }}
+                  initial={{ scale: 1.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5 }}
                 />

@@ -12,11 +12,11 @@ export default function SixtySixPage() {
           <div className="container-xs mb-[1.63rem] flex flex-col items-center gap-[1.25rem] px-[3.50rem] md:px-[1.25rem]">
             <div className="flex w-[36%] flex-col items-center gap-[0.63rem] px-[2.25rem] md:w-full sm:px-[1.25rem]">
               <Img
-                src="img_printer.svg"
-                width={90}
-                height={90}
+                src="app_qr.png"
+                width={110}
+                height={110}
                 alt="Printer"
-                className="h-[5.63rem] w-[5.63rem] transform hover:scale-105 transition-transform duration-300 mt-8"
+                className="h-[5.63rem] w-[5.63rem] transform hover:scale-105 transition-transform duration-300 mt-8 border-2 border-gray-300 rounded-md"
               />
 
               <Heading
