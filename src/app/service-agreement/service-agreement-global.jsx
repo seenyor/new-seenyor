@@ -3,7 +3,7 @@ import "../terms-style.css";
 export default function UserAggreementPage() {
   return (
     <div class="main">
-      <h1>Service Agreement</h1>
+      <h1>User Agreement & Liability Disclaimer</h1>
       <p>
         <strong>Introduction</strong>
       </p>

@@ -124,7 +124,7 @@ export default function Leadgen() {
         data.installation_zipcode +
         "," +
         data.installation_country_id,
-      "Installation Date": data.installation_date,
+      "Installation Date": "--",
       "Agent Name": data.agent_name,
       "Agent ID": "#" + data.agent_id,
       "Live Alone or With Someone": data.live_with,
@@ -165,6 +165,7 @@ export default function Leadgen() {
     required = true,
     customErrorMessage,
     validate,
+    dateLimition,
   }) => (
     <div className="w-full flex flex-col items-start gap-[0.25rem] self-stretch">
       <Heading
@@ -200,6 +201,7 @@ export default function Leadgen() {
         <Input
           type={type}
           name={name}
+          dateLimition={dateLimition}
           placeholder={placeholder}
           {...register(name, { required, validate })}
           className={`w-full rounded-[12px] !border px-[1.63rem] capitalize !text-text sm:px-[1.25rem] bg-white ${
@@ -401,7 +403,7 @@ export default function Leadgen() {
                 </div>
               </div>
               {/* <============= Preferred Installation Date - S.3 ==============> */}
-              <div
+              {/* <div
                 id="Installation_Date"
                 className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
               >
@@ -412,7 +414,7 @@ export default function Leadgen() {
                     type: "date",
                   })}
                 </div>
-              </div>
+              </div> */}
               {/* <============= Agent Name and Badge ID - S.4 ==============> */}
               <div
                 id="Agent_Name&Badge_ID"
@@ -466,6 +468,7 @@ export default function Leadgen() {
                     label: "Seenyor Product specialist call – Date and Time",
                     name: "seenyor_call_date",
                     type: "date",
+                    dateLimition: true,
                   })}
                 </div>
               </div>

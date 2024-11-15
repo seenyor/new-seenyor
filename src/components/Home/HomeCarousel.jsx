@@ -139,7 +139,7 @@ export default function HomeCarousel() {
             exit={{ opacity: 1, x: -0 }}
             transition={{ duration: 0.5 }} // Added delay of 2 seconds
           >
-            <div className="relative h-full">
+            <div className="relative h-full ">
               {/* Header */}
               <div
                 style={{ backgroundColor: `#${slides[currentSlide].color}` }}

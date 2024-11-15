@@ -605,7 +605,7 @@ export default function HomePage() {
                   className="cursor-pointer underline"
                   onClick={() => window.open("/service-agreement", "_blank")}
                 >
-                  Service Agreement
+                  User Agreement & Liability Disclaimer
                 </span>
                 .
               </em>

@@ -44,6 +44,7 @@ const Input = React.forwardRef(
       suffix,
       onChange,
       shape,
+      dateLimition,
       variant = "outline",
       size = "2xl",
       color = "border",
@@ -67,6 +68,7 @@ const Input = React.forwardRef(
           placeholder={placeholder}
           onChange={onChange}
           className={`${type === "date" ? "!uppercase" : ""}`}
+          min={type === "date" && dateLimition ? "2025-01-02" : undefined}
           {...restProps}
         />
         {!!suffix && suffix}
