@@ -12,40 +12,62 @@ const BlogPost = ({ accessToken }) => {
   const [subTitle, setSubtitle] = useState("");
   const [featuredImage, setFeaturedImage] = useState(null);
   // Handle form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("sub_title", subTitle);
-    formData.append("content", content);
-
-    // If an image is selected, append it to the form data
-    if (featuredImage) {
-      formData.append("image", featuredImage);
-    }
-
     try {
-      const response = await fetch(
-        "https://www.backend.elderlycareplatform.com/api/v1/blogs",
+      // Step 1: Upload the image as FormData
+      // const formData = new FormData();
+      // formData.append("image", featuredImage);
+
+      // const imageResponse = await fetch(
+      //   "https://www.backend.elderlycareplatform.com/api/v1/users/image",
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //     headers: {
+      //       Authorization: `Bearer ${accessToken?.value}`,
+      //     },
+      //   }
+      // );
+
+      // if (!imageResponse.ok) {
+      //   throw new Error("Failed to upload image");
+      // }
+
+      // const imageResult = await imageResponse.json();
+      // const imageUrl = imageResult?.url;
+
+      // Step 2: Prepare blog data with the uploaded image URL
+      const blogData = {
+        title,
+        sub_title: subTitle,
+        content,
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDJKa2bZtTe0MQdpO3yRbuuF1hM1JcNUbIw&s",
+      };
+
+      // Step 3: Post the blog data
+      const blogResponse = await fetch(
+        "https://backend.elderlycareplatform.com/api/v1/blogs",
         {
           method: "POST",
-          //   body: formData,
-          body: new URLSearchParams(formData),
+          body: JSON.stringify(blogData),
           headers: {
-            // Authorization: accessToken?.value,
+            "Content-Type": "application/json",
             Authorization: `Bearer ${accessToken?.value}`,
           },
         }
       );
 
-      if (!response.ok) {
+      if (!blogResponse.ok) {
         throw new Error("Failed to post blog");
       }
 
-      const data = await response.json();
+      const blogResult = await blogResponse.json();
       toast.success("Form submitted successfully!");
-      console.log(data);
+      console.log(blogResult);
     } catch (error) {
       toast.error("An error occurred. Please try again.");
       console.error(error);

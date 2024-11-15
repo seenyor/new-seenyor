@@ -105,7 +105,7 @@ export default function HomeCarousel() {
   }, [isAutoPlaying]);
 
   return (
-    <div className="flex flex-row md:flex-col h-screen md:h-[450px] tab:h-[320px] max-h-[800px] xxl:max-h-[650px] max-w-[1720px] my-0 w-full mx-auto  bg-[#F3F4F6]">
+    <div className="flex flex-row md:flex-col h-screen md:h-[450px] tab:h-[350px] max-h-[800px] xxl:max-h-[650px] max-w-[1720px] my-0 w-full mx-auto  bg-[#F3F4F6]">
       {/* Sidebar */}
       <div className="w-64 md:hidden  border-r border-gray-200 p-4">
         <div className="space-y-2 sm:space-y-1">
@@ -143,10 +143,10 @@ export default function HomeCarousel() {
               {/* Header */}
               <div
                 style={{ backgroundColor: `#${slides[currentSlide].color}` }}
-                className="absolute top-0 py-5 tab:py-1 tab:px-2 text-white  z-40 w-full px-12 flex flex-row items-start justify-between mb-8"
+                className="absolute top-0 py-5 md:md:py-3 tab:py-1 tab:px-2 text-white  z-40 w-full px-12 flex flex-row items-start justify-between mb-8"
               >
-                <div className="space-y-2 sm:space-y-0">
-                  <h1 className="text-2xl tab:text-[16px] font-bold">
+                <div className="space-y-2 md:space-y-0">
+                  <h1 className="text-2xl md:text-[16px] font-bold">
                     {slides[currentSlide].title}
                   </h1>
                   <p className="max-w-2xl md:text-sm tab:text-xs">
@@ -165,11 +165,11 @@ export default function HomeCarousel() {
               </div>
 
               {/* Main Content Area */}
-              <div className="flex h-full flex-row gap-8">
+              <div className="flex h-full flex-row gap-8 tab:h-[350px] max-h-[800px]">
                 <motion.img
                   src={slides[currentSlide].image}
                   alt="Monitoring visualization"
-                  className="w-full h-full rounded-2xl object-cover"
+                  className="w-full h-full rounded-2xl object-cover tab:object-contain"
                   initial={{ scale: 1.5 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5 }}
