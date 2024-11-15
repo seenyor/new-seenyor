@@ -5,6 +5,13 @@ export default function TermsAndConditionPage() {
     <div class="main">
       <h1>Terms and Conditions</h1>
       <p>
+        Limited time offer. For new customers only. Must purchase an annual
+        subscription term. Service, product, & equipment availability, fees, &
+        pricing may vary. Standard rates apply after the promotional period
+        expires. Offer subject to change. Other fees may apply. Other
+        restrictions apply. and data protection requirements.
+      </p>
+      <p>
         <strong>Introduction</strong>
       </p>
       <p>

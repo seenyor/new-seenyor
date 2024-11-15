@@ -155,7 +155,7 @@ export default function Header() {
                 </ul>
               </li>
 
-              {/* <li role="none" className="flex items-stretch">
+              <li role="none" className="flex items-stretch">
                 <Link onClick={() => setIsToggleOpen(false)} href="/knowledge">
                   <Heading
                     as="p"
@@ -164,7 +164,7 @@ export default function Header() {
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li> */}
+              </li>
               {!isLogin ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link onClick={() => setIsToggleOpen(false)} href="/login">
@@ -241,7 +241,7 @@ export default function Header() {
                   </div>
                 )}
               </li>
-              {/* <li>
+              <li>
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -250,7 +250,7 @@ export default function Header() {
                     Knowledge Base
                   </Heading>
                 </Link>
-              </li> */}
+              </li>
               {!isLogin ? (
                 <li className="flex items-center gap-2">
                   <Link
