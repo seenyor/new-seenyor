@@ -1,4 +1,4 @@
-import AdminLogin from "@/components/Login/adminLogin";
+import AdminLogin from "@/components/Login/AdminLogin";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
