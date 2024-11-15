@@ -36,5 +36,5 @@ jobs:
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-        SOURCE: "./.next"  # Adjust if necessary for your build output
+        SOURCE: "."  # Adjust if necessary for your build output
         TARGET: ${{ secrets.DEPLOY_TARGET }}
