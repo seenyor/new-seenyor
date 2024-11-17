@@ -43,11 +43,14 @@ const Artnow = () => {
   return (
     <div className="max-w-[1320px] my-0 mx-auto w-full rounded-xl">
       <div className="flex justify-center">
-        <p className="cursor-pointer bg-neutral-950 tab:mt-8 text-white my-0 text-[40px] tab:text-2xl md:text-3xl px-16 py-[8px] font-semibold">
+        <p className="tab:hidden bg-neutral-950 tab:mt-8 text-white my-0 text-[40px] tab:text-2xl md:text-3xl px-16 py-[8px] font-semibold">
+          Act Now
+        </p>
+        <p className="hidden tab:block bg-neutral-950 rounded-2xl  text-white my-0 text-base  px-8 py-[8px] font-bold">
           Act Now
         </p>
       </div>
-      <p className="text-[40px] tab:text-2xl md:text-3xl pb-12 tab:pb-5 text-center py-4">
+      <p className="text-[40px] tab:text-2xl md:text-3xl tab:font-bold mb-4 pb-12 tab:pb-5 text-center py-4">
         Protect Your Loved Ones Before It’s Too Late
       </p>
 
@@ -56,7 +59,7 @@ const Artnow = () => {
         {cardData.map((card) => (
           <div
             key={card.id}
-            className="h-[569px] md:h-[350px] w-full max-w-[426px] tab:h-[500px] sm:h-[400px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
+            className="h-[569px] tab:my-[6px] md:h-[350px] w-full max-w-[426px] tab:h-[500px] sm:h-[450px] overflow-hidden relative bg-[#EEEFEF] shadow-md shadow-slate-200 rounded-md"
           >
             {/* Image */}
             <figure>
@@ -72,7 +75,7 @@ const Artnow = () => {
 
             {/* Body */}
             <div className="p-2">
-              <h3 className="text-[22px] py-2 md:text-[16px] font-semibold">
+              <h3 className="text-[22px] py-3 md:text-[19px] font-bold">
                 {card.title}
               </h3>
               <p className="text-[18px] md:text-sm">{card.description}</p>
@@ -102,7 +105,7 @@ const Artnow = () => {
           </div>
         ))}
       </div>
-      <div className="border border-b-1 border-black-900 mt-12"></div>
+      <div className="border tab:hidden border-b-1 border-black-900 mt-12"></div>
     </div>
   );
 };

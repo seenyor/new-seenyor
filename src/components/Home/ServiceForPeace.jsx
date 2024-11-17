@@ -29,16 +29,23 @@ const services = [
 
 const ServiceForPeace = () => {
   return (
-    <div className="my-0 mb-40 sm:mb-5 mx-auto w-full rounded-xl bg-[#F3F4F6] ">
+    <div className="my-0 mb-40 sm:mb-5 mx-auto w-full rounded-xl bg-[#F3F4F6] tab:bg-white">
       <div className="max-w-[1320px] md:p-3 sm:p-3  mx-auto w-full">
-        <p className="text-[40px] md:text-[1.8rem] tab:text-[1.6rem] pt-8 font-semibold text-center py-2">
+        <p className="tab:hidden text-[40px] md:text-[1.8rem] tab:text-[1.6rem] pt-8 font-semibold text-center py-2">
           Services for Peace of Mind
         </p>
-        <p className="text-center text-[30px] md:text-xl tab:text-lg max-w-7xl mx-auto sm:text-lg">
+        <p className="tab:hidden text-center text-[30px] md:text-xl tab:text-lg max-w-7xl mx-auto sm:text-lg">
           From professional installation to ongoing monitoring, we ensure that
           you and your loved ones receive the highest level of support and peace
           of mind.
         </p>
+
+        <button className="hidden cursor-text mx-auto tab:block bg-neutral-950 rounded-2xl  text-white my-0 text-base  px-7 py-[8px] font-bold">
+          SERVICES FOR
+        </button>
+        <h3 className="text-2xl hidden tab:block text-[#2C3142] text-center font-bold my-3">
+          Peace of Mind
+        </h3>
 
         {/* cards */}
         <div className="flex justify-between items-center w-full tab:flex-col my-5 gap-6 md:gap-3">

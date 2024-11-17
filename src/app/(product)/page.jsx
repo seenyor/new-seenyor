@@ -10,27 +10,27 @@ import Link from "next/link";
 import GetStartArea from "@/components/GetStartArea";
 const Home = () => {
   return (
-    <div className=" flex w-full flex-col gap-20 tab:gap-5 bg-white px-6 tab:px-2 ">
+    <div className=" flex w-full flex-col gap-20 tab:gap-14 bg-white px-6 tab:px-3 ">
       {/* hero section* */}
       <div className="mx-auto w-full">
-        <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto px-20 md:px-10 tab:px-5 max-w-[1720px] w-full mx-auto md:mx-0 py-32 md:py-20 rounded-xl">
+        <div className="bg-[#F3F4F6] tab:bg-[#8086FC] overflow-hidden relative h-[780px] md:h-auto px-20 md:px-10 tab:px-0 max-w-[1720px] w-full mx-auto md:mx-0 py-32 md:py-20 rounded-xl">
           <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
-            <div className="w-[70%] tab:w-full  ">
-              <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
+            <div className="w-[70%] tab:w-full tab:px-3 ">
+              <h3 className="font-bold text-[48px] md:text-2xl tab:text-center tab:text-white">
                 Protect Your Loved Ones Before It’s Too Late
               </h3>
-              <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
+              <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-3 tab:text-center tab:font-bold tab:text-[#000069]">
                 1 in 4 People Over 65 Falls Each Year – Don’t Let Your Loved
                 Ones Be Next
               </p>
-              <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
+              <p className="text-xl my-7 tab:hidden md:text-sm tab:text-center">
                 Stay connected and ensure 24/7 protection, even when you can’t
                 be there. Our non-wearable device detects falls instantly and
                 monitors their safety around the clock.
               </p>
               <Link
                 href="/systembuilder"
-                className="tab:flex tab:justify-center"
+                className="tab:justify-center tab:hidden"
               >
                 <button className="w-auto py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
                   Protect Them Now
@@ -43,11 +43,26 @@ const Home = () => {
                 height={200}
                 width={300}
                 alt="Product"
-                className="w-auto scale-125 tab:scale-100 ms-20 md:ms-10  h-full tab:ms:5"
+                className="w-auto scale-125 tab:scale-100 tab:hidden ms-20 md:ms-10  h-full tab:ms:5"
+              />
+              <Image
+                src="/images/mobile/banner.png"
+                height={200}
+                width={300}
+                alt="Product"
+                className="w-full hidden tab:block"
               />
             </div>
           </div>
-          <p className="px-5 text-sm absolute bottom-5">
+          <Link
+            href="/systembuilder"
+            className="hidden tab:flex tab:justify-center"
+          >
+            <button className="w-auto py-[10px] px-3 text-white bg-[#020288] rounded-[10px]  font-semibold">
+              Protect Them Now
+            </button>
+          </Link>
+          <p className="px-5 text-sm  absolute bottom-5 text-nowrap tab:text-white tab:left-1/2 tab:transform tab:-translate-x-1/2 tab:-translate-y-1/2">
             *Limited Stock Available!
           </p>
         </div>
@@ -59,17 +74,25 @@ const Home = () => {
       <PeaceOfMind />
 
       <div className="max-w-[1720px] my-0 mx-auto w-full rounded-xl mb-12 tab:mb-0">
-        <p className="text-[40px] md:text-[1.8rem] tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
+        <p className="text-[40px] md:text-[1.8rem] tab:hidden tab:text-[1.6rem] text-[#FF6633] font-semibold text-center py-2">
           Comprehensive Home Monitoring
         </p>
-        <p className="text-center text-[30px] md:text-xl tab:text-lg pb-10 sm:text-lg max-w-5xl mx-auto w-full px-5">
+        <p className="text-center text-[30px] tab:hidden md:text-xl tab:text-lg pb-10 sm:text-lg max-w-5xl mx-auto w-full px-5">
           Effortlessly monitor your loved one’s health and safety, whether
           they’re resting or moving around the house, day or night.
         </p>
+
+        <button className="hidden cursor-text mx-auto tab:block bg-neutral-950 rounded-2xl  text-white my-0 text-base  px-4 py-[8px] font-bold">
+          COMPREHENSIVE
+        </button>
+        <h3 className="text-2xl hidden tab:block text-[#2C3142] text-center font-bold my-3">
+          Home Monitoring
+        </h3>
+
         <HomeCarousel />
       </div>
       {/* empowering section */}
-      <div className=" bg-[#7F87FC] h-[750px] md:h-auto flex justify-center items-center py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
+      <div className=" bg-[#7F87FC] tab:hidden h-[750px] md:h-auto flex justify-center items-center py-10 mb-8 sm:mb-2 my-0 px-5 sm:px-0">
         <div className="mx-auto w-full max-w-[1320px] rounded-xl text-white text-center">
           <h3 className="font-semibold text-4xl md:px-5 tab:px-2 md:text-3xl">
             Empowering Care in Every Setting
