@@ -399,35 +399,35 @@ const ProfessionalMonitoring = () => {
           </h3>
         </div>
 
-        <div className="bg-[#7F87FC] rounded-xl">
-          <div className="grid grid-cols-2 gap-16 md:gap-5 mt-16 sm:mt-6 justify-center">
-            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
+        <div className="bg-[#7F87FC] rounded-xl w-full overflow-hidden my-5 mb-8">
+          <div className="flex justify-center px-3 gap-2 py-6">
+            <div className="w-1/2 flex justify-center ">
               <Image
-                className="h-auto w-full"
+                className="h-auto w-full max-w-[162px]  "
                 src="/images/ai1.png"
                 width={200}
                 height={200}
                 alt="monitoring"
               />
             </div>
-            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
+            <div className="w-1/2 flex justify-center ">
               <Image
-                className="h-auto w-full"
+                className="h-auto w-full max-w-[162px]"
                 src="/images/ai2.png"
                 width={200}
                 height={200}
                 alt="monitoring"
               />
             </div>
-            <div className="w-[290px] md:w-[200px] tab:mx-auto h-auto">
-              <Image
-                className="h-auto flex justify-center "
-                src="/images/ai3.png"
-                width={200}
-                height={200}
-                alt="monitoring"
-              />
-            </div>
+          </div>
+          <div className="flex col-span-3 justify-center ">
+            <Image
+              className="w-full max-w-[162px] h-auto mx-auto flex justify-center "
+              src="/images/ai3.png"
+              width={200}
+              height={200}
+              alt="monitoring"
+            />
           </div>
           <Image
             className="h-auto w-full"
@@ -440,7 +440,9 @@ const ProfessionalMonitoring = () => {
         </div>
       </div>
 
-      <Artnow />
+      <div className="tab:mb-8">
+        <Artnow />
+      </div>
       <GetStartArea />
       <CallbackForm />
     </div>

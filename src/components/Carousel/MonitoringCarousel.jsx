@@ -270,7 +270,7 @@ export default function MonitoringCarousel() {
             <Image
               src={`/images/mobile/${featuresMobile[activeFeatureM].image}`}
               height={500}
-              className="h-[90%] w-auto"
+              className="h-auto w-[50%]"
               width={300}
               alt=""
             />
