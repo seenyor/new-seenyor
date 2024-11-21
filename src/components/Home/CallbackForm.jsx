@@ -75,6 +75,18 @@ const CallbackForm = ({ accessToken }) => {
 
       const result = await response.json();
       console.log("Form submitted successfully:", result);
+      setFormData({
+        type: "",
+        full_name: "",
+        email: "",
+        company_name: "",
+        phone_number: "",
+        country: "",
+        // selectedDialCode: "",
+        city: "",
+        preferred_time: "",
+        message: "",
+      });
       toast.success(
         "Form submitted successfully! We will get back to you soon."
       );
@@ -83,6 +95,14 @@ const CallbackForm = ({ accessToken }) => {
       toast.error(error.message);
     }
   };
+
+  const userTypeOptions = [
+    { label: "End User", value: "end_user" },
+    { label: "Monitoring Company", value: "monitoring_company" },
+    { label: "Nursing Home", value: "nursing_home" },
+    { label: "Distributor", value: "distributor" },
+    { label: "Other", value: "other" },
+  ];
 
   return (
     <div
@@ -100,36 +120,27 @@ const CallbackForm = ({ accessToken }) => {
       <div className="w-full max-w-5xl mx-auto p-4">
         <form className="space-y-3" onSubmit={handleSubmit}>
           <div className="flex text-sm mb-4">
-            <span className=" text-xl md:text-base tab:text-xs w-1/5 font-semibold ">
+            <span className=" text-xl md:text-base tab:text-xs w-1/5 font-semibold">
               I am a
             </span>
             <div className="flex tab:flex-col flex-wrap gap-2 sm:w-full w-4/5">
-              {[
-                "End User",
-                "Monitoring Company",
-                "Nursing Home",
-                "Distributor",
-                "Other",
-              ].map((type) => (
-                <label key={type} className="inline-flex items-center ">
+              {userTypeOptions.map(({ label, value }) => (
+                <label key={value} className="inline-flex items-center">
                   <input
                     type="radio"
                     className="form-radio h-4 w-4 text-gray-600"
                     name="type"
-                    value={type.toLowerCase().replace(" ", "-")}
-                    checked={
-                      formData.type === type.toLowerCase().replace(" ", "-")
-                    }
+                    value={value}
+                    checked={formData.type === value}
                     onChange={handleInputChange}
                   />
                   <span className="ml-2 text-base md:text-sm tab:text-xs">
-                    {type}
+                    {label}
                   </span>
                 </label>
               ))}
             </div>
           </div>
-
           {[
             {
               id: "full-name",
@@ -170,7 +181,6 @@ const CallbackForm = ({ accessToken }) => {
               </div>
             </div>
           ))}
-
           <div className="flex items-center">
             <label
               htmlFor="phone"
@@ -203,7 +213,6 @@ const CallbackForm = ({ accessToken }) => {
               />
             </div>
           </div>
-
           <div className="flex items-center">
             <label className="w-1/4 text-xl tab:text-xs md:text-base font-semibold mb-1 sm:mb-0">
               Country
@@ -237,7 +246,6 @@ const CallbackForm = ({ accessToken }) => {
               </div>
             </div>
           </div>
-
           <div className="flex items-center">
             <label
               htmlFor="preferred-time"
@@ -257,7 +265,6 @@ const CallbackForm = ({ accessToken }) => {
               />
             </div>
           </div>
-
           <div className="flex  items-start">
             <label className="tab:text-xs w-1/5 text-xl md:text-base font-semibold mb-1 sm:mb-0 pt-2">
               Message:
@@ -273,7 +280,6 @@ const CallbackForm = ({ accessToken }) => {
               />
             </div>
           </div>
-
           <div className="flex justify-center mt-6">
             <button
               type="submit"

@@ -2,10 +2,13 @@
 import { Button, Img } from "@/components";
 import CallbackForm from "@/components/Home/CallbackForm";
 import { ArrowDown } from "lucide-react";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
 const ContactUs = () => {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("access_token");
   return (
     <div className=" flex  flex-col gap-10 sm:gap-5 bg-white py-5 mx-6 sm:mx-2">
       <div className="flex sm:flex-col-reverse gap-4 items-center justify-between max-w-7xl my-0 mx-auto w-full py-10 pb-0 rounded-xl md:p-5 sm:px-2 px-5">
@@ -59,7 +62,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <CallbackForm />
+      <CallbackForm accessToken={accessToken} />
     </div>
   );
 };

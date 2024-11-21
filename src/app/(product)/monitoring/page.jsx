@@ -3,6 +3,7 @@ import GetStartArea from "@/components/GetStartArea";
 import Artnow from "@/components/Home/Artnow";
 import CallbackForm from "@/components/Home/CallbackForm";
 import ScrollButton from "@/components/ScrollButton";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -57,6 +58,9 @@ const features = [
     border: false,
   },
 ];
+
+const cookieStore = cookies();
+const accessToken = cookieStore.get("access_token");
 const ProfessionalMonitoring = () => {
   // w-full max-w-7xl mx-auto
   return (
@@ -444,7 +448,7 @@ const ProfessionalMonitoring = () => {
         <Artnow />
       </div>
       <GetStartArea />
-      <CallbackForm />
+      <CallbackForm accessToken={accessToken} />
     </div>
   );
 };

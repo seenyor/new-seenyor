@@ -4,6 +4,7 @@ import GetStartArea from "@/components/GetStartArea";
 import CallbackForm from "@/components/Home/CallbackForm";
 import ScrollButton from "@/components/ScrollButton";
 import { ArrowDown } from "lucide-react";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -61,6 +62,8 @@ const installationOptions = [
   },
 ];
 const Installation = () => {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("access_token");
   return (
     <div className=" flex  flex-col gap-20 tab:gap-5 bg-white px-6 tab:px-2">
       {/* hero */}
@@ -270,7 +273,7 @@ const Installation = () => {
           </div>
         </div>
       </div>
-      <CallbackForm />
+      <CallbackForm accessToken={accessToken} />
     </div>
   );
 };
