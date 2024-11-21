@@ -1,19 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-const CallbackForm = () => {
+const CallbackForm = ({ accessToken }) => {
   const [countryData, setCountryData] = useState([]);
   const [formData, setFormData] = useState({
-    userType: "",
-    fullName: "",
+    type: "",
+    full_name: "",
     email: "",
-    company: "",
-    phoneNumber: "",
-    selectedCountry: "",
-    selectedDialCode: "",
+    company_name: "",
+    phone_number: "",
+    country: "",
+    // selectedDialCode: "",
     city: "",
-    preferredTime: "",
+    preferred_time: "",
     message: "",
   });
 
@@ -39,7 +40,7 @@ const CallbackForm = () => {
     const country = event.target.value;
     setFormData((prevData) => ({
       ...prevData,
-      selectedCountry: country,
+      country: country,
     }));
   };
 
@@ -51,9 +52,36 @@ const CallbackForm = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData); // send the data to your backend here
+    console.log(formData);
+
+    try {
+      const response = await fetch(
+        "https://backend.elderlycareplatform.com/api/v1/contacts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken?.value}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      const result = await response.json();
+      console.log("Form submitted successfully:", result);
+      toast.success(
+        "Form submitted successfully! We will get back to you soon."
+      );
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -87,10 +115,10 @@ const CallbackForm = () => {
                   <input
                     type="radio"
                     className="form-radio h-4 w-4 text-gray-600"
-                    name="userType"
+                    name="type"
                     value={type.toLowerCase().replace(" ", "-")}
                     checked={
-                      formData.userType === type.toLowerCase().replace(" ", "-")
+                      formData.type === type.toLowerCase().replace(" ", "-")
                     }
                     onChange={handleInputChange}
                   />
@@ -107,7 +135,7 @@ const CallbackForm = () => {
               id: "full-name",
               label: "Full name:",
               placeholder: "Enter a Full Name",
-              name: "fullName",
+              name: "full_name",
             },
             {
               id: "email",
@@ -119,7 +147,7 @@ const CallbackForm = () => {
               id: "company",
               label: "Company:",
               placeholder: "Enter a Company name if applicable",
-              name: "company",
+              name: "company_name",
             },
           ].map((field) => (
             <div key={field.id} className="flex flex-row tab:items-center">
@@ -153,9 +181,9 @@ const CallbackForm = () => {
             <div className="flex items-center w-4/5 ">
               <select
                 className="px-3 py-3 md:py-2 w-[20%] bg-[#f5f5f5] rounded-l text-sm focus:outline-none"
-                value={formData.selectedDialCode}
+                // value={formData.selectedDialCode}
                 name="selectedDialCode"
-                onChange={handleDialCodeChange}
+                // onChange={handleDialCodeChange}
               >
                 <option value="">Country Code</option>
                 {countryData.map((country, i) => (
@@ -167,9 +195,9 @@ const CallbackForm = () => {
               <input
                 id="phone"
                 type="text"
-                name="phoneNumber"
+                name="phone_number"
                 placeholder="Enter phone number"
-                value={formData.phoneNumber}
+                value={formData.phone_number}
                 onChange={handleInputChange}
                 className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded-r placeholder-gray-400 focus:outline-none"
               />
@@ -183,8 +211,8 @@ const CallbackForm = () => {
             <div className="w-full flex gap-4">
               <select
                 className="sm:w-full w-4/5 px-3 py-2 text-sm bg-[#f5f5f5] rounded focus:outline-none"
-                value={formData.selectedCountry}
-                name="selectedCountry"
+                value={formData.country}
+                name="country"
                 onChange={handleCountryChange}
               >
                 <option value="">Select Country</option>
@@ -221,9 +249,9 @@ const CallbackForm = () => {
               <input
                 id="preferred-time"
                 type="date"
-                name="preferredTime"
+                name="preferred_time"
                 placeholder="Enter a Preferred Contact Time"
-                value={formData.preferredTime}
+                value={formData.preferred_time}
                 onChange={handleInputChange}
                 className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
               />

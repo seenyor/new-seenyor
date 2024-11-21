@@ -8,7 +8,10 @@ import HomeCarousel from "@/components/Home/HomeCarousel";
 import ScrollButton from "@/components/ScrollButton";
 import Link from "next/link";
 import GetStartArea from "@/components/GetStartArea";
+import { cookies } from "next/headers";
 const Home = () => {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("access_token");
   return (
     <div className=" flex w-full flex-col gap-20 tab:gap-14 bg-white px-6 tab:px-3 ">
       {/* hero section* */}
@@ -182,7 +185,7 @@ const Home = () => {
 
       <GetStartArea />
 
-      <CallbackForm />
+      <CallbackForm accessToken={accessToken} />
       {/* <Footer /> */}
     </div>
   );
