@@ -279,60 +279,98 @@ export default function HomePage() {
   });
 
   return (
-    <div className="flex w-full flex-col gap-10 bg-white p-5">
+    <div className="flex w-full flex-col gap-10 bg-white p-5 tab:px-2">
       {!isLogin && (
-        <div className="max-w-[1720px] w-full mx-auto">
-          <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
-            <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
+        <>
+          <div className="tab:hidden max-w-[1720px] w-full mx-auto">
+            <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
+              <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
+                <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
+                  <div className="w-[60%] tab:w-full  ">
+                    <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
+                      Required with your system
+                    </h3>
+                    <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
+                      All in One AI Sensor Pack for entire house.
+                    </p>
+                    <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
+                      Fall Detection and Sleep Monitoring Solution
+                    </p>
+                    <p className="cursor-text tab:flex tab:justify-center">
+                      <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
+                        Set of 3x AI Devices
+                      </button>
+                    </p>
+                  </div>
+                  <div className="w-[40%] tab:ms-[-30px] -mt-10 md:mt-0 tab:w-full">
+                    <Image
+                      src="/images/3device.png"
+                      height={200}
+                      width={300}
+                      alt="Product"
+                      className="w-[90%] h-auto scale-150 tab:scale-100  ms-5   tab:ms:5"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                id="Price"
+                className="text-end xxl:text-start w-[20%] tab:w-full px-7 xxl:mx-5"
+              >
+                <h1 className="font-semibold  text-end xxl:text-start text-5xl xxl:text-3xl">
+                  ${kitPrice}
+                </h1>
+                <span className="font-normal text-xl text-[#000]/80">
+                  For the set of 3x AI Devices
+                </span>
+              </div>
+            </div>
+          </div>
+          {/* mobile */}
+          <div className="hidden tab:block w-full">
+            <div className="bg-[#F3F4F6] overflow-hidden relative h-auto w-full  px-5  mx-0 py-12 rounded-xl">
               <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
-                <div className="w-[60%] tab:w-full  ">
-                  <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
-                    Required with your system
-                  </h3>
-                  <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
-                    All in One AI Sensor Pack for entire house.
-                  </p>
-                  <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
-                    Fall Detection and Sleep Monitoring Solution
-                  </p>
-                  <p className="cursor-text tab:flex tab:justify-center">
-                    <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
+                <div className="w-full  ">
+                  <p className="cursor-text flex justify-center mb-4">
+                    <button className="w-auto cursor-text py-[10px] px-3 text-white bg-[#80CAA7] rounded-[10px]  font-semibold">
                       Set of 3x AI Devices
                     </button>
                   </p>
+                  <h3 className="font-bold text-2xl text-center">
+                    Required with your system
+                  </h3>
+                  <p className="text-base pt-2 text-center">
+                    All in One AI Sensor Pack for entire house.
+                  </p>
+                  <p className="my-2 text-sm text-center">
+                    Fall Detection and Sleep <br /> Monitoring Solution
+                  </p>
                 </div>
-                <div className="w-[40%] tab:ms-[-30px] -mt-10 md:mt-0 tab:w-full">
+                <div className="w-full">
                   <Image
-                    src="/images/3device.png"
-                    height={200}
-                    width={300}
+                    src="/images/mobile/3device.webp"
+                    height={500}
+                    width={500}
                     alt="Product"
-                    className="w-[90%] h-auto scale-150 tab:scale-100  ms-5   tab:ms:5"
+                    quality={100}
+                    className="w-full h-auto scale-150 "
                   />
                 </div>
+                <div id="Price" className="text-center">
+                  <h1 className="font-bold  text-3xl ">${kitPrice}</h1>
+                  <span className="font-normal pt-1 text-base text-[#000]/80">
+                    For the set of 3x AI Devices
+                  </span>
+                </div>
               </div>
-              {/* <p className="px-5 text-sm absolute bottom-5">
-                *GST is included in the price
-              </p> */}
-            </div>
-            <div
-              id="Price"
-              className="text-end xxl:text-start w-[20%] tab:w-full px-7 xxl:mx-5"
-            >
-              <h1 className="font-semibold  text-end xxl:text-start text-5xl xxl:text-3xl">
-                ${kitPrice}
-              </h1>
-              <span className="font-normal text-xl text-[#000]/80">
-                For the set of 3x AI Devices
-              </span>
             </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* second section */}
 
-      <div className="max-w-[1720px] w-full mx-auto">
+      <div className="tab:hidden max-w-[1720px] w-full mx-auto">
         <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
           <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
             <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
@@ -415,8 +453,86 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      {/* mobile */}
+      <div className="hidden tab:block w-full">
+        <div className="bg-[#F3F4F6] overflow-hidden relative h-auto w-full  px-5  mx-0 py-12 rounded-xl">
+          <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
+            <div className="w-full  ">
+              <p className="cursor-text flex justify-center mb-4">
+                <button className="w-auto cursor-text py-[10px] px-3 text-white bg-[#80CAA7] rounded-[10px]  font-semibold">
+                  1x AI Device
+                </button>
+              </p>
+              <h3 className="font-bold text-2xl text-center">
+                Need more devices?
+              </h3>
+              <p className="text-base pt-2 text-center">
+                All in One AI Sensor for additional rooms
+              </p>
+              <p className="mt-2 text-sm text-center">
+                You can always add more <br /> devices if you have more rooms.
+              </p>
+            </div>
+            <div className="w-full">
+              <Image
+                src="/images/mobile/banner.png"
+                height={500}
+                width={500}
+                alt="Product"
+                quality={100}
+                className="w-full h-auto scale-110 "
+              />
+              <div id="Price" className="text-end  w-full px-2 ">
+                <div id="Price" className="text-start">
+                  <h1 className="font-bold text-center text-3xl">
+                    ${addonDevicePrice}
+                  </h1>
+                  <p className="font-normal !text-center text-md text-[#000]/80 ">
+                    Per device
+                  </p>
+                </div>
+                <div
+                  id="Quantity_Selector"
+                  className="flex items-center my-4 gap-3 border-gray-300 px-3 py-2 w-full max-w-44 mx-auto rounded-md border-2 h-fit"
+                >
+                  <button
+                    className="text-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLogin ? quantity <= 1 : quantity == 0} // Prevent decrementing to 0 if logged in
+                    onClick={() => {
+                      setQuantity(
+                        quantity > (isLogin ? 1 : 0) ? quantity - 1 : quantity
+                      );
+                      setInstallationPrice(installationPrice - 50);
+                      setInstallationQuantity(installationQuantity - 1);
+                    }}
+                  >
+                    <MinusCircledIcon className="w-8 h-8" />
+                  </button>
+                  <span className="text-lg font-semibold text-main_color-primary border-gray-300 px-3 py-1 rounded-md border-2">
+                    {quantity}
+                  </span>
+                  <button
+                    className="text-primary"
+                    onClick={() => {
+                      setQuantity(quantity + 1);
+                      setInstallationPrice(installationPrice + 50);
+                      setInstallationQuantity(installationQuantity + 1);
+                    }}
+                  >
+                    <PlusCircledIcon className="w-8 h-8" />
+                  </button>
+                </div>
+                <p className="font-normal text-center text-md text-[#000]/80 ">
+                  {quantity} Additional Device Selected
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 3rd section */}
-      <div className="max-w-[1720px] w-full mx-auto">
+      <div className="max-w-[1720px] w-full mx-auto tab:hidden">
         <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
           <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-[480px] tab:h-[790px] w-[80%] tab:w-full  ps-20 md:px-10 tab:px-5  md:mx-0 py-0 md:py-20 rounded-xl">
             <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
@@ -474,15 +590,76 @@ export default function HomePage() {
         </div>
       </div>
 
+      <div className="hidden tab:block w-full">
+        <div className="bg-[#F3F4F6] overflow-hidden relative h-auto w-full    mx-0 py-12 rounded-xl">
+          <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
+            <div className="w-full px-5 ">
+              <p className="cursor-text flex justify-center mb-4">
+                <button className="w-auto cursor-text py-[10px] px-3 text-white bg-[#80CAA7] rounded-[10px]  font-semibold">
+                  Expert Installation
+                </button>
+              </p>
+              <h3 className="font-bold text-2xl text-center">
+                Do you want expert to do installation?
+              </h3>
+
+              <p className="my-2 text-sm text-center">
+                Avoid setup risks and gain peace of <br /> mind with a
+                professional installation.
+              </p>
+            </div>
+            <div
+              id="YN_and_Price"
+              className="flex justify-start tab:justify-center py-3 "
+            >
+              <RadioButtonGroup
+                selectedOption={selecteInstallation}
+                setSelectedOption={setselecteInstallation}
+              />
+            </div>
+            <div id="Price" className="text-center">
+              <h1 className="font-bold text-3xl">
+                ${selecteInstallation === 1 ? installationPrice : 0}
+              </h1>
+              <span className="font-normal text-base text-[#000]/80">
+                Installation Price for {installationQuantity} Devices
+              </span>
+            </div>
+            <div className="w-full">
+              <Image
+                src="/images/system3.png"
+                height={500}
+                width={500}
+                alt="Product"
+                quality={100}
+                className="w-full h-auto mt-2 "
+              />
+            </div>
+            <div id="Price" className="text-center">
+              <h1 className="font-bold  text-3xl ">${kitPrice}</h1>
+              <span className="font-normal pt-1 text-base text-[#000]/80">
+                For the set of 3x AI Devices
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 4th */}
       <div
         id="CheckOut_Section"
-        className="relative flex flex-col gap-6 items-start justify-between bg-[#F1F1F2] max-w-[1720px] my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
+        className="relative flex flex-col gap-6 items-start justify-between bg-[#F1F1F2] max-w-[1720px] my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5 tab:px-3"
       >
-        <div id="Section_Header" className="flex flex-col items-start gap-2">
+        <div
+          id="Section_Header"
+          className="flex tab:hidden flex-col items-start gap-2"
+        >
           <h2 className="font-semibold text-3xl">Equipment</h2>
           <p className="font-normal text-md text-[#000]/80">Your Summary</p>
         </div>
+        <h2 className="w-full text-center hidden tab:block font-semibold text-3xl">
+          Summary
+        </h2>
         <div id="Note_and_Summary" className="flex gap-6  w-full md:flex-col">
           <div
             id="KeyPoints_Note"
@@ -566,7 +743,7 @@ export default function HomePage() {
                     $1,176 Total Value Over 24 Months
                   </p>
                 </div>
-                <div className="flex  items-end">
+                <div className="flex tab:block  items-end">
                   <h2 className="font-semibold text-xl md:text-md">
                     ${aimonitoring}
                   </h2>
