@@ -15,12 +15,12 @@ const helpTopics = [
     icon: "/images/help2.svg",
     link: "#",
   },
-  {
-    title: "Device Issues",
-    description: "Monitor Device Performance and Updates",
-    icon: "/images/help3.svg",
-    link: "#",
-  },
+  // {
+  //   title: "Device Issues",
+  //   description: "Monitor Device Performance and Updates",
+  //   icon: "/images/help3.svg",
+  //   link: "#",
+  // },
   {
     title: "Device Troubleshooting",
     description: "Solutions for a Smooth Experience",
@@ -87,7 +87,7 @@ const Knowledge = () => {
               </Link>
             ))}
 
-            <div className="tab:col-span-1 col-span-2">
+            <div className="tab:col-span-1 col-span-2 flex sm:my-4 justify-center sm:justify-start items-center bg-white rounded-xl p-4 min-h-[140px] md:min-h-[100px]">
               <div className="flex tab:block bg-white rounded-xl min-h-[100px] flex-row items-center gap-3 p-4">
                 <div className="flex justify-between items-center gap-4">
                   <Image
@@ -98,7 +98,7 @@ const Knowledge = () => {
                     className="h-7 w-7"
                   />
                   <div className="flex-1">
-                    <h3 className="font-semibold md:text-[14px]">
+                    <h3 className="font-semibold text-lg md:text-[16px]">
                       Need Support?
                     </h3>
                     <p className="text-sm text-gray-500">

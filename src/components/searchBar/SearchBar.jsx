@@ -354,106 +354,106 @@ const faq = [
       },
     ],
   },
-  {
-    category: "Device Issues",
-    showFor: "Device Issues",
-    questions: [
-      {
-        question: "Why isn’t my Seenyor device connecting to Wi-Fi?",
-        answer:
-          "Ensure your Wi-Fi network is set to 2.4GHz, as Seenyor does not support 5GHz networks. Confirm the Wi-Fi password is correct and that your router is working properly.",
-      },
-      {
-        question:
-          "How close does the Seenyor device need to be to the Wi-Fi router?",
-        answer:
-          "For a stable connection, place the device within 12-15 feet of your Wi-Fi router. Thick walls, metal objects, or other electronic devices may interfere with the signal if they’re in between.",
-      },
-      {
-        question:
-          "What should I do if the Wi-Fi signal is weak or intermittent?",
-        answer:
-          "Use a Wi-Fi extender to boost the signal, especially if the device is far from the router. Make sure the extender is placed midway between the device and router for the best results.",
-      },
-      {
-        question: "Why does my device keep disconnecting from Wi-Fi?",
-        answer:
-          "Frequent disconnections can happen if there’s interference or if the Wi-Fi signal is weak. Try switching to a less congested Wi-Fi channel in your router settings or reducing the number of devices connected to the network.",
-      },
-      {
-        question:
-          "Why am I experiencing a delay in alerts from the Seenyor device?",
-        answer:
-          "Delays may result from slow or weak Wi-Fi connectivity. Make sure your internet speed is sufficient for real-time alerts, and consider rebooting the router to improve network performance.",
-      },
-      {
-        question: "What if my Wi-Fi drops unexpectedly?",
-        answer:
-          "Restart your router and the Seenyor device to re-establish the connection. Ensure the device is within a reasonable distance of the router or use a Wi-Fi extender if needed.",
-      },
-      {
-        question: "Can I connect Seenyor to a guest or public Wi-Fi network?",
-        answer:
-          "Seenyor works best on a secure, private Wi-Fi network. Public or guest networks may have security restrictions that can cause connection issues.",
-      },
-      {
-        question:
-          "How do I know if my Wi-Fi signal is strong enough for the Seenyor device?",
-        answer:
-          "Open the Seenyor app to view connection status. A strong, stable signal ensures timely alerts and data updates. If signal strength is below 70%, consider relocating the device or adding a Wi-Fi extender.",
-      },
-      {
-        question: "What should I do if the Seenyor device isn’t turning on?",
-        answer:
-          "Confirm the device is connected to a power source and that the outlet is functioning. If the device still doesn’t power on, contact Seenyor support for assistance.",
-      },
-      {
-        question:
-          "Why am I not receiving alerts even though the device is connected?",
-        answer:
-          "Ensure that notifications are enabled in the Seenyor app and that your Wi-Fi connection is stable. If issues persist, restart both the device and the app.",
-      },
-      {
-        question:
-          "What should I do if the device isn’t detecting falls accurately?",
-        answer:
-          "Confirm the device is mounted at the recommended height of 1.6 meters and is positioned correctly. Check that fall detection is enabled in the app and that the line of sight is clear.",
-      },
-      {
-        question: "How do I reset the Seenyor device?",
-        answer:
-          "Hold the reset button on the device (if available) or follow reset instructions in the Seenyor app. For further help, contact Seenyor support.",
-      },
-      {
-        question:
-          "What should I do if the device is not tracking health metrics?",
-        answer:
-          "Make sure the device is placed in an optimal position, free from obstructions, and connected to Wi-Fi. Check that health monitoring features are enabled in the app.",
-      },
-      {
-        question:
-          "How do I troubleshoot if the Seenyor app isn’t displaying data?",
-        answer:
-          "Verify that the device is connected to Wi-Fi and that the app has the necessary permissions. Restart the app or reinstall it if needed.",
-      },
-      {
-        question: "Why is the device sending false alerts?",
-        answer:
-          "False alerts can occur if the device is incorrectly positioned or if the settings need adjustment. Make sure the device is securely mounted and positioned as per the instructions.",
-      },
-      {
-        question:
-          "How can I improve the device’s connection if my Wi-Fi signal is weak?",
-        answer:
-          "Consider moving the router closer to the device, using a Wi-Fi extender, or upgrading your internet speed if multiple devices are connected to the same network.",
-      },
-      {
-        question: "What should I do if the device isn’t turning off?",
-        answer:
-          "If the device doesn’t respond to power-off commands, unplug it from the power source. Contact Seenyor support if the issue persists.",
-      },
-    ],
-  },
+  // {
+  //   category: "Device Issues",
+  //   showFor: "Device Issues",
+  //   questions: [
+  //     {
+  //       question: "Why isn’t my Seenyor device connecting to Wi-Fi?",
+  //       answer:
+  //         "Ensure your Wi-Fi network is set to 2.4GHz, as Seenyor does not support 5GHz networks. Confirm the Wi-Fi password is correct and that your router is working properly.",
+  //     },
+  //     {
+  //       question:
+  //         "How close does the Seenyor device need to be to the Wi-Fi router?",
+  //       answer:
+  //         "For a stable connection, place the device within 12-15 feet of your Wi-Fi router. Thick walls, metal objects, or other electronic devices may interfere with the signal if they’re in between.",
+  //     },
+  //     {
+  //       question:
+  //         "What should I do if the Wi-Fi signal is weak or intermittent?",
+  //       answer:
+  //         "Use a Wi-Fi extender to boost the signal, especially if the device is far from the router. Make sure the extender is placed midway between the device and router for the best results.",
+  //     },
+  //     {
+  //       question: "Why does my device keep disconnecting from Wi-Fi?",
+  //       answer:
+  //         "Frequent disconnections can happen if there’s interference or if the Wi-Fi signal is weak. Try switching to a less congested Wi-Fi channel in your router settings or reducing the number of devices connected to the network.",
+  //     },
+  //     {
+  //       question:
+  //         "Why am I experiencing a delay in alerts from the Seenyor device?",
+  //       answer:
+  //         "Delays may result from slow or weak Wi-Fi connectivity. Make sure your internet speed is sufficient for real-time alerts, and consider rebooting the router to improve network performance.",
+  //     },
+  //     {
+  //       question: "What if my Wi-Fi drops unexpectedly?",
+  //       answer:
+  //         "Restart your router and the Seenyor device to re-establish the connection. Ensure the device is within a reasonable distance of the router or use a Wi-Fi extender if needed.",
+  //     },
+  //     {
+  //       question: "Can I connect Seenyor to a guest or public Wi-Fi network?",
+  //       answer:
+  //         "Seenyor works best on a secure, private Wi-Fi network. Public or guest networks may have security restrictions that can cause connection issues.",
+  //     },
+  //     {
+  //       question:
+  //         "How do I know if my Wi-Fi signal is strong enough for the Seenyor device?",
+  //       answer:
+  //         "Open the Seenyor app to view connection status. A strong, stable signal ensures timely alerts and data updates. If signal strength is below 70%, consider relocating the device or adding a Wi-Fi extender.",
+  //     },
+  //     {
+  //       question: "What should I do if the Seenyor device isn’t turning on?",
+  //       answer:
+  //         "Confirm the device is connected to a power source and that the outlet is functioning. If the device still doesn’t power on, contact Seenyor support for assistance.",
+  //     },
+  //     {
+  //       question:
+  //         "Why am I not receiving alerts even though the device is connected?",
+  //       answer:
+  //         "Ensure that notifications are enabled in the Seenyor app and that your Wi-Fi connection is stable. If issues persist, restart both the device and the app.",
+  //     },
+  //     {
+  //       question:
+  //         "What should I do if the device isn’t detecting falls accurately?",
+  //       answer:
+  //         "Confirm the device is mounted at the recommended height of 1.6 meters and is positioned correctly. Check that fall detection is enabled in the app and that the line of sight is clear.",
+  //     },
+  //     {
+  //       question: "How do I reset the Seenyor device?",
+  //       answer:
+  //         "Hold the reset button on the device (if available) or follow reset instructions in the Seenyor app. For further help, contact Seenyor support.",
+  //     },
+  //     {
+  //       question:
+  //         "What should I do if the device is not tracking health metrics?",
+  //       answer:
+  //         "Make sure the device is placed in an optimal position, free from obstructions, and connected to Wi-Fi. Check that health monitoring features are enabled in the app.",
+  //     },
+  //     {
+  //       question:
+  //         "How do I troubleshoot if the Seenyor app isn’t displaying data?",
+  //       answer:
+  //         "Verify that the device is connected to Wi-Fi and that the app has the necessary permissions. Restart the app or reinstall it if needed.",
+  //     },
+  //     {
+  //       question: "Why is the device sending false alerts?",
+  //       answer:
+  //         "False alerts can occur if the device is incorrectly positioned or if the settings need adjustment. Make sure the device is securely mounted and positioned as per the instructions.",
+  //     },
+  //     {
+  //       question:
+  //         "How can I improve the device’s connection if my Wi-Fi signal is weak?",
+  //       answer:
+  //         "Consider moving the router closer to the device, using a Wi-Fi extender, or upgrading your internet speed if multiple devices are connected to the same network.",
+  //     },
+  //     {
+  //       question: "What should I do if the device isn’t turning off?",
+  //       answer:
+  //         "If the device doesn’t respond to power-off commands, unplug it from the power source. Contact Seenyor support if the issue persists.",
+  //     },
+  //   ],
+  // },
   {
     category: "Account Login",
     showFor: "Account Login",
