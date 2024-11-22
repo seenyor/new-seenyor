@@ -45,3 +45,9 @@
     font-size: 0.9em;
     color: #666;
 }
+
+h3 strong {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #000209;
+}

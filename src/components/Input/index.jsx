@@ -52,6 +52,12 @@ const Input = React.forwardRef(
     },
     ref
   ) => {
+    // Add this function to get tomorrow's date in YYYY-MM-DD format
+    const getTomorrowDate = () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      return tomorrow.toISOString().split("T")[0];
+    };
     return (
       <label
         className={`${className} flex items-center justify-center cursor-text
@@ -68,7 +74,8 @@ const Input = React.forwardRef(
           placeholder={placeholder}
           onChange={onChange}
           className={`${type === "date" ? "!uppercase" : ""}`}
-          min={type === "date" && dateLimition ? "2025-01-02" : undefined}
+          min={type === "date" ? getTomorrowDate() : undefined}
+          max={type === "date" ? getTomorrowDate() : undefined}
           {...restProps}
         />
         {!!suffix && suffix}
