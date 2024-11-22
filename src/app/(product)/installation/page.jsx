@@ -1,4 +1,3 @@
-"use client";
 import { Img } from "@/components";
 import GetStartArea from "@/components/GetStartArea";
 import CallbackForm from "@/components/Home/CallbackForm";
