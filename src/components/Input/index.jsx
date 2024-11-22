@@ -53,17 +53,16 @@ const Input = React.forwardRef(
     ref
   ) => {
     // Add this function to get tomorrow's date in YYYY-MM-DD format
-    const getTomorrowDate = () => {
+    const getTomorrowDate = (days) => {
       const today = new Date();
       const tomorrow = new Date(today);
-      tomorrow.setDate(today.getDate() + 1);
+      tomorrow.setDate(today.getDate() + days);
 
       return tomorrow.toLocaleDateString("en-CA"); // This returns YYYY-MM-DD format
     };
-    console.log(getTomorrowDate());
     if (type === "date" && ref.current) {
-      ref.current.min = getTomorrowDate();
-      ref.current.max = getTomorrowDate();
+      ref.current.min = getTomorrowDate(1);
+      ref.current.max = getTomorrowDate(3);
     }
     return (
       <label
@@ -81,8 +80,8 @@ const Input = React.forwardRef(
           placeholder={placeholder}
           onChange={onChange}
           className={`${type === "date" ? "!uppercase" : ""}`}
-          min={type === "date" ? getTomorrowDate() : undefined}
-          max={type === "date" ? getTomorrowDate() : undefined}
+          min={type === "date" ? getTomorrowDate(1) : undefined}
+          max={type === "date" ? getTomorrowDate(3) : undefined}
           {...restProps}
         />
         {!!suffix && suffix}
