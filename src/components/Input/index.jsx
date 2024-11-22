@@ -1,6 +1,6 @@
 "use client";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 
 // Define shape variants
 const shapes = {
@@ -54,10 +54,17 @@ const Input = React.forwardRef(
   ) => {
     // Add this function to get tomorrow's date in YYYY-MM-DD format
     const getTomorrowDate = () => {
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      return tomorrow.toISOString().split("T")[0];
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+
+      return tomorrow.toLocaleDateString("en-CA"); // This returns YYYY-MM-DD format
     };
+    console.log(getTomorrowDate());
+    if (type === "date" && ref.current) {
+      ref.current.min = getTomorrowDate();
+      ref.current.max = getTomorrowDate();
+    }
     return (
       <label
         className={`${className} flex items-center justify-center cursor-text
