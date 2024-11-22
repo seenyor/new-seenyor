@@ -59,9 +59,9 @@ const features = [
   },
 ];
 
-const cookieStore = cookies();
-const accessToken = cookieStore.get("access_token");
 const ProfessionalMonitoring = () => {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("access_token");
   // w-full max-w-7xl mx-auto
   return (
     <div className=" flex flex-col gap-16 tab:gap-5 bg-white px-6 tab:px-2">

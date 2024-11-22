@@ -98,7 +98,7 @@ const CallbackForm = ({ accessToken }) => {
 
   const userTypeOptions = [
     { label: "End User", value: "end_user" },
-    { label: "Monitoring Company", value: "monitoring_company" },
+    { label: "Monitoring Company", value: "monitoring_station" },
     { label: "Nursing Home", value: "nursing_home" },
     { label: "Distributor", value: "distributor" },
     { label: "Other", value: "other" },
