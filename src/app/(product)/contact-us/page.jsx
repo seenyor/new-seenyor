@@ -1,4 +1,3 @@
-"use client";
 import { Button, Img } from "@/components";
 import CallbackForm from "@/components/Home/CallbackForm";
 import { ArrowDown } from "lucide-react";
