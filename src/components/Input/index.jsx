@@ -1,6 +1,6 @@
 "use client";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 
 // Define shape variants
 const shapes = {
@@ -52,6 +52,18 @@ const Input = React.forwardRef(
     },
     ref
   ) => {
+    // Add this function to get tomorrow's date in YYYY-MM-DD format
+    const getTomorrowDate = (days) => {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + days);
+
+      return tomorrow.toLocaleDateString("en-CA"); // This returns YYYY-MM-DD format
+    };
+    if (type === "date" && ref.current) {
+      ref.current.min = getTomorrowDate(1);
+      ref.current.max = getTomorrowDate(3);
+    }
     return (
       <label
         className={`${className} flex items-center justify-center cursor-text
@@ -68,7 +80,8 @@ const Input = React.forwardRef(
           placeholder={placeholder}
           onChange={onChange}
           className={`${type === "date" ? "!uppercase" : ""}`}
-          min={type === "date" && dateLimition ? "2025-01-02" : undefined}
+          min={type === "date" ? getTomorrowDate(1) : undefined}
+          max={type === "date" ? getTomorrowDate(3) : undefined}
           {...restProps}
         />
         {!!suffix && suffix}
