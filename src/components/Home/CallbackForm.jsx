@@ -52,9 +52,33 @@ const CallbackForm = ({ accessToken }) => {
     }));
   };
 
+  const [formErrors, setFormErrors] = useState({});
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.type) errors.type = "Please select your user type.";
+    if (!formData.full_name) errors.full_name = "Full name is required.";
+    if (!formData.email) errors.email = "Email is required.";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      errors.email = "Invalid email format.";
+    if (!formData.phone_number)
+      errors.phone_number = "Phone number is required.";
+    if (!formData.country) errors.country = "Country is required.";
+    if (!formData.company_name) errors.company_name = "Company is required.";
+    if (!formData.city) errors.city = "City is required.";
+    if (!formData.message) errors.message = "Message is required.";
+    if (!formData.preferred_time)
+      errors.preferred_time = "Preferred time is required.";
+    return errors;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+    setFormErrors({});
 
     try {
       const response = await fetch(
@@ -123,24 +147,32 @@ const CallbackForm = ({ accessToken }) => {
             <span className=" text-xl md:text-base tab:text-xs w-1/5 font-semibold">
               I am a
             </span>
-            <div className="flex tab:flex-col flex-wrap gap-2 sm:w-full w-4/5">
-              {userTypeOptions.map(({ label, value }) => (
-                <label key={value} className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    className="form-radio h-4 w-4 text-gray-600"
-                    name="type"
-                    value={value}
-                    checked={formData.type === value}
-                    onChange={handleInputChange}
-                  />
-                  <span className="ml-2 text-base md:text-sm tab:text-xs">
-                    {label}
-                  </span>
-                </label>
-              ))}
+            <div className="w-4/5 sm:w-full ">
+              <div className="flex tab:flex-col flex-wrap gap-2 w-full">
+                {userTypeOptions.map(({ label, value }) => (
+                  <label key={value} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      className="form-radio h-4 w-4 text-gray-600"
+                      name="type"
+                      value={value}
+                      checked={formData.type === value}
+                      onChange={handleInputChange}
+                    />
+                    <span className="ml-2 text-base md:text-sm tab:text-xs">
+                      {label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+              {formErrors.type && (
+                <p className="text-red-500 text-sm mt-1 w-full">
+                  {formErrors.type}
+                </p>
+              )}
             </div>
           </div>
+
           {[
             {
               id: "full-name",
@@ -178,6 +210,11 @@ const CallbackForm = ({ accessToken }) => {
                   onChange={handleInputChange}
                   className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
                 />
+                {formErrors[field.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors[field.name]}
+                  </p>
+                )}
               </div>
             </div>
           ))}
@@ -188,29 +225,36 @@ const CallbackForm = ({ accessToken }) => {
             >
               Phone:
             </label>
-            <div className="flex items-center w-4/5 ">
-              <select
-                className="px-3 py-3 md:py-2 w-[20%] bg-[#f5f5f5] rounded-l text-sm focus:outline-none"
-                // value={formData.selectedDialCode}
-                name="selectedDialCode"
-                // onChange={handleDialCodeChange}
-              >
-                <option value="">Country Code</option>
-                {countryData.map((country, i) => (
-                  <option key={i} value={country.dial_code}>
-                    {country.dial_code} ({country.name})
-                  </option>
-                ))}
-              </select>
-              <input
-                id="phone"
-                type="text"
-                name="phone_number"
-                placeholder="Enter phone number"
-                value={formData.phone_number}
-                onChange={handleInputChange}
-                className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded-r placeholder-gray-400 focus:outline-none"
-              />
+            <div className="w-4/5 ">
+              <div className="flex items-center w-full">
+                <select
+                  className="px-3 py-3 md:py-2 w-[20%] bg-[#f5f5f5] rounded-l text-sm focus:outline-none"
+                  // value={formData.selectedDialCode}
+                  name="selectedDialCode"
+                  // onChange={handleDialCodeChange}
+                >
+                  <option value="">Country Code</option>
+                  {countryData.map((country, i) => (
+                    <option key={i} value={country.dial_code}>
+                      {country.dial_code} ({country.name})
+                    </option>
+                  ))}
+                </select>
+                <input
+                  id="phone"
+                  type="text"
+                  name="phone_number"
+                  placeholder="Enter phone number"
+                  value={formData.phone_number}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded-r placeholder-gray-400 focus:outline-none"
+                />
+              </div>
+              {formErrors["phone_number"] && (
+                <p className="text-red-500 text-sm mt-1">
+                  {formErrors["phone_number"]}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex items-center">
@@ -218,31 +262,45 @@ const CallbackForm = ({ accessToken }) => {
               Country
             </label>
             <div className="w-full flex gap-4">
-              <select
-                className="sm:w-full w-4/5 px-3 py-2 text-sm bg-[#f5f5f5] rounded focus:outline-none"
-                value={formData.country}
-                name="country"
-                onChange={handleCountryChange}
-              >
-                <option value="">Select Country</option>
-                {countryData.map((country, i) => (
-                  <option key={i} value={country.name}>
-                    {country.name}
-                  </option>
-                ))}
-              </select>
+              <div className="sm:w-full w-4/5">
+                <select
+                  className="w-full px-3 py-2 text-sm bg-[#f5f5f5] rounded focus:outline-none"
+                  value={formData.country}
+                  name="country"
+                  onChange={handleCountryChange}
+                >
+                  <option value="">Select Country</option>
+                  {countryData.map((country, i) => (
+                    <option key={i} value={country.name}>
+                      {country.name}
+                    </option>
+                  ))}
+                </select>
+                {formErrors["country"] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formErrors["country"]}
+                  </p>
+                )}
+              </div>
               <div className=" w-full flex items-center">
                 <label className=" tab:text-xs w-1/4 text-xl md:text-base font-semibold mb-1 sm:mb-0">
                   City
                 </label>
-                <input
-                  type="text"
-                  name="city"
-                  placeholder="Enter a city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                  className="sm:w-full w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
-                />
+                <div className="w-full">
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter a city"
+                    value={formData.city}
+                    onChange={handleInputChange}
+                    className="sm:w-full w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
+                  />
+                  {formErrors["city"] && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {formErrors["city"]}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -263,6 +321,11 @@ const CallbackForm = ({ accessToken }) => {
                 onChange={handleInputChange}
                 className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none"
               />
+              {formErrors["preferred_time"] && (
+                <p className="text-red-500 text-sm mt-1">
+                  {formErrors["preferred_time"]}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex  items-start">
@@ -278,6 +341,11 @@ const CallbackForm = ({ accessToken }) => {
                 className="w-full px-3 py-3 md:py-2 text-sm bg-[#f5f5f5] rounded placeholder-gray-400 focus:outline-none resize-none"
                 rows={4}
               />
+              {formErrors["message"] && (
+                <p className="text-red-500 text-sm mt-1">
+                  {formErrors["message"]}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex justify-center mt-6">

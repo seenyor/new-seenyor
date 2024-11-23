@@ -11,7 +11,7 @@ export default function Home() {
   // Decode and validate the token on the server
   let userData = accessToken ? jwtDecode(accessToken.value) : null;
 
-  if (userData.role !== "super_admin") {
+  if (userData?.role !== "super_admin") {
     redirect("/adminlogin");
   }
 

@@ -1,9 +1,55 @@
+"use client";
+
+import axios from "axios";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const blogs = [1, 2, 3, 4, 5];
-const page = () => {
+const blogCache = {};
+const Page = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const API_URL = "https://backend.elderlycareplatform.com/api/v1/blogs";
+
+      // Check if blogs are already cached
+      if (blogCache[API_URL]) {
+        console.log("Serving from cache");
+        setBlogs(blogCache[API_URL]);
+        setLoading(false);
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const response = await axios.get(API_URL, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        // Cache the data
+        blogCache[API_URL] = response.data;
+
+        // Update state
+        setBlogs(response.data);
+      } catch (err) {
+        setError(err.message || "Failed to fetch blogs");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
     <div className=" bg-white py-5 w-full max-w-[1320px] mx-auto">
       <div className="mx-6 tab:mx-2 flex  flex-col gap-10 ">
@@ -98,4 +144,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

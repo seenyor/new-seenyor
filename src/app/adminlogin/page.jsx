@@ -8,7 +8,7 @@ const page = () => {
   const accessToken = cookieStore.get("access_token");
   let userData = accessToken ? jwtDecode(accessToken.value) : null;
 
-  if (userData.role == "super_admin") {
+  if (userData?.role == "super_admin") {
     redirect("/dashboard");
   }
   return (
