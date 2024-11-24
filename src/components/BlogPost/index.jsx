@@ -17,27 +17,27 @@ const BlogPost = ({ accessToken }) => {
     e.preventDefault();
 
     try {
-      const formData = new FormData();
-      formData.append("image", featuredImage);
+      // const formData = new FormData();
+      // formData.append("image", featuredImage);
 
-      const imageResponse = await fetch(
-        "https://backend.elderlycareplatform.com/api/v1/users/image",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Authorization: `Bearer ${accessToken?.value}`,
-          },
-        }
-      );
+      // const imageResponse = await fetch(
+      //   "https://backend.elderlycareplatform.com/api/v1/users/image",
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //     headers: {
+      //       Authorization: `Bearer ${accessToken?.value}`,
+      //     },
+      //   }
+      // );
 
-      if (!imageResponse.ok) {
-        throw new Error("Failed to upload image");
-      }
+      // if (!imageResponse.ok) {
+      //   throw new Error("Failed to upload image");
+      // }
 
-      const imageResult = await imageResponse.json();
-      const imageUrl = imageResult?.url;
-      console.log(imageResult);
+      // const imageResult = await imageResponse.json();
+      // const imageUrl = imageResult?.url;
+      // console.log(imageResult);
       // Step 2: Prepare blog data with the uploaded image URL
       const blogData = {
         title,
