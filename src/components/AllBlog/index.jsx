@@ -78,8 +78,8 @@ const AllBlogs = ({ accessToken }) => {
           {blogs?.data?.slice(0, 2).map((blog) => (
             <div key={blog} className="flex justify-between gap-2 w-full">
               <Image
-                className="w-[40%] h-auto"
-                src="/images/blog1.png"
+                className="w-[40%] h-auto max-h-[300px] object-cover"
+                src={blog?.image}
                 height={300}
                 width={200}
                 alt={blog?.image}
@@ -114,8 +114,8 @@ const AllBlogs = ({ accessToken }) => {
             <div key={blog} className="flex justify-center">
               <div className="w-full">
                 <Image
-                  className="w-full h-auto"
-                  src="/images/blog.png"
+                  className="w-full h-auto max-h-[250px]"
+                  src={blog?.image}
                   height={300}
                   width={200}
                   alt=""

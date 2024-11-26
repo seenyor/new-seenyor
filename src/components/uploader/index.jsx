@@ -2,11 +2,8 @@
 
 import { CloudUpload, Cross } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 
-const Uploader = ({ url, onFileChange }) => {
-  const [image, setImage] = useState(url ? url : null);
-
+const Uploader = ({ image, setImage, onFileChange }) => {
   const handleImageChange = (files) => {
     if (files && files[0]) {
       const file = files[0];

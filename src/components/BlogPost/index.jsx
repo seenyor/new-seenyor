@@ -11,40 +11,40 @@ const BlogPost = ({ accessToken }) => {
   const [title, setTitle] = useState("");
   const [subTitle, setSubtitle] = useState("");
   const [featuredImage, setFeaturedImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState(null);
   // Handle form submission
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
-      // const formData = new FormData();
-      // formData.append("image", featuredImage);
+      const formData = new FormData();
+      formData.append("file", featuredImage);
 
-      // const imageResponse = await fetch(
-      //   "https://backend.elderlycareplatform.com/api/v1/users/image",
-      //   {
-      //     method: "POST",
-      //     body: formData,
-      //     headers: {
-      //       Authorization: `Bearer ${accessToken?.value}`,
-      //     },
-      //   }
-      // );
+      const imageResponse = await fetch(
+        "https://backend.elderlycareplatform.com/api/v1/blogs/image",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: `Bearer ${accessToken?.value}`,
+          },
+        }
+      );
 
-      // if (!imageResponse.ok) {
-      //   throw new Error("Failed to upload image");
-      // }
+      if (!imageResponse.ok) {
+        throw new Error("Failed to upload image");
+      }
 
-      // const imageResult = await imageResponse.json();
-      // const imageUrl = imageResult?.url;
-      // console.log(imageResult);
+      const imageResult = await imageResponse.json();
+      const imageUrl = imageResult?.data?.url;
       // Step 2: Prepare blog data with the uploaded image URL
       const blogData = {
         title,
         sub_title: subTitle,
         content,
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDJKa2bZtTe0MQdpO3yRbuuF1hM1JcNUbIw&s",
+        image: imageUrl,
       };
 
       // Step 3: Post the blog data
@@ -65,11 +65,17 @@ const BlogPost = ({ accessToken }) => {
       }
 
       const blogResult = await blogResponse.json();
-      toast.success("Form submitted successfully!");
-      console.log(blogResult);
+      toast.success("Successfully post the blog!");
+      setTitle("");
+      setSubtitle("");
+      setContent("");
+      setFeaturedImage(null);
+      setImage(null);
     } catch (error) {
       toast.error("An error occurred. Please try again.");
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -150,29 +156,21 @@ const BlogPost = ({ accessToken }) => {
               <label className="block text-sm font-medium text-gray-700">
                 Featured Image
               </label>
-              {/* <div
-                onClick={() => document?.getElementById("input-img").click()}
-                className="mt-1 cursor-pointer flex items-center justify-center h-32 border-2 border-dashed border-gray-300 rounded-md"
-              >
-                <label className="cursor-pointer text-[#70B795] hover:underline">
-                  <span>Drag & Drop your files or</span>
-                  <span className="ml-1">Browse</span>
-                  <input
-                    id="input-img"
-                    type="file"
-                    className="hidden"
-                    onChange={(e) => setFeaturedImage(e.target.files[0])}
-                  />
-                </label>
-              </div> */}
 
-              <Uploader onFileChange={handleFileChange} />
+              <Uploader
+                image={image}
+                setImage={setImage}
+                onFileChange={handleFileChange}
+              />
             </div>
           </div>
 
           <button
+            disabled={loading}
             type="submit"
-            className="px-4 py-2 rounded-md text-white bg-[#70B795] font-semibold my-5"
+            className={`px-4 py-2 rounded-md text-white font-semibold my-5 ${
+              loading ? "bg-gray-600" : "bg-[#70B795]"
+            }`}
           >
             Post Now
           </button>
