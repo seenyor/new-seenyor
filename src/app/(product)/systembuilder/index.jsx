@@ -23,9 +23,10 @@ export default function HomePage() {
   const { isLogin } = useAuth();
 
   const [products, setProducts] = useState([]);
-  let [kitPrice, setKitPrice] = useState(1300);
-  let [installationPrice, setInstallationPrice] = useState(150);
-  let [addonDevicePrice, setAddonDevicePrice] = useState(450);
+  let [kitPrice, setKitPrice] = useState(0);
+  let [installationPriceStatic, setInstallationPriceStatic] = useState(0);
+  let [installationPrice, setInstallationPrice] = useState(0);
+  let [addonDevicePrice, setAddonDevicePrice] = useState(0);
   let [aimonitoring, setAimonitoring] = useState(0);
   let [total, setTotal] = useState(0);
   let [quantity, setQuantity] = useState(0);
@@ -65,6 +66,7 @@ export default function HomePage() {
         if (kit) setKitPrice(kit.price);
         if (addon) setAddonDevicePrice(addon.price);
         if (installation) setInstallationPrice(installation.price * 3);
+        if (installation) setInstallationPriceStatic(installation.price);
         if (aimonitoring) setAimonitoring(aimonitoring.price);
 
         //Store Subcription Product Details in Local Storage that has isRecurring true
@@ -427,7 +429,9 @@ export default function HomePage() {
                   setQuantity(
                     quantity > (isLogin ? 1 : 0) ? quantity - 1 : quantity
                   );
-                  setInstallationPrice(installationPrice - 50);
+                  setInstallationPrice(
+                    installationPrice - installationPriceStatic
+                  );
                   setInstallationQuantity(installationQuantity - 1);
                 }}
               >
@@ -440,7 +444,9 @@ export default function HomePage() {
                 className="text-primary"
                 onClick={() => {
                   setQuantity(quantity + 1);
-                  setInstallationPrice(installationPrice + 50);
+                  setInstallationPrice(
+                    installationPrice + installationPriceStatic
+                  );
                   setInstallationQuantity(installationQuantity + 1);
                 }}
               >
@@ -502,7 +508,9 @@ export default function HomePage() {
                       setQuantity(
                         quantity > (isLogin ? 1 : 0) ? quantity - 1 : quantity
                       );
-                      setInstallationPrice(installationPrice - 50);
+                      setInstallationPrice(
+                        installationPrice - installationPriceStatic
+                      );
                       setInstallationQuantity(installationQuantity - 1);
                     }}
                   >
@@ -515,7 +523,9 @@ export default function HomePage() {
                     className="text-primary"
                     onClick={() => {
                       setQuantity(quantity + 1);
-                      setInstallationPrice(installationPrice + 50);
+                      setInstallationPrice(
+                        installationPrice + installationPriceStatic
+                      );
                       setInstallationQuantity(installationQuantity + 1);
                     }}
                   >
@@ -635,12 +645,12 @@ export default function HomePage() {
                 className="w-full h-auto mt-2 "
               />
             </div>
-            <div id="Price" className="text-center">
+            {/* <div id="Price" className="text-center">
               <h1 className="font-bold  text-3xl ">${kitPrice}</h1>
               <span className="font-normal pt-1 text-base text-[#000]/80">
                 For the set of 3x AI Devices
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
