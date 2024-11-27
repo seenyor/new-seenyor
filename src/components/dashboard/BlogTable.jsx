@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { Trash2 } from "lucide-react";
+import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -42,20 +42,25 @@ const BlogTable = ({ accessToken }) => {
 
     try {
       setDeleting(true);
+
+      // Perform the DELETE request
       const response = await axios.delete(API_URL, {
         headers: {
           Authorization: `Bearer ${accessToken?.value}`,
         },
       });
 
-      const blogResult = await response.json();
-      setBlogs((prevBlogs) => [
-        ...prevBlogs,
-        prevBlogs.filter((blog) => blog._id != id),
-      ]);
+      if (!response.ok) {
+        throw new Error(`Failed to delete blog: ${response.statusText}`);
+      }
+
+      setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
+
       toast.success("Blog deleted successfully");
     } catch (err) {
       console.error("Error deleting blog:", err.message);
+
+      // Show error message
       toast.error(`Failed to delete blog: ${err.message}`);
     } finally {
       setDeleting(false);
@@ -132,13 +137,14 @@ const BlogTable = ({ accessToken }) => {
                   {formatDate(blog?.created_at)}
                 </td>
                 <td className="h-12 flex justify-center items-end px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  <div
-                    onClick={() => handleDelete(blog?._id)}
-                    className={`cursor-pointer ${
-                      deleting ? "text-gray-400" : "text-red-500"
-                    }`}
-                  >
-                    <Trash2 />
+                  <div className="flex justify-center items-center gap-2">
+                    <Edit />
+                    <Trash2
+                      onClick={() => handleDelete(blog?._id)}
+                      className={`cursor-pointer ${
+                        deleting ? "text-gray-400" : "text-red-500"
+                      }`}
+                    />
                   </div>
                 </td>
               </tr>
