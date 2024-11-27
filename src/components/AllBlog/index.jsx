@@ -76,9 +76,12 @@ const AllBlogs = ({ accessToken }) => {
         {/* cards */}
         <div className="flex md:flex-col justify-between items-center gap-5">
           {blogs?.data?.slice(0, 2).map((blog) => (
-            <div key={blog} className="flex justify-between gap-2 w-full">
+            <div
+              key={blog}
+              className="flex justify-between gap-2 w-full h-[264px]"
+            >
               <Image
-                className="w-[40%] h-auto max-h-[300px] object-cover"
+                className="w-[40%] h-auto max-h-[264px] object-cover"
                 src={blog?.image}
                 height={300}
                 width={200}
@@ -109,12 +112,15 @@ const AllBlogs = ({ accessToken }) => {
           All Blog Posts
         </h3>
         {/* cards */}
-        <div className="grid grid-cols-3 tab:grid-cols-1 gap-5">
+        <div className="grid grid-cols-3 tab:grid-cols-1 gap-x-6 gap-y-12">
           {blogs?.data?.map((blog) => (
-            <div key={blog} className="flex justify-center">
-              <div className="w-full">
+            <div
+              key={blog}
+              className="flex justify-center w-full h-[450px] relative"
+            >
+              <div className="h-full w-full">
                 <Image
-                  className="w-full h-auto max-h-[250px]"
+                  className="w-full h-[200px] object-cover"
                   src={blog?.image}
                   height={300}
                   width={200}
@@ -125,9 +131,9 @@ const AllBlogs = ({ accessToken }) => {
                   <h4 className="text-xl md:text-[16px] font-semibold py-3 md:leading-5">
                     {blog?.title}
                   </h4>
-                  <p className="md:text-sm">{blog?.sub_title}</p>
+                  <p className="md:text-sm">{blog?.sub_title?.slice(0, 100)}</p>
                   <Link
-                    className="flex items-center text-primary pt-4 font-semibold"
+                    className="flex items-center text-primary pt-4 font-semibold absolute bottom-3"
                     href={`/blog/${blog?._id}`}
                   >
                     <span> See More </span>

@@ -113,23 +113,25 @@ const BlogTable = ({ accessToken }) => {
               </th>
             </tr>
             {blogs?.map((blog) => (
-              <tr key={blog?._id}>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+              <tr key={blog?._id} className="h-[65px] my-4 py-4">
+                <td className="h-12 px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
                   <Image
-                    className="w-auto h-full max-h-[250px]"
+                    className="w-[80px] object-cover h-[45px]"
                     src={blog?.image}
-                    height={300}
-                    width={200}
+                    height={100}
+                    width={100}
                     alt=""
                   />
                 </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
-                  {blog?.title}
+                <td className="h-12 px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                  {blog?.title?.length > 31
+                    ? `${blog?.title.slice(0, 32)}...`
+                    : blog?.title}
                 </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                <td className="h-12 text-nowrap px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
                   {formatDate(blog?.created_at)}
                 </td>
-                <td className="h-12 px-6 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
+                <td className="h-12 flex justify-center items-end px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
                   <div
                     onClick={() => handleDelete(blog?._id)}
                     className={`cursor-pointer ${
