@@ -750,7 +750,7 @@ export default function HomePage() {
                 <div className="flex flex-col items-start">
                   <h2 className="font-semibold text-xl md:md">AI Monitoring</h2>
                   <p className="font-normal text-md md:text-sm text-[#000]/80">
-                    $1,176 Total Value Over 24 Months
+                    ${aimonitoring * 24} Total Value Over 24 Months
                   </p>
                 </div>
                 <div className="flex tab:block  items-end">
