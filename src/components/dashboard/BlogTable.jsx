@@ -4,9 +4,9 @@ import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import EditBlog from "./EditBlog";
 const BlogTable = ({ accessToken }) => {
   const [blogs, setBlogs] = useState([]);
-  console.log(88, blogs);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -71,6 +71,19 @@ const BlogTable = ({ accessToken }) => {
     const date = new Date(dateString);
     const options = { day: "2-digit", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-US", options);
+  };
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [data, setData] = useState({});
+  const updateBlog = (updatedBlog) => {
+    setBlogs((prevBlogs) =>
+      prevBlogs.map((blog) =>
+        blog._id === updatedBlog._id ? updatedBlog : blog
+      )
+    );
+  };
+  const handleEdit = (data) => {
+    setData(data);
+    setSidebarOpen(true);
   };
 
   if (loading)
@@ -138,7 +151,10 @@ const BlogTable = ({ accessToken }) => {
                 </td>
                 <td className="h-12 flex justify-center items-end px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
                   <div className="flex justify-center items-center gap-2">
-                    <Edit />
+                    <Edit
+                      className="cursor-pointer"
+                      onClick={() => handleEdit(blog)}
+                    />
                     <Trash2
                       onClick={() => handleDelete(blog?._id)}
                       className={`cursor-pointer ${
@@ -152,6 +168,14 @@ const BlogTable = ({ accessToken }) => {
           </tbody>
         </table>
       </div>
+      {sidebarOpen && (
+        <EditBlog
+          accessToken={accessToken}
+          setSidebarOpen={setSidebarOpen}
+          data={data}
+          updateBlog={updateBlog}
+        />
+      )}
     </div>
   );
 };

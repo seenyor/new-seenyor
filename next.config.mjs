@@ -5,7 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "elderlycare2.s3.amazonaws.com",
+        hostname: "**",
+        pathname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
         pathname: "**",
       },
     ],
