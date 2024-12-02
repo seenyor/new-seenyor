@@ -1,4 +1,3 @@
-/** @format */
 "use client";
 
 import { useState } from "react";
@@ -21,11 +20,13 @@ export default function SideNavbar({}) {
   }
 
   return (
-    <div className="relative min-w-[80px] border-r px-3  pb-10 pt-6 ">
+    <div
+      className={`relative border-r px-3 pb-10 pt-6 transition-all duration-300 ${
+        isCollapsed ? "w-[80px]" : "w-auto"
+      }`}
+    >
       <a
-        className={`${
-          isCollapsed ? "hidden" : "block"
-        } md:flex tab:hidden items-center gap-2 py-3 my-auto text-lg whitespace-nowrap focus:outline-none flex-1`}
+        className={` md:flex tab:hidden items-center gap-2 py-3 my-auto text-lg whitespace-nowrap focus:outline-none flex-1`}
         href="/"
       >
         <Img

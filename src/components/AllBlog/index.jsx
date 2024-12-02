@@ -57,6 +57,12 @@ const AllBlogs = ({ accessToken }) => {
         <p className="text-xl font-semibold">Loading...</p>
       </div>
     );
+  if (blogs?.data?.length < 1)
+    return (
+      <div className="w-full flex justify-center items-center py-20">
+        <p className="text-xl font-semibold">No blog found</p>
+      </div>
+    );
   if (error) return;
   <div className="w-[100vw] flex justify-center items-center py-20">
     <p className="text-xl font-semibold">Error: {error}</p>

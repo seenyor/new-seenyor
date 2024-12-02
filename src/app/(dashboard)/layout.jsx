@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
+      {/* <body
         className={cn(
           "min-h-screen w-full bg-white text-black flex ",
           inter.className,
@@ -20,7 +20,8 @@ export default function RootLayout({ children }) {
             "debug-screens": process.env.NODE_ENV === "development",
           }
         )}
-      >
+      > */}
+      <body className="min-h-screen w-full bg-white text-black flex ">
         {/* sidebar */}
         {/* <p className="border">Sidebar</p> */}
         <SideNavbar />

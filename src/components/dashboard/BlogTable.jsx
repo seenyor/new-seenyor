@@ -49,18 +49,10 @@ const BlogTable = ({ accessToken }) => {
           Authorization: `Bearer ${accessToken?.value}`,
         },
       });
-
-      if (!response.ok) {
-        throw new Error(`Failed to delete blog: ${response.statusText}`);
-      }
-
       setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
-
       toast.success("Blog deleted successfully");
     } catch (err) {
       console.error("Error deleting blog:", err.message);
-
-      // Show error message
       toast.error(`Failed to delete blog: ${err.message}`);
     } finally {
       setDeleting(false);
@@ -88,8 +80,15 @@ const BlogTable = ({ accessToken }) => {
 
   if (loading)
     return (
-      <div className="w-[100vw] flex justify-center items-center py-20">
+      <div className="w-full flex justify-center items-center py-20">
         <p className="text-xl font-semibold">Loading...</p>
+      </div>
+    );
+
+  if (blogs?.length < 1)
+    return (
+      <div className="w-full flex justify-center items-center py-20">
+        <p className="text-xl font-semibold">No blog found</p>
       </div>
     );
   if (error) return;
@@ -100,7 +99,7 @@ const BlogTable = ({ accessToken }) => {
     <div>
       <div className="w-full overflow-x-auto">
         <table
-          className="w-full text-left rounded w-overflow-x-auto "
+          className="w-full text-left rounded overflow-x-scroll "
           cellspacing="0"
         >
           <tbody>
@@ -119,13 +118,13 @@ const BlogTable = ({ accessToken }) => {
               </th>
               <th
                 scope="col"
-                className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-700 bg-slate-100"
+                className="h-12 text-nowrap px-6 text-sm font-medium stroke-slate-700 text-slate-700 bg-slate-100"
               >
                 Created Date
               </th>
               <th
                 scope="col"
-                className="h-12 px-6 text-sm font-medium stroke-slate-700 text-slate-700 bg-slate-100"
+                className="h-12 px-6 text-center text-sm font-medium stroke-slate-700 text-slate-700 bg-slate-100"
               >
                 Actions
               </th>
