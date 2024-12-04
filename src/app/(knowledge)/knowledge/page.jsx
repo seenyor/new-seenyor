@@ -107,9 +107,11 @@ const Knowledge = () => {
                     </p>
                   </div>
                 </div>
-                <button className="bg-[#80CAA7] tab:mt-5 w-56 text-sm hover:bg-emerald-300 text-white font-semibold py-[8px] px-4 rounded">
-                  Contact Support
-                </button>
+                <Link href="/contact-us?section=call_back_form">
+                  <button className="bg-[#80CAA7] tab:mt-5 w-56 text-sm hover:bg-emerald-300 text-white font-semibold py-[8px] px-4 rounded">
+                    Contact Support
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

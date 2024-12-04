@@ -9,6 +9,13 @@ import ScrollButton from "@/components/ScrollButton";
 import Link from "next/link";
 import GetStartArea from "@/components/GetStartArea";
 import { cookies } from "next/headers";
+
+export const metadata = {
+  title:
+    "Comprehensive Elderly Care with Seenyor AI | 24/7 Senior Health Monitoring ",
+  description:
+    "Discover Seenyor's 24/7 AI-powered elderly care. Ensure senior health and safety with continuous monitoring and instant notifications via our dedicated app. Trust Seenyor for reliable senior care.",
+};
 const Home = () => {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");

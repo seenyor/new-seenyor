@@ -1,6 +1,7 @@
 import { Img } from "@/components";
 import { MailIcon, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -32,6 +33,45 @@ const Footer = () => {
                     </p>
                   </li>
                 </ul>
+
+                <div className="flex justify-start gap-5 mt-3">
+                  <Link href="#">
+                    <Image
+                      src="/images/footer/facebook 1.svg"
+                      alt="facebook"
+                      height={40}
+                      width={40}
+                      className="h-[25px] w-auto"
+                    />
+                  </Link>
+                  <Link href="#">
+                    <Image
+                      src="/images/footer/instagram 1.svg"
+                      alt="instagram"
+                      height={40}
+                      width={40}
+                      className="h-[25px] w-auto"
+                    />
+                  </Link>
+                  <Link href="#">
+                    <Image
+                      src="/images/footer/twitter 1.svg"
+                      alt="twitter"
+                      height={40}
+                      width={40}
+                      className="h-[25px] w-auto"
+                    />
+                  </Link>
+                  <Link href="#">
+                    <Image
+                      src="/images/footer/linkedin 1.svg"
+                      alt="linkedin"
+                      height={40}
+                      width={40}
+                      className="h-[25px] w-auto"
+                    />
+                  </Link>
+                </div>
               </nav>
             </div>
             <div className="flex justify-center">

@@ -59,6 +59,11 @@ const features = [
   },
 ];
 
+export const metadata = {
+  title: "24/7 Professional Elderly Monitoring | Seenyor AI Care Solutions",
+  description:
+    "Experience peace of mind with Seenyor's 24/7 professional monitoring for elderly care. Our AI sensors track senior health and routines, offering real-time alerts and updates. Stay connected with Seenyor AI care.",
+};
 const ProfessionalMonitoring = () => {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");

@@ -60,6 +60,12 @@ const installationOptions = [
     ],
   },
 ];
+
+export const metadata = {
+  title: "Hassle-Free Installation of Seenyor AI Elderly Care Sensors",
+  description:
+    "Get seamless installation of Seenyor AI care devices by our expert team. Ensure smooth setup for continuous elderly monitoring and senior health tracking with Seenyor's professional service.",
+};
 const Installation = () => {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");
