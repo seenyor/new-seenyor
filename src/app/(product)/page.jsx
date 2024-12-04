@@ -30,13 +30,15 @@ const Home = () => {
                 Protect Your Loved Ones Before It’s Too Late
               </h3>
               <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-3 tab:text-center tab:font-bold tab:text-[#000069]">
-                1 in 4 People Over 65 Falls Each Year – Don’t Let Your Loved
-                Ones Be Next
+                {/* 1 in 4 People Over 65 Fall Each Year – Don’t Let Your Loved Ones
+                Be Next */}
+                24/7 AI Monitoring for Continuous Elderly Care and Safety
               </p>
               <p className="text-xl my-7 tab:hidden md:text-sm tab:text-center">
-                Stay connected and ensure 24/7 protection, even when you can’t
-                be there. Our non-wearable device detects falls instantly and
-                monitors their safety around the clock.
+                Don’t let your loved ones be part of the 1 in 4 over 65 who fall
+                each year. Stay connected and ensure 24/7 protection with our
+                non-wearable device that detects falls instantly and monitors
+                their safety around the clock, even when you can’t be there.
               </p>
               <Link
                 href="/systembuilder"

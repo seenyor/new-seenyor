@@ -51,7 +51,7 @@ const Artnow = () => {
         </p>
       </div>
       <p className="text-[40px] tab:text-2xl md:text-3xl tab:font-bold mb-4 pb-12 tab:pb-5 text-center py-4">
-        Protect Your Loved Ones Before It’s Too Late
+        Take Action to Secure Their Safety Today
       </p>
 
       {/* cards */}

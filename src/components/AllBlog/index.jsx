@@ -81,7 +81,7 @@ const AllBlogs = ({ accessToken }) => {
         <h3 className="text-[1.7rem] font-semibold pb-5">Recent Blog Posts</h3>
         {/* cards */}
         <div className="flex md:flex-col justify-between items-center gap-5">
-          {blogs?.data?.slice(0, 2).map((blog) => (
+          {blogs?.data?.slice(-2).map((blog) => (
             <div
               key={blog}
               className="flex justify-between gap-2 w-full h-[264px]"

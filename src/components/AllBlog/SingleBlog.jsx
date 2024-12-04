@@ -57,7 +57,7 @@ const SingleBlog = ({ accessToken, params }) => {
         <h2 className="text-3xl font-semibold py-3">{blog?.title}</h2>
         <p className="text-sm pb-4">{formatDate(blog?.created_at)}</p>
         <Image
-          className="w-auto h-[60vh] mx-auto"
+          className="w-fit max-h-[60vh] mx-auto"
           src={blog?.image}
           height={500}
           width={800}
