@@ -5,7 +5,7 @@ import Link from "next/link";
 const helpTopics = [
   {
     title: "First Time Use",
-    description: "Welcome to Senryor Application",
+    description: "Welcome to Seenryor Application",
     icon: "/images/help1.svg",
     link: "#",
   },
@@ -35,7 +35,7 @@ const helpTopics = [
   },
   {
     title: "Account Login",
-    description: "Managing Senryor Account",
+    description: "Managing Seenryor Account",
     icon: "/images/help8.svg",
     link: "#",
   },
@@ -47,7 +47,7 @@ const helpTopics = [
   // },
   {
     title: "Installation FAQs",
-    description: "Welcome to Senryor Download Zone",
+    description: "Welcome to Seenryor Download Zone",
     icon: "/images/help10.svg",
     link: "#",
   },

@@ -95,6 +95,7 @@ export default function RegisterPage() {
   const [passwordStrength, setPasswordStrength] = useState("");
   const [orderDetails, setOrderDetails] = useState(null);
   const [useCustomerAddress, setUseCustomerAddress] = useState(false);
+  const [countryData, setCountryData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -173,7 +174,6 @@ export default function RegisterPage() {
     }
   };
 
-  const mypassword = watch("password");
   // Update password strength on password change
   useEffect(() => {
     const subscription = watch((value) => {
@@ -181,7 +181,15 @@ export default function RegisterPage() {
     });
     return () => subscription.unsubscribe();
   }, [watch]);
-
+  // Fetch country data
+  useEffect(() => {
+    fetch("/countryData.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setCountryData(data);
+      })
+      .catch((error) => console.error("Error loading country data:", error));
+  }, []);
   const onSubmit = async (data) => {
     // // Perform client-side validation
     // const validationErrors = validateForm(data);
@@ -211,7 +219,7 @@ export default function RegisterPage() {
       country_id: data.customer_country_id,
       post_Code: data.customer_zipcode,
       state: data.customer_state,
-      contact_number: data.customer_contact_number,
+      contact_number: data.country_code + " " + data.customer_contact_number,
       password: data.password,
       customer_info: {
         country_id: data.installation_country_id,
@@ -227,6 +235,8 @@ export default function RegisterPage() {
         // installer_id: , // Using customer's country_id as installer_id for now
       },
     };
+    console.log(formattedData);
+
     localStorage.setItem(
       "agent_details",
       JSON.stringify({
@@ -340,7 +350,6 @@ export default function RegisterPage() {
 
   // Watch the password field for validation in confirm password
   const password = watch("password");
-  // Helper function to render form fields
   const renderField = ({
     label,
     name,
@@ -362,8 +371,23 @@ export default function RegisterPage() {
           <span className="text-sm font-normal italic">(optional)</span>
         )}
       </Heading>
-
-      {type === "select" ? (
+      {name === "country_code" && type === "select" ? (
+        // Phone number input with country code selection
+        <SelectBox
+          name={name}
+          placeholder={placeholder}
+          options={countryData.map((country) => ({
+            value: country.dial_code,
+            label: `${country.name} (${country.dial_code})`,
+          }))}
+          {...register(name, { required })}
+          onChange={(e) => {
+            setValue(name, e.target.value);
+            trigger(name);
+          }}
+          className="w-full rounded-[12px] !border border-solid border-gray-200 px-[1.63rem] capitalize !text-text sm:px-[1.25rem] h-[3.75rem] bg-white"
+        />
+      ) : type === "select" ? (
         <SelectBox
           name={name}
           placeholder={placeholder}
@@ -379,7 +403,7 @@ export default function RegisterPage() {
             setValue(name, e.target.value);
             trigger(name);
           }}
-          className={`w-full rounded-[12px] !border border-solid border-gray-200 px-[1.63rem] capitalize !text-text sm:px-[1.25rem] h-[3.75rem] bg-white`}
+          className="w-full rounded-[12px] !border border-solid border-gray-200 px-[1.63rem] capitalize !text-text sm:px-[1.25rem] h-[3.75rem] bg-white"
         />
       ) : (
         <Input
@@ -392,7 +416,6 @@ export default function RegisterPage() {
           }`}
         />
       )}
-
       {errors[name] && (
         <p className="text-red-500 text-xs">
           {customErrorMessage
@@ -469,16 +492,25 @@ export default function RegisterPage() {
                       placeholder: "Last name",
                     })}
                   </div>
+                  {renderField({
+                    label: "E-mail",
+                    name: "customer_email",
+                    type: "text",
+                    placeholder: "E-Mail Address",
+                  })}
                   <div
                     id="Field_Group"
                     className="flex gap-4 w-full sm:flex-col sm:gap-1"
                   >
-                    {renderField({
-                      label: "E-mail",
-                      name: "customer_email",
-                      type: "text",
-                      placeholder: "E-Mail Address",
-                    })}
+                    <div className="w-[45%]">
+                      {renderField({
+                        label: "Country Code",
+                        name: "country_code",
+                        type: "select",
+                        placeholder: "Select Country Code",
+                        options: countryData,
+                      })}
+                    </div>
                     {renderField({
                       label: "Phone Number",
                       name: "customer_contact_number",
