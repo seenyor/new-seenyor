@@ -17,7 +17,7 @@ const AllBlogs = ({ accessToken }) => {
       // Check if blogs are already cached
       if (blogCache[API_URL]) {
         console.log("Serving from cache");
-        setBlogs(blogCache[API_URL]);
+        setBlogs(blogCache[API_URL]?.data);
         setLoading(false);
         return;
       }
@@ -35,7 +35,7 @@ const AllBlogs = ({ accessToken }) => {
         blogCache[API_URL] = response.data;
 
         // Update state
-        setBlogs(response.data);
+        setBlogs(response.data?.data);
       } catch (err) {
         setError(err.message || "Failed to fetch blogs");
       } finally {
@@ -81,34 +81,35 @@ const AllBlogs = ({ accessToken }) => {
         <h3 className="text-[1.7rem] font-semibold pb-5">Recent Blog Posts</h3>
         {/* cards */}
         <div className="flex md:flex-col justify-between items-center gap-5">
-          {blogs?.data?.slice(-2).map((blog) => (
-            <div
-              key={blog}
-              className="flex justify-between gap-2 w-full h-[264px]"
-            >
-              <Image
-                className="w-[40%] h-auto max-h-[264px] object-cover"
-                src={blog?.image}
-                height={300}
-                width={200}
-                alt={blog?.image}
-              />
-              <div className="w-[60%] p-3 tab:p-1 relative">
-                <p className="text-sm">{formatDate(blog?.created_at)}</p>
-                <h4 className="text-xl tab:text-lg tab:leading-5 sm:text-[15px] sm:leading-[17px] font-semibold py-3">
-                  {blog?.title}
-                </h4>
-                <p className="tab:text-sm"> {blog?.sub_title}</p>
-                <Link
-                  className="flex items-center text-primary pt-4 font-semibold absolute bottom-4"
-                  href={`/blog/${blog?._id}`}
-                >
-                  <span> See More </span>
-                  <ArrowRight />
-                </Link>
+          {blogs.length !== 0 &&
+            blogs?.slice(-2).map((blog) => (
+              <div
+                key={blog}
+                className="flex justify-between gap-2 w-full h-[264px]"
+              >
+                <Image
+                  className="w-[40%] h-auto max-h-[264px] object-cover"
+                  src={blog?.image || ""}
+                  height={300}
+                  width={200}
+                  alt={blog?.image}
+                />
+                <div className="w-[60%] p-3 tab:p-1 relative">
+                  <p className="text-sm">{formatDate(blog?.created_at)}</p>
+                  <h4 className="text-xl tab:text-lg tab:leading-5 sm:text-[15px] sm:leading-[17px] font-semibold py-3">
+                    {blog?.title}
+                  </h4>
+                  <p className="tab:text-sm"> {blog?.sub_title}</p>
+                  <Link
+                    className="flex items-center text-primary pt-4 font-semibold absolute bottom-4"
+                    href={`/blog/${blog?._id}`}
+                  >
+                    <span> See More </span>
+                    <ArrowRight />
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 
@@ -119,36 +120,39 @@ const AllBlogs = ({ accessToken }) => {
         </h3>
         {/* cards */}
         <div className="grid grid-cols-3 tab:grid-cols-1 gap-x-6 gap-y-12">
-          {blogs?.data?.map((blog) => (
-            <div
-              key={blog}
-              className="flex justify-center w-full h-[450px] relative"
-            >
-              <div className="h-full w-full">
-                <Image
-                  className="w-full h-[200px] object-cover"
-                  src={blog?.image}
-                  height={300}
-                  width={200}
-                  alt=""
-                />
-                <div className="p-3 md:p-2 w-full">
-                  <p className="text-sm">{formatDate(blog?.created_at)}</p>
-                  <h4 className="text-xl md:text-[16px] font-semibold py-3 md:leading-5">
-                    {blog?.title}
-                  </h4>
-                  <p className="md:text-sm">{blog?.sub_title?.slice(0, 100)}</p>
-                  <Link
-                    className="flex items-center text-primary pt-4 font-semibold absolute bottom-3"
-                    href={`/blog/${blog?._id}`}
-                  >
-                    <span> See More </span>
-                    <ArrowRight />
-                  </Link>
+          {blogs.length !== 0 &&
+            blogs?.map((blog) => (
+              <div
+                key={blog}
+                className="flex justify-center w-full h-[450px] relative"
+              >
+                <div className="h-full w-full">
+                  <Image
+                    className="w-full h-[200px] object-cover"
+                    src={blog?.image || ""}
+                    height={300}
+                    width={200}
+                    alt=""
+                  />
+                  <div className="p-3 md:p-2 w-full">
+                    <p className="text-sm">{formatDate(blog?.created_at)}</p>
+                    <h4 className="text-xl md:text-[16px] font-semibold py-3 md:leading-5">
+                      {blog?.title}
+                    </h4>
+                    <p className="md:text-sm">
+                      {blog?.sub_title?.slice(0, 100)}
+                    </p>
+                    <Link
+                      className="flex items-center text-primary pt-4 font-semibold absolute bottom-3"
+                      href={`/blog/${blog?._id}`}
+                    >
+                      <span> See More </span>
+                      <ArrowRight />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
