@@ -75,6 +75,8 @@ const BlogPost = ({ accessToken }) => {
       setContent("");
       setFeaturedImage(null);
       setImage(null);
+      setmetaTitle("");
+      setmetaDiscription("");
     } catch (error) {
       toast.error("An error occurred. Please try again.");
       console.error(error);
