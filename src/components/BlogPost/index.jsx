@@ -13,6 +13,8 @@ const BlogPost = ({ accessToken }) => {
   const [featuredImage, setFeaturedImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
+  const [metaTitle, setmetaTitle] = useState("");
+  const [metaDiscription, setmetaDiscription] = useState("");
   // Handle form submission
 
   const handleSubmit = async (e) => {
@@ -45,6 +47,8 @@ const BlogPost = ({ accessToken }) => {
         sub_title: subTitle,
         content,
         image: imageUrl,
+        meta_title: metaTitle, // Include meta title
+        meta_description: metaDiscription, // Include meta description
       };
 
       // Step 3: Post the blog data
@@ -71,6 +75,8 @@ const BlogPost = ({ accessToken }) => {
       setContent("");
       setFeaturedImage(null);
       setImage(null);
+      setmetaTitle("");
+      setmetaDiscription("");
     } catch (error) {
       toast.error("An error occurred. Please try again.");
       console.error(error);
@@ -161,6 +167,40 @@ const BlogPost = ({ accessToken }) => {
                 image={image}
                 setImage={setImage}
                 onFileChange={handleFileChange}
+              />
+            </div>
+          </div>
+
+          {/* Metadata title and description */}
+          <div className="grid grid-cols-2 gap-5 mt-5">
+            {/* Metadata title */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Meta Title *
+              </label>
+              <input
+                style={{ border: "1px solid" }}
+                type="text"
+                className="w-full py-2 px-3 !border-slate-300 rounded-md"
+                placeholder="Meta Title"
+                value={metaTitle}
+                onChange={(e) => setmetaTitle(e.target.value)}
+                required
+              />
+            </div>
+            {/* Metadata description */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Meta Description *
+              </label>
+              <input
+                style={{ border: "1px solid" }}
+                type="text"
+                className="w-full py-2 px-3 !border-slate-300 rounded-md"
+                placeholder="Meta Discription"
+                value={metaDiscription}
+                onChange={(e) => setmetaDiscription(e.target.value)}
+                required
               />
             </div>
           </div>
