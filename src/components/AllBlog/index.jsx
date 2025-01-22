@@ -53,7 +53,7 @@ const AllBlogs = ({ accessToken }) => {
 
   if (loading)
     return (
-      <div className="w-[100vw] flex justify-center items-center py-20">
+      <div className="container flex justify-center items-center py-20">
         <p className="text-xl font-semibold">Loading...</p>
       </div>
     );
@@ -84,7 +84,7 @@ const AllBlogs = ({ accessToken }) => {
           {blogs.length !== 0 &&
             blogs?.slice(-2).map((blog) => (
               <div
-                key={blog}
+                key={blog._id}
                 className="flex justify-between gap-2 w-full h-[264px]"
               >
                 <Image

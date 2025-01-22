@@ -38,10 +38,12 @@ const SingleBlog = ({ accessToken, params }) => {
   console.log(blog);
   if (loading)
     return (
-      <div className="w-[100vw] flex justify-center items-center py-20">
+      <div className="container flex justify-center items-center py-20">
         <p className="text-xl font-semibold">Loading...</p>
       </div>
     );
+
+  console.log(`api/v1/blogs/${blog?.title}`);
   return (
     <div>
       <div className="flex justify-start py-3">
@@ -50,7 +52,7 @@ const SingleBlog = ({ accessToken, params }) => {
         <Link href="/blog">Blog</Link>
         <span>&nbsp;/&nbsp;</span>
         <Link className="font-semibold" href={`/blog/${params?.blogdetails}`}>
-          {params?.blogdetails}
+          {blog?.title}
         </Link>
       </div>
       <div className="w-full max-w-4xl mx-auto">
