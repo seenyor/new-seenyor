@@ -11,7 +11,7 @@ const SingleBlog = ({ accessToken, params }) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchBlogs = async () => {
-      const API_URL = `https://backend.elderlycareplatform.com/api/v1/blogs/${params?.blogdetails}`;
+      const API_URL = `https://backend.elderlycareplatform.com/api/v1/blogs/${params?.id}`;
       try {
         setLoading(true);
         const response = await axios.get(API_URL, {
@@ -51,7 +51,10 @@ const SingleBlog = ({ accessToken, params }) => {
         <span>&nbsp;/&nbsp;</span>
         <Link href="/blog">Blog</Link>
         <span>&nbsp;/&nbsp;</span>
-        <Link className="font-semibold" href={`/blog/${params?.blogdetails}`}>
+        <Link
+          className="font-semibold"
+          href={`/blog/${blog?.title}/${blog?._id}`}
+        >
           {blog?.title}
         </Link>
       </div>

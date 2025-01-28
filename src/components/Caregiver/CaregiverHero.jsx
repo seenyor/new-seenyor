@@ -7,7 +7,7 @@ const CaregiverHero = () => {
     <section className="font-poppins w-full flex flex-col items-center justify-center relative">
       <div className="container max-w-[1672px] relative">
         <div className="flex flex-col gap-[30px] mt-40">
-          <h1 className="w-[829px] text-[48px] font-semibold">
+          <h1 className="w-[829px] text-[48px] lg:text-[40px] font-semibold">
             Empowering <span className="text-[#F48C06]">Caregivers</span> to
             Make a Difference. Join Us Today!
           </h1>
@@ -28,7 +28,7 @@ const CaregiverHero = () => {
             </Link>
           </div>
         </div>
-        <div className="absolute top-[-230px] right-0">
+        <div className="absolute top-[-230px] right-0 w-[1060px] md:w-[600px] h-[1060px]">
           <Image src={img} width={1060} height={1060} alt="x" />
         </div>
       </div>
