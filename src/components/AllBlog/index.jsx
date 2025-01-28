@@ -53,7 +53,7 @@ const AllBlogs = ({ accessToken }) => {
 
   if (loading)
     return (
-      <div className="w-[100vw] flex justify-center items-center py-20">
+      <div className="container flex justify-center items-center py-20">
         <p className="text-xl font-semibold">Loading...</p>
       </div>
     );
@@ -67,6 +67,14 @@ const AllBlogs = ({ accessToken }) => {
   <div className="w-[100vw] flex justify-center items-center py-20">
     <p className="text-xl font-semibold">Error: {error}</p>
   </div>;
+
+  const slugify = (title) => {
+    return title
+      .toLowerCase()
+      .replace(/ /g, "-") // Replace spaces with dashes
+      .replace(/[^\w-]+/g, ""); // Remove special characters
+  };
+
   return (
     <div>
       {/* recent blog */}
@@ -84,7 +92,7 @@ const AllBlogs = ({ accessToken }) => {
           {blogs.length !== 0 &&
             blogs?.slice(-2).map((blog) => (
               <div
-                key={blog}
+                key={blog._id}
                 className="flex justify-between gap-2 w-full h-[264px]"
               >
                 <Image
@@ -102,7 +110,7 @@ const AllBlogs = ({ accessToken }) => {
                   <p className="tab:text-sm"> {blog?.sub_title}</p>
                   <Link
                     className="flex items-center text-primary pt-4 font-semibold absolute bottom-4"
-                    href={`/blog/${blog?._id}`}
+                    href={`/blog/${slugify(blog?.title)}/${blog?._id}`}
                   >
                     <span> See More </span>
                     <ArrowRight />
@@ -144,7 +152,7 @@ const AllBlogs = ({ accessToken }) => {
                     </p>
                     <Link
                       className="flex items-center text-primary pt-4 font-semibold absolute bottom-3"
-                      href={`/blog/${blog?._id}`}
+                      href={`/blog/${slugify(blog?.title)}/${blog?._id}`}
                     >
                       <span> See More </span>
                       <ArrowRight />
