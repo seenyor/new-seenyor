@@ -8,7 +8,7 @@ import Header from "@/components/layouts/Navbar";
 
 const page = () => {
   return (
-    <div className="flex flex-col gap-[60px] font-poppins">
+    <div className="flex flex-col gap-[60px] font-poppins overflow-x-hidden">
       <div className="bg-[#E8F4FA]">
         <Header />
         <CaregiverHero />

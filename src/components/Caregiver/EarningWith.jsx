@@ -5,32 +5,34 @@ import SmallCircle from "@/assets/caregiver/SmallCircle";
 
 function EarningWith() {
   return (
-    <div className="w-full justify-center flex flex-col gap-16 items-center bg-[#7E87FC] p-20 relative">
-      <h1 className="text-[40px] font-bold text-[#ffffff]">
+    <div className="w-full flex flex-col gap-16 items-center overflow-hidden bg-[#7E87FC] p-20 relative md:p-12 sm:p-8">
+      <h1 className="text-[40px] font-bold text-[#ffffff] text-center md:text-[32px] sm:text-[28px]">
         Save Lives While Earning with Seenyor
       </h1>
+
       <div className="absolute w-full flex justify-start">
         <Line />
       </div>
       <div className="absolute w-full h-full flex items-end justify-start p-8">
         <SmallCircle />
       </div>
-      <div className="absolute w-full h-full flex items-end justify-end py-8 px-32">
+      <div className="absolute w-full h-full flex items-end justify-end py-8 px-32 sm:px-12">
         <SmallCircle />
       </div>
-      <div className="flex items-center gap-20 z-10">
+
+      <div className="flex items-center gap-20 z-10 md:flex-col md:gap-12">
         <Image
           src={groupImg}
           width={900}
           height={600}
           alt="x"
-          className="w-[805px] h-[591px]"
+          className="w-[805px] h-[591px] md:w-[600px] md:h-[440px] sm:w-[500px] sm:h-[360px] xss:w-full"
         />
-        <div className="w-[827px]">
-          <h4 className="text-[32px] font-semibold text-[#ffffff] flex flex-col gap-10">
+        <div className="w-[827px] md:w-full flex flex-col gap-8">
+          <h4 className="text-[32px] font-semibold text-[#ffffff] flex flex-col gap-6 md:text-[28px] sm:text-[24px]">
             At Seenyor, we empower caregivers like you to make an impact. Join
             us and enjoy:
-            <ul className="mr-4">
+            <ul className="ml-4 list-inside">
               <li className="before:content-['»'] before:mr-4">
                 No Upfront Costs
               </li>
@@ -41,7 +43,7 @@ function EarningWith() {
                 Professional Installation Services
               </li>
             </ul>
-            <p className="text-[24px]">
+            <p className="text-[24px] md:text-[20px] sm:text-[18px]">
               Turning your passion into profit has never been easier. Together,
               let’s save lives and support the people who matter most.
             </p>

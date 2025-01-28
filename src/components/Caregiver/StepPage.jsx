@@ -9,39 +9,49 @@ const StepPage = () => {
       text: "Become Seenyor certified and stand out as a trusted provider.",
     },
     {
-      id: 1,
+      id: 2,
       title: "24/7 Customer Support",
       text: "Personalized guidance to help you thrive.",
     },
     {
-      id: 1,
+      id: 3,
       title: "Cutting-Edge Dealer Platform",
-      text: "B Immediate assistance for your customers in any situation.",
+      text: "Immediate assistance for your customers in any situation.",
     },
     {
-      id: 1,
-      title: " Dedicated Account Managers",
+      id: 4,
+      title: "Dedicated Account Managers",
       text: "Track your progress and manage your business effortlessly.",
     },
   ];
   return (
     <div className="relative w-full flex justify-center items-center font-poppins">
       {/* Background Image */}
-      <Image src={bgImg} alt="Background" />
+      <Image
+        src={bgImg}
+        width={1920}
+        height={1080}
+        alt="Background"
+        className="h-auto tab:min-h-[100vh]: sm:min-h-[100vh]"
+      />
 
       {/* Card on Image */}
-      <div className="absolute h-full flex flex-col justify-end items-center py-20 gap-4 text-[#ffffff]">
-        <h2 className="text-[40px] font-bold">
+      <div className="absolute h-full flex flex-col justify-end items-center py-20 gap-6 text-[#ffffff] px-4 md:py-12 md:gap-4 sm:py-8 sm:gap-3">
+        <h2 className="text-[40px] font-bold text-center md:text-[32px] sm:text-[28px]">
           We’re with You Every Step of the Way
         </h2>
-        <div className="flex gap-[50px]">
+        <div className="flex gap-[50px] flex-wrap justify-center md:gap-[30px] sm:gap-[20px]">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="max-w-[367px] border border-solid border-gradient-to-r from-[#999999] to-[#ffffff] bg-[#5B5B5B]/20 backdrop-blur-[2px] px-4 rounded-lg flex flex-col justify-center items-center gap-2 text-center"
+              className="max-w-[367px] w-full border border-solid border-gradient-to-r from-[#999999] to-[#ffffff] bg-[#5B5B5B]/20 backdrop-blur-[2px] px-6 py-4 rounded-lg flex flex-col justify-center items-center gap-2 text-center md:max-w-[300px] sm:max-w-[250px]"
             >
-              <h1 className="text-[20px] font-bold">{card.title}</h1>
-              <h5 className="text-[18px] text-center">{card.text}</h5>
+              <h1 className="text-[20px] font-bold md:text-[18px] sm:text-[16px]">
+                {card.title}
+              </h1>
+              <h5 className="text-[18px] md:text-[16px] sm:text-[14px]">
+                {card.text}
+              </h5>
             </div>
           ))}
         </div>
