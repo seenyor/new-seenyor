@@ -3,7 +3,9 @@ import CaregiverHero from "@/components/Caregiver/CaregiverHero";
 import Detection from "@/components/Caregiver/Detection";
 import Discover from "@/components/Caregiver/Discover";
 import EarningWith from "@/components/Caregiver/EarningWith";
+import Form from "@/components/Caregiver/Form";
 import StepPage from "@/components/Caregiver/StepPage";
+import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Navbar";
 
 const page = () => {
@@ -18,6 +20,9 @@ const page = () => {
       <Detection />
       <Discover />
       <StepPage />
+      <Form />
+      <Discover />
+      <Footer />
     </div>
   );
 };

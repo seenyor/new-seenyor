@@ -7,11 +7,11 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer id="footer-section" className="w-full pt-16 text-sm ">
+      <footer id="footer-section" className="w-full pt-16 text-sm bg-[#F3F4F6]">
         {/* ############## ############
           need this bg on top (line no 9) when comment out the footer  bg-[#F3F4F6] 
           ###################################*/}
-        {/* <div className="mx-auto xxl:px-5 max-w-[1320px] w-full">
+        <div className="mx-auto xxl:px-5 max-w-[1320px] w-full">
           <div className="grid grid-cols-4 gap-5  tab:grid-cols-2">
             <div className="flex">
               <nav
@@ -223,7 +223,7 @@ const Footer = () => {
               </nav>
             </div>
           </div>
-        </div> */}
+        </div>
         {/*      <!-- Sub Footer --> */}
         <div className="bg-[#E3E7EF] py-5 mt-5 text-sm">
           <p className="text-center text-lg md:text-base tab:text-sm">
