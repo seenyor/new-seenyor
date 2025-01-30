@@ -43,7 +43,7 @@ const Ambassidor = () => {
           {cards.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col gap-[10px] w-[505px] shadow-md rounded-[10px] p-[30px] justify-center items-center md:w-[350px] sm:w-[300px] xss:w-[280px]"
+              className="flex flex-col gap-[10px] w-[505px] shadow-md rounded-[10px] p-[30px] justify-center items-center md:w-[350px] sm:w-[300px] xss:w-full"
             >
               <item.icn />
               <h1 className="text-[24px] font-semibold text-center md:text-[20px] sm:text-[18px]">

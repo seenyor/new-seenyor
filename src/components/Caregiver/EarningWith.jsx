@@ -10,13 +10,13 @@ function EarningWith() {
         Save Lives While Earning with Seenyor
       </h1>
 
-      <div className="absolute w-full flex justify-start">
+      <div className="absolute w-full flex justify-start md:hidden">
         <Line />
       </div>
-      <div className="absolute w-full h-full flex items-end justify-start p-8">
+      <div className="absolute w-full h-full flex items-end justify-start p-8 md:hidden">
         <SmallCircle />
       </div>
-      <div className="absolute w-full h-full flex items-end justify-end py-8 px-32 sm:px-12">
+      <div className="absolute w-full h-full flex items-end justify-end py-8 px-32 sm:px-12 md:hidden">
         <SmallCircle />
       </div>
 
@@ -26,7 +26,7 @@ function EarningWith() {
           width={900}
           height={600}
           alt="x"
-          className="w-[805px] h-[591px] md:w-[500px] md:h-[440px] bg-cover sm:w-[500px] sm:h-[360px] xss:w-[90%]"
+          className="w-[805px] md:w-full bg-cover xss:w-full"
         />
         <div className="w-[827px] md:w-full flex flex-col gap-8">
           <h4 className="text-[32px] font-semibold text-[#ffffff] flex flex-col gap-6 md:text-[28px] sm:text-[24px]">

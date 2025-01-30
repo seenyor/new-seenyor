@@ -5,34 +5,40 @@ import img from "@/assets/caregiver/imgs/header-pic.png";
 const CaregiverHero = () => {
   return (
     <section className="font-poppins w-full flex flex-col items-center justify-center relative">
-      <div className="container max-w-[1672px] relative">
-        <div className="flex flex-col gap-[30px] mt-40">
-          <h1 className="w-[829px] text-[48px] lg:text-[40px] font-semibold">
+      <div className="container max-w-[1672px] relative md:mb-40 flex flex-col md:justify-between">
+        <div className="flex flex-col items-start md:items-center gap-[30px] mt-40 xss:mt-0">
+          <h1 className="w-[829px] sm:w-full text-[48px] md:text-[36px] md:text-center sm:text-[30px] font-semibold">
             Empowering <span className="text-[#F48C06]">Caregivers</span> to
             Make a Difference. Join Us Today!
           </h1>
-          <div className="flex gap-[30px]">
+          <div className="flex gap-[30px] md:w-full md:px-10">
             <Link
               href="#"
               type="button"
-              className="w-64 py-4 bg-[#71B696] text-center rounded-md text-[24px] font-medium text-white"
+              className="w-64 md:w-full py-4 bg-[#71B696] text-center rounded-md text-[24px] md:text-[18px] font-medium text-white"
             >
               Contact Us
             </Link>
             <Link
               href="#"
               type="button"
-              className="w-64 py-4 bg-white border-[1px] border-[#71B696] text-[#71B696] text-center rounded-md text-[24px] font-medium"
+              className="w-64 md:w-full py-4 bg-white border-[1px] border-[#71B696] text-[#71B696] text-center rounded-md text-[24px] md:text-[18px] font-medium"
             >
               View More
             </Link>
           </div>
         </div>
-        <div className="absolute top-[-230px] right-0 w-[1060px] md:w-[600px] h-[1060px]">
+        <div className="absolute top-[-230px] right-0 w-[1060px] md:hidden md:w-[600px] h-[1060px]">
+          <Image src={img} width={1060} height={1060} alt="x" />
+        </div>
+        <div className="absolute top-[95%] right-[12%] xss:hidden w-[1060px] hidden md:block md:w-[600px] h-[1060px]">
+          <Image src={img} width={1060} height={1060} alt="x" />
+        </div>
+        <div className="absolute bg-slate-200 top-[95%] w-full xss:top-[100%] right-[12%] xss:right-[-5%] hidden xss:block xss:w-[450px]">
           <Image src={img} width={1060} height={1060} alt="x" />
         </div>
       </div>
-      <div class="relative mt-[250px] w-full overflow-hidden">
+      <div class="relative mt-[250px] xss:mt-[100px] w-full overflow-hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
