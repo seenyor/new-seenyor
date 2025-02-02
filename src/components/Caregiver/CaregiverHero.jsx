@@ -31,14 +31,14 @@ const CaregiverHero = () => {
         <div className="absolute top-[-230px] right-0 w-[1060px] md:hidden md:w-[600px] h-[1060px]">
           <Image src={img} width={1060} height={1060} alt="x" />
         </div>
-        <div className="absolute top-[95%] right-[12%] xss:hidden w-[1060px] hidden md:block md:w-[600px] h-[1060px]">
-          <Image src={img} width={1060} height={1060} alt="x" />
+        <div className="xss:hidden w-[1060px] hidden md:flex items-center justify-center md:w-full">
+          <Image src={img} width={600} height={600} alt="x" />
         </div>
-        <div className="absolute bg-slate-200 top-[95%] w-full xss:top-[100%] right-[12%] xss:right-[-5%] hidden xss:block xss:w-[450px]">
+        <div className="w-full hidden xss:block">
           <Image src={img} width={1060} height={1060} alt="x" />
         </div>
       </div>
-      <div class="relative mt-[250px] xss:mt-[100px] w-full overflow-hidden">
+      <div class="relative mt-[250px] md:mt-[-450px] xss:mt-[-410px] w-full overflow-hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
