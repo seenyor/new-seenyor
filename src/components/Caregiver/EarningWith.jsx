@@ -1,6 +1,6 @@
 import Image from "next/image";
 import groupImg from "@/assets/caregiver/imgs/Group.png";
-import Line from "@/assets/caregiver/line";
+import Line from "@/assets/caregiver/Line";
 import SmallCircle from "@/assets/caregiver/SmallCircle";
 
 function EarningWith() {
