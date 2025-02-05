@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <>
       <footer id="footer-section" className="w-full pt-16 text-sm bg-[#F3F4F6]">
@@ -174,6 +175,14 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
+                      href="/shipping-and-returns"
+                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
+                    >
+                      Shipping & Reurns
+                    </a>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <a
                       href="/service-agreement"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
@@ -227,7 +236,7 @@ const Footer = () => {
         {/*      <!-- Sub Footer --> */}
         <div className="bg-[#E3E7EF] py-5 mt-5 text-sm">
           <p className="text-center text-lg md:text-base tab:text-sm">
-            Copyrighty @2024; All Rights Reserved by Seenyor
+            Copyright &copy; {currentYear}; All Rights Reserved by Seenyor
           </p>
         </div>
       </footer>

@@ -783,6 +783,13 @@ export default function HomePage() {
                 ,&nbsp;
                 <span
                   className="cursor-pointer underline"
+                  onClick={() => window.open("/shipping-and-returns", "_blank")}
+                >
+                  Shipping & Returns
+                </span>
+                ,&nbsp;
+                <span
+                  className="cursor-pointer underline"
                   onClick={() => window.open("/privacy-policy", "_blank")}
                 >
                   Privacy Policy

@@ -5,49 +5,73 @@
     margin: 0 auto;
 }
 
-.main > header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.main >h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #000;
-}
-
-.main > h2 {
-    font-size: 1.5em;
+.main  h1, h2, h3, h4, h5 {
+    color: #222;
     margin-bottom: 10px;
 }
 
-.main > h3 {
-    margin-top: 20px;
-    color: #007bff;
+.main h1 {
+    font-size: 36px;
+    font-weight: bold;
 }
 
-.main > p {
-    margin: 10px 0;
-    font-size: 1.2em;
-    opacity: 0.8;
-}
-.main > p > strong {
+.main h2 {
+    font-size: 28px;
     font-weight: bold;
-    font-size: 1.2em;
 }
-.main > a {
-    color: #007bff;
+
+.main h3 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.main h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.main h5 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Span */
+.main span {
+    color: #555;
+}
+
+/* Paragraph Styling */
+.main p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Lists (unordered and ordered) */
+.main ul, .main ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.main ul li, .main ol li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.main ul li::before, .main ol li::before {
+    content: "•";
+    color: #333;
+    margin-right: 8px;
+}
+
+/* Anchor Links */
+.main a {
+    color: #0066cc;
     text-decoration: none;
 }
-.main > footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #666;
-}
 
-h3 strong {
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #000209;
+.main a:hover {
+    text-decoration: underline;
 }
