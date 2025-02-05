@@ -7,7 +7,7 @@ export async function generateMetadata({ params }) {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token")?.value;
 
-  const API_URL = `https://backend.elderlycareplatform.com/api/v1/blogs/${params?.blogdetails}`;
+  const API_URL = `https://backend.elderlycareplatform.com/api/v1/blogs/${params?.id}`;
   try {
     const response = await fetch(API_URL, {
       headers: {
@@ -50,6 +50,11 @@ export default function BlogDetails({ params }) {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");
 
+  const fetchBlogs = () => {
+    console.log("params", params);
+  };
+
+  fetchBlogs();
   return (
     <div className="bg-white py-5 w-full max-w-7xl mx-auto">
       <div className="mx-6 flex flex-col gap-10">
