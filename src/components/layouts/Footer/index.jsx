@@ -36,7 +36,10 @@ const Footer = () => {
                 </ul>
 
                 <div className="flex justify-start gap-5 mt-3">
-                  <Link href="#">
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61558380786778"
+                    target="_blank"
+                  >
                     <Image
                       src="/images/footer/facebook 1.svg"
                       alt="facebook"
@@ -45,7 +48,10 @@ const Footer = () => {
                       className="h-[25px] w-auto"
                     />
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href="https://www.instagram.com/seenyorcare/"
+                    target="_blank"
+                  >
                     <Image
                       src="/images/footer/instagram 1.svg"
                       alt="instagram"
@@ -54,7 +60,7 @@ const Footer = () => {
                       className="h-[25px] w-auto"
                     />
                   </Link>
-                  <Link href="#">
+                  <Link href="https://twitter.com/seenyor_care" target="_blank">
                     <Image
                       src="/images/footer/twitter 1.svg"
                       alt="twitter"
@@ -63,7 +69,10 @@ const Footer = () => {
                       className="h-[25px] w-auto"
                     />
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href="https://www.linkedin.com/company/seenyor/?viewAsMember=true"
+                    target="_blank"
+                  >
                     <Image
                       src="/images/footer/linkedin 1.svg"
                       alt="linkedin"
