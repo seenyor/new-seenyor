@@ -219,7 +219,7 @@ export default function RegisterPage() {
       country_id: data.customer_country_id,
       post_Code: data.customer_zipcode,
       state: data.customer_state,
-      contact_number: data.country_code + " " + data.customer_contact_number,
+      contact_number: data.country_code + data.customer_contact_number,
       password: data.password,
       customer_info: {
         country_id: data.installation_country_id,
