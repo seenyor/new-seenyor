@@ -17,9 +17,9 @@ import Image from "next/image";
 const slides = [
   {
     id: 1,
-    title: "Peace of Mind Monitoring",
+    title: "Peace of Mind",
     subtitle:
-      "Your loved one is safe, day and night. Every breath, every moment - gently watched over, so you never have to worry",
+      "Gain reassurance with insights into your loved one's movement and rest patterns—helping you stay connected without intruding.",
     image: "/images/slider1/safety.webp",
     color: "7F87FC",
     icon: "/images/icon1.svg",
@@ -28,16 +28,16 @@ const slides = [
     id: 2,
     title: "Rest Easy, Night After Night",
     subtitle:
-      "Know they’re safe and sound as they drift into a peaceful sleep. Seenyor watches over every quiet moment.",
+      "Understand sleep patterns and nightly routines with non-intrusive insights—helping to ensure restful nights.",
     image: "/images/slider1/sleeping.webp",
     color: "34CECE",
     icon: "/images/icon2.svg",
   },
   {
     id: 3,
-    title: "Activity Monitoring",
+    title: "Every Move, Safely Watched",
     subtitle:
-      "From morning walks to quiet moments, Seenyor keeps a gentle eye on their every steps-so you don't have to.",
+      "Stay informed about daily movement and activity levels—offering a supportive way to encourage independence.",
     image: "/images/slider1/activity.webp",
     color: "9747FF",
     icon: "/images/icon3.svg",
@@ -46,7 +46,7 @@ const slides = [
     id: 4,
     title: "Safety, When It Matters Most",
     subtitle:
-      "With every step they take, you can rest assured that Seenyor is there to catch them if they fall.",
+      "Stay informed about significant movements and unexpected events in the home—helping loved ones stay safe.",
     image: "/images/slider1/falls.webp",
     color: "FF6633",
     icon: "/images/icon4.svg",
@@ -55,7 +55,7 @@ const slides = [
     id: 5,
     title: "Smart Insights for Peace of Mind",
     subtitle:
-      "Seenyor analyzes all data and turns it into simple updates, helping you easily understand your loved one's well-being.",
+      "Seenyor provides easy-to-understand wellness insights, helping you stay informed about your loved one's daily routines.",
     image: "/images/slider1/ai.webp",
     color: "B9B0CD",
     icon: "/images/icon5.svg",
@@ -64,7 +64,7 @@ const slides = [
     id: 6,
     title: "Know Where They Are, When It Matters",
     subtitle:
-      "Seenyor tracks their exact location at home, so you’ll know immediately if they fall or are resting safely.",
+      "Seenyor provides location awareness, allowing you to check on your loved one's activity throughout the home.",
     image: "/images/slider1/location.webp",
     color: "FF006E",
     icon: "/images/icon6.svg",
@@ -73,7 +73,7 @@ const slides = [
     id: 7,
     title: "Stay Connected When They Need You",
     subtitle:
-      "With Two-Way Communication, they can call for help, and you’ll respond instantly—whether it's a quick check-in or something more serious.",
+      "Stay connected anytime with real-time voice communication—ideal for check-ins and conversations",
     image: "/images/slider1/communication.webp",
     color: "4285F4",
     icon: "/images/icon7.svg",
@@ -82,9 +82,9 @@ const slides = [
 const mobileSlide = [
   {
     id: 1,
-    title: "Peace of Mind Monitoring",
+    title: "Peace of Mind",
     subtitle:
-      "Your loved one is safe, day and night. Every breath, every moment - gently watched over, so you never have to worry",
+      "Gain reassurance with insights into your loved one's movement and rest patterns—helping you stay connected without intruding.",
     image: "/images/mobile/1.webp",
     color: "7F87FC",
     icon: "/images/icon1.svg",
@@ -93,7 +93,7 @@ const mobileSlide = [
     id: 2,
     title: "Rest Easy, Night After Night",
     subtitle:
-      "Know they’re safe and sound as they drift into a peaceful sleep. Seenyor watches over every quiet moment.",
+      "Understand sleep patterns and nightly routines with non-intrusive insights—helping to ensure restful nights.",
     image: "/images/mobile/2.webp",
     color: "34CECE",
     icon: "/images/icon2.svg",
@@ -102,7 +102,7 @@ const mobileSlide = [
     id: 3,
     title: "Every Move, Safely Watched",
     subtitle:
-      "From morning walks to quiet moments, Seenyor keeps a gentle eye on their every steps-so you don't have to.",
+      "Stay informed about daily movement and activity levels—offering a supportive way to encourage independence.",
     image: "/images/mobile/3.png",
     color: "9747FF",
     icon: "/images/icon3.svg",
@@ -111,7 +111,7 @@ const mobileSlide = [
     id: 4,
     title: "Safety, When It Matters Most",
     subtitle:
-      "With every step they take, you can rest assured that Seenyor is there to catch them if they fall.",
+      "Stay informed about significant movements and unexpected events in the home—helping loved ones stay safe.",
     image: "/images/mobile/4.webp",
     color: "FF6633",
     icon: "/images/icon4.svg",
@@ -120,7 +120,7 @@ const mobileSlide = [
     id: 5,
     title: "Smart Insights for Peace of Mind",
     subtitle:
-      "Seenyor analyzes all data and turns it into simple updates, helping you easily understand your loved one's well-being.",
+      "Seenyor provides easy-to-understand wellness insights, helping you stay informed about your loved one's daily routines.",
     image: "/images/mobile/5.webp",
     color: "B9B0CD",
     icon: "/images/icon5.svg",
@@ -129,7 +129,7 @@ const mobileSlide = [
     id: 6,
     title: "Know Where They Are, When It Matters",
     subtitle:
-      "Seenyor tracks their exact location at home, so you’ll know immediately if they fall or are resting safely.",
+      "Seenyor provides location awareness, allowing you to check on your loved one's activity throughout the home.",
     image: "/images/mobile/6.webp",
     color: "FF006E",
     icon: "/images/icon6.svg",
@@ -138,7 +138,7 @@ const mobileSlide = [
     id: 7,
     title: "Stay Connected When They Need You",
     subtitle:
-      "With Two-Way Communication, they can call for help, and you’ll respond instantly—whether it's a quick check-in or something more serious.",
+      "Stay connected anytime with real-time voice communication—ideal for check-ins and conversations",
     image: "/images/mobile/7.png",
     color: "4285F4",
     icon: "/images/icon7.svg",
@@ -146,9 +146,9 @@ const mobileSlide = [
 ];
 
 const menuItems = [
-  { icon: Activity, label: "Safety & Activity" },
-  { icon: Bed, label: "Sleep Monitoring" },
-  { icon: Heart, label: "Activity Monitoring" },
+  { icon: Activity, label: "Peace of Mind" },
+  { icon: Bed, label: "Sleep Insights" },
+  { icon: Heart, label: "Activity Insights" },
   { icon: AlertTriangle, label: "Falls Detection" },
   { icon: Brain, label: "AI Analyst" },
   { icon: MapPin, label: "Location" },
@@ -218,7 +218,7 @@ export default function HomeCarousel() {
                       <h1 className="text-3xl md:text-[16px] font-bold">
                         {slides[currentSlide].title}
                       </h1>
-                      <p className="max-w-3xl md:max-w-xl text-xl md:text-sm tab:text-xs">
+                      <p className="max-w-6xl md:max-w-xl text-xl md:text-sm tab:text-xs">
                         {slides[currentSlide].subtitle}
                       </p>
                     </div>
@@ -228,7 +228,7 @@ export default function HomeCarousel() {
                         height={30}
                         width={30}
                         alt="icons"
-                        className="h-8 w-8"
+                        className="h-12 w-12"
                       />
                     </div>
                   </div>
