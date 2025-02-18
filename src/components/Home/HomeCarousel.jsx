@@ -263,7 +263,7 @@ export default function HomeCarousel() {
               style={{
                 backgroundColor: `#${slide?.color}`,
               }}
-              className="h-[127px] text-white w-full flex justify-center items-center text-center"
+              className="py-3 text-white w-full flex justify-center items-center text-center"
             >
               <div>
                 <Image
