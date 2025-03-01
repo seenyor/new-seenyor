@@ -280,6 +280,40 @@ export default function HomePage() {
     },
   });
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [email, setEmail] = useState(""); // State to track email input
+  const [emailValid, setEmailValid] = useState(true); // State to track email validity
+  const [isEmpty, setIsEmpty] = useState(false); // State to track if email is empty
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    // Check if email is empty
+    if (value.trim() === "") {
+      setIsEmpty(true);
+      setEmailValid(false); // Mark as invalid if empty
+    } else {
+      setIsEmpty(false);
+      // Validate email format
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      setEmailValid(isValid);
+    }
+  };
+
+  const handleContinue = () => {
+    if (email.trim() === "") {
+      setIsEmpty(true); // Show error if email is empty
+      setEmailValid(false);
+    } else if (!emailValid) {
+      // Show error if email is invalid
+      setIsEmpty(false);
+    } else {
+      // Proceed to the next step
+      window.location.href = "/tafhim";
+    }
+  };
+
   return (
     <div className="flex w-full flex-col gap-10 bg-white p-5 tab:px-2">
       {!isLogin && (
@@ -651,6 +685,81 @@ export default function HomePage() {
                 For the set of 3x AI Devices
               </span>
             </div> */}
+          </div>
+        </div>
+      </div>
+
+      <div className="py-14 w-full flex justify-center items-center bg-[#1D293F]">
+        <div className="max-w-[1920px] w-full px-[200px] flex xxl:flex-col flex-row justify-between items-center  text-[#ffffff]">
+          <div>
+            <h4 className="xxs:text-[28px] sm:text-[32px] md:text-[40px] text-[48px] text-start xxl:text-center font-semibold font-poppins">
+              Already own a device?
+            </h4>
+            <h6 className="text-[30px] sm:text-[20px] md:text-[24px] xxs:text-[14px]">
+              Skip this step if you don't need to purchase a new one.
+            </h6>
+          </div>
+          <div>
+            {/* Skip Button */}
+            <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPopup(true);
+              }}
+              className="text-[#1D293F] bg-[#ffffff] w-[218px] h-[50px] flex justify-center items-center text-[18px] font-bold rounded-lg"
+            >
+              Skip
+            </Link>
+
+            {/* Popup (Only Shows if showPopup is true) */}
+            {showPopup && (
+              <div className="fixed inset-0 flex w-full h-screen z-50 items-center justify-center bg-[#00000021]">
+                <div className="bg-white p-6 rounded-[35px] max-w-[635px] w-full py-10">
+                  <button
+                    onClick={() => setShowPopup(false)}
+                    className="text-[#A39C9C] text-[20px] font-sans w-full text-end"
+                  >
+                    X
+                  </button>
+                  <h2 className="text-[28px] font-bold text-[#1D293F] mb-4 ml-7">
+                    Enter Your Email
+                  </h2>
+                  <div className="flex flex-col items-center justify-center w-full">
+                    <input
+                      type="email"
+                      placeholder="Write your e-mail here"
+                      className="w-full max-w-[535px] text-[#1D293F] text-[20px] p-3 border border-gray-300 border-solid rounded mb-2"
+                      required
+                      value={email}
+                      onChange={handleEmailChange}
+                    />
+                    {/* Show error message if email is empty or invalid */}
+                    {isEmpty && (
+                      <p className="text-red-500 text-sm mb-4">
+                        Email cannot be empty. Please enter your email.
+                      </p>
+                    )}
+                    {!isEmpty && !emailValid && (
+                      <p className="text-red-500 text-sm mb-4">
+                        Please enter a valid email address.
+                      </p>
+                    )}
+                    <button
+                      onClick={handleContinue}
+                      disabled={isEmpty || !emailValid} // Disable button if email is empty or invalid
+                      className={`w-[150px] h-[60px] mt-4 ${
+                        isEmpty || !emailValid
+                          ? "bg-gray-400 cursor-not-allowed"
+                          : "bg-[#70B896]"
+                      } text-white p-2 rounded`}
+                    >
+                      Continue
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
