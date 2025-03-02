@@ -8,7 +8,7 @@ export default function AccountLayout({ children }) {
   return (
     <div className="flex w-full flex-col items-center">
       <Header accessTokenProp={accessToken} />
-      <div className="container-xss min-h-[70vh] mb-[0.25rem] flex flex-col gap-[4.38rem] md:gap-[3.25rem] md:px-[1.25rem] sm:gap-[2.19rem] h-full pt-12">
+      <div className="container-xss min-h-[70vh] items-center justify-center mb-[0.25rem] flex flex-col gap-[4.38rem] md:gap-[3.25rem] md:px-[1.25rem] sm:gap-[2.19rem] h-full pt-12 overflow-x-hidden">
         {/* here will be header */}
         <div className="flex md:w-full md:flex-col max-w-[55rem] gap-8 mx-auto md:items-center">
           <ProfileNav />

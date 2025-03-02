@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Loader from "@/components/SystemBuild/Loader";
 import Link from "next/link";
 import DeviceCard from "@/components/SystemBuild/DeviceCard";
+import AddLoader from "./AddLodder";
+import AddDeviceCard from "./AddDeviceCard";
 
 const AddDevice = () => {
   const [deviceUid, setDeviceUid] = useState("");
@@ -35,19 +37,14 @@ const AddDevice = () => {
   return (
     <>
       {/* Show Loader if loading */}
-      {loading && <Loader />}
+      {loading && <AddLoader />}
 
       {!loading && (
-        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8 mb-10">
-          {/* Header */}
-          <h1 className="text-[35px] md:text-[26px] font-bold">
-            Device Information
-          </h1>
-
+        <div className="container max-w-[650px] font-poppins text-[#1D293F] items-start overflow-x-hidden justify-center flex flex-col gap-[60px]  mt-[-50px] md:mt-0">
           {/* Form Container */}
           <form
             onSubmit={handleSubmit}
-            className="bg-[#F6F7F7] w-[800px] md:w-full rounded-[35px] flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-0"
+            className="bg-[#F6F7F7] max-w-[650px] w-full md:w-full rounded-[35px] flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-0"
             noValidate // Prevents browser from showing default validation
           >
             {/* Input Field */}
@@ -93,7 +90,7 @@ const AddDevice = () => {
           )}
 
           {/* Card */}
-          <DeviceCard />
+          <AddDeviceCard />
 
           {/* Navigation Button - Conditionally rendered based on verification status */}
           {verified && (
@@ -105,7 +102,7 @@ const AddDevice = () => {
             </Link>
           )}
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center justify-center gap-1 w-full">
             {/* Sign-In Link */}
             <p className="text-[18px] text-center text-[#6C7482]">
               Already I have an account.{" "}
