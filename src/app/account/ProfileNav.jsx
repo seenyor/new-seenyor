@@ -134,6 +134,20 @@ export default function ProfileNav() {
             </Heading>
           </div>
         </Link>
+        <Link href="/account/add-device">
+          <div className={`flex self-stretch transition-colors duration-200`}>
+            <Heading
+              as="h4"
+              className={`text-[1.00rem] font-normal md:border-b md:pb-2 text-[rgb(108,116,130)] md:ml-0 transition-colors duration-200 ${
+                pathname == "/account/add-device"
+                  ? "!text-[#1d293f] !md:border-b !border-b-[#002248] !font-medium"
+                  : ""
+              }`}
+            >
+              Add <span className="md:hidden">Device</span>
+            </Heading>
+          </div>
+        </Link>
         <button onClick={handleSignOutClick}>
           <Heading
             as="h5"

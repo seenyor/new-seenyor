@@ -13,7 +13,7 @@ export default function AccountLayout({ children }) {
         <div className="flex md:w-full md:flex-col max-w-[55rem] gap-8 mx-auto md:items-center">
           <ProfileNav />
           {/* Main Content */}
-          <div className="flex flex-col items-start gap-5 max-w-[34.37rem] md:w-full">
+          <div className="flex flex-col items-start justify-start gap-5 max-w-[34.37rem] md:w-full">
             {children}
           </div>
         </div>
