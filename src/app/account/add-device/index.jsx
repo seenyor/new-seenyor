@@ -12,108 +12,110 @@ const AddDevice = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [verified, setVerified] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailValid, setEmailValid] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Custom validation: Check if the input is empty
     if (!deviceUid.trim()) {
-      setErrorMessage("Please enter your Device UID."); // Custom error message
+      setErrorMessage("Please enter your Device UID.");
       return;
     }
 
-    setErrorMessage(""); // Clear the error if input is valid
-
-    // Simulate loading state
+    setErrorMessage("");
     setLoading(true);
 
-    // Simulate an asynchronous operation (e.g., API call)
     setTimeout(() => {
       setLoading(false);
-      setVerified(true); // Mark as verified
-    }, 2000); // Simulate 2 seconds of loading time
+      setVerified(true);
+    }, 2000);
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setIsEmpty(value.trim() === "");
+    setEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+  };
+
+  const handleContinue = () => {
+    if (!isEmpty && emailValid) {
+      setShowPopup(false);
+      console.log("Email submitted:", email);
+    }
   };
 
   return (
     <>
-      {/* Show Loader if loading */}
       {loading && <AddLoader />}
 
       {!loading && (
-        <div className="container max-w-[650px] font-poppins text-[#1D293F] items-start overflow-x-hidden justify-center flex flex-col gap-[60px]  mt-[-50px] md:mt-0">
-          {/* Form Container */}
-          <form
-            onSubmit={handleSubmit}
-            className="bg-[#F6F7F7] max-w-[650px] w-full md:w-full rounded-[35px] flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-0"
-            noValidate // Prevents browser from showing default validation
-          >
-            {/* Input Field */}
-            <div className="w-full mb-5 p-[30px] md:p-[15px] sm:p-3 flex flex-col gap-[30px]">
-              <h3 className="text-[28px] md:text-[20px] sm:text-[16px] font-semibold">
-                Verify your device
-              </h3>
-              <div className="flex w-full flex-row sm:flex-col items-center justify-end gap-[16px]">
-                <div className="w-full flex flex-col gap-3">
-                  <label className="text-[20px] sm:text-[16px] font-semibold">
-                    Device UID
-                  </label>
-                  <input
-                    id="device-uid"
-                    name="deviceUid"
-                    type="text"
-                    value={deviceUid}
-                    onChange={(e) => setDeviceUid(e.target.value)}
-                    placeholder="ex: 4678469JDUE7DBFE8N"
-                    className="w-full h-[60px] px-4 rounded-[10px] bg-slate-200/70 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#61C7AA] focus:shadow-inner transition-shadow duration-300 ease-in-out"
-                  />
-                </div>
-                {/* Verify Button */}
-                <button
-                  type="submit"
-                  className="bg-[#70B896] active:scale-95 mt-10 sm:mt-0 text-white text-[18px] h-[60px] w-[150px] rounded-[10px] hover:bg-[#4FAF8D]"
-                >
-                  Verify
-                </button>
-              </div>
-              {/* Error Message */}
-              {errorMessage && (
-                <p className="text-red-500 text-[14px]">{errorMessage}</p>
-              )}
-            </div>
-          </form>
-
-          {/* Display success message after verification */}
-          {verified && (
-            <p className="text-green-500 text-[18px] font-bold">
-              Device UID Verified Successfully!
-            </p>
-          )}
-
-          {/* Card */}
+        <div className="container max-w-[650px] font-poppins text-[#1D293F] items-start overflow-x-hidden justify-center flex flex-col gap-[60px] mt-[-50px] md:mt-0">
           <AddDeviceCard />
+          <Link
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowPopup(true);
+            }}
+            className="w-full active:scale-95 text-center bg-gradient-to-r from-[#A2CDB9] to-[#5BAE87] text-white text-[18px] px-8 py-3 rounded-[15px]"
+          >
+            Add a new Device
+          </Link>
 
-          {/* Navigation Button - Conditionally rendered based on verification status */}
-          {verified && (
-            <Link
-              href="/register"
-              className="w-full active:scale-95 text-center bg-gradient-to-r from-[#A2CDB9] to-[#5BAE87] text-white text-[18px] px-8 py-3 rounded-[15px]"
-            >
-              Next
-            </Link>
+          {showPopup && (
+            <div className="fixed inset-0 flex w-full px-4 h-screen z-50 items-center justify-center bg-[#00000021]">
+              <div className="bg-white p-6 rounded-[35px] max-w-[635px] w-full py-10">
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="text-[#A39C9C] text-[20px] font-sans w-full text-end"
+                >
+                  X
+                </button>
+                <h2 className="text-[28px] font-bold text-[#1D293F] mb-4 ml-0">
+                  Verify your device
+                </h2>
+                <label htmlFor="uid" className="text-lg font-semibold mb-3">
+                  Device UID
+                </label>
+                <div className="flex gap-4 items-start justify-start w-full">
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="ex: 4678469JDUE7DBFE8N"
+                      className="w-[435px] md:w-full text-[#1D293F] h-[60px] text-[20px] p-3 border border-gray-300 border-solid rounded-xl"
+                      value={email}
+                      onChange={handleEmailChange}
+                    />
+                    {isEmpty && (
+                      <p className="text-red-500 text-sm mb-4 w-full">
+                        Email cannot be empty. Please enter your email.
+                      </p>
+                    )}
+                    {!isEmpty && !emailValid && (
+                      <p className="text-red-500 text-sm mb-4 w-full">
+                        Please enter a valid email address.
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    onClick={handleContinue}
+                    disabled={isEmpty || !emailValid}
+                    className={`w-[150px] h-[60px] ${
+                      isEmpty || !emailValid
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-[#70B896]"
+                    } text-white p-2 rounded-xl`}
+                  >
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </div>
           )}
-
-          <div className="flex items-center justify-center gap-1 w-full">
-            {/* Sign-In Link */}
-            <p className="text-[18px] text-center text-[#6C7482]">
-              Already I have an account.{" "}
-            </p>
-            <Link
-              href="/login"
-              className="text-[#70B896] font-semibold text-[18px] hover:underline"
-            >
-              Sign In
-            </Link>
-          </div>
         </div>
       )}
     </>

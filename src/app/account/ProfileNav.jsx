@@ -144,7 +144,7 @@ export default function ProfileNav() {
                   : ""
               }`}
             >
-              Add <span className="md:hidden">Device</span>
+              Your <span className="md:hidden">Device</span>
             </Heading>
           </div>
         </Link>
