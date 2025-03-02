@@ -96,7 +96,7 @@ const AddDevice = () => {
           {verified && (
             <Link
               href="/register"
-              className="w-[800px] active:scale-95 text-center bg-gradient-to-r from-[#A2CDB9] to-[#5BAE87] text-white text-[18px] px-8 py-3 rounded-[15px]"
+              className="w-full active:scale-95 text-center bg-gradient-to-r from-[#A2CDB9] to-[#5BAE87] text-white text-[18px] px-8 py-3 rounded-[15px]"
             >
               Next
             </Link>
