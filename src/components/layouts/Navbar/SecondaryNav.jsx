@@ -170,11 +170,11 @@ export default function SecondaryNav() {
                       Sign In
                     </button>
                   </Link>
-                  <Link href="/systembuilder">
+                  {/* <Link href="/systembuilder">
                     <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">
@@ -250,12 +250,12 @@ export default function SecondaryNav() {
                   >
                     Sign In
                   </Link>
-                  <Link
+                  {/* <Link
                     className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">

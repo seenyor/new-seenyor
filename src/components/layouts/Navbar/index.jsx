@@ -172,14 +172,14 @@ export default function Header() {
                       Sign In
                     </button>
                   </Link>
-                  <Link
+                  {/* <Link
                     onClick={() => setIsToggleOpen(false)}
                     href="/systembuilder"
                   >
                     <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#80CAA7] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">
@@ -259,12 +259,12 @@ export default function Header() {
                   >
                     Sign In
                   </Link>
-                  <Link
+                  {/* <Link
                     className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#80CAA7] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">
