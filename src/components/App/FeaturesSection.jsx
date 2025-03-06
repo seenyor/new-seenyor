@@ -43,13 +43,16 @@ export default function FeaturesSection() {
           height={105}
           className="absolute top-0 left-0"
         />
-        <div className="flex md:grid grid-cols-1 md:text-center items-center justify-between  gap-[10px]  text-white">
+        <div className="flex md:grid grid-cols-1 md:text-center items-start justify-between  gap-[10px]  text-white">
           {features.map((feature, index) => (
-            <div key={index} className="p-4 flex flex-col gap-1 justify-center">
-              <h3 className="font-semibold text-2xl md:text-xl">
+            <div
+              key={index}
+              className="md:p-6 p-10 flex flex-col gap-1 justify-center"
+            >
+              <h3 className="font-semibold text-3xl md:text-xl">
                 {feature.title}
               </h3>
-              <p className="text-lg md:text-sm">{feature.description}</p>
+              <p className="text-xl md:text-sm">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -58,10 +61,10 @@ export default function FeaturesSection() {
         {card.map((card, index) => (
           <div
             key={index}
-            className="p-4 min-w-[40%] md:min-w-full flex flex-col gap-1 justify-center max-w-[595px]"
+            className="md:p-6 p-10 min-w-[40%] md:min-w-full flex flex-col gap-1 justify-center max-w-[595px]"
           >
-            <h3 className="font-semibold text-2xl md:text-xl">{card.title}</h3>
-            <p className="text-lg md:text-sm">{card.description}</p>
+            <h3 className="font-semibold text-3xl md:text-xl">{card.title}</h3>
+            <p className="text-xl md:text-sm">{card.description}</p>
           </div>
         ))}
       </div>

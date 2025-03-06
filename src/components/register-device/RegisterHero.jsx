@@ -53,7 +53,7 @@ const RegisterHero = () => {
 
       // If all validations pass, proceed to the next page
       toast.success("Email is valid. Redirecting..."); // Toast for success
-      router.push("/tafhim");
+      router.push("/device-verification");
     } else {
       toast.error("Please enter a valid email address."); // Toast for invalid email
     }

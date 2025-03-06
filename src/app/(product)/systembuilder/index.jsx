@@ -310,7 +310,7 @@ export default function HomePage() {
       setIsEmpty(false);
     } else {
       // Proceed to the next step
-      window.location.href = "/tafhim";
+      window.location.href = "/device-verification";
     }
   };
 
