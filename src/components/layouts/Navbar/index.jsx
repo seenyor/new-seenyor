@@ -154,7 +154,16 @@ export default function Header() {
                   </li>
                 </ul>
               </li>
-
+              <li role="none" className="flex items-stretch">
+                <Link onClick={() => setIsToggleOpen(false)} href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                  >
+                    App
+                  </Heading>
+                </Link>
+              </li>
               <li role="none" className="flex items-stretch">
                 <Link onClick={() => setIsToggleOpen(false)} href="/knowledge">
                   <Heading
@@ -240,6 +249,16 @@ export default function Header() {
                     </ul>
                   </div>
                 )}
+              </li>
+              <li>
+                <Link href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                  >
+                    App
+                  </Heading>
+                </Link>
               </li>
               <li>
                 <Link href="/knowledge">

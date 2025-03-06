@@ -154,6 +154,16 @@ export default function SecondaryNav() {
                 </ul>
               </li>
               <li role="none" className="flex items-stretch">
+                <Link href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1.3rem] gap-2 py-4 px-8 font-medium text-white"
+                  >
+                    App
+                  </Heading>
+                </Link>
+              </li>
+              <li role="none" className="flex items-stretch">
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -234,6 +244,16 @@ export default function SecondaryNav() {
                     </ul>
                   </div>
                 )}
+              </li>
+              <li>
+                <Link href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1rem] font-medium text-white"
+                  >
+                    App
+                  </Heading>
+                </Link>
               </li>
               <li>
                 <Link href="/knowledge">
