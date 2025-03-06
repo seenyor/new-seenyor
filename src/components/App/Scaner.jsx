@@ -23,10 +23,14 @@ const Scaner = () => {
             <Link
               href="https://apps.apple.com/pl/app/seenyor/id6503249681"
               className="sm:"
+              target="_blank"
             >
               <AppleBtn />
             </Link>
-            <Link href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env">
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env"
+              target="_blank"
+            >
               <PlayBtn />
             </Link>
           </div>
