@@ -5,6 +5,8 @@ import HeroImg from "@/assets/app/appHero.png";
 import PlayBtn from "@/assets/app/svg/PlayBtn";
 import AppleBtn from "@/assets/app/svg/AppleBtn";
 import icn from "@/assets/app/app-store.png";
+import play from "@/assets/app/play.png";
+import apple from "@/assets/app/apple.png";
 
 const AppHero = () => {
   return (
@@ -29,7 +31,7 @@ const AppHero = () => {
           <h6 className="text-[20px] font-semibold leading-[124%]">
             Get The App
           </h6>
-          <div className="flex gap-3">
+          <div className="flex sm:hidden gap-3">
             <Link
               href="https://apps.apple.com/pl/app/seenyor/id6503249681"
               target="_blank"
@@ -41,6 +43,21 @@ const AppHero = () => {
               href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env"
             >
               <PlayBtn />
+            </Link>
+          </div>
+          <div className="hidden sm:flex gap-3">
+            <Link
+              href="https://apps.apple.com/pl/app/seenyor/id6503249681"
+              className="sm:"
+              target="_blank"
+            >
+              <Image src={apple} alt="" width={120} height={40} />
+            </Link>
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env"
+              target="_blank"
+            >
+              <Image src={play} alt="" width={120} height={40} />
             </Link>
           </div>
         </div>
