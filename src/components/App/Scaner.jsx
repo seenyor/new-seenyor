@@ -3,11 +3,13 @@ import AppleBtn from "@/assets/app/svg/AppleBtn";
 import Link from "next/link";
 import Image from "next/image";
 import QR from "@/assets/app/qrScanner.png";
+import play from "@/assets/app/play.png";
+import apple from "@/assets/app/apple.png";
 
 const Scaner = () => {
   return (
     <div className="mt-[70px] md:mt-10 sm:mt-6 w-full min-h-[332px] xxl:py-7 md:py-6 tab:py-2 px-6 rounded-[40px] p-10 text-white flex justify-center items-center">
-      <div className="w-full max-w-[1720px] bg-gradient-to-r from-[#304670] via-[#272A32] to-[#2C3142] flex md:flex-col md:gap-8 justify-between items-center xxl:py-7 md:py-6 tab:py-2 rounded-[40px] p-14 ">
+      <div className="w-full max-w-[1720px] bg-gradient-to-r from-[#304670] via-[#272A32] to-[#2C3142] flex md:flex-col md:gap-8 justify-between items-center rounded-[40px] p-14 md:p-10 sm:p-7">
         <div className="flex flex-col md:items-center gap-10">
           <div className="md:text-center">
             <h1 className="text-[48px]  md:text-[30px] sm:text-[25px] font-bold">
@@ -19,7 +21,7 @@ const Scaner = () => {
               mind.
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex sm:hidden gap-3">
             <Link
               href="https://apps.apple.com/pl/app/seenyor/id6503249681"
               className="sm:"
@@ -32,6 +34,21 @@ const Scaner = () => {
               target="_blank"
             >
               <PlayBtn />
+            </Link>
+          </div>
+          <div className="hidden sm:flex gap-3">
+            <Link
+              href="https://apps.apple.com/pl/app/seenyor/id6503249681"
+              className="sm:"
+              target="_blank"
+            >
+              <Image src={apple} alt="" width={140} height={40} />
+            </Link>
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env"
+              target="_blank"
+            >
+              <Image src={play} alt="" width={140} height={40} />
             </Link>
           </div>
         </div>
