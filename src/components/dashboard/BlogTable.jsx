@@ -134,7 +134,7 @@ const BlogTable = ({ accessToken }) => {
                 <td className="h-12 px-3 text-sm transition duration-300 border-slate-200 stroke-slate-500 text-slate-500 ">
                   <Image
                     className="w-[80px] object-cover h-[45px]"
-                    src={blog?.image}
+                    src={blog?.image || ""}
                     height={100}
                     width={100}
                     alt=""

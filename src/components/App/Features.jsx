@@ -10,9 +10,11 @@ const Features = () => {
           App Features
         </h1>
         <p className="max-w-[817px] text-[#6C7482] text-xl md:text-base sm:text-sm">
-          Effortlessly enhance elderly care with our app's intuitive features,
-          providing insightful activity analysis, device and room management,
-          family coordination, and real-time senior monitoring.
+
+          Effortlessly enhance elderly care with our app&apos;s intuitive
+          features, providing insightful activity analysis, device and room
+          management, family coordination, and real-time senior monitoring.
+
         </p>
       </div>
       <div>

@@ -5,13 +5,14 @@ import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <>
-      <footer id="footer-section" className="w-full pt-16 text-sm ">
+      <footer id="footer-section" className="w-full pt-16 text-sm bg-[#F3F4F6]">
         {/* ############## ############
           need this bg on top (line no 9) when comment out the footer  bg-[#F3F4F6] 
           ###################################*/}
-        {/* <div className="mx-auto xxl:px-5 max-w-[1320px] w-full">
+        <div className="mx-auto xxl:px-5 max-w-[1320px] w-full">
           <div className="grid grid-cols-4 gap-5  tab:grid-cols-2">
             <div className="flex">
               <nav
@@ -35,7 +36,10 @@ const Footer = () => {
                 </ul>
 
                 <div className="flex justify-start gap-5 mt-3">
-                  <Link href="#">
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61558380786778"
+                    target="_blank"
+                  >
                     <Image
                       src="/images/footer/facebook 1.svg"
                       alt="facebook"
@@ -44,7 +48,10 @@ const Footer = () => {
                       className="h-[25px] w-auto"
                     />
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href="https://www.instagram.com/seenyorcare/"
+                    target="_blank"
+                  >
                     <Image
                       src="/images/footer/instagram 1.svg"
                       alt="instagram"
@@ -53,7 +60,7 @@ const Footer = () => {
                       className="h-[25px] w-auto"
                     />
                   </Link>
-                  <Link href="#">
+                  <Link href="https://twitter.com/seenyor_care" target="_blank">
                     <Image
                       src="/images/footer/twitter 1.svg"
                       alt="twitter"
@@ -62,7 +69,10 @@ const Footer = () => {
                       className="h-[25px] w-auto"
                     />
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href="https://www.linkedin.com/company/seenyor/?viewAsMember=true"
+                    target="_blank"
+                  >
                     <Image
                       src="/images/footer/linkedin 1.svg"
                       alt="linkedin"
@@ -174,6 +184,14 @@ const Footer = () => {
                   </li>
                   <li className="mb-2 leading-6">
                     <a
+                      href="/shipping-and-returns"
+                      className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
+                    >
+                      Shipping & Reurns
+                    </a>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <a
                       href="/service-agreement"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
@@ -223,11 +241,11 @@ const Footer = () => {
               </nav>
             </div>
           </div>
-        </div> */}
+        </div>
         {/*      <!-- Sub Footer --> */}
         <div className="bg-[#E3E7EF] py-5 mt-5 text-sm">
           <p className="text-center text-lg md:text-base tab:text-sm">
-            Copyrighty @2024; All Rights Reserved by Seenyor
+            Copyright &copy; {currentYear}; All Rights Reserved by Seenyor
           </p>
         </div>
       </footer>

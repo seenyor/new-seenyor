@@ -3,574 +3,876 @@ import "../terms-style.css";
 export default function UserAggreementPage() {
   return (
     <div class="main">
-      <h1>User Agreement & Liability Disclaimer</h1>
-      <p>
-        <strong>Introduction</strong>
+      <h2 dir="ltr">
+        <span>User Agreement &amp; Liability Disclaimer</span>
+      </h2>
+      <h3 dir="ltr">Introduction</h3>
+      <p dir="ltr">
+        Seenyor is committed to protecting its employees, customers, partners,
+        and constituents from all damaging acts—whether intentional or
+        unintentional. Effective security is a team effort involving the
+        participation and support of every entity that interacts with Seenyor’s
+        environments, services, and information. Therefore, it is the
+        responsibility of both Seenyor and third parties to be aware of and
+        adhere to Seenyor’s cybersecurity and data protection requirements.
       </p>
-      <p>
-        I acknowledge that: (i) I am the End-User (the person using the Device
-        or the Application, as defined below) and agree to the terms and
-        conditions in this Agreement; or (ii) I have the legal authority to bind
-        the End-User to these terms and conditions.
+      <p dir="ltr">
+        Seenyor (“we,” “us,” or “our”) respects the privacy of users who access
+        our website located at
+        <a href="http://www.seenyor.com">www.seenyor.com</a> (the “Website”), as
+        well as our mobile website, mobile application, social media pages,
+        blogs, and other online services related or connected thereto
+        (collectively, the “Services”). This User Agreement is designed to
+        inform you, as a user of the Services, about the type of information we
+        may collect from you, how we use and disclose that information, and your
+        rights in relation to it. The process for notifying you of any changes
+        to this User Agreement is discussed at the end of this document. Each
+        time you use the Services, the current version of this User Agreement
+        will apply. You are encouraged to review the User Agreement frequently
+        and note the Effective Date listed at the top of the document.
       </p>
-      <p>THE SEENYOR DEVICE AND MOBILE APPLICATION USER AGREEMENT</p>
-      <p>
-        This is an agreement between the individual using the Device and/or
-        Application (collectively referred to as “you”) and Seenyor Pty Ltd.
-        (“Company”). You may print out a copy of this Agreement for your
-        records.
+      <p dir="ltr">
+        The Services are hosted in the United States and are subject to U.S.
+        law. If you are accessing our Services from other jurisdictions, please
+        be advised that you are transferring your personal information to us in
+        the United States. By using our Services, you consent to this transfer
+        and the use of your personal information in accordance with this User
+        Agreement. You also agree to abide by the applicable laws of the United
+        States, including federal and state laws, concerning your use of the
+        Services and your agreements with us. Any persons accessing our Services
+        from jurisdictions with laws or regulations governing the use of the
+        Internet, including personal data collection, use, and disclosure, that
+        differ from those of the United States may only use the Services in a
+        manner lawful in their jurisdiction. If your use of the Services would
+        be unlawful in your jurisdiction, please do not use the Services.
       </p>
-      <p>
-        READ THESE TERMS AND CONDITIONS CAREFULLY. THEY LIMIT OUR LIABILITY AND
-        CONTAIN OTHER IMPORTANT PROVISIONS.
+      <p dir="ltr">
+        By using or accessing the Services, you consent to our collection and
+        use of your data in accordance with the terms of this User Agreement.
       </p>
-      <p>IMPORTANT NOTICE:&nbsp;</p>
-      <p>BY INSTALLING OR USING THE DEVICE AND/OR APPLICATION, YOU:</p>
-      <p>– ACKNOWLEDGE THAT YOU HAVE READ AND UNDERSTAND THIS AGREEMENT;</p>
-      <p>– AGREE TO BE BOUND BY THIS AGREEMENT;</p>
-      <p>
-        – AGREE THAT THIS AGREEMENT REPLACES ANY PRIOR AGREEMENT BETWEEN YOU AND
-        THE COMPANY;
+      <br />
+      <h3 dir="ltr">Collecting Information About You</h3>
+      <h4 dir="ltr">Personally Identifiable Information (“PII”)</h4>
+      <p dir="ltr">
+        We may collect certain data that can be used to identify or contact you,
+        including but not limited to:
       </p>
-      <p>
-        – AGREE THAT USE OF THE DEVICE AND APPLICATION (DEFINED BELOW) IS
-        SUBJECT TO THIS AGREEMENT;
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Name
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Shipping/Billing Address
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Email Address
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Telephone Number
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Credit Card Information or other payment information
+          </p>
+        </li>
+      </ul>
+      <h4 dir="ltr">Non-Identifying Information (“Other Information”)</h4>
+      <p dir="ltr">
+        We also collect data that does not, on its own, identify a specific
+        individual. This includes:
       </p>
-      <p>
-        – REPRESENT THAT YOU ARE OF LEGAL AGE AND HAVE THE LEGAL RIGHT TO ENTER
-        INTO THIS AGREEMENT;
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Gender
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Age
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Product and service purchase history
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Interests
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Internet Protocol (IP) Address
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Operating System
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Browser Type
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">How Do We Collect Your Personal Data?</h3>
+      <p dir="ltr">We collect Personally Identifiable Information when you:</p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Register on our Website or application
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Log in with social network credentials
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Participate in polls, contests, surveys, or other features of our
+            Services, or respond to offers or advertisements
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Communicate with us
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Create a public profile
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Sign up to receive newsletters
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Request information about our products and services
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">Additional Information Collection</p>
+      <p dir="ltr">
+        We may also receive Personally Identifiable Information from your social
+        media profiles and online activities, depending on your settings on
+        those platforms. This information is shared under the privacy policy of
+        the respective social media site, not under our User Agreement.
       </p>
-      <p>
-        – AGREE TO COMPLY WITH APPLICABLE TERMS OF (1) YOUR MOBILE SERVICE
-        PROVIDER, (2) THE GOOGLE PLAY STORE, AND (3) THE APP STORE; AND
+      <br />
+      <h3 dir="ltr">Collection of Non-Identifying Information</h3>
+      <p dir="ltr">
+        We gather non-identifying information through your interactions with our
+        Website, such as through your web browser’s settings and the data you
+        provide when creating a profile.
       </p>
-      <p>
-        – ACKNOWLEDGE THAT THIS AGREEMENT IS BETWEEN YOU AND THE COMPANY ONLY
-        (NOT APPLE), AND THAT THE COMPANY (NOT APPLE) IS SOLELY RESPONSIBLE FOR
-        THE APPLICATION AND ITS CONTENT.
+      <p dir="ltr">
+        We also analyze this information to better understand usage patterns and
+        trends, which helps us improve our Website content and user experience.
       </p>
-      <p>
-        IF YOU DO NOT AGREE TO THESE TERMS, DO NOT INSTALL OR USE THE DEVICE OR
-        APPLICATION.
+      <br />
+      <h3 dir="ltr">Important Note</h3>
+      <p dir="ltr">
+        Users are under no obligation to provide Personally Identifiable
+        Information. However, refusal to do so may prevent them from using
+        certain features of our Services, such as account registration, order
+        processing, or participation in promotions.
       </p>
-      <p>THIS IS A BINDING AGREEMENT.&nbsp;</p>
-      <p>
-        This Agreement is binding on you, your heirs, executors, and
-        administrators. If you are not the End-User but have accepted on their
-        behalf, this Agreement binds the End-User.
+      <br />
+      <h3 dir="ltr">Telephone Consumer Protection Act (TCPA) Compliance</h3>
+      <p dir="ltr">
+        By submitting your information, you authorize Seenyor and its accredited
+        members to communicate with you regarding your options, including by
+        pre-recorded messages and texts to the mobile or landline phone number
+        provided. You also agree to the Seenyor Terms of Use and User Agreement,
+        including the use of an electronic record to document your agreement.
       </p>
-      <p>
-        IMPORTANT: THE DEVICE AND APPLICATION ARE NOT A SUBSTITUTE FOR EMERGENCY
-        SERVICES SUCH AS 000. IF YOU REQUIRE IMMEDIATE HELP, YOU SHOULD CONTACT
-        000 OR ANOTHER PUBLIC EMERGENCY SERVICE. THE DATA REPORTED BY THIS
-        DEVICE, INCLUDING FALL DETECTIONS, IS NOT CONSIDERED CLINICAL DATA AND
-        IS INTENDED FOR REFERENCE ONLY.
+      <br />
+      <h3 dir="ltr">Using Information About You</h3>
+      <p dir="ltr">
+        Seenyor uses your Personally Identifiable Information for transactional,
+        analytical, and marketing purposes, including but not limited to:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Confirming and tracking your order, subscription, or registration
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Activating your product
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Analyzing preferences, trends, and statistics
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Informing you of new products, services, and offers
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Gathering client testimonials
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Resolving client, product, and service issues
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Providing you with other information regarding Seenyor
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Service Providers</h3>
+      <p dir="ltr">
+        We may share your Personally Identifiable Information with third-party
+        service providers and affiliate companies (collectively, “Authorized
+        Third Party Providers”) to:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Develop and deliver targeted advertising on our Website and
+            third-party websites
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Provide analytics and site usage information
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Process transactions and payments
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Administer promotions, contests, sweepstakes, and surveys
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Offer marketing and promotional assistance
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Support other services related to our business operations
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        These Authorized Third Party Providers may access your personal
+        information only to perform their functions and are not permitted to
+        share or use it for any other purposes.
+      </p>
+      <br />
+      <h3 dir="ltr">De-Identified Data</h3>
+      <p dir="ltr">
+        We may share aggregated, anonymous data (“Other Information”), such as
+        usage statistics and demographic data, with third parties, including
+        advisors, advertisers, and investors. This data is de-identified and
+        cannot be used to personally identify you.
+      </p>
+      <br />
+      <h3 dir="ltr">Products and Services Offered by Other Businesses</h3>
+      <p dir="ltr">
+        We may share your Personally Identifiable Information with third-party
+        business partners if we believe their products or services might
+        interest you. These partners may send you information or marketing
+        offers. If your data is shared with them, it will be governed by their
+        privacy policy and business practices, not ours.
+      </p>
+      <br />
+      <h3 dir="ltr">Legally Required Sharing</h3>
+      <p dir="ltr">We may disclose your information if:</p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We believe it is required by law or legal process.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            It is requested by law enforcement authorities or government
+            officials.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We believe it is necessary to prevent physical harm or financial
+            loss, or to investigate suspected fraud or illegal activity.
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Business Transfers</h3>
+      <p dir="ltr">
+        In the event of a sale or transfer of all or part of our business or
+        assets, we may transfer your Personally Identifiable Information to the
+        involved entities or affiliates.
+      </p>
+      <br />
+      <h3 dir="ltr">Marketing Messages</h3>
+      <p dir="ltr">
+        If you wish to opt out of receiving internal and third-party marketing
+        materials from Seenyor, you may do so by:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Using the unsubscribe link in the footer of email communications, or
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Contacting us directly using the contact information provided below.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        Even if you have opted out of marketing communications, we reserve the
+        right to contact you via phone, email, or mail to provide notices about
+        your account, such as service announcements and administrative messages.
+      </p>
+      <br />
+      <h3 dir="ltr">
+        How Can You Access, Correct, or Request Deletion of Your Personal Data?
+      </h3>
+      <h4 dir="ltr">Access and Update Information</h4>
+      <p dir="ltr">
+        If you wish to update the personal information you’ve shared with us,
+        you can do so by contacting our Client Services team at
+        support@seenyor.com.
+      </p>
+      <h4 dir="ltr">Request Deletion of Information</h4>
+      <p dir="ltr">
+        To request the deletion of your personal information, please contact our
+        Client Services team at support@seenyor.com. We will process your
+        request promptly and ensure that your data is deleted in accordance with
+        applicable U.S. laws and regulations, including the California Consumer
+        Privacy Act (CCPA).
+      </p>
+      <p dir="ltr">Your Rights Under U.S. Law</p>
+      <p dir="ltr">
+        Residents of the United States, including California residents under the
+        California Consumer Privacy Act (CCPA), have the following rights
+        regarding their personal information:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Access: You can request a copy of the personal information
+            we hold about you.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Deletion: You can request the deletion of your personal
+            information, subject to certain exceptions (e.g., legal obligations
+            or legitimate business purposes).
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Opt-Out of Sale: You can request that your personal
+            information not be sold to third parties.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Equal Service and Price: You are entitled to equal service
+            and pricing even if you exercise any of the above rights.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        To exercise any of these rights, please contact us at
+        support@seenyor.com. Include details about your request and any relevant
+        information about your account. We will respond to your request within
+        the timeframes required by law (e.g., 45 days for CCPA requests) and
+        provide any reports securely.
+      </p>
+      <br />
+      <h3 dir="ltr">Withdrawing Consent for Marketing Communications</h3>
+      <h4 dir="ltr">Opting Out of Marketing Communications</h4>
+      <p dir="ltr">
+        If you wish to opt out of receiving marketing communications from
+        Seenyor or third parties, you can:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Use the unsubscribe link found in the footer of our email
+            communications, or
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Contact us directly at support@seenyor.com.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        Please note that even if you opt out of marketing communications, we may
+        still contact you with important account-related information, such as
+        service announcements and administrative messages.
+      </p>
+      <br />
+      <h3 dir="ltr">“Do Not Track” Signals</h3>
+      <p dir="ltr">
+        Most web browsers and some mobile operating systems include a
+        Do-Not-Track (DNT) feature or setting that you can activate to signal
+        your privacy preference not to have data about your online browsing
+        activities monitored or collected.
+      </p>
+      <p dir="ltr">
+        At this time, our Website does not respond to DNT browser signals or
+        mechanisms.
+      </p>
+      <br />
+      <h3 dir="ltr">Requesting Information About Third-Party Data Sharing</h3>
+      <p dir="ltr">
+        Residents of California who have provided Seenyor with personal
+        information have the right to request a list of the third parties with
+        whom Seenyor has shared certain personal information during the
+        preceding year for third-party direct marketing purposes.
+      </p>
+      <p dir="ltr">
+        To submit such a request, please contact us at support@seenyor.com.
+        Allow up to 45 days for a response, as required by the California “Shine
+        the Light” Law.
+      </p>
+      <br />
+      <h3 dir="ltr">Individual Rights Under U.S. Law</h3>
+      <p dir="ltr">
+        Under the California Consumer Privacy Act (CCPA) and other applicable
+        U.S. laws, residents have the right to request that businesses take
+        specific actions with respect to their personal information. These
+        rights include:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Request a Copy: You can request a copy of the personal
+            information we hold about you.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Request Deletion: You can request that your personal
+            information be deleted, subject to certain exceptions.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Opt-Out of Sale: You can request that your personal
+            information not be sold to third parties.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Equal Service and Price: You are entitled to equal service
+            and pricing even if you exercise any of the above rights.
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Definition of Personal Information</h3>
+      <p dir="ltr">
+        Personal information is defined as information that identifies, relates
+        to, describes, is capable of being associated with, or could reasonably
+        be linked, directly or indirectly, with a particular consumer or
+        household. Examples include:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Standard personal information, such as name, address, or government
+            ID numbers
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Commercial information, including goods or services purchased by the
+            consumer
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Web-based information, including browsing and search history
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Email address or phone number
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Submitting Requests</h3>
+      <p dir="ltr">
+        To exercise any of the rights described above, please email us at
+        support@seenyor.com. Your email must include details about your request
+        and any relevant information about your account. Copies of any reports
+        related to servicing your request will be distributed securely.
+      </p>
+      <br />
+      <h3 dir="ltr">The Use of Cookies</h3>
+      <p dir="ltr">
+        We may, from time to time, contract with third-party vendors to provide
+        ads to our customers via the Internet or to send direct mail to
+        customers who may be interested in our products or services. To do so,
+        these vendors may collect anonymous information about your visits to our
+        Website using a “cookie.”
+      </p>
+      <h4 dir="ltr">What Are Cookies?</h4>
+      <p dir="ltr">
+        A “cookie” is a string of information that assigns you a unique
+        identifier. This identifier is stored on your computer and provided to
+        the Website each time you submit a query. We use cookies on the Website
+        to:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Keep track of services you have used
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Record registration information, such as your login name and
+            password
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Record your user preferences
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Keep you logged into the Website
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Facilitate purchase procedures
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Track the pages you visit during each Website session to improve
+            user experience and understand Website usage
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        As with other information gathered from users, Seenyor analyzes and
+        discloses aggregated information gathered using cookies to help us, our
+        partners, and others better understand how the Website is being used.
+      </p>
+      <h4 dir="ltr">Managing Cookies</h4>
+      <p dir="ltr">
+        If you do not wish to have cookies placed on your computer, you can set
+        your browser to refuse cookies before accessing the Website. However,
+        please note that certain features of the Website may not function
+        properly without cookies. Users who refuse cookies assume all
+        responsibility for any resulting loss of functionality.
+      </p>
+      <br />
+      <h3 dir="ltr">Third-Party Vendors and Cookies</h3>
+      <p dir="ltr">
+        Seenyor may also use third-party vendors who utilize first-party and
+        third-party cookies together to:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Inform, optimize, and serve ads based on your past activity on the
+            Website
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Analyze and track data
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Determine the popularity of certain content
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Better understand online activity
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        For example, we use Google Analytics for Display Advertising. These
+        third-party vendors may combine the anonymous information they collect
+        from our Website with other sources of information, such as your name
+        and mailing address, to determine whether you might be interested in
+        receiving direct mail.
+      </p>
+      <br />
+      <h3 dir="ltr">Opting Out of Third-Party Tracking</h3>
+      <p dir="ltr">
+        If you do not want your information to be collected and used by Google
+        Analytics, you can:
+      </p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Install the opt-out browser add-on provided by Google:
+            <a href="https://tools.google.com/dpage/gaoptout">
+              https://tools.google.com/dpage/gaoptout
+            </a>
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Opt out of Google Analytics for Display Advertising or the Google
+            Display Network by using Google’s Ads Settings:
+            <a href="https://www.google.com/settings/ads">
+              www.google.com/settings/ads
+            </a>
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        To opt out of receiving direct mail from us, you may email us at
+        support@seenyor.com.
+      </p>
+      <br />
+      <h3 dir="ltr">Security</h3>
+      <p dir="ltr">
+        We take the security of your information very seriously and have
+        implemented electronic, administrative, and physical measures to protect
+        it from loss, theft, alteration, or misuse. However, please note that
+        even the best security measures cannot fully eliminate all risks. While
+        we strive to ensure that only authorized persons access your
+        information, we cannot guarantee this and are not responsible for
+        third-party circumvention of any privacy settings or security measures.
+      </p>
+      <p dir="ltr">
+        We are committed to protecting all information collected through our
+        Services. However, you are responsible for maintaining the
+        confidentiality of your account information, including your password. If
+        you believe someone has gained unauthorized access to your password or
+        account, you should:
       </p>
       <ol>
-        <li>Defined Terms</li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Change your password immediately, and
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Notify us at support@seenyor.com.
+          </p>
+        </li>
       </ol>
-      <p>
-        For clarity, certain terms are defined in this Agreement. “Agreement”
-        means this document. “End-User” refers to the individual using the
-        Device and Application. “Device” means the Seenyor fall detection device
-        and any additional capabilities or accessories provided. “Application”
-        refers to the Seenyor mobile app installed by the End-User for use with
-        the Device, including any related software, websites, updates, and
-        documentation. “Wi-Fi” refers to your home network to which the Device
-        is connected. “Smartphone” refers to any phone where the Application is
-        installed. The Company may be referred to as “we,” “us,” or “our,” while
-        the End-User may be referred to as “you” or “your.” The “Alert Service”
-        is defined in Section 7 below.
+      <p dir="ltr">
+        If you lose control of your account, please contact us as soon as
+        possible so we can take appropriate action to secure your information.
       </p>
-      <ol start="2">
-        <li>Export Control</li>
-      </ol>
-      <p>
-        You may not transfer, export, or re-export the Device or any related
-        technology in violation of this Agreement.
+      <br />
+      <h3 dir="ltr">Public Forum Access</h3>
+      <p dir="ltr">
+        We provide areas on the Website, such as the Seenyor Blog, where you can
+        post reviews, comments, and other information related to your activities
+        on the Website. These postings are governed by our Terms of Use.
       </p>
-      <ol start="3">
-        <li>Consumer Rights</li>
-      </ol>
-      <p>
-        This Agreement is subject to any applicable consumer laws. If any
-        provision of this Agreement: (i) is rendered void or unenforceable under
-        applicable law; or (ii) would be unfair under applicable Consumer Law,
-        that provision shall be severed, and the remaining terms will remain in
-        full force and effect. Nothing in this Agreement excludes or modifies
-        rights, guarantees, or conditions that cannot be lawfully excluded or
-        modified.
+      <p dir="ltr">Please be aware that:</p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Such postings may appear on other websites or in search engine
+            results related to your posting.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Any personal information you voluntarily disclose on publicly
+            viewable web pages will be publicly available and can be collected
+            and used by others.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We cannot control who reads your postings or how others may use the
+            information you voluntarily share.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        We encourage you to exercise discretion and caution when sharing
+        personal information. Users assume all responsibility for any loss of
+        privacy or harm resulting from their voluntary disclosure of personally
+        identifying information.
       </p>
-      <ol start="4">
-        <li>Device and Application Limitations</li>
-      </ol>
-      <p>
-        You acknowledge that: (i) the Device and Application are designed to
-        help reduce – but not eliminate – the risks associated with falls; (ii)
-        neither the Device nor the Application is designed to save lives, and
-        they should not be relied upon for that purpose; (iii) the Device must
-        be installed and used according to specific installation requirements,
-        including height, location, and room size; (iv) you may only use the
-        Device and Application by installing the Application on a Smartphone and
-        following all setup instructions; (v) the Alert Service will only be
-        activated once the Device and Application are set up according to
-        instructions; (vi) you must provide complete and accurate information
-        when setting up and using the Device and Application, and you are solely
-        responsible for its accuracy.
+      <br />
+      <h3 dir="ltr">Linking to Other Websites</h3>
+      <p dir="ltr">
+        Our Services may contain links to third-party websites over which we
+        have no control. Seenyor is not responsible for the privacy practices or
+        content of these websites, as they may differ from our own.
       </p>
-      <ol start="5">
-        <li>License Grant</li>
-      </ol>
-      <p>
-        Subject to the terms of this Agreement, Seenyor grants each End-User a
-        limited, non-exclusive, non-transferable, and non-commercial license to
-        install and use the Device and Application according to this Agreement.
-        All software, firmware, codes, information, and documentation from the
-        Device and Application are the sole and exclusive property of Seenyor,
-        and you hold no rights to any of the aforementioned materials. Seenyor’s
-        trade names and trademarks are also proprietary, and you hold no rights
-        to them. WE MAY MODIFY, TERMINATE, OR SUSPEND ANY FORM OF SERVICE TO YOU
-        WITH REASONABLE NOTICE.
+      <p dir="ltr">
+        We strongly recommend that you review the Privacy Policy of any linked
+        website before sharing your personal information.
       </p>
-      <ol start="6">
-        <li>License Controls</li>
-      </ol>
-      <p>
-        Seenyor retains all rights not expressly granted to you under this
-        Agreement. Seenyor reserves all rights, title, and interest in and to
-        the software in the Device and Application. This Agreement will govern
-        any software upgrades that replace or supplement the existing software,
-        unless a separate license is provided with the upgrade, in which case
-        the new license will apply. Seenyor may charge for upgraded versions,
-        updates, bug fixes, and other improvements, including periodic fees for
-        using any enhanced Application features.
+      <br />
+      <h3 dir="ltr">Special Information for Parents</h3>
+      <p dir="ltr">
+        The Children’s Online Privacy Protection Act (COPPA) protects the online
+        privacy of children under 13 years of age. Seenyor adheres to its
+        principles and does not knowingly collect or maintain information from
+        anyone under the age of 13, except as permitted by law.
       </p>
-      <ol start="7">
-        <li>Alert Service</li>
-      </ol>
-      <p>
-        The Seenyor Device sends fall alerts directly to designated contacts
-        without requiring third-party integrations or additional services.
-        Alerts are sent through the Seenyor system and are dependent on a stable
-        internet connection. Seenyor assumes no liability for any issues arising
-        from connectivity interruptions or other limitations affecting alert
-        delivery. By using this device, you release Seenyor from any claims,
-        losses, or damages that may arise due to delays, interruptions, or
-        failures in alert transmission.
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Any person who provides information through our Services represents
+            that they are 13 years of age or older.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            If we learn that information has been collected from a user under 13
+            years of age, we will take appropriate steps to delete this
+            information.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        If you are the parent or legal guardian of a child under 13 who has
+        become a member of our Services or has otherwise provided information to
+        us, please contact us at support@seenyor.com to have the child’s account
+        terminated and their information deleted.
       </p>
-      <ol start="8">
-        <li>Term of Agreement</li>
-      </ol>
-      <p>
-        This Agreement remains in effect for as long as you use the Device and
-        Application. Your obligations under this Agreement continue even after
-        it expires or terminates. Seenyor may terminate this Agreement with
-        notice via the Application or email for any justified reason, including
-        a breach of this Agreement by the End-User.
+      <br />
+      <h3 dir="ltr">Contacting Us</h3>
+      <p dir="ltr">
+        We value your feedback and are happy to address any questions, concerns,
+        or suggestions regarding our User Agreement. You can contact us at:
       </p>
-      <ol start="9">
-        <li>Modification of Agreement</li>
-      </ol>
-      <p>
-        Seenyor reserves the right to modify this Agreement at any time, with
-        notice provided via the Application or email. If you do not agree to the
-        modified terms, you may discontinue use of the Device and Application.
-        Continued use of the Device or Application constitutes acceptance of the
-        modified terms. You may not modify this Agreement.
+      <p dir="ltr">
+        Seenyor
+        <br /> Address:15442 Ventura, BLVD, STE 201 -073 , Sherman Oaks,
+        California 91403
+        <br /> Email: support@seenyor.com
       </p>
-      <ol start="10">
-        <li>Device Installation and Use; Application Setup and Use</li>
-      </ol>
-      <p>
-        You must follow Seenyor’s requirements for installing and using the
-        Device and Application, which may include resources such as videos,
-        manuals, instructions, booklets, and FAQs (collectively, the
-        “Installation and Use Requirements”). These requirements are available
-        on our website and within the Application. Seenyor may update the
-        Installation and Use Requirements from time to time, with notice
-        provided via the Application or email. You agree to follow all relevant
-        laws in using the Device and Application. YOU MAY NOT DISTRIBUTE OR MAKE
-        THE APPLICATION AVAILABLE ON A NETWORK FOR MULTIPLE ACCOUNTS TO USE
-        SIMULTANEOUSLY, NOR MAY YOU RESELL THE DEVICE OR APPLICATION OR USE THEM
-        FOR COMMERCIAL PURPOSES.
+      <p dir="ltr"></p>
+      <hr />
+      <p></p>
+      <h3 dir="ltr">
+        Disclosure of Personal Information to Overseas Recipients
+      </h3>
+      <h4 dir="ltr">International Data Transfers</h4>
+      <p dir="ltr">
+        Seenyor may disclose your personal information to overseas recipients to
+        provide our services or for other legitimate business purposes. These
+        recipients may include third-party service providers, affiliates, or
+        business partners located outside of the United States.
       </p>
-      <ol start="11">
-        <li>Device and Application Limitations</li>
-      </ol>
-      <p>
-        You understand and acknowledge that the Device and Application may not
-        always function as intended due to various factors. The Device requires
-        a stable Wi-Fi connection and internet access to transmit and receive
-        data (“Communicate”). In addition to Section 7 (The Alert Service),
-        please note that if the Device is not connected to Wi-Fi, if the Wi-Fi
-        is interrupted, or if there is no internet access, the Device will be
-        unable to communicate with the Application or your smartphone, and
-        alerts will not be sent. YOU ARE SOLELY RESPONSIBLE FOR PROVIDING WI-FI
-        AND NETWORK ACCESS AT YOUR OWN EXPENSE. SEENYOR ACCEPTS NO
-        RESPONSIBILITY OR LEGAL LIABILITY IF THE DEVICE AND APPLICATION CANNOT
-        COMMUNICATE DUE TO CONNECTIVITY ISSUES.
+      <p dir="ltr">
+        When transferring personal information internationally, we take steps to
+        ensure that your information is protected in accordance with applicable
+        U.S. privacy laws, including the California Consumer Privacy Act (CCPA).
+        However, please note that privacy laws in other jurisdictions may differ
+        from those in the United States.
       </p>
-      <ol start="12">
-        <li>Data and Privacy</li>
-      </ol>
-      <p>
-        We may collect and retain data related to your use of the Device and
-        Application (“Data”) in a de-identified form, ensuring your anonymity.
-        Our privacy policy, available at{" "}
-        <a href="http://www.seenyor.com">www.seenyor.com</a> or www.seenyor.au ,
-        is incorporated into this Agreement. YOU MUST NOT PERMIT OTHERS TO
-        BREACH THE SECURITY OF THE DEVICE OR APPLICATION.
+      <p dir="ltr">
+        By using our Services, you consent to the transfer of your personal
+        information to recipients in other countries, as necessary to provide
+        our services or for other legitimate business purposes.
       </p>
-      <ol start="13">
-        <li>Intellectual Property</li>
-      </ol>
-      <p>
-        You are prohibited from directly or indirectly copying, decompiling,
-        reverse-engineering, disassembling, attempting to derive the source
-        code, decrypting, modifying, or creating derivative works of the Device
-        or any of its software components. You must keep all usernames and
-        passwords confidential. You are solely responsible for any risk that
-        unauthorized persons may gain access to the Device, Data, or
-        Application.
+      <h3 dir="ltr">Countries Where Your Information May Be Disclosed</h3>
+      <p dir="ltr">
+        As of the date of this User Agreement, personal information may be
+        disclosed to entities located in the following countries:
       </p>
-      <ol start="14">
-        <li>Usage Restrictions</li>
-      </ol>
-      <p>
-        You must not, and may not allow any third party to: (i) make the
-        Application available over a network where it can be accessed by
-        multiple devices owned or operated by others simultaneously; (ii)
-        bypass, disable, or interfere with security features of the Device or
-        Application, or features that restrict use or copying of content or
-        enforce usage limitations; (iii) remove, alter, or obscure any
-        proprietary notices, including copyrights, trademarks, patents, or other
-        identifiers on the Device or Application; (iv) use Seenyor’s name, logo,
-        or trademarks without written permission; or (v) use the Device or
-        Application for any unlawful, harmful, irresponsible, or inappropriate
-        purposes or in any way that breaches this Agreement.&nbsp;
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            United States
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Australia
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Countries within the European Union (EU)
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">Protection of Your Information</p>
+      <p dir="ltr">
+        We take steps to ensure that any overseas recipients handle your
+        personal information in accordance with applicable U.S. privacy laws,
+        including the California Consumer Privacy Act (CCPA). These measures
+        include:
       </p>
-      <p>OUR LIABILITY TO YOU AND OTHERS IS LIMITED.</p>
-      <ol start="15">
-        <li>Limitation of Liability</li>
-      </ol>
-      <p>
-        YOU AGREE THAT OUR LIABILITY IS LIMITED. IF ANY LIABILITY ARISES FOR
-        SEENYOR OR ANY OF ITS OFFICERS, DIRECTORS, AFFILIATES, EMPLOYEES,
-        MANUFACTURERS, SUPPLIERS, OR SUB-CONTRACTORS (COLLECTIVELY,
-        “REPRESENTATIVES”) FOR PERSONAL INJURY, DEATH, LOSS, DAMAGE, COSTS,
-        PROPERTY DAMAGE, OR OTHER LIABILITY UNDER ANY LEGAL THEORY INCLUDING
-        TORT (WHETHER NEGLIGENCE OR OTHERWISE), CONTRACT, PRODUCT LIABILITY, OR
-        BREACH OF LAW, SUCH LIABILITY SHALL NOT EXCEED AUD $2,500 OR THE MAXIMUM
-        AMOUNT PERMITTED BY APPLICABLE LAWS.
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Implementing appropriate safeguards, such as contractual
+            obligations, to ensure your information remains protected.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Requiring overseas recipients to commit to confidentiality and to
+            use personal information only for the purposes for which it was
+            disclosed.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        Please note that privacy laws in other jurisdictions may differ from
+        those in the United States. By using our Services, you consent to the
+        transfer of your personal information to recipients in other countries,
+        as necessary to provide our services or for other legitimate business
+        purposes.
       </p>
-      <ol start="16">
-        <li>Insurance Requirement</li>
-      </ol>
-      <p>
-        YOU AGREE TO RELY SOLELY ON YOUR INSURANCE FOR ANY LOSSES. The price of
-        the Device and Application covers only the cost of these items and does
-        not include any provision for insurance coverage. Accordingly, you
-        acknowledge that Seenyor is not an insurer, and this Agreement does not
-        provide insurance coverage of any kind. YOU AGREE TO MAINTAIN INSURANCE
-        IN AMOUNTS SUFFICIENT TO COVER ANY LOSS, DAMAGE, OR EXPENSE YOU, YOUR
-        FAMILY, OR OTHERS MAY INCUR OR FOR WHICH YOU MAY BE LIABLE, INCLUDING
-        COVERAGE FOR MEDICAL, DISABILITY, LIFE, PROPERTY, AND LIABILITY
-        INSURANCE. YOU AGREE TO: (I) LOOK SOLELY TO YOUR INSURANCE FOR COVERAGE;
-        AND (II) RELEASE SEENYOR AND ITS REPRESENTATIVES FROM LIABILITY FOR ANY
-        SUCH LOSS, DAMAGE, OR EXPENSE, INCLUDING DEDUCTIBLES OR OTHER COSTS.
-      </p>
-      <ol start="17">
-        <li>Limitation on Damages</li>
-      </ol>
-      <p>
-        YOU AGREE THAT OUR DAMAGES ARE LIMITED. IN ADDITION TO OTHER PROVISIONS
-        IN THIS AGREEMENT, NEITHER SEENYOR NOR ITS REPRESENTATIVES WILL BE
-        LIABLE TO YOU OR ANY OTHER PARTY FOR INDIRECT, SPECIAL, EXEMPLARY,
-        PUNITIVE, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, EVEN IF SEENYOR HAS BEEN
-        ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-      </p>
-      <ol start="18">
-        <li>Waiver of Subrogation</li>
-      </ol>
-      <p>
-        YOU WAIVE ANY RIGHTS OF SUBROGATION. This means that you waive any
-        rights your insurance provider may have to seek reimbursement from
-        Seenyor or its Representatives for amounts paid to you or on your
-        behalf.
-      </p>
-      <ol start="19">
-        <li>Indemnification</li>
-      </ol>
-      <p>
-        YOU AGREE TO INDEMNIFY SEENYOR. If any third party, including your
-        insurance provider or any other insurance entity, makes a claim against
-        Seenyor or its Representatives, you agree to indemnify, defend, and hold
-        Seenyor and its Representatives harmless (without any requirement that
-        Seenyor or its Representatives first make payment) for any loss, damage,
-        or expense, including reasonable attorneys’ fees, incurred by Seenyor or
-        its Representatives. This includes, but is not limited to, any claims
-        arising from or related to: (i) the Device, including its usage, whether
-        or not it functions as intended; (ii) the Application, including its
-        usage, whether or not it functions as intended; (iii) this Agreement;
-        (iv) any degree or type of negligence on the part of Seenyor or its
-        Representatives; (v) product or strict liability; or (vi) contribution,
-        indemnity, or subrogation claims by any third party.
-      </p>
-      <ol start="20">
-        <li>Failure of Essential Purpose</li>
-      </ol>
-      <p>
-        All limitations in this Agreement apply even if any limited remedy fails
-        its essential purpose.
-      </p>
-      <ol start="21">
-        <li>Responsibility for False Alarms and Forced Entry</li>
-      </ol>
-      <p>
-        Without limiting Section 7 (The Alert Service), if the Device triggers
-        an alert sent to the Application that results in the dispatch of
-        emergency responders, you are solely responsible for any associated
-        fines, fees, costs, or penalties imposed on you or Seenyor by any
-        authority. You must provide access for responders to enter the premises.
-        If you fail to do so, responders may use force to gain entry,
-        potentially causing damage. You are solely responsible for any resulting
-        damage. Seenyor has no control over the response times of emergency
-        services. By accepting this Agreement, you release Seenyor and any
-        responders from liability for claims, losses, or damages related to
-        forced entry or delays.
-      </p>
-      <ol start="22">
-        <li>Force Majeure (Events Beyond Our Control)</li>
-      </ol>
-      <p>
-        You agree that Seenyor’s obligations are automatically waived, and we
-        will not be liable to you or any other person if we are unable to
-        provide the Device or Application, or if they do not function, due to
-        circumstances beyond our control. Such circumstances may include, but
-        are not limited to, disruptions in communication networks (e.g., Wi-Fi,
-        internet, or other network outages), natural disasters (such as floods,
-        fires, earthquakes), civil disturbances, war, terrorism, labor disputes,
-        or other acts of God. This waiver applies for the duration of the
-        circumstances beyond our control.
-      </p>
-      <ol start="23">
-        <li>Limited Warranty for Device</li>
-      </ol>
-      <p>
-        If the Device develops a defect due to materials, workmanship, or design
-        within 6 months of purchase, or within any other timeframe agreed with
-        the retailer, please refer to their relevant terms for warranty
-        processing. This warranty does not cover damage caused by accidents,
-        vandalism, negligence, violation of installation and use requirements,
-        floods, water damage, lightning, fire, misuse, abuse, acts of God,
-        electrical issues, neglect, or unauthorized repairs performed by anyone
-        other than Seenyor. Ordinary wear and tear are also not covered.
-      </p>
-      <ol start="24">
-        <li>No Warranty for Application and Software</li>
-      </ol>
-      <p>
-        The Application and software associated with the Device are provided “as
-        is” and “as available” with all faults and without any warranties,
-        whether express or implied, except that Seenyor warrants that, to the
-        best of its knowledge, it has the legal right to grant the rights and
-        license under this Agreement. Seenyor does not warrant that the
-        Application or Device software will be error-free or free of viruses or
-        other harmful code.
-      </p>
-      <ol start="25">
-        <li>Requesting Warranty Service</li>
-      </ol>
-      <p>
-        If you require warranty service, please follow the warranty process
-        established with the retailer. All warranties provided under this
-        Agreement are conditional upon your lawful and correct use of the Device
-        and Application, in accordance with this Agreement.
-      </p>
-      <ol start="26">
-        <li>Certain Warranties Excluded</li>
-      </ol>
-      <p>
-        You acknowledge that: (A) any affirmation of fact or promise made by
-        Seenyor does not constitute an express warranty; (B) except as expressly
-        stated in this Agreement, Seenyor makes no express or implied
-        warranties, including but not limited to warranties of good workmanship,
-        accuracy, quiet enjoyment, non-infringement, merchantability, or fitness
-        for a particular purpose, nor does it guarantee that the Device or
-        Application cannot be compromised or that they will function as
-        intended, be uninterrupted, error-free, or that defects will be
-        corrected; and (C) any implied warranties, if applicable, are limited to
-        the duration of this warranty. Some jurisdictions may not permit
-        limitations on the length of implied warranties or the exclusion of
-        incidental or consequential damages, so these limitations may not apply
-        to you. This warranty grants specific legal rights, and you may also
-        have other rights that vary by jurisdiction.
-      </p>
-      <ol start="27">
-        <li>Applicable Law</li>
-      </ol>
-      <p>
-        This Agreement is governed by and construed according to the laws of the
-        state of New York, without regard to its conflict of law principles. The
-        interpretation of this Agreement will not be construed against the party
-        that drafted it.
-      </p>
-      <ol start="28">
-        <li>Mandatory Arbitration for Certain Claims</li>
-      </ol>
-      <p>
-        If you have a claim against Seenyor or its Representatives, you must
-        resolve that claim through arbitration as outlined in this section,
-        unless the amount of direct damages (not aggregated as permitted by any
-        law) exceeds $5,000 on an individual basis (the “Class Threshold”). You
-        waive your right to participate as a plaintiff or class member in any
-        class, consolidated, or representative action for claims exceeding the
-        Class Threshold. For claims within the Class Threshold, regardless of
-        whether you wish to bring such claims as part of a class, consolidated,
-        or representative action, you agree to resolve these claims exclusively
-        through binding arbitration administered by the American Arbitration
-        Association in New York, New York, under its rules. For claims exceeding
-        the Class Threshold, you agree to bring them exclusively in the court
-        specified in this Agreement.
-      </p>
-      <ol start="29">
-        <li>Jurisdiction, Venue, and Waiver of Jury Trial</li>
-      </ol>
-      <p>
-        Each party to this Agreement irrevocably agrees that any suit, action,
-        or other legal proceeding (“Suit”) arising from or related to this
-        Agreement, where the claim amount exceeds the Class Threshold, shall be
-        brought exclusively in the state or federal courts located in New York,
-        New York. Each party consents to the exclusive jurisdiction and venue of
-        these courts for any such suit and waives any objection to jurisdiction
-        or venue. Additionally, each party waives the right to a jury trial for
-        any suit brought by either party. You agree to accept service of process
-        by Seenyor via first-class mail to the address you provided.
-      </p>
-      <ol start="30">
-        <li>Assignment</li>
-      </ol>
-      <p>
-        You may not assign this Agreement or any of your rights or obligations
-        under it. Seenyor may assign this Agreement, in whole or in part, at any
-        time. If Seenyor assigns this Agreement, it is released from all
-        liabilities or obligations arising after the assignment.
-      </p>
-      <ol start="31">
-        <li>No Waiver of Breach</li>
-      </ol>
-      <p>
-        A waiver of any breach of this Agreement by Seenyor does not constitute
-        a waiver of any subsequent breach. Seenyor’s rights under this Agreement
-        are cumulative, may be exercised at any time, and include all remedies
-        available under this Agreement, even if not explicitly mentioned.
-      </p>
-      <ol start="32">
-        <li>Integration and Amendment</li>
-      </ol>
-      <p>
-        This Agreement represents the complete agreement between you and Seenyor
-        regarding the subjects discussed and supersedes all prior agreements,
-        negotiations, commitments, warranties, statements, and representations,
-        whether written or oral. Seenyor reserves the right to amend this
-        Agreement periodically. Significant changes will be communicated through
-        the Application and/or via email. Amendments become effective on the
-        “Last Updated” date specified, and your continued use of the Device and
-        Application after this date constitutes acceptance of the updated terms.
-      </p>
-      <ol start="33">
-        <li>Severability</li>
-      </ol>
-      <p>
-        If any provision of this Agreement (or part thereof) is found to be
-        illegal, invalid, or unenforceable in any situation, the remaining
-        provisions will continue in full force and effect and apply to other
-        situations as if the invalid provision was not included.
-      </p>
-      <ol start="34">
-        <li>Third-Party Beneficiaries</li>
-      </ol>
-      <p>
-        Seenyor and its Representatives are the only third-party beneficiaries
-        of this Agreement. No other party has any rights under this Agreement.
-      </p>
-      <ol start="35">
-        <li>Limitation on Legal Actions</li>
-      </ol>
-      <p>
-        All claims, actions, or proceedings against Seenyor or its
-        Representatives must be filed within one year from the date the cause of
-        action occurred, without any extensions. Failure to comply with this
-        timeframe will bar the claim, action, or proceeding.
-      </p>
-      <ol start="36">
-        <li>Headings and Construction</li>
-      </ol>
-      <p>
-        Section headings are included for convenience only and should not be
-        considered when interpreting the terms of this Agreement.
-      </p>
-      <ol start="37">
-        <li>Distributor Requirements and Usage Rules</li>
-      </ol>
-      <p>
-        If you download the Application from the Apple App Store (or if it is an
-        iOS application), then, without limiting the disclaimers of warranty and
-        liability limitations set forth in this Agreement:
-      </p>
-      <p>(i) You acknowledge and agree that:</p>
-      <p>
-        (a) This Agreement is between you and Seenyor only, not with Apple.
-        Seenyor and its licensors, not Apple, are solely responsible for the
-        Application and its content.
-      </p>
-      <p>
-        (b) Your use of the Application is also subject to the Usage Rules
-        established by Apple, including those outlined in the Apple App Store
-        Terms of Service, effective as of the date you enter into this
-        Agreement.
-      </p>
-      <p>
-        (c) The license granted here is limited to a non-transferable right to
-        use the Application on an Apple iPhone, iPad, or other Apple-branded
-        device that you own or control, which runs the iOS.
-      </p>
-      <p>
-        (d) Seenyor alone is responsible for providing any maintenance and
-        support services related to the Application, as specified in this
-        Agreement or as required under applicable law. Apple has no obligation
-        to provide any maintenance or support services for the Application.
-      </p>
-      <p>
-        (e) Seenyor is solely responsible for any product warranties, whether
-        express or implied by law, to the extent not effectively disclaimed. In
-        case the Application does not conform to an applicable warranty, you may
-        notify Apple, and Apple will, if applicable, refund any purchase price
-        paid for the Application. To the maximum extent permitted by law, Apple
-        has no other warranty obligations for the Application, and any claims,
-        losses, or costs arising from failure to conform to a warranty are
-        Seenyor’s responsibility.
-      </p>
-      <p>
-        (f) Seenyor, not Apple, is responsible for addressing any claims related
-        to the Application or your possession and use of it, including but not
-        limited to (a) product liability claims, (b) claims that the Application
-        fails to meet any legal or regulatory requirements, and (c) claims
-        arising under consumer protection laws, including those related to the
-        Application’s use of HealthKit and HomeKit frameworks.
-      </p>
-      <p>
-        (g) If a third party claims that the Application or your possession and
-        use of it infringes their intellectual property rights, Apple is not
-        responsible for the investigation, defense, settlement, or discharge of
-        such a claim.
-      </p>
-      <p>
-        (h) Apple and its subsidiaries are third-party beneficiaries of this
-        Agreement. Upon your acceptance of this Agreement’s terms and
-        conditions, Apple will have the right (and is deemed to have accepted
-        the right) to enforce this Agreement against you as a third-party
-        beneficiary.
+      <br />
+      <h3 dir="ltr">Updates to This Section</h3>
+      <p dir="ltr">
+        As our business operations evolve, the countries to which we transfer
+        personal information may change. We will update this section of the User
+        Agreement as needed to reflect any changes in our data transfer
+        practices.
       </p>
     </div>
   );

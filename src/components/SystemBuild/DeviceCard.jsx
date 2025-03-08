@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+
+
 import product from "@/assets/product.png";
 
 const DeviceCard = ({ number, id }) => {
@@ -22,6 +22,7 @@ const DeviceCard = ({ number, id }) => {
           </h1>
           <div className="flex gap-[30px] text-[#6C7482] text-[16px] font-medium">
             <h4>{`Device UID: ${id}`}</h4>
+
           </div>
         </div>
       </div>
