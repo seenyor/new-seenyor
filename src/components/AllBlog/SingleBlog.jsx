@@ -11,7 +11,7 @@ const SingleBlog = ({ accessToken, params }) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchBlogs = async () => {
-      const API_URL = `https://backend.elderlycareplatform.com/api/v1/blogs/${params?.blogdetails}`;
+      const API_URL = `https://backend.elderlycareplatform.com/api/v1/blogs/${params?.id}`;
       try {
         setLoading(true);
         const response = await axios.get(API_URL, {
@@ -38,10 +38,12 @@ const SingleBlog = ({ accessToken, params }) => {
   console.log(blog);
   if (loading)
     return (
-      <div className="w-[100vw] flex justify-center items-center py-20">
+      <div className="container flex justify-center items-center py-20">
         <p className="text-xl font-semibold">Loading...</p>
       </div>
     );
+
+  console.log(`api/v1/blogs/${blog?.title}`);
   return (
     <div>
       <div className="flex justify-start py-3">
@@ -49,8 +51,11 @@ const SingleBlog = ({ accessToken, params }) => {
         <span>&nbsp;/&nbsp;</span>
         <Link href="/blog">Blog</Link>
         <span>&nbsp;/&nbsp;</span>
-        <Link className="font-semibold" href={`/blog/${params?.blogdetails}`}>
-          {params?.blogdetails}
+        <Link
+          className="font-semibold"
+          href={`/blog/${blog?.title}/${blog?._id}`}
+        >
+          {blog?.title}
         </Link>
       </div>
       <div className="w-full max-w-4xl mx-auto">

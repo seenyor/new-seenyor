@@ -4,7 +4,7 @@ import React from "react";
 const Loader = () => {
   return (
     <div className="flex items-center justify-center bg-[#00000021] z-20 w-full h-screen">
-      <div className="w-[800px] md:w-[70%] h-[663px] md:h-[25%] flex flex-col items-center justify-center bg-[#ffffff]">
+      <div className="w-[800px] h-[663px] flex flex-col items-center justify-center bg-[#ffffff]">
         {/* Rotating Loader Icon */}
         <div className="animate-spin animate-duration-[2500ms] animate-delay-100">
           <LoaderIconT />

@@ -154,7 +154,16 @@ export default function Header() {
                   </li>
                 </ul>
               </li>
-
+              <li role="none" className="flex items-stretch">
+                <Link onClick={() => setIsToggleOpen(false)} href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                  >
+                    App
+                  </Heading>
+                </Link>
+              </li>
               <li role="none" className="flex items-stretch">
                 <Link onClick={() => setIsToggleOpen(false)} href="/knowledge">
                   <Heading
@@ -202,14 +211,14 @@ export default function Header() {
                       Sign In
                     </button>
                   </Link>
-                  <Link
+                  {/* <Link
                     onClick={() => setIsToggleOpen(false)}
                     href="/systembuilder"
                   >
                     <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#80CAA7] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">
@@ -272,6 +281,16 @@ export default function Header() {
                 )}
               </li>
               <li>
+                <Link href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                  >
+                    App
+                  </Heading>
+                </Link>
+              </li>
+              <li>
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -319,12 +338,12 @@ export default function Header() {
                   >
                     Sign In
                   </Link>
-                  <Link
+                  {/* <Link
                     className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#80CAA7] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">

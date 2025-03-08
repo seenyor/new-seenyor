@@ -154,6 +154,16 @@ export default function SecondaryNav() {
                 </ul>
               </li>
               <li role="none" className="flex items-stretch">
+                <Link href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1.3rem] gap-2 py-4 px-8 font-medium text-white"
+                  >
+                    App
+                  </Heading>
+                </Link>
+              </li>
+              <li role="none" className="flex items-stretch">
                 <Link href="/knowledge">
                   <Heading
                     as="p"
@@ -170,11 +180,11 @@ export default function SecondaryNav() {
                       Sign In
                     </button>
                   </Link>
-                  <Link href="/systembuilder">
+                  {/* <Link href="/systembuilder">
                     <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">
@@ -236,6 +246,16 @@ export default function SecondaryNav() {
                 )}
               </li>
               <li>
+                <Link href="/app">
+                  <Heading
+                    as="p"
+                    className="text-[1rem] font-medium text-white"
+                  >
+                    App
+                  </Heading>
+                </Link>
+              </li>
+              <li>
                 <Link href="/knowledge">
                   <Heading as="p" className="text-[1rem] font-bold text-white">
                     Knowledge Base
@@ -250,12 +270,12 @@ export default function SecondaryNav() {
                   >
                     Sign In
                   </Link>
-                  <Link
+                  {/* <Link
                     className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started
-                  </Link>
+                  </Link> */}
                 </li>
               ) : (
                 <Link href="/account" className="relative group">

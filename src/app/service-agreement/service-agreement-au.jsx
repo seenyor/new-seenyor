@@ -3,589 +3,832 @@ import "../terms-style.css";
 export default function UserAggreementPage() {
   return (
     <div class="main">
-      <h1>User Agreement & Liability Disclaimer</h1>
-
-      <p>
-        <strong>Introduction</strong>
+      <h2 dir="ltr">
+        <span>User Agreement &amp; Liability Disclaimer</span>
+      </h2>
+      <h2 dir="ltr">Introduction</h2>
+      <p dir="ltr">
+        Seenyor is committed to protecting its employees, customers, partners,
+        and constituents from all damaging acts—whether intentional or
+        unintentional. Effective security is a team effort involving the
+        participation and support of every entity that interacts with Seenyor’s
+        environments, services, and information. Therefore, it is the
+        responsibility of both Seenyor and third parties to be aware of and
+        adhere to Seenyor’s cybersecurity and data protection requirements.
       </p>
-      <p>
-        Seenyor&nbsp; is committed to protecting its employees, customers,
-        partners, and constituents from all damaging acts – regardless of
-        whether the acts are intentional or unintentional. Effective security is
-        a team effort involving the participation and support of every entity
-        that interacts with Seenyor&nbsp; environments, services, and
-        information. Therefore, it is the responsibility of both Seenyor&nbsp;
-        and third parties to be aware of and adhere to Seenyor ’s cybersecurity
-        and data protection requirements...
+      <p dir="ltr">
+        Seenyor (“we” or “our”) respects the privacy of users who access our
+        website located at
+        <a href="http://www.seenyor.com">www.seenyor.com/</a>
+        <a href="http://www.seenyor.au/">www.seenyor.au</a>
+        (the “Website”), as well as our mobile website, mobile application,
+        social media pages, blogs, and other online services related or
+        connected thereto (collectively, the “Services”). This User Agreement is
+        designed to inform you, as a user of the Services, about the type of
+        information we may collect from you, how we use and disclose that
+        information, and your rights in relation to it. The process for
+        notifying you of any changes to this User Agreement is discussed at the
+        end of this document. Each time you use the Services, the current
+        version of this User Agreement will apply. You are encouraged to review
+        the User Agreement frequently and note the Effective Date listed at the
+        top of the document.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        Seenyor&nbsp; (“we” or “our”) respects the privacy of users that use our
-        website located at www.seenyor.com/www.seenyor.au (the “Website”), as
-        well as our mobile website or mobile application, social media pages,
-        blogs, and other online services related or connected thereto
-        (collectively, the “Services”). This Privacy Policy is designed to
-        inform you, as a user of the Services, about the type of information
-        that we may gather about or collect from you when you use the Services.
-        It also is intended to explain the conditions under which we use and
-        disclose that information, and your rights in relation to that
-        information. The process for notifying you of any changes to this
-        Privacy Policy is discussed at the end of this document. Each time you
-        use the Services, however, the current version of this Privacy Policy
-        will apply. You are encouraged to review the Privacy Policy frequently
-        and note the Effective Date listed at the top of the Privacy Policy.
-      </p>
-      <p>&nbsp;</p>
-      <p>
+      <p dir="ltr">
         The Services are hosted in Australia and are subject to Australian law.
         If you are accessing our Services from other jurisdictions, please be
         advised that you are transferring your personal information to us in
-        Australia, and by using our Services, you consent to that transfer and
-        use of your personal information in accordance with this Privacy Policy.
-        You also agree to abide by the applicable laws of applicable states and
-        Australian law concerning your use of the Services and your agreements
-        with us. Any persons accessing our Services from any jurisdiction with
-        laws or regulations governing the use of the Internet, including
-        personal data collection, use, and disclosure, different from those of
-        the jurisdictions mentioned above may only use the Services in a manner
-        lawful in their jurisdiction. If your use of the Services would be
-        unlawful in your jurisdiction, please do not use the Services.
+        Australia. By using our Services, you consent to this transfer and the
+        use of your personal information in accordance with this User Agreement.
+        You also agree to abide by the applicable laws of Australian states and
+        federal law concerning your use of the Services and your agreements with
+        us. Any persons accessing our Services from jurisdictions with laws or
+        regulations governing the use of the Internet, including personal data
+        collection, use, and disclosure, that differ from those of Australia may
+        only use the Services in a manner lawful in their jurisdiction. If your
+        use of the Services would be unlawful in your jurisdiction, please do
+        not use the Services.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        By using or accessing the Services, you are consenting to our collection
-        and use of your data in accordance with the terms of this Privacy
-        Policy.
+      <p dir="ltr">
+        By using or accessing the Services, you consent to our collection and
+        use of your data in accordance with the terms of this User Agreement.
       </p>
-      <p>&nbsp;</p>
-      <p>Collecting Information About You</p>
-      <p>Personally Identifiable Information (“PII”)</p>
-      <p>
+      <br />
+      <h2 dir="ltr">Collecting Information About You</h2>
+      <h3 dir="ltr">Personally Identifiable Information (“PII”)</h3>
+      <p dir="ltr">
         We may collect certain data that can be used to identify or contact you,
         including but not limited to:
       </p>
-      <p>– Name</p>
-      <p>– Shipping/Billing Address</p>
-      <p>– Email Address</p>
-      <p>– Telephone Number</p>
-      <p>– Credit Card Information or other payment information</p>
-      <p>&nbsp;</p>
-      <p>Non-Identifying Information (“Other Information”)</p>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Name
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Shipping/Billing Address
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Email Address
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Telephone Number
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Credit Card Information or other payment information
+          </p>
+        </li>
+      </ul>
+      <h3 dir="ltr">Non-Identifying Information (“Other Information”)</h3>
+      <p dir="ltr">
         We also collect data that does not, on its own, identify a specific
         individual. This includes:
       </p>
-      <p>– Gender</p>
-      <p>– Age</p>
-      <p>– Product and service purchase history</p>
-      <p>– Interests</p>
-      <p>– Internet Protocol (IP) Address</p>
-      <p>– Operating System</p>
-      <p>– Browser Type</p>
-      <p>&nbsp;</p>
-      <ol start="2">
-        <li>How Do We Collect Your Personal Data?</li>
-      </ol>
-      <p>&nbsp;</p>
-      <p>We collect Personally Identifiable Information when you:</p>
-      <ol>
-        <li>Register on our Website and application .</li>
-        <li>Log in with social network credentials</li>
-        <li>
-          Participate in polls, contests, surveys, or other features of our
-          services, or respond to offers or advertisements
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Gender
+          </p>
         </li>
-        <li>Communicate with us</li>
-        <li>Create a public profile</li>
-        <li>Sign up to receive newsletters</li>
-        <li>Request information about our products and services</li>
-      </ol>
-      <p>&nbsp;</p>
-      <p>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Age
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Product and service purchase history
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Interests
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Internet Protocol (IP) Address
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Operating System
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Browser Type
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">How Do We Collect Your Personal Data?</p>
+      <p dir="ltr">We collect Personally Identifiable Information when you:</p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Register on our Website or application
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Log in with social network credentials
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Participate in polls, contests, surveys, or other features of our
+            services, or respond to offers or advertisements
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Communicate with us
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Create a public profile
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Sign up to receive newsletters
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Request information about our products and services
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Additional Information Collection</h3>
+      <p dir="ltr">
         We may also receive Personally Identifiable Information from your social
         media profiles and online activities, depending on your settings on
         those platforms. This information is shared under the privacy policy of
-        the social media site, not our Privacy Policy.
+        the respective social media site, not under our User Agreement or
+        Privacy Policy.
       </p>
-      <p>&nbsp;</p>
-      <p>Collection of Non-Identifying Information</p>
-      <p>
-        – We gather non-identifying information through your interactions with
-        our Website, such as through your web browser’s settings and the data
-        you provide when creating a profile.
-      </p>
-      <p>
-        – We also analyze this information to better understand usage patterns
-        and trends, which helps us improve our Website content and user
-        experience.
-      </p>
-      <p>&nbsp;</p>
-      <p>Important Note:</p>
-      <p>
+      <br />
+      <h3 dir="ltr">Collection of Non-Identifying Information</h3>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We gather non-identifying information through your interactions with
+            our Website, such as through your web browser’s settings and the
+            data you provide when creating a profile.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We also analyze this information to better understand usage patterns
+            and trends, which helps us improve our Website content and user
+            experience.
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Important Note</h3>
+      <p dir="ltr">
         Users are under no obligation to provide Personally Identifiable
-        Information, but refusal to do so may prevent them from using certain
-        features of our Services.
+        Information. However, refusal to do so may prevent them from using
+        certain features of our Services.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Telephone Consumer Protection Action Compliance</strong>
+      <br />
+      <h3 dir="ltr">Telephone Consumer Protection Act Compliance</h3>
+      <p dir="ltr">
+        By submitting your information, you authorize Seenyor and its accredited
+        members to communicate with you regarding your options, including by
+        pre-recorded messages and texts to the mobile or landline phone number
+        provided. You also agree to the Seenyor Terms of Use and Privacy Policy,
+        including the use of an electronic record to document your agreement.
       </p>
-      <p>
-        By submitting your information, you authorize Seenyor&nbsp; and its
-        accredited members to communicate with you regarding your options,
-        including by pre-recorded messages and texts to the mobile or landline
-        phone number provided. You also agree to the Seenyor&nbsp; Terms of Use
-        &amp; Privacy Policy, including the use of an electronic record to
-        document your agreement.
+      <br />
+      <h3 dir="ltr">Using Information About You</h3>
+      <p dir="ltr">
+        Seenyor uses your Personally Identifiable Information for transactional,
+        analytical, and marketing purposes, including but not limited to:
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Using Information About You</strong>
-      </p>
-      <p>
-        Seenyor&nbsp; uses your personally identifiable information for
-        transactional, analytical, and marketing purposes, such as confirming
-        and tracking your order, subscription, or registration, activating your
-        product, analyzing preferences, trends, and statistics, informing you of
-        new products, services, and offers, gathering client testimonials,
-        resolving client, product, and services issues, and providing you with
-        other information regarding Seenyor .
-      </p>
-      <p>&nbsp;</p>
-      <ol>
-        <li>Service Providers</li>
-      </ol>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Confirming and tracking your order, subscription, or registration
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Activating your product
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Analyzing preferences, trends, and statistics
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Informing you of new products, services, and offers
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Gathering client testimonials
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Resolving client, product, and service issues
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Providing you with other information regarding Seenyor
+          </p>
+        </li>
+      </ul>
+      <br />
+      <br />
+      <br />
+      <h3 dir="ltr">Service Providers</h3>
+      <p dir="ltr">
         We may share your Personally Identifiable Information with third-party
         service providers and affiliate companies (collectively, “Authorized
         Third Party Providers”) to:
       </p>
-      <p>
-        – Develop and deliver targeted advertising on our Website and
-        third-party websites
-      </p>
-      <p>– Provide analytics and site usage information</p>
-      <p>– Process transactions and payments</p>
-      <p>– Administer promotions, contests, sweepstakes, and surveys</p>
-      <p>– Offer marketing and promotional assistance</p>
-      <p>– Support other services related to our business operations</p>
-      <p>&nbsp;</p>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Develop and deliver targeted advertising on our Website and
+            third-party websites
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Provide analytics and site usage information
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Process transactions and payments
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Administer promotions, contests, sweepstakes, and surveys
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Offer marketing and promotional assistance
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Support other services related to our business operations
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
         These Authorized Third Party Providers may access your personal
         information only to perform their functions and are not permitted to
         share or use it for any other purposes.
       </p>
-      <p>&nbsp;</p>
-      <ol start="2">
-        <li>De-Identified Data</li>
-      </ol>
-      <p>
+      <br />
+      <h3 dir="ltr">De-Identified Data</h3>
+      <p dir="ltr">
         We may share aggregated, anonymous data (“Other Information”), such as
         usage statistics and demographic data, with third parties, including
         advisors, advertisers, and investors. This data is de-identified and
         cannot be used to personally identify you.
       </p>
-      <p>&nbsp;</p>
-      <ol start="3">
-        <li>Products and Services Offered by Other Businesses</li>
-      </ol>
-      <p>
+      <br />
+      <h3 dir="ltr">Products and Services Offered by Other Businesses</h3>
+      <p dir="ltr">
         We may share your Personally Identifiable Information with third-party
         business partners if we believe their products or services might
         interest you. These partners may send you information or marketing
         offers. If your data is shared with them, it will be governed by their
-        privacy policy and business practices.
+        privacy policy and business practices, not ours.
       </p>
-      <p>&nbsp;</p>
-      <ol start="4">
-        <li>Legally Required Sharing</li>
-      </ol>
-      <p>We may disclose your information if:</p>
-      <p>– We believe it is required by law or legal process</p>
-      <p>
-        – It is requested by law enforcement authorities or government officials
-      </p>
-      <p>
-        – We believe it is necessary to prevent physical harm or financial loss,
-        or to investigate suspected fraud or illegal activity
-      </p>
-      <p>&nbsp;</p>
-      <ol start="5">
-        <li>Business Transfers</li>
-      </ol>
-      <p>
+      <br />
+      <h3 dir="ltr">Legally Required Sharing</h3>
+      <p dir="ltr">We may disclose your information if:</p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We believe it is required by law or legal process.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            It is requested by law enforcement authorities or government
+            officials.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            We believe it is necessary to prevent physical harm or financial
+            loss, or to investigate suspected fraud or illegal activity.
+          </p>
+        </li>
+      </ul>
+      <br />
+      <h3 dir="ltr">Business Transfers</h3>
+      <p dir="ltr">
         In the event of a sale or transfer of all or part of our business or
         assets, we may transfer your Personally Identifiable Information to the
         involved entities or affiliates.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>&nbsp;</strong>
-      </p>
-      <p>
-        <strong>Marketing Messages</strong>
-      </p>
-      <p>
+      <p dir="ltr">Marketing Messages</p>
+      <p dir="ltr">
         If you wish to opt out of receiving internal and third-party marketing
-        materials from Seenyor , you may do so by using the unsubscribe link in
-        the footer of email communications or contacting us using the contact
-        information below. Even if you have opted out of marketing
-        communications, we reserve the right to contact you via phone, email, or
-        mail to give you notices about your account, such as service
-        announcements and administrative messages.
+        materials from Seenyor, you may do so by using the unsubscribe link in
+        the footer of email communications or by contacting us using the contact
+        information below.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        If you wish to update or delete information you’ve shared with us, you
-        may update your personal information .How Can You Access, Correct, or
-        Request Deletion of Your Personal Data?
+      <p dir="ltr">
+        Even if you have opted out of marketing communications, we reserve the
+        right to contact you via phone, email, or mail to provide notices about
+        your account, such as service announcements and administrative messages.
       </p>
-      <p>&nbsp;</p>
-      <p>Access and Update Information</p>
-      <p>
+      <br />
+      <h3 dir="ltr">
+        How Can You Access, Correct, or Request Deletion of Your Personal Data?
+      </h3>
+      <h4 dir="ltr">Access and Update Information</h4>
+      <p dir="ltr">
         If you wish to update the personal information you’ve shared with us,
         you can do so by contacting our Client Services team at
         support@seenyor.com.
       </p>
-      <p>&nbsp;</p>
-      <p>Request Deletion of Information</p>
-      <p>
+      <h4 dir="ltr">Request Deletion of Information</h4>
+      <p dir="ltr">
         To request the deletion of your personal information, please contact our
         Client Services team at support@seenyor.com. We will process your
         request promptly and ensure that your data is deleted in accordance with
         applicable laws and regulations.
       </p>
-      <p>&nbsp;</p>
-      <p>Your Rights Under Australian Law</p>
-      <p>
+      <br />
+      <h3 dir="ltr">Your Rights Under Australian Law</h3>
+      <p dir="ltr">
         Residents of Australia have the following rights under the Australian
         Privacy Principles (APPs):
       </p>
-      <p>
-        – Right to Access: You can request a copy of the personal information we
-        hold about you.
-      </p>
-      <p>
-        – Right to Deletion: You can request the deletion of your personal
-        information.
-      </p>
-      <p>
-        – Right to Opt-Out of Sale: You can request that your personal
-        information not be sold to third parties.
-      </p>
-      <p>
-        – Right to Equal Service and Price: You are entitled to equal service
-        and price even if you exercise any of the above rights.
-      </p>
-      <p>&nbsp;</p>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Access: You can request a copy of the personal information
+            we hold about you.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Deletion: You can request the deletion of your personal
+            information.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Opt-Out of Sale: You can request that your personal
+            information not be sold to third parties.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Equal Service and Price: You are entitled to equal service
+            and pricing even if you exercise any of the above rights.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
         To exercise any of these rights, please contact us at
         support@seenyor.com. Include details about your request and any relevant
         information about your account. We will respond to your request within
         30 days and provide any reports securely.
       </p>
-      <p>&nbsp;</p>
-      <p>Withdrawing Consent for Marketing Communications</p>
-      <p>&nbsp;</p>
-      <p>Opting Out of Marketing Communications</p>
-      <p>
+      <br />
+      <h3 dir="ltr">Withdrawing Consent for Marketing Communications</h3>
+      <h4 dir="ltr">Opting Out of Marketing Communications</h4>
+      <p dir="ltr">
         If you wish to opt out of receiving marketing communications from
-        Seenyor or third parties, you can use the unsubscribe link found in the
-        footer of our email communications, or contact us directly at
-        support@seenyor.com.
+        Seenyor or third parties, you can:
       </p>
-      <p>&nbsp;</p>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Use the unsubscribe link found in the footer of our email
+            communications, or
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Contact us directly at support@seenyor.com.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
         Please note that even if you opt out of marketing communications, we may
         still contact you with important account-related information, such as
         service announcements and administrative messages.
       </p>
-      <p>&nbsp;</p>
-      <p>“Do Not Track” Signals</p>
-      <p>
-        Our Website currently does not respond to Do-Not-Track (DNT) signals or
-        mechanisms set by web browsers or mobile operating systems.nformation by
-        contacting our Client Services team at
-        <a href="mailto:info@seenyor.com">support@seenyor.com</a>&nbsp;
-      </p>
-      <p>&nbsp;</p>
-      <p>“Do Not Track” Signals</p>
-      <p>
+      <br />
+      <h3 dir="ltr">“Do Not Track” Signals</h3>
+      <p dir="ltr">
         Most web browsers and some mobile operating systems include a
-        Do-Not-Track (DNT) feature or setting you can activate to signal your
-        privacy preference not to have data about your online browsing
-        activities monitored and collected. The Website does currently respond
-        to DNT browser signals or mechanisms.
+        Do-Not-Track (DNT) feature or setting that you can activate to signal
+        your privacy preference not to have data about your online browsing
+        activities monitored or collected.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Your Rights Under Australian Law</strong>
+      <p dir="ltr">
+        At this time, our Website does not respond to DNT browser signals or
+        mechanisms.
       </p>
-      <p>
-        Residents of Australia who have provided Seenyor&nbsp; personal
-        information have the right to request from Seenyor&nbsp; a list of the
-        third parties to which Seenyor&nbsp; has shared certain personal
-        information during the preceding year for third-party direct marketing
-        purposes. To submit such a request, contact Seenyor&nbsp; by mail at
-        <a href="mailto:info@seenyor.com">support@seenyor.com</a> . Please allow
-        30 days for a response.
+      <br />
+      <h3 dir="ltr">Requesting Information About Third-Party Data Sharing</h3>
+      <p dir="ltr">
+        Residents of Australia who have provided Seenyor with personal
+        information have the right to request a list of the third parties with
+        whom Seenyor has shared certain personal information during the
+        preceding year for third-party direct marketing purposes.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Individual Rights</strong>
+      <p dir="ltr">
+        To submit such a request, please contact us at support@seenyor.com.
+        Allow up to 30 days for a response.
       </p>
-      <p>
+      <br />
+      <h3 dir="ltr">Individual Rights</h3>
+      <p dir="ltr">
         Under the Australian Privacy Principles (APPs), Australian residents
-        will have the right to request that businesses take certain actions with
-        respect to their personal information. Through the APPs, Australian
-        residents have the following rights:
+        have the right to request that businesses take specific actions with
+        respect to their personal information. These rights include:
       </p>
-      <p>&nbsp;</p>
-      <p>– Right to request a copy of their personal information</p>
-      <p>– Right to request that their personal information be deleted</p>
-      <p>
-        – Right to request that their personal information not be sold to third
-        parties
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Request a Copy: You can request a copy of the personal
+            information we hold about you.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Request Deletion: You can request that your personal
+            information be deleted.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Opt-Out of Sale: You can request that your personal
+            information not be sold to third parties.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Right to Equal Service and Price: You are entitled to equal service
+            and pricing even if you exercise any of the above rights.
+          </p>
+        </li>
+      </ul>
+      <h4 dir="ltr">Definition of Personal Information</h4>
+      <p dir="ltr">
+        Personal information is defined as information that identifies, relates
+        to, describes, is capable of being associated with, or could reasonably
+        be linked, directly or indirectly, with a particular consumer or
+        household. Examples include:
       </p>
-      <p>– Right to equal service and price when</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;any of the above rights are exercised</p>
-      <p>&nbsp;</p>
-      <p>
-        Personal information is defined as information that identifies, relates,
-        describes, is capable of being associated with, or could reasonably be
-        linked, directly or indirectly, with a particular consumer or household.
-        Some examples include:
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Standard personal information, such as name, address, or government
+            ID numbers
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Commercial information, including goods or services purchased by the
+            consumer
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Web-based information, including browsing and search history
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Email address or phone number
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        Our Privacy Policy, available at
+        <a href="http://www.seenyor.com">
+          www.seenyor.com/www.seenyor.com.au,
+        </a>{" "}
+        has been updated to reflect the APPs and provide notice of these rights.
+        Seenyor is equipped to process any of the above requests in a timely
+        manner.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        – Standard personal information, such as name, address, or government ID
-        numbers
+      <p dir="ltr">
+        To submit a request, please email us at support@seenyor.com. Your email
+        must include details about your request and any relevant information
+        about your account. Copies of any reports related to servicing your
+        request will be distributed securely.
       </p>
-      <p>
-        – Commercial information including goods or services purchased by the
-        consumer
+      <p dir="ltr">The Use of Cookies</p>
+      <p dir="ltr">
+        We may, from time to time, contract with third-party vendors to provide
+        ads to our customers via the Internet or to send direct mail to
+        customers who may be interested in our products or services. To do so,
+        these vendors may collect anonymous information about your visits to our
+        Website using a “cookie.”
       </p>
-      <p>– Web-based information including browsing and search history</p>
-      <p>– Email address or phone number</p>
-      <p>&nbsp;</p>
-      <p>
-        Our Privacy Policy found at www.seenyor.com has been updated to reflect
-        the APPs and give notice of the above rights. Seenyor&nbsp; is equipped
-        to process any of the above requests within a timely manner. To submit a
-        request, Seenyor&nbsp; customers must submit an email to
-        support@seenyor.com The email must contain details on the request as
-        well as any information about the user in question. Copies of any
-        reports related to Seenyor&nbsp; servicing the request will be
-        distributed through secure methods.
+      <h4 dir="ltr">What Are Cookies?</h4>
+      <p dir="ltr">
+        A “cookie” is a string of information that assigns you a unique
+        identifier. This identifier is stored on your computer and provided to
+        the Website each time you submit a query. We use cookies on the Website
+        to:
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>The Use of Cookies</strong>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Keep track of services you have used
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Record registration information, such as your login name and
+            password
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Record your user preferences
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Keep you logged into the Website
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Facilitate purchase procedures
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Track the pages you visit during each Website session to improve
+            user experience and understand Website usage
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        As with other information gathered from users, Seenyor analyzes and
+        discloses aggregated information gathered using cookies to help us, our
+        partners, and others better understand how the Website is being used.
       </p>
-      <p>
-        We may from time to time contract with third-party vendors to provide
-        ads to our customers on our behalf via the Internet or to send direct
-        mail to customers whom we think may be interested in our products or
-        services. To do so, such vendor may collect anonymous information about
-        your visits to our website using a “cookie”.
+      <h4 dir="ltr">Managing Cookies</h4>
+      <p dir="ltr">
+        If you do not wish to have cookies placed on your computer, you can set
+        your browser to refuse cookies before accessing the Website. However,
+        please note that certain features of the Website may not function
+        properly without cookies. Users who refuse cookies assume all
+        responsibility for any resulting loss of functionality.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        A “cookie” is a string of information which assigns you a unique
-        identification that a website stores on a user’s computer, and that the
-        user’s browser provides to the website each time the user submits a
-        query to the website. We use cookies on the Website to keep track of
-        services you have used, to record registration information regarding
-        your login name and password, to record your user preferences, to keep
-        you logged into the Website, and to facilitate purchase procedures. We
-        also use cookies to track the pages that users visit during each Website
-        session, both to help us improve users’ experiences and to help us
-        understand how the Website is being used. As with other information
-        gathered from users of the Website, Seenyor&nbsp; analyzes and discloses
-        in aggregated form information gathered using cookies, so as to help us,
-        our partners, and others better understand how the Website is being
-        used.
+      <br />
+      <h3 dir="ltr">Third-Party Vendors and Cookies</h3>
+      <p dir="ltr">
+        Seenyor may also use third-party vendors who utilize first-party and
+        third-party cookies together to:
       </p>
-      <p>&nbsp;</p>
-      <p>
-        Users who do not wish to have cookies placed on their computers should
-        set their browsers to refuse cookies before accessing the website, with
-        the understanding that certain features of the website may not function
-        properly without the aid of cookies. Website users who refuse cookies
-        assume all responsibility for any resulting loss of functionality.
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Inform, optimize, and serve ads based on your past activity on the
+            Website
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Analyze and track data
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Determine the popularity of certain content
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Better understand online activity
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        For example, we use Google Analytics for Display Advertising. These
+        third-party vendors may combine the anonymous information they collect
+        from our Website with other sources of information, such as your name
+        and mailing address, to determine whether you might be interested in
+        receiving direct mail.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        Seenyor&nbsp; may also use third-party vendors who use first-party
-        cookies and third-party cookies together to inform, optimize, and serve
-        ads based on your past activity on the Website, including Google
-        Analytics for Display Advertising. The third-party vendors may pool the
-        anonymous information that they collect from our website with other
-        sources of information, which may include your name and mailing address,
-        for purposes of determining whether you might be interested in receiving
-        direct mail. The information collected may be used to, among other
-        things, analyze and track data, determine the popularity of certain
-        content, and better understand online activity. If you do not want any
-        information to be collected and used by Google Analytics, you can
-        install an opt-out in your web browser
-        (https://tools.google.com/dpage/gaoptout) and/or opt out from Google
-        Analytics for Display Advertising or the Google Display Network by using
-        Google’s Ads Settings (www.google.com/settings/ads). To opt-out of
-        receiving our direct mail, you may send us an email at
-        <a href="mailto:info@seenyor.com">support@seenyor.com</a>
+      <h4 dir="ltr">Opting Out of Third-Party Tracking</h4>
+      <p dir="ltr">
+        If you do not want your information to be collected and used by Google
+        Analytics, you can:
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Security</strong>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Install the opt-out browser add-on provided by Google:
+            <a href="https://tools.google.com/dpage/gaoptout">
+              https://tools.google.com/dpage/gaoptout
+            </a>
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Opt out of Google Analytics for Display Advertising or the Google
+            Display Network by using Google’s Ads Settings:
+            <a href="https://www.google.com/settings/ads">
+              www.google.com/settings/ads
+            </a>
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        To opt out of receiving direct mail from us, you may email us at{" "}
+        <a href="mailto:support@seenyor.com">support@seenyor.com</a>.
       </p>
-      <p>
+      <br />
+      <h3 dir="ltr">Security</h3>
+      <p dir="ltr">
         We take the security of your information very seriously and have
         implemented electronic, administrative, and physical measures to protect
-        it from loss, theft, alteration, or misuse. However, please be advised
-        that even the best security measures cannot fully eliminate all risks.
-        We cannot guarantee that only authorized persons will view your
-        information. We are not responsible for third-party circumvention of any
-        privacy settings or security measures.
+        it from loss, theft, alteration, or misuse. However, please note that
+        even the best security measures cannot fully eliminate all risks. While
+        we strive to ensure that only authorized persons access your
+        information, we cannot guarantee this and are not responsible for
+        third-party circumvention of any privacy settings or security measures.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        We are dedicated to protecting all information collected on the Services
-        as is necessary. However, you are responsible for maintaining the
-        confidentiality of your information by keeping your password
-        confidential. You should change your password immediately if you believe
-        someone has gained unauthorized access to it or your account. If you
-        lose control of your account, you should notify us immediately.
+      <p dir="ltr">
+        We are committed to protecting all information collected through our
+        Services. However, you are responsible for maintaining the
+        confidentiality of your account information, including your password. If
+        you believe someone has gained unauthorized access to your password or
+        account, you should change your password immediately and notify us. If
+        you lose control of your account, please contact us as soon as possible.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Public Forum Access</strong>
+      <br />
+      <h3 dir="ltr">Public Forum Access</h3>
+      <p dir="ltr">
+        We provide areas on the Website, such as the Seenyor Blog, where you can
+        post reviews, comments, and other information related to your activities
+        on the Website. These postings are governed by our Terms of Use.
       </p>
-      <p>
-        We do provide areas on the Website, such as the Seenyor Blog, where you
-        can post reviews, comments, and other information relating to your
-        activities on the Website. Such postings are governed by our Terms of
-        Use. In addition, such postings may appear on other websites or when
-        searches are executed on the subject of your posting. Also, whenever you
-        voluntarily disclose personal information on publicly viewable web
-        pages, that information will be publicly available and can be collected
-        and used by others. We cannot control who reads your posting or what
-        other users may do with the information you voluntarily post, so we
-        encourage you to exercise discretion and caution with respect to your
-        personal information. Users assume all responsibility for any loss of
-        privacy or other harm resulting from their voluntary disclosure of
-        personally identifying information.
+      <p dir="ltr">Please be aware that:</p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Such postings may appear on other websites or in search engine
+            results related to your posting.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Any personal information you voluntarily disclose on publicly
+            viewable web pages will be publicly available and can be collected
+            and used by others.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        We cannot control who reads your postings or how others may use the
+        information you voluntarily share. Therefore, we encourage you to
+        exercise discretion and caution when sharing personal information. Users
+        assume all responsibility for any loss of privacy or harm resulting from
+        their voluntary disclosure of personally identifying information.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Linking to Other Websites</strong>
+      <p dir="ltr">Linking to Other Websites</p>
+      <p dir="ltr">
+        Our Services may contain links to third-party websites over which we
+        have no control. Seenyor is not responsible for the privacy practices or
+        content of these websites, as they may differ from our own.
       </p>
-      <p>
-        Our Services may contain links to other sites over which we have no
-        control. Seenyor&nbsp; is not responsible for the privacy practices or
-        the content of such websites as they may be different than our own.
-        Please be advised that you should always read the Privacy Policy of a
-        linked website before sharing your information.
+      <p dir="ltr">
+        We strongly recommend that you review the Privacy Policy of any linked
+        website before sharing your personal information.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Special Information for Parents</strong>
-      </p>
-      <p>
+      <br />
+      <h3 dir="ltr">Special Information for Parents</h3>
+      <p dir="ltr">
         The Children’s Online Privacy Protection Act (COPPA) protects the online
-        privacy of children under 13 years of age. We do not knowingly collect
-        or maintain information from anyone under the age of 13, unless or
-        except as permitted by law. Any person who provides information through
-        the Services represents to us that he or she is 13 years of age or
-        older. If we learn that information has been collected from a user under
-        13 years of age on or through the Services, then we will take the
-        appropriate steps to cause this information to be deleted. If you are
-        the parent or legal guardian of a child under 13 who has become a member
-        of the Services or has otherwise transferred information to the
-        Services, please contact Seenyor&nbsp; using our contact information
-        below to have that child’s account terminated and information deleted.
+        privacy of children under 13 years of age. While COPPA is a U.S. law,
+        Seenyor adheres to its principles and does not knowingly collect or
+        maintain information from anyone under the age of 13, except as
+        permitted by law.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Policy Changes</strong>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Any person who provides information through our Services represents
+            that they are 13 years of age or older.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            If we learn that information has been collected from a user under 13
+            years of age, we will take appropriate steps to delete this
+            information.
+          </p>
+        </li>
+      </ul>
+      <p dir="ltr">
+        If you are the parent or legal guardian of a child under 13 who has
+        become a member of our Services or has otherwise provided information to
+        us, please contact us at support@seenyor.com to have the child’s account
+        terminated and their information deleted.
       </p>
-      <p>
-        Seenyor&nbsp; may, in its sole discretion, change this Privacy Policy
-        from time to time. Any and all changes to this Privacy Policy will be
-        reflected on this page and the new effective date for the modified
-        version will be stated at the top of this Privacy Policy. Unless stated
-        otherwise, our current Privacy Policy applies to all information that we
-        have about you and your account. Users should regularly check this page
-        for any changes to this Privacy Policy. Seenyor&nbsp; will always post
-        new versions of the Privacy Policy on the Website. However, we may, as
-        determined in its discretion, decide to notify users of changes made to
-        this Privacy Policy via email or otherwise. Accordingly, it is important
-        that you always maintain and update your contact information.
+      <br />
+      <h3 dir="ltr">Contacting Us</h3>
+      <p dir="ltr">
+        We value your feedback and are happy to address any questions, concerns,
+        or suggestions regarding our User Agreement. You can contact us at:
       </p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>Contacting Us</strong>
+      <p dir="ltr">
+        Seenyor
+        <br /> Address: 232 Unley Rd, Unley SA 5061
+        <br /> Email: support@seenyor.com
       </p>
-      <p>
-        We appreciate feedback in every way. If you have any questions,
-        concerns, or suggestions regarding our Privacy Policy, please contact us
-        at:
+      <br />
+      <h3 dir="ltr">
+        Disclosure of Personal Information to Overseas Recipients
+      </h3>
+      <h4 dir="ltr">International Data Transfers</h4>
+      <p dir="ltr">
+        Seenyor may disclose your personal information to overseas recipients to
+        provide our services or for other legitimate business purposes. These
+        recipients may include third-party service providers, affiliates, or
+        business partners located outside of Australia.
       </p>
-      <p>&nbsp;</p>
-      <p>Seenyor&nbsp;&nbsp;</p>
-      <p>Address : 232 UNLEY RD</p>
-      <p>UNLEY SA</p>
-      <p>5061</p>
-      <p>Email: Support@seenyor.com&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>
-        <strong>
-          Disclosure of Personal Information to Overseas Recipients
-        </strong>
+      <h4 dir="ltr">Countries Where Your Information May Be Disclosed</h4>
+      <p dir="ltr">
+        As of the date of this User Agreement, personal information may be
+        disclosed to entities located in the following countries:
       </p>
-      <p>International Data Transfers</p>
-      <p>
-        Seenyor may disclose your personal information to overseas recipients in
-        order to provide our services or for other legitimate business purposes.
-        These recipients may include third-party service providers, affiliates,
-        or business partners located outside of Australia.
-      </p>
-      <p>&nbsp;</p>
-      <p>Countries Where Your Information May Be Disclosed</p>
-      <p>
-        As of the date of this policy, personal information may be disclosed to
-        entities located in the following countries:
-      </p>
-      <p>United States</p>
-      <p>Australia</p>
-      <p>Countries within the European Union (EU)</p>
-      <p>Protection of Your Information</p>
-      <p>&nbsp;</p>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            United States
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Australia
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Countries within the European Union (EU)
+          </p>
+        </li>
+      </ul>
+      <h4 dir="ltr">Protection of Your Information</h4>
+      <p dir="ltr">
         We take steps to ensure that any overseas recipients handle your
         personal information in accordance with the standards set out in the
-        Australian Privacy Principles (APPs). We implement appropriate
-        safeguards, including contractual obligations, to ensure your
-        information remains protected. These measures include requiring overseas
-        recipients to commit to confidentiality and to use personal information
-        only for the purposes for which it was disclosed.
+        Australian Privacy Principles (APPs). These measures include:
       </p>
-      <p>Updates to This Section</p>
-      <p>&nbsp;</p>
-      <p>
+      <ul>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Implementing appropriate safeguards, such as contractual
+            obligations, to ensure your information remains protected.
+          </p>
+        </li>
+        <li aria-level="1" dir="ltr">
+          <p role="presentation" dir="ltr">
+            Requiring overseas recipients to commit to confidentiality and to
+            use personal information only for the purposes for which it was
+            disclosed.
+          </p>
+        </li>
+      </ul>
+      <h4 dir="ltr">Updates to This Section</h4>
+      <p dir="ltr">
         As our business operations evolve, the countries to which we transfer
-        personal information may change. We will update this section of our
-        Privacy Policy as needed to reflect any changes in our data transfer
+        personal information may change. We will update this section of the User
+        Agreement as needed to reflect any changes in our data transfer
         practices.
       </p>
-      <p>&nbsp;</p>
-      <p>
-        Resource:
-        <a href="https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information">
-          https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information
-        </a>
-      </p>
-      <p>&nbsp;</p>
     </div>
   );
 }
