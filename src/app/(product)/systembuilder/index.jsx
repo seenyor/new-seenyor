@@ -696,7 +696,7 @@ export default function HomePage() {
               Already own a device?
             </h4>
             <h6 className="text-[30px] sm:text-[20px] md:text-[24px] xxs:text-[14px]">
-              Skip this step if you don't need to purchase a new one.
+              Skip this step if you don&apos;t need to purchase a new one.
             </h6>
           </div>
           <div>
