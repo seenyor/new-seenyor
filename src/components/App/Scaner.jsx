@@ -20,6 +20,7 @@ const Scaner = () => {
             </p>
           </div>
           <div className="flex gap-3">
+
             <Link
               href="https://apps.apple.com/pl/app/seenyor/id6503249681"
               className="sm:"
@@ -31,6 +32,7 @@ const Scaner = () => {
               href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env"
               target="_blank"
             >
+
               <PlayBtn />
             </Link>
           </div>

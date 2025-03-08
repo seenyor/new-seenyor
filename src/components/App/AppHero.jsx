@@ -30,6 +30,7 @@ const AppHero = () => {
             Get The App
           </h6>
           <div className="flex gap-3">
+
             <Link
               href="https://apps.apple.com/pl/app/seenyor/id6503249681"
               target="_blank"
@@ -40,6 +41,7 @@ const AppHero = () => {
               target="_blank"
               href="https://play.google.com/store/apps/details?id=com.seenyor.application&hl=env"
             >
+
               <PlayBtn />
             </Link>
           </div>
