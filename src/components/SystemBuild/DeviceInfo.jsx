@@ -1,56 +1,102 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Loader from "@/components/SystemBuild/Loader";
 import Link from "next/link";
 import DeviceCard from "./DeviceCard";
+import { toast } from "react-toastify";
 
 const DeviceInfo = () => {
   const [deviceUid, setDeviceUid] = useState("");
+  const [devices, setDevices] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [verified, setVerified] = useState(false);
 
+  useEffect(() => {
+    const storedDevices = JSON.parse(localStorage.getItem("devices")) || [];
+    setDevices(storedDevices);
+    console.log("Retrieved devices from localStorage:", storedDevices);
+  }, []);
+
+  const handleInputChange = (e) => {
+    let input = e.target.value.toUpperCase();
+    if (input.length <= 12) {
+      setDeviceUid(input);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.removeItem("devices"); // Clear local storage on refresh
+    setDevices([]); // Reset state
+    console.log("LocalStorage cleared on page refresh");
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Custom validation: Check if the input is empty
-    if (!deviceUid.trim()) {
-      setErrorMessage("Please enter your Device UID."); // Custom error message
+    if (deviceUid.length !== 12) {
+      setErrorMessage("Device UID must be exactly 12 characters long.");
+      toast.error("Device UID must be exactly 12 characters long.");
       return;
     }
 
-    setErrorMessage(""); // Clear the error if input is valid
+    const storedDevices = JSON.parse(localStorage.getItem("devices")) || [];
 
-    // Simulate loading state
+    if (devices.includes(deviceUid) || storedDevices.includes(deviceUid)) {
+      setErrorMessage("This Device UID has already been added.");
+      toast.error("This Device UID has already been added.");
+      return;
+    }
+
+    setErrorMessage("");
     setLoading(true);
 
-    // Simulate an asynchronous operation (e.g., API call)
-    setTimeout(() => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/deals/device-details?uid=${deviceUid}`
+      );
+      const data = await response.json();
+      console.log("API Response:", data);
+
+      if (data.is_active === true) {
+        setErrorMessage("Device UID is not valid.");
+        toast.error("Device UID is not valid.");
+        setLoading(false);
+        return;
+      }
+
+      const updatedDevices = [...storedDevices, deviceUid];
+      localStorage.setItem("devices", JSON.stringify(updatedDevices));
+      setDevices(updatedDevices);
+      console.log("Saved devices to localStorage:", updatedDevices);
+      setVerified(true);
+      setDeviceUid("");
+      toast.success("Device UID Verified Successfully!");
+    } catch (error) {
+      console.error("Error fetching device details:", error);
+      setErrorMessage("An error occurred while verifying the device.");
+      toast.error("An error occurred while verifying the device.");
+    } finally {
       setLoading(false);
-      setVerified(true); // Mark as verified
-    }, 2000); // Simulate 2 seconds of loading time
+    }
   };
 
   return (
     <>
-      {/* Show Loader if loading */}
       {loading && <Loader />}
 
       {!loading && (
-        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8  mt-40 mb-10">
-          {/* Header */}
+        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8 mt-40 mb-10">
           <h1 className="text-[35px] md:text-[26px] font-bold">
             Device Information
           </h1>
 
-          {/* Form Container */}
           <form
             onSubmit={handleSubmit}
             className="bg-[#F6F7F7] w-[800px] md:w-full rounded-[35px] flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-0"
-            noValidate // Prevents browser from showing default validation
+            noValidate
           >
-            {/* Input Field */}
             <div className="w-full mb-5 p-[30px] md:p-[15px] sm:p-3 flex flex-col gap-[30px]">
               <h3 className="text-[28px] md:text-[20px] sm:text-[16px] font-semibold">
                 Verify your device
@@ -65,12 +111,11 @@ const DeviceInfo = () => {
                     name="deviceUid"
                     type="text"
                     value={deviceUid}
-                    onChange={(e) => setDeviceUid(e.target.value)}
+                    onChange={handleInputChange}
                     placeholder="ex: 4678469JDUE7DBFE8N"
                     className="w-full h-[60px] px-4 rounded-[10px] bg-slate-200/70 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#61C7AA] focus:shadow-inner transition-shadow duration-300 ease-in-out"
                   />
                 </div>
-                {/* Verify Button */}
                 <button
                   type="submit"
                   className="bg-[#70B896] active:scale-95 mt-10 sm:mt-0 text-white text-[18px] h-[60px] w-[150px] rounded-[10px] hover:bg-[#4FAF8D]"
@@ -78,24 +123,20 @@ const DeviceInfo = () => {
                   Verify
                 </button>
               </div>
-              {/* Error Message */}
-              {errorMessage && (
-                <p className="text-red-500 text-[14px]">{errorMessage}</p>
-              )}
             </div>
           </form>
 
-          {/* Display success message after verification */}
-          {verified && (
-            <p className="text-green-500 text-[18px] font-bold">
-              Device UID Verified Successfully!
-            </p>
-          )}
+          <div className="bg-[#F6F7F7] w-[800px] md:w-full p-[30px] md:px-[15px] sm:px-2 rounded-[35px] flex flex-col gap-9">
+            <h1 className="text-[28px] font-semibold">Your Devices</h1>
+            {devices.length > 0 ? (
+              devices.map((uid, index) => <DeviceCard key={index} id={uid} />)
+            ) : (
+              <p className="text-[#6C7482] text-center font-medium">
+                No devices added yet.
+              </p>
+            )}
+          </div>
 
-          {/* Card */}
-          <DeviceCard />
-
-          {/* Navigation Button - Conditionally rendered based on verification status */}
           {verified && (
             <Link
               href="/register"
@@ -106,9 +147,8 @@ const DeviceInfo = () => {
           )}
 
           <div className="flex items-center gap-1">
-            {/* Sign-In Link */}
             <p className="text-[18px] text-center text-[#6C7482]">
-              Already I have an account.{" "}
+              Already have an account?
             </p>
             <Link
               href="/login"
