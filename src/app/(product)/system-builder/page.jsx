@@ -11,14 +11,14 @@ import {
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button, Img } from "@/components";
-import RadioButtonGroup from "./RadioGroupFInstallation";
-import TermsCheckbox from "./TermsCheckbox ";
-import "./style.css";
+import RadioButtonGroup from "@/app/(product)/systembuilder/RadioGroupFInstallation";
+import TermsCheckbox from "@/app/(product)/systembuilder/TermsCheckbox ";
+import "@/app/(product)/systembuilder/style.css";
 import { jwtDecode } from "jwt-decode";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function HomePage() {
+export default function Page() {
   const router = useRouter();
   const { isLogin } = useAuth();
 
@@ -32,7 +32,7 @@ export default function HomePage() {
   let [quantity, setQuantity] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   let [selecteInstallation, setselecteInstallation] = useState(1);
-  let [installationQuantity, setInstallationQuantity] = useState(3);
+  let [installationQuantity, setInstallationQuantity] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const {
     getProducts,
@@ -65,7 +65,7 @@ export default function HomePage() {
         console.log(aimonitoring);
         if (kit) setKitPrice(kit.price);
         if (addon) setAddonDevicePrice(addon.price);
-        if (installation) setInstallationPrice(installation.price * 3);
+        if (installation) setInstallationPrice(installation.price * 0);
         if (installation) setInstallationPriceStatic(installation.price);
         if (aimonitoring) setAimonitoring(aimonitoring.price);
 
@@ -310,7 +310,7 @@ export default function HomePage() {
       setIsEmpty(false);
     } else {
       // Proceed to the next step
-      window.location.href = "/device-verification";
+      window.location.href = "/tafhim";
     }
   };
 
@@ -615,7 +615,7 @@ export default function HomePage() {
             <div className="absolute bottom-8">
               <p className="cursor-text tab:flex my-5 tab:justify-center">
                 <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
-                  Set of 3x AI Devices
+                  $50 per Device
                 </button>
               </p>
             </div>
@@ -685,81 +685,6 @@ export default function HomePage() {
                 For the set of 3x AI Devices
               </span>
             </div> */}
-          </div>
-        </div>
-      </div>
-
-      <div className="py-14 w-full flex justify-center items-center bg-[#1D293F]">
-        <div className="max-w-[1920px] w-full px-[200px] flex xxl:flex-col flex-row justify-between items-center  text-[#ffffff]">
-          <div>
-            <h4 className="xxs:text-[28px] sm:text-[32px] md:text-[40px] text-[48px] text-start xxl:text-center font-semibold font-poppins">
-              Already own a device?
-            </h4>
-            <h6 className="text-[30px] sm:text-[20px] md:text-[24px] xxs:text-[14px]">
-              Skip this step if you don&apos;t need to purchase a new one.
-            </h6>
-          </div>
-          <div>
-            {/* Skip Button */}
-            <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setShowPopup(true);
-              }}
-              className="text-[#1D293F] bg-[#ffffff] w-[218px] h-[50px] flex justify-center items-center text-[18px] font-bold rounded-lg"
-            >
-              Skip
-            </Link>
-
-            {/* Popup (Only Shows if showPopup is true) */}
-            {showPopup && (
-              <div className="fixed inset-0 flex w-full h-screen z-50 items-center justify-center bg-[#00000021]">
-                <div className="bg-white p-6 rounded-[35px] max-w-[635px] w-full py-10">
-                  <button
-                    onClick={() => setShowPopup(false)}
-                    className="text-[#A39C9C] text-[20px] font-sans w-full text-end"
-                  >
-                    X
-                  </button>
-                  <h2 className="text-[28px] font-bold text-[#1D293F] mb-4 ml-7">
-                    Enter Your Email
-                  </h2>
-                  <div className="flex flex-col items-center justify-center w-full">
-                    <input
-                      type="email"
-                      placeholder="Write your e-mail here"
-                      className="w-full max-w-[535px] text-[#1D293F] text-[20px] p-3 border border-gray-300 border-solid rounded mb-2"
-                      required
-                      value={email}
-                      onChange={handleEmailChange}
-                    />
-                    {/* Show error message if email is empty or invalid */}
-                    {isEmpty && (
-                      <p className="text-red-500 text-sm mb-4">
-                        Email cannot be empty. Please enter your email.
-                      </p>
-                    )}
-                    {!isEmpty && !emailValid && (
-                      <p className="text-red-500 text-sm mb-4">
-                        Please enter a valid email address.
-                      </p>
-                    )}
-                    <button
-                      onClick={handleContinue}
-                      disabled={isEmpty || !emailValid} // Disable button if email is empty or invalid
-                      className={`w-[150px] h-[60px] mt-4 ${
-                        isEmpty || !emailValid
-                          ? "bg-gray-400 cursor-not-allowed"
-                          : "bg-[#70B896]"
-                      } text-white p-2 rounded`}
-                    >
-                      Continue
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -888,13 +813,6 @@ export default function HomePage() {
                   onClick={() => window.open("/terms-of-service", "_blank")}
                 >
                   Terms of Service
-                </span>
-                ,&nbsp;
-                <span
-                  className="cursor-pointer underline"
-                  onClick={() => window.open("/shipping-and-returns", "_blank")}
-                >
-                  Shipping & Returns
                 </span>
                 ,&nbsp;
                 <span
