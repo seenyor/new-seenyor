@@ -16,6 +16,7 @@ const DeviceInfo = () => {
   useEffect(() => {
     const storedDevices = JSON.parse(localStorage.getItem("devices")) || [];
     setDevices(storedDevices);
+    setVerified(storedDevices.length > 0);
     console.log("Retrieved devices from localStorage:", storedDevices);
   }, []);
 
@@ -25,12 +26,6 @@ const DeviceInfo = () => {
       setDeviceUid(input);
     }
   };
-
-  useEffect(() => {
-    localStorage.removeItem("devices"); // Clear local storage on refresh
-    setDevices([]); // Reset state
-    console.log("LocalStorage cleared on page refresh");
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +64,6 @@ const DeviceInfo = () => {
       const updatedDevices = [...storedDevices, deviceUid];
       localStorage.setItem("devices", JSON.stringify(updatedDevices));
       setDevices(updatedDevices);
-      console.log("Saved devices to localStorage:", updatedDevices);
       setVerified(true);
       setDeviceUid("");
       toast.success("Device UID Verified Successfully!");
@@ -137,7 +131,7 @@ const DeviceInfo = () => {
             )}
           </div>
 
-          {verified && (
+          {verified && devices.length > 0 && (
             <Link
               href="/register"
               className="w-[800px] active:scale-95 text-center bg-gradient-to-r from-[#A2CDB9] to-[#5BAE87] text-white text-[18px] px-8 py-3 rounded-[15px]"

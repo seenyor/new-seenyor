@@ -125,6 +125,7 @@ function Page() {
           setIsProcessing(false);
           // Clear localStorage
           [
+            "devices",
             "subscriptionProducts",
             "orderDetails",
             "installation_details",
