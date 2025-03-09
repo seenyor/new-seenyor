@@ -173,6 +173,35 @@ export default function SecondaryNav() {
                   </Heading>
                 </Link>
               </li>
+              {isLogin ? (
+                <li role="none" className="flex items-stretch">
+                  <Link
+                    onClick={() => setIsToggleOpen(false)}
+                    href="/systembuilder"
+                  >
+                    <Heading
+                      as="p"
+                      className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#ffffff] hover:text-blue-600 transition-colors duration-200"
+                    >
+                      Buy Device
+                    </Heading>
+                  </Link>
+                </li>
+              ) : (
+                <li role="none" className="flex items-stretch">
+                  <Link
+                    onClick={() => setIsToggleOpen(false)}
+                    href="/register-device"
+                  >
+                    <Heading
+                      as="p"
+                      className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#ffffff] hover:text-blue-600 transition-colors duration-200"
+                    >
+                      Register Device
+                    </Heading>
+                  </Link>
+                </li>
+              )}
               {!isLogin ? (
                 <li className="flex flex-col gap-2 ps-5">
                   <Link href="/login">
@@ -262,6 +291,36 @@ export default function SecondaryNav() {
                   </Heading>
                 </Link>
               </li>
+              {isLogin ? (
+                <li role="none" className="flex items-stretch">
+                  <Link
+                    onClick={() => setIsToggleOpen(false)}
+                    href="/system-builder"
+                  >
+                    <Heading
+                      as="p"
+                      className="text-[1rem] font-bold !text-[#ffffff] hover:text-blue-600 transition-colors duration-200"
+                    >
+                      Buy Device
+                    </Heading>
+                  </Link>
+                </li>
+              ) : (
+                <li role="none" className="flex items-stretch">
+                  <Link
+                    onClick={() => setIsToggleOpen(false)}
+                    href="/register-device"
+                  >
+                    <Heading
+                      as="p"
+                      className="text-[1rem] font-bold !text-[#ffffff] hover:text-blue-600 transition-colors duration-200"
+                    >
+                      Register Device
+                    </Heading>
+                  </Link>
+                </li>
+              )}
+
               {!isLogin ? (
                 <li className="flex items-center gap-2">
                   <Link
