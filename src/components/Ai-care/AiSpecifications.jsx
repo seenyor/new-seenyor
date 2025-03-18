@@ -24,7 +24,7 @@ const specifications = [
 const AiSpecifications = () => {
   return (
     <section className="w-full flex justify-center items-center px-6 tab:px-3 mx-auto overflow-hidden mb-20">
-      <div className="w-full max-w-[1796px] flex items-center justify-center flex-col gap-[28px]">
+      <div className="w-full max-w-[1416px] flex items-center justify-center flex-col gap-[68px] relative">
         {/* Title Section */}
         <div className="w-full text-center">
           <h1 className="text-5xl font-bold text-[#16065F]">Specifications</h1>
@@ -32,13 +32,13 @@ const AiSpecifications = () => {
         </div>
 
         {/* 2nd div */}
-        <div className="flex items-center justify-between w-full pl-48">
+        <div className="flex items-start justify-start w-full">
           {/* text */}
-          <div className="max-w-[864px]">
-            <h1 className="text-3xl font-bold text-[#16065F]">
+          <div className="max-w-[864px] tab:max-w-[458px]">
+            <h1 className="text-3xl tab:text-sm font-bold text-[#16065F]">
               Device Information
             </h1>
-            <p className="text-3xl font-light text-justify">
+            <p className="text-3xl tab:text-sm font-light text-justify">
               Seenyor AI Guardian is equipped with a low-power mmWave radar,
               providing precise detection with minimal energy consumption. This
               advanced radar ensures reliable fall detection, even in low light
@@ -46,18 +46,19 @@ const AiSpecifications = () => {
               monitoring.
             </p>
           </div>
-          <div>
+          <div className="bg-transparent min-w-[305px] tab:min-w-[205px] h-[40px]"></div>
+          <div className="absolute right-[-180px] tab:right-[-80px] top-0 tab:top-16 w-[705px] tab:w-[405px]">
             <Image src={product} alt="product" width={705} height={520} />
           </div>
         </div>
 
         {/* Specifications List */}
         <div className="w-full max-w-[1338px] rounded-lg p-6">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <ul className="grid grid-cols-1 gap-4">
             {specifications.map((spec, index) => (
               <li
                 key={index}
-                className="flex text-[28px] justify-between border-b border-[#2C3142] pb-2 last:border-b-0"
+                className="flex text-[28px] tab:text-sm sm:text-xs justify-between border-b border-[#2C3142] pb-2 last:border-b-0"
               >
                 <span className="text-[#2C3142] font-bold text-gray-700">
                   {spec.label}

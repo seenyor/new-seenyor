@@ -12,6 +12,7 @@ import cardimg4 from "@/assets/ai-care/cardImg/cardimg4.png";
 import cardimg5 from "@/assets/ai-care/cardImg/cardimg5.png";
 import cardimg6 from "@/assets/ai-care/cardImg/cardimg6.png";
 import cardimg7 from "@/assets/ai-care/cardImg/cardimg7.png";
+import line from "@/assets/ai-care/stroke2.png";
 
 const cardData = [
   {
@@ -92,7 +93,7 @@ const cardData = [
 const Card = ({ title, description, features, image, reverse }) => {
   return (
     <div
-      className={`bg-white relative p-8 rounded-[30px] w-full flex items-center gap-[88px] ${
+      className={`bg-white relative p-8 sm:p-4 rounded-[30px] sm:rounded-[20px] w-full flex sm:flex-col items-center gap-[88px] tab:gap-[60px] sm:gap-[30px] ${
         reverse ? "flex-row-reverse" : ""
       }`}
     >
@@ -101,29 +102,33 @@ const Card = ({ title, description, features, image, reverse }) => {
         alt={title}
         width={710}
         height={340}
-        className="h-[17.708vw] rounded-[20px]"
+        className="h-[17.708vw] sm:w-full sm:h-auto rounded-[20px]"
       />
       <div
         className={`${
           reverse
-            ? "absolute top-[-17%] left-[0%] max-w-[46vw] w-full h-[28.646vw] bg-[#ffffff]/70 rounded-[30px] z-0"
-            : "absolute top-[-17%] right-[0%] max-w-[46vw] w-full h-[28.646vw] bg-[#ffffff]/70 rounded-[30px] z-0"
+            ? "absolute top-auto sm:hidden left-[0%] max-w-[47vw] tab:max-w-[45.969vw] w-full h-[28.646vw] tab:h-[40vw] bg-[#ffffff]/70 rounded-[30px] z-0"
+            : "absolute top-auto sm:hidden right-[0%] max-w-[47vw] tab:max-w-[45.969vw] w-full h-[28.646vw] tab:h-[40vw] bg-[#ffffff]/70 rounded-[30px] z-0"
         }`}
       ></div>
       {/* text */}
-      <div className={`max-w-[727px] relative ${reverse ? " ml-10" : ""}`}>
+      <div
+        className={`max-w-[727px] relative ${
+          reverse ? " ml-10 tab:ml-6 sm:ml-0" : ""
+        }`}
+      >
         <div className="z-10">
-          <h3 className="text-[1.458vw] text-[#10005B] font-bold mb-2">
+          <h3 className="text-[1.458vw] tab:text-[2.1vw] sm:text-[4vw] text-[#10005B] font-bold mb-2">
             {title}
           </h3>
-          <p className="text-[1.458vw] font-light">
+          <p className="text-[1.458vw] tab:text-[1.65vw] sm:text-[4vw] font-light">
             {description} <br />
             <br />
           </p>
-          <ul className="text-[1.458vw]">
+          <ul className="text-[1.458vw] tab:text-[1.65vw] sm:text-[4vw]">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
-                <RightMark className="w-5 h-5" /> {feature}
+                <RightMark className="w-5 tab:w-3 h-5 tab:h-3" /> {feature}
               </li>
             ))}
           </ul>
@@ -136,26 +141,31 @@ const AiCards = () => {
   return (
     <section>
       <div className="w-full flex flex-col justify-center items-center text-center">
-        <h1 className="text-[48px] text-[#F8E3EC]">
+        <h1 className="text-[48px] tab:text-[6.469vw] sm:text-[6.646vw] text-[#EE0066]">
           We Offer <span className="font-bold">Peace of Mind</span>
         </h1>
-        <h6 className="text-[30px]">No Wearables, Just Reliable Safety</h6>
-        <div className="max-w-[1710px] w-full flex justify-between items-center mt-24 tab:mt-16 mb-10">
-          <div className="min-w-[700px] tab:min-w-[300px] h-[50px] bg-transparent"></div>
-          <p className="max-w-[860px] text-[28px] tab:text-lg text-start">
+        <h6 className="text-[30px] tab:text-[4vw] sm:text-[4vw]">
+          No Wearables, Just Reliable Safety
+        </h6>
+        <div className="max-w-[1710px] w-full flex sm:flex-col justify-between items-center mt-24 tab:mt-16 sm:mt-10 mb-10">
+          <div className="min-w-[700px] tab:min-w-[350px] sm:hidden h-[50px] bg-transparent"></div>
+          <p className="max-w-[860px] text-[28px] tab:text-lg text-start sm:px-5 sm:text-center">
             Non-intrusive technology ensures comfort and ease while providing
-            continuous Fall Detection and valuable insights into daily activity.
+            continuous <span className="font-bold">Fall Detection</span> and{" "}
+            <span className="font-bold">valuable</span> insights into daily
+            activity.
             <br />
             <br />
-            Effortlessly stay informed about your loved one&apos;s well-being,
-            whether they&apos;re resting or moving around the home, day or
-            night.
+            <span className="font-bold">Effortlessly</span> stay informed about
+            your loved one&apos;s well-being, whether they&apos;re resting or
+            moving around the home, day or night.
           </p>
+          <div className="hidden sm:block min-w-[700px] tab:min-w-[300px] h-[200px] bg-transparent"></div>
         </div>
       </div>
-      <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen py-20">
-        <div className="max-w-[1710px] w-full relative">
-          <div className="bg-white w-[626px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center items-center absolute top-[-530px] left-10 tab:top-[-300px]">
+      <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen py-40 tab:py-10">
+        <div className="max-w-[1710px] sm:max-w-full w-full relative">
+          <div className="bg-white w-[626px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center items-center absolute top-[-530px] left-10 sm:left-[15%] tab:top-[-300px]">
             <Image
               src={product}
               alt="product"
@@ -164,10 +174,19 @@ const AiCards = () => {
               className="w-[557px] tab:w-[288px]"
             />
           </div>
+          <div className="mt-20 tab:mt-0 max-w-[700px] tab:max-w-[380px] flex justify-center items-center">
+            <Image
+              src={line}
+              alt="line"
+              width={5}
+              height={114}
+              className="h-[114px] tab:h-[51px] sm:h-8"
+            />
+          </div>
 
           {/* Cards Section */}
           <div>
-            <div className="max-w-[1700px] w-full mx-auto p-6 flex flex-col justify-center items-center mt-[250px]">
+            <div className="max-w-[1700px] w-full mx-auto p-6 sm:p-0 sm:px-3 flex flex-col justify-center items-center">
               {cardData.map((card, index) => (
                 <>
                   <Card key={index} {...card} reverse={index % 2 == 0} />
@@ -175,21 +194,39 @@ const AiCards = () => {
                   {index < cardData.length - 1 && (
                     <>
                       {index % 2 === 0 ? (
-                        <Image
-                          src={stroke}
-                          alt="stroke"
-                          width={845}
-                          height={117}
-                          className="m-16"
-                        />
+                        <>
+                          <Image
+                            src={stroke}
+                            alt="stroke"
+                            width={845}
+                            height={117}
+                            className="m-[3.333vw] md:m-[2.083vw] tab:m-[4.23vw] w-[46.094vw] sm:hidden"
+                          />
+                          <Image
+                            src={line}
+                            alt="line"
+                            width={5}
+                            height={10}
+                            className="h-8 hidden sm:block"
+                          />
+                        </>
                       ) : (
-                        <Image
-                          src={strokeR}
-                          alt="stroke"
-                          width={845}
-                          height={117}
-                          className="m-16"
-                        />
+                        <>
+                          <Image
+                            src={strokeR}
+                            alt="stroke"
+                            width={845}
+                            height={117}
+                            className="m-[3.333vw] md:m-[2.083vw] tab:m-[4.23vw] w-[46.094vw] sm:hidden"
+                          />
+                          <Image
+                            src={line}
+                            alt="line"
+                            width={5}
+                            height={10}
+                            className="h-8 hidden sm:block"
+                          />
+                        </>
                       )}
                     </>
                   )}

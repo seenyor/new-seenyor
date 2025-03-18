@@ -52,7 +52,7 @@ const AiActNow = () => {
           {cardsData.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-[30px] max-w-[530px] w-full text-[24px] h-[685px]"
+              className="bg-white rounded-[30px] sm:rounded-[20px] max-w-[530px] overflow-hidden w-full text-[24px] h-[685px] sm:h-auto"
             >
               <Image
                 src={card.image}
@@ -66,12 +66,16 @@ const AiActNow = () => {
                   <button className="bg-[#EE0066] text-[16px] tab:text-[10px] text-white py-2 px-4 rounded-[10px]">
                     {card.badgeText}
                   </button>
-                  <h1 className="font-bold mt-4 text-[#10005B]">
+                  <h1 className="font-bold mt-4 text-[#10005B] sm:text-lg">
                     {card.title}
                   </h1>
-                  <p className="font-light mt-2">{card.description}</p>
+                  <p className="font-light mt-2 sm:text-lg">
+                    {card.description}
+                  </p>
                 </div>
-                <p className="mt-4 font-semibold">{card.footerText}</p>
+                <p className="mt-4 font-semibold sm:text-lg">
+                  {card.footerText}
+                </p>
               </div>
             </div>
           ))}

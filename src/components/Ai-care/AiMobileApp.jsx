@@ -22,7 +22,7 @@ const appScreens = [
 
 const AiMobileApp = () => {
   return (
-    <section className="w-full flex justify-center items-center px-6 tab:px-3 py-16 mx-auto bg-[#F8E3EC] overflow-hidden">
+    <section className="w-full flex justify-center items-center px-6 tab:px-3 py-16 mx-auto bg-[#E4E3F8] overflow-hidden">
       <div className="w-full max-w-[1710px] flex flex-col gap-[98px] tab:gap-[60px] sm:gap-[30px]">
         {/* text */}
         <div className="flex flex-col text-center w-full">
@@ -34,8 +34,11 @@ const AiMobileApp = () => {
         {/* app screens */}
         <div className="grid grid-cols-4 gap-20 tab:gap-14 sm:gap-5">
           {appScreens.map((screen, index) => (
-            <div key={index} className="flex flex-col items-center gap-[22px]">
-              <h2 className="text-2xl tab:text-lg sm:text-xs font-light italic">
+            <div
+              key={index}
+              className="flex flex-col items-center gap-[22px] tab:gap-[18px] sm:gap-[10px]"
+            >
+              <h2 className="text-2xl tab:text-base sm:text-[10px] font-light italic">
                 {screen.title}
               </h2>
               <Image
