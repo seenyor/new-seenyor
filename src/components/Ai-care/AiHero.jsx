@@ -61,7 +61,7 @@ const AiHero = () => {
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover sm:rounded-b-[40px]"
+          className="absolute top-0 left-0 w-full h-full object-cover tab:rounded-b-[60px] sm:rounded-b-[40px]"
         >
           <source src="/assets/ai-care/video/mobvideo.mp4" type="video/mp4" />
           Your browser does not support the video tag.

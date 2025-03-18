@@ -59,7 +59,7 @@ const AiActNow = () => {
                 alt="card"
                 width={520}
                 height={335}
-                className="w-full rounded-t-[30px]"
+                className="w-full rounded-t-[30px] sm:rounded-t-[20px]"
               />
               <div className="p-5 flex flex-col h-[45%] justify-between">
                 <div className="">

@@ -160,12 +160,12 @@ const AiCards = () => {
             your loved one&apos;s well-being, whether they&apos;re resting or
             moving around the home, day or night.
           </p>
-          <div className="hidden sm:block min-w-[700px] tab:min-w-[300px] h-[200px] bg-transparent"></div>
+          <div className="hidden sm:block min-w-[700px] tab:min-w-[300px] h-[240px] bg-transparent"></div>
         </div>
       </div>
       <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen py-40 tab:py-10">
         <div className="max-w-[1710px] sm:max-w-full w-full relative">
-          <div className="bg-white w-[626px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center items-center absolute top-[-530px] left-10 sm:left-[15%] tab:top-[-300px]">
+          <div className="bg-white w-[626px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center sm:hidden items-center absolute top-[-530px] left-10 sm:left-[12vw] tab:top-[-300px]">
             <Image
               src={product}
               alt="product"
@@ -174,7 +174,18 @@ const AiCards = () => {
               className="w-[557px] tab:w-[288px]"
             />
           </div>
-          <div className="mt-20 tab:mt-0 max-w-[700px] tab:max-w-[380px] flex justify-center items-center">
+          <div className="hidden sm:flex w-full justify-center items-center relative">
+            <div className="bg-white rounded-full w-[320px] h-[320px] flex justify-center items-center absolute top-[-290px]">
+              <Image
+                src={product}
+                alt="product"
+                width={557}
+                height={557}
+                className="w-[557px] tab:w-[288px]"
+              />
+            </div>
+          </div>
+          <div className="mt-20 tab:mt-0 sm:mt-6 max-w-[700px] tab:max-w-[380px] sm:max-w-full flex justify-center items-center">
             <Image
               src={line}
               alt="line"
