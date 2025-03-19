@@ -155,8 +155,8 @@ const MobileCarousel = () => {
   }, []);
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center min-h-[55vh]">
-      <div className="relative w-full h-full flex justify-center items-center mt-[70px]">
+    <div className="relative w-full flex flex-col justify-center items-center min-h-[80vh] xss:min-h-[68vh]">
+      <div className="relative w-full h-full flex justify-center items-center mt-[60px]">
         {cardData.map((card, index) => (
           <motion.div
             key={index}
@@ -179,8 +179,8 @@ const MobileCarousel = () => {
         ))}
       </div>
 
-      {/* Dot Navigation
-      <div className="absolute bottom-[-30px] flex space-x-2">
+      {/* Dot Navigation */}
+      <div className="absolute bottom-[0px] flex space-x-5">
         {cardData.map((_, index) => (
           <button
             key={index}
@@ -192,7 +192,7 @@ const MobileCarousel = () => {
             onClick={() => setCurrentIndex(index)}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
@@ -235,7 +235,7 @@ const AiCards = () => {
             />
           </div>
           <div className="hidden sm:flex w-full justify-center items-center relative">
-            <div className="bg-white rounded-full w-[320px] h-[320px] flex justify-center items-center absolute top-[-290px]">
+            <div className="bg-white rounded-full w-[320px] h-[320px] flex justify-center items-center absolute top-[-270px]">
               <Image
                 src={product}
                 alt="product"
