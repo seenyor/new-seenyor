@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import product from "@/assets/ai-care/product2.png";
 import img from "@/assets/ai-care/heroImg.png";
@@ -137,6 +140,63 @@ const Card = ({ title, description, features, image, reverse }) => {
     </div>
   );
 };
+
+const MobileCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === cardData.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full flex flex-col justify-center items-center min-h-[55vh]">
+      <div className="relative w-full h-full flex justify-center items-center mt-[70px]">
+        {cardData.map((card, index) => (
+          <motion.div
+            key={index}
+            className="absolute w-full flex justify-center"
+            initial={{
+              opacity: index === currentIndex ? 0 : 0.5,
+              scale: index === currentIndex ? 0.8 : 0.6,
+              zIndex: index === currentIndex ? 2 : 1,
+            }}
+            animate={{
+              opacity: index === currentIndex ? 1 : 0,
+              scale: index === currentIndex ? 1 : 0.8,
+              zIndex: index === currentIndex ? 3 : 1,
+            }}
+            exit={{ opacity: 0, scale: 0.8, zIndex: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <Card {...card} />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Dot Navigation
+      <div className="absolute bottom-[-30px] flex space-x-2">
+        {cardData.map((_, index) => (
+          <button
+            key={index}
+            className={`w-3 h-3 rounded-full ${
+              currentIndex === index
+                ? "bg-[#ff7fb7] scale-125 w-10 h-3 rounded-xl"
+                : "bg-gray-400"
+            } transition-all duration-300 ease-in-out hover:bg-blue-400 hover:scale-110`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div> */}
+    </div>
+  );
+};
+
 const AiCards = () => {
   return (
     <section>
@@ -163,7 +223,7 @@ const AiCards = () => {
           <div className="hidden sm:block min-w-[700px] tab:min-w-[300px] h-[240px] bg-transparent"></div>
         </div>
       </div>
-      <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen py-40 tab:py-10">
+      <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen sm:min-h-full py-40 tab:py-10">
         <div className="max-w-[1710px] sm:max-w-full w-full relative">
           <div className="bg-white w-[626px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center sm:hidden items-center absolute top-[-530px] left-10 sm:left-[12vw] tab:top-[-300px]">
             <Image
@@ -185,7 +245,7 @@ const AiCards = () => {
               />
             </div>
           </div>
-          <div className="mt-20 tab:mt-0 sm:mt-6 max-w-[700px] tab:max-w-[380px] sm:max-w-full flex justify-center items-center">
+          <div className="mt-20 tab:mt-0 sm:mt-6 max-w-[700px] tab:max-w-[380px] sm:max-w-full flex sm:hidden justify-center items-center">
             <Image
               src={line}
               alt="line"
@@ -197,9 +257,9 @@ const AiCards = () => {
 
           {/* Cards Section */}
           <div>
-            <div className="max-w-[1700px] w-full mx-auto p-6 sm:p-0 sm:px-3 flex flex-col justify-center items-center">
+            <div className="max-w-[1700px] w-full mx-auto p-6 sm:p-0 sm:px-3 flex sm:hidden flex-col justify-center items-center">
               {cardData.map((card, index) => (
-                <>
+                <div key={index}>
                   <Card key={index} {...card} reverse={index % 2 == 0} />
                   {/* stroke */}
                   {index < cardData.length - 1 && (
@@ -241,8 +301,14 @@ const AiCards = () => {
                       )}
                     </>
                   )}
-                </>
+                </div>
               ))}
+            </div>
+
+            {/* mobile carousle */}
+
+            <div className="max-w-[1700px] w-full mx-auto p-6 sm:p-0 sm:px-3 hidden sm:flex flex-col justify-center items-center">
+              <MobileCarousel />
             </div>
           </div>
         </div>

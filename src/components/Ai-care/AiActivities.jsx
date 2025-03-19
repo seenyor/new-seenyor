@@ -90,7 +90,7 @@ const AiActivities = () => {
           </div>
 
           {/* Activity Cards */}
-          <div className="grid grid-cols-5 gap-24 text-center ">
+          <div className="grid grid-cols-5 sm:grid-cols-2 gap-24 text-center ">
             {activities.map((activity, index) => (
               <div
                 key={index}
@@ -122,10 +122,10 @@ const AiActivities = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          minHeight: "336px",
+          minHeight: "476px",
         }}
       >
-        <div className="w-full max-w-[1710px] flex flex-col items-center justify-center gap-[98px] tab:gap-[60px] sm:gap-[30px] relative text-[#fff]">
+        <div className="w-full max-w-[1710px] flex flex-col items-center justify-center gap-[98px] tab:gap-[60px] sm:gap-[0px] relative text-[#fff]">
           {/* Heading */}
           <div className="w-full text-center">
             <h1 className="font-bold text-5xl md:text-3xl sm:text-2xl">
@@ -137,7 +137,7 @@ const AiActivities = () => {
           </div>
 
           {/* Activity Cards */}
-          <div className="grid grid-cols-5 gap-24 tab:gap-5 sm:gap-5  text-center ">
+          <div className="grid grid-cols-5 sm:grid-cols-2 gap-24 tab:gap-5 sm:gap-5 sm:py-10 text-center ">
             {activities.map((activity, index) => (
               <div
                 key={index}
@@ -150,9 +150,9 @@ const AiActivities = () => {
                   height={40}
                   className="w-[40px] tab:w-[18px] sm:w-[15px] h-[40px] tab:h-[18px] sm:h-[15px] object-cover bg-cover bg-center"
                 />
-                <div className="text-[28px] tab:text-[14px]  sm:text-[8px]">
+                <div className="text-[28px] tab:text-[14px] sm:text-[12px]">
                   <h1 className="font-bold">{activity.title}</h1>
-                  <p className="sm:text-[10px]">{activity.description}</p>
+                  <p className="sm:text-[12px]">{activity.description}</p>
                 </div>
               </div>
             ))}
