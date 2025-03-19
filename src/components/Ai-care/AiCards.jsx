@@ -97,7 +97,7 @@ const Card = ({ title, description, features, image, reverse }) => {
   return (
     <div
       className={`bg-white relative p-8 sm:p-4 rounded-[30px] sm:rounded-[20px] w-full flex sm:flex-col items-center gap-[88px] tab:gap-[60px] sm:gap-[30px] ${
-        reverse ? "flex-row-reverse" : ""
+        reverse ? "flex-row-reverse w-full" : ""
       }`}
     >
       <Image
@@ -117,7 +117,7 @@ const Card = ({ title, description, features, image, reverse }) => {
       {/* text */}
       <div
         className={`max-w-[727px] relative ${
-          reverse ? " ml-10 tab:ml-6 sm:ml-0" : ""
+          reverse ? " ml-10 tab:ml-0 sm:ml-0" : " ml-10 tab:ml-0 sm:ml-0"
         }`}
       >
         <div className="z-10">
@@ -263,7 +263,7 @@ const AiCards = () => {
                   <Card key={index} {...card} reverse={index % 2 == 0} />
                   {/* stroke */}
                   {index < cardData.length - 1 && (
-                    <>
+                    <div className="flex items-center justify-center">
                       {index % 2 === 0 ? (
                         <>
                           <Image
@@ -299,7 +299,7 @@ const AiCards = () => {
                           />
                         </>
                       )}
-                    </>
+                    </div>
                   )}
                 </div>
               ))}
