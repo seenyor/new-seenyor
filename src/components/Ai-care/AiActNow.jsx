@@ -69,11 +69,11 @@ const AiActNow = () => {
                   <h1 className="font-bold mt-4 text-[#10005B] sm:text-lg">
                     {card.title}
                   </h1>
-                  <p className="font-light mt-2 sm:text-lg">
+                  <p className="font-light mt-2 xxl:text-[20px] md:text-[16px] sm:text-lg">
                     {card.description}
                   </p>
                 </div>
-                <p className="mt-4 font-semibold sm:text-lg">
+                <p className="mt-4 font-semibold xxl:text-[20px] sm:text-lg">
                   {card.footerText}
                 </p>
               </div>
