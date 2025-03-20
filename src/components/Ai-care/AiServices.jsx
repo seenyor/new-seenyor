@@ -68,8 +68,10 @@ const AiServices = () => {
               />
               <div className="p-5 tab:p-3 tab:text-center flex flex-col justify-between h-[45%] tab:h-[40%]">
                 <h1 className="font-bold mt-4 text-[#10005B]">{card.title}</h1>
-                <p className="font-light mt-2">{card.description}</p>
-                <p className="mt-4">{card.footerText}</p>
+                <p className="font-light xxl:text-[20px] mt-2">
+                  {card.description}
+                </p>
+                <p className="mt-4 xxl:text-[22px]">{card.footerText}</p>
               </div>
             </div>
           ))}

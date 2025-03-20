@@ -103,9 +103,11 @@ const AiActivities = () => {
                   height={40}
                   className="w-[40px] tab:w-[20px] sm:w-[18px] h-[40px] tab:h-[20px] sm:h-[18px] object-cover bg-cover bg-center"
                 />
-                <div className="text-[28px] tab:text-[16px] sm:text-[14px]">
+                <div className="text-[28px] xxl:text-[24px] tab:text-[16px] sm:text-[14px]">
                   <h1 className="font-bold">{activity.title}</h1>
-                  <p className="sm:text-[10px]">{activity.description}</p>
+                  <p className="xxl:text-[20px] sm:text-[10px]">
+                    {activity.description}
+                  </p>
                 </div>
               </div>
             ))}

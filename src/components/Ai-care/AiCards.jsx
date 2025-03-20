@@ -176,7 +176,7 @@ const MobileCarousel = () => {
       </div>
 
       {/* Dot Navigation */}
-      <div className="absolute bottom-[0px] flex space-x-5">
+      <div className="absolute bottom-[-20px] flex space-x-5">
         {cardData.map((_, index) => (
           <button
             key={index}
@@ -184,7 +184,7 @@ const MobileCarousel = () => {
               currentIndex === index
                 ? "bg-[#ff7fb7] scale-125 w-10 h-3 rounded-xl"
                 : "bg-gray-400"
-            } transition-all duration-300 ease-in-out hover:bg-blue-400 hover:scale-110`}
+            } transition-all duration-300 ease-in-out hover:scale-110`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}
