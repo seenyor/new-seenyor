@@ -38,10 +38,10 @@ const AiSpecifications = () => {
           {/* text */}
           <div className="max-w-[864px] sm:max-w-full tab:max-w-[458px]">
             <div className="bg-transparent min-w-[305px] tab:min-w-[205px] hidden sm:block h-[20vh]"></div>
-            <h1 className="text-3xl tab:text-sm font-bold text-[#16065F] sm:text-center">
+            <h1 className="text-3xl tab:text-base mb-2 font-bold text-[#16065F] sm:text-center">
               Device Information
             </h1>
-            <p className="text-3xl tab:text-sm font-light text-justify sm:text-center">
+            <p className="text-[26px] tab:text-sm font-light text-justify sm:text-center">
               Seenyor AI Guardian is equipped with a low-power mmWave radar,
               providing precise detection with minimal energy consumption. This
               advanced radar ensures reliable fall detection, even in low light
@@ -53,7 +53,7 @@ const AiSpecifications = () => {
           <div className="absolute right-[-180px] tab:right-[-80px] sm:hidden top-0 tab:top-16 w-[705px] tab:w-[405px]">
             <Image src={product} alt="product" width={705} height={520} />
           </div>
-          <div className="absolute hidden sm:flex top-6 mt-10 justify-center">
+          <div className="absolute hidden sm:flex top-6 sm:mt-0 xss:mt-8 justify-center">
             <Image src={product} alt="product" width={705} height={520} />
           </div>
         </div>

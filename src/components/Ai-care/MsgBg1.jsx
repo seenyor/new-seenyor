@@ -39,10 +39,12 @@ const MsgBg1 = () => {
         {/* <div class="w-0 h-0 border-l-8 border-r-8 border-t-8 border-t-transparent border-b-8 border-b-white shadow-md"></div> */}
         <div className="text-center flex flex-col gap-10">
           <div>
-            <h1 className="text-[48px] italic md:text-4xl">
+            <h1 className="text-[48px] tab:text-[30px] sm:text-[25px] italic md:text-4xl">
               Common Challenges
             </h1>
-            <h1 className="text-[30px] md:text-3xl">of Ageing Adults</h1>
+            <h1 className="text-[30px] md:text-3xl tab:text-[26px] sm:text-[24px]">
+              of Ageing Adults
+            </h1>
           </div>
           <div className="flex px-10 justify-between gap-4 tab:flex-col items-center tab:gap-8">
             {challenges.map((challenge, index) => (
@@ -56,7 +58,7 @@ const MsgBg1 = () => {
                   width={80}
                   height={80}
                 />
-                <h4 className="text-[22px] text-center">
+                <h4 className="text-[22px] sm:text-[18px] text-center">
                   {challenge.text.split(" ").map((word, i) =>
                     word === "difficult." ||
                     word === "increase" ||
