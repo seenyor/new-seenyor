@@ -73,6 +73,7 @@ function Page() {
       const customerData = await getCustomerId(customerMail);
       const stripeCustomerId = customerData.id;
       const details = await getAllPaymentMethod(stripeCustomerId);
+      console.log(details);
 
       if (details) {
         const formattedPaymentMethods = details.map((method) => ({
@@ -83,6 +84,7 @@ function Page() {
             exp_month: method.card.exp_month,
             exp_year: method.card.exp_year,
           },
+          customer: method.customer,
           billing_details: method.billing_details,
           isDefault: method.isDefault,
         }));
@@ -395,17 +397,20 @@ function Page() {
               <div className="flex flex-col gap-[0.75rem]">
                 <Suspense fallback={<div>Loading...</div>}>
                   {paymentMethods.length > 0 ? (
-                    paymentMethods.map((method) => (
-                      <PaymentMethodCard
-                        key={method.id}
-                        id={method.id}
-                        card={method.card}
-                        billing_details={method.billing_details}
-                        isDefault={method.isDefault}
-                        onDelete={() => {}}
-                        className="bg-gray-100" // Add any additional styling here
-                      />
-                    ))
+                    paymentMethods
+                      .sort((a, b) => b.isDefault - a.isDefault) // Sort by isDefault (true first)
+                      .map((method) => (
+                        <PaymentMethodCard
+                          key={method.id}
+                          id={method.id}
+                          card={method.card}
+                          billing_details={method.billing_details}
+                          isDefault={method.isDefault}
+                          customerId={method.customer}
+                          onDelete={() => {}}
+                          className="bg-gray-100"
+                        />
+                      ))
                   ) : (
                     <div>No payment methods found.</div>
                   )}

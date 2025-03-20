@@ -319,6 +319,25 @@ export const useUserService = () => {
       throw error;
     }
   };
+  //Delete Payment Method
+  const DeletePaymentMethod = async (methodInfo) => {
+    try {
+      const response = await post("/orders/delete-payment-method", methodInfo);
+      return response;
+    } catch (error) {
+      console.error("Error adding payment:", error);
+      throw error;
+    }
+  };
+  const SetDefaultPaymentMethod = async (methodInfo) => {
+    try {
+      const response = await post("/orders/default-payment-method", methodInfo);
+      return response;
+    } catch (error) {
+      console.error("Error adding payment:", error);
+      throw error;
+    }
+  };
 
   // getmethod
   const getAllPaymentMethod = async (customerid) => {
@@ -385,6 +404,7 @@ export const useUserService = () => {
     updatePassword,
     updateEmail,
     getFirstOrderStatus,
+    DeletePaymentMethod,
     updateUserInfo,
     getTransactionDetails,
     refundRequest,
@@ -394,5 +414,6 @@ export const useUserService = () => {
     authEmail,
     AddNewPaymentMethod,
     getAllPaymentMethod,
+    SetDefaultPaymentMethod,
   };
 };
