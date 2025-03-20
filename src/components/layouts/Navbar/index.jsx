@@ -239,7 +239,7 @@ export default function Header() {
                 <Link href="/">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1.125rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Home
                   </Heading>
@@ -250,7 +250,7 @@ export default function Header() {
                   onClick={handleToggle}
                   className="flex cursor-pointer items-center gap-2 px-2"
                 >
-                  <button className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200">
+                  <button className="text-[1.125rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200">
                     Services
                   </button>
                   <ArrowDown className="text-[#6c7482] h-5 w-5" />
@@ -284,7 +284,7 @@ export default function Header() {
                 <Link href="/app">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1.125rem] font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     App
                   </Heading>
@@ -294,7 +294,7 @@ export default function Header() {
                 <Link href="/knowledge">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-bold !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
+                    className="text-[1.125rem] font-bold !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
                   >
                     Knowledge Base
                   </Heading>

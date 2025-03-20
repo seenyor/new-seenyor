@@ -233,7 +233,7 @@ export default function SecondaryNav() {
                 <Link href="/">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-medium text-white"
+                    className="text-[1.125rem] font-medium text-white"
                   >
                     Home
                   </Heading>
@@ -244,7 +244,7 @@ export default function SecondaryNav() {
                   onClick={handleToggle}
                   className="flex items-center cursor-pointer gap-2 px-2"
                 >
-                  <button className="text-[1rem] font-medium text-white">
+                  <button className="text-[1.125rem] font-medium text-white">
                     Services
                   </button>
                   <ArrowDown className="text-white h-5 w-5" />
@@ -278,7 +278,7 @@ export default function SecondaryNav() {
                 <Link href="/app">
                   <Heading
                     as="p"
-                    className="text-[1rem] font-medium text-white"
+                    className="text-[1.125rem] font-medium text-white"
                   >
                     App
                   </Heading>
@@ -286,7 +286,10 @@ export default function SecondaryNav() {
               </li>
               <li>
                 <Link href="/knowledge">
-                  <Heading as="p" className="text-[1rem] font-bold text-white">
+                  <Heading
+                    as="p"
+                    className="text-[1.125rem] font-bold text-white"
+                  >
                     Knowledge Base
                   </Heading>
                 </Link>
