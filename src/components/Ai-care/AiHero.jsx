@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import hero from "@/assets/ai-care/heroImg.png";
+import hero from "@/assets/ai-care/heroImage.png";
 import bg from "@/assets/ai-care/heroBg.png";
 import mobbg from "@/assets/ai-care/mobbg.png";
 import logo from "@/assets/ai-care/logo.png";
@@ -37,11 +37,16 @@ const AiHero = () => {
           </div>
 
           {/* Image Section */}
+          <div className="flex justify-center h-auto rounded-2xl overflow-hidden mt-4">
+            <Image
+              src={hero}
+              alt="AI Guardian"
+              width={840}
+              height={495}
+              className="w-[840px] h-[495px] object-cover tab:rounded-b-[60px] sm:rounded-b-[40px]"
+            />
 
-          <div className="flex justify-center h-auto rounded-2xl overflow-hidden">
-            {/* <Image src={hero} alt="AI Guardian" width={840} height={495} /> */}
-
-            <video
+            {/* <video
               autoPlay
               loop
               muted
@@ -53,7 +58,7 @@ const AiHero = () => {
                 type="video/mp4"
               />
               Your browser does not support the video tag.
-            </video>
+            </video> */}
           </div>
         </div>
       </section>
@@ -92,7 +97,15 @@ const AiHero = () => {
               </h6>
             </div>
           </div>
-          <video
+          <Image
+            src={hero}
+            alt="AI Guardian"
+            width={840}
+            height={495}
+            className=" w-full h-auto object-cover tab:rounded-[40px] sm:rounded-[20px] absolute top-[30%] sm:top-[35%] left-0 mt-4"
+          />
+
+          {/* <video
             autoPlay
             loop
             muted
@@ -101,7 +114,7 @@ const AiHero = () => {
           >
             <source src="/assets/ai-care/video/aivideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
         </div>
       </section>
     </>

@@ -47,8 +47,10 @@ const AiServices = () => {
       <div className="w-full max-w-[1710px] flex flex-col gap-[98px] tab:gap-[60px] sm:gap-[30px]">
         {/* text */}
         <div className="w-full text-center">
-          <h1 className="text-5xl text-[#16065F] font-bold">Peace of Mind</h1>
-          <h1 className="text-[30px]">Services</h1>
+          <h1 className="text-5xl text-[#16065F] md:text-3xl font-bold">
+            Peace of Mind
+          </h1>
+          <h1 className="text-[30px] md:text-2xl">Services</h1>
         </div>
         {/* cards */}
         <div className="flex tab:hidden sm:flex-col items-center justify-center gap-[60px] tab:gap-5">

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import heroimg from "@/assets/ai-care/notificationBg.png";
+import heroimg from "@/assets/ai-care/ntfctBG.png";
 
 const AiNotifications = () => {
   return (

@@ -27,8 +27,10 @@ const AiSpecifications = () => {
       <div className="w-full max-w-[1416px] flex items-center justify-center flex-col gap-[68px] relative">
         {/* Title Section */}
         <div className="w-full text-center">
-          <h1 className="text-5xl font-bold text-[#16065F]">Specifications</h1>
-          <h3 className="text-[30px]">AI Care Guardian</h3>
+          <h1 className="text-5xl font-bold text-[#16065F] md:text-3xl">
+            Specifications
+          </h1>
+          <h3 className="text-[30px] md:text-2xl">AI Care Guardian</h3>
         </div>
 
         {/* 2nd div */}

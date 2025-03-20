@@ -51,7 +51,6 @@ function Page() {
       const details = await getTransactionDetails(stripeCustomerId);
 
       setTransactionDetails(details); // Store the fetched transaction details
-      console.log(details);
     } catch (error) {
       console.error("Failed to fetch transaction details:", error);
     }
@@ -75,7 +74,6 @@ function Page() {
       const stripeCustomerId = customerData.id;
       const details = await getAllPaymentMethod(stripeCustomerId);
 
-      // Check if the response has the correct structure
       if (details) {
         const formattedPaymentMethods = details.map((method) => ({
           id: method.id,
@@ -395,7 +393,7 @@ function Page() {
               </div>
 
               <div className="flex flex-col gap-[0.75rem]">
-                <Suspense fallback={<div>Loading feed...</div>}>
+                <Suspense fallback={<div>Loading...</div>}>
                   {paymentMethods.length > 0 ? (
                     paymentMethods.map((method) => (
                       <PaymentMethodCard

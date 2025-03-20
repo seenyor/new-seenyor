@@ -26,9 +26,9 @@ const appScreens = [
   { title: "Location", image: mob2 },
   { title: "Sleep Insights", image: mob3 },
   { title: "Sleep Events", image: mob4 },
-  { title: "Pulse Rate", image: mob5 },
+  // { title: "Pulse Rate", image: mob5 },
   { title: "Wellness Score", image: mob6 },
-  { title: "Breathing Rate", image: mob7 },
+  // { title: "Breathing Rate", image: mob7 },
   { title: "Daytime Activity", image: mob8 },
 ];
 
@@ -45,16 +45,23 @@ const AiMobileApp = () => {
   };
 
   return (
-    <section className="w-full flex justify-center items-center px-6 sm:px-0 py-16 bg-[#E4E3F8] overflow-hidden">
-      <div className="w-full max-w-[1710px] flex flex-col gap-[98px] tab:gap-[60px] sm:gap-[30px]">
+    <section className="w-full flex justify-center items-center px-6 sm:px-0 py-16 bg-[#E4E3F8] overflow-hidden ">
+      <div className="w-full max-w-[1710px] flex flex-col gap-[98px] tab:gap-[60px] sm:gap-[30px] justify-center items-center">
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-[#16065F]">Mobile App</h1>
-          <p className="text-[30px] sm:text-[24px]">for Full Control</p>
+          <h1 className="text-5xl md:text-3xl font-bold text-[#16065F]">
+            Mobile App
+          </h1>
+          <p className="text-[30px] md:text-xl sm:text-[22px]">
+            For Full Control
+          </p>
         </div>
 
-        <div className="grid sm:hidden grid-cols-4 gap-20 tab:gap-10">
+        <div className="grid sm:hidden grid-cols-3 gap-20 max-w-[1200px] tab:gap-6 justify-items-center items-center">
           {appScreens.map((screen, index) => (
-            <div key={index} className="flex flex-col items-center gap-4">
+            <div
+              key={index}
+              className="flex w-fit flex-col items-center gap-4 "
+            >
               <h2 className="text-2xl md:text-[14px] font-light italic">
                 {screen.title}
               </h2>

@@ -33,11 +33,7 @@ const cardData = [
     title: "Safety & Daily Insights",
     description:
       "Your loved one is safe, day and night. Their well-being is supported with continuous insights, so you can feel confident.",
-    features: [
-      "Pulse & Breathing Insights",
-      "Sleep Insights",
-      "Detection of Unusual Activity",
-    ],
+    features: ["Sleep Insights", "Detection of Unusual Activity"],
     image: cardimg2,
   },
   {
