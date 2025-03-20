@@ -7,22 +7,36 @@ import { useUserService } from "@/services/userService"; // Import the user serv
 import { Suspense, useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import PaymentMethodCard from "./PaymentMethodCard";
+import UnsubscribeModal from "@/components/BillingStatus/unsubcribeModal";
+import RenewModal from "@/components/BillingStatus/renewModal";
 
 function Page() {
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
+  const [isUnsubscribedModal, setIsUnsubscribedModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paymentMethods, setPaymentMethods] = useState([]);
   const [transactionDetails, setTransactionDetails] = useState(null); // State
-  const { setEmail, email, user, accessToken, customerMail } = useAuth();
+  const { setEmail, email, user, accessToken, customerMail, country } =
+    useAuth();
 
   const {
     getTransactionDetails,
     subscriptionDetails,
     getCustomerId,
     getAllPaymentMethod,
+    renewSubscription,
+    getFirstOrderStatus,
+    getProducts,
+    createStripeSession,
   } = useUserService();
   const [subscriptionDetail, setSubscriptionDetail] = useState(null);
-  const [isUnsubscribed, setIsUnsubscribed] = useState(false); // State to track subscription status
+  const [isUnsubscribed, setIsUnsubscribed] = useState(true); // State to track subscription status
+  const [isRenew, setIsRenew] = useState(false); // State to track subscription status
+  const [customerID, setCustomerID] = useState("");
+  const [renewData, setRenewData] = useState(null);
+  const [currentInstallationStatus, setCurrentInstallationStatus] =
+    useState(null); // State to track subscription status
+  const [products, setProducts] = useState([]);
 
   const handleAddressModalToggle = (isOpen) => {
     setIsAddressModalOpen(isOpen);
@@ -33,6 +47,7 @@ function Page() {
     try {
       const customerData = await getCustomerId(customerMail);
       stripeCustomerId = customerData.id;
+      setCustomerID(stripeCustomerId);
       const details = await getTransactionDetails(stripeCustomerId);
 
       setTransactionDetails(details); // Store the fetched transaction details
@@ -47,6 +62,7 @@ function Page() {
       const subscriptionId = localStorage.getItem("subscription_id");
       const details = await subscriptionDetails(subscriptionId);
       setSubscriptionDetail(details);
+      setIsUnsubscribed(details?.status === "canceled" ? true : false);
       console.log(details);
     } catch (error) {
       console.error("Failed to fetch subscription details:", error);
@@ -59,10 +75,9 @@ function Page() {
       const stripeCustomerId = customerData.id;
       const details = await getAllPaymentMethod(stripeCustomerId);
 
-      console.log("i am detais", details);
       // Check if the response has the correct structure
-      if (details && details.object === "list" && Array.isArray(details.data)) {
-        const formattedPaymentMethods = details.data.map((method) => ({
+      if (details) {
+        const formattedPaymentMethods = details.map((method) => ({
           id: method.id,
           card: {
             brand: method.card.brand,
@@ -71,7 +86,7 @@ function Page() {
             exp_year: method.card.exp_year,
           },
           billing_details: method.billing_details,
-          isDefault: false, // Assuming you will set this correctly later
+          isDefault: method.isDefault,
         }));
 
         setPaymentMethods(formattedPaymentMethods);
@@ -84,21 +99,42 @@ function Page() {
       setPaymentMethods([]);
     }
   };
+  const fetchFirstOrderStatus = async () => {
+    const getFirstOrder = await getFirstOrderStatus();
+    if (getFirstOrder) {
+      setCurrentInstallationStatus(getFirstOrder[0]?.installation_status);
+    }
+  };
 
   useEffect(() => {
     if (email) {
       fetchTransactionDetails();
     }
+    fetchFirstOrderStatus();
     fetchSubscriptionDetails();
     fetchPaymentMethods();
   }, [email]); // Ensure email is loaing
 
   const handleUnsubscribe = () => {
-    setIsUnsubscribed((prev) => !prev); // Toggle the subscription status
+    setIsUnsubscribedModal(isUnsubscribed === true ? false : true);
+    if (isUnsubscribed) {
+      renewProccess();
+      setIsRenew(true);
+    }
   };
-
-  console.log("i am payment method", paymentMethods);
-
+  const renewProccess = async () => {
+    const products = await getProducts();
+    console.log(products);
+    const priceId = products?.filter(
+      (product) =>
+        product.isRecurring &&
+        product.currency === (country === "au" ? "aud" : "usd")
+    )[0].priceId;
+    setRenewData({
+      customerId: customerID,
+      priceId: priceId,
+    });
+  };
   return (
     <div className="w-full">
       <PaymentMethod
@@ -158,11 +194,22 @@ function Page() {
                   Subscription Status:{" "}
                   <span
                     className={`font-medium capitalize ${
-                      !isUnsubscribed ? "text-primary" : "text-[#FF0000]"
+                      subscriptionDetail?.status !== "canceled"
+                        ? "text-primary"
+                        : "text-[#FF0000]"
                     }`}
                   >
                     {/* {!isUnsubscribed ? "Active" : "Inactive"} */}
-                    {subscriptionDetail?.status}
+                    {subscriptionDetail?.status === "trialing" &&
+                    currentInstallationStatus !== "completed" ? (
+                      <span className="text-orange-300">
+                        Installation Pending
+                      </span>
+                    ) : subscriptionDetail?.status === "trialing" ? (
+                      "Active"
+                    ) : (
+                      subscriptionDetail?.status
+                    )}
                   </span>
                 </Text>
                 <Text
@@ -244,37 +291,43 @@ function Page() {
                 </div>
               )}
               {/* Billing Date */}
-              <Text
-                as="p"
-                className="text-[1.13rem] font-normal leading-[1.69rem] text-[#6c7482] md:text-center "
-              >
-                Your service will renew on{" "}
-                <span className="font-medium text-[#1d293f]">
-                  {subscriptionDetail?.current_period_end
-                    ? new Date(
-                        subscriptionDetail.current_period_end * 1000
-                      ).toLocaleDateString("en-US", {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                      })
-                    : "N/A"}
-                </span>{" "}
-                for
-                <span className="font-medium text-[#1d293f]">
-                  {" "}
-                  {""}$
-                  {subscriptionDetail?.items?.data[0]?.plan?.amount
-                    ? subscriptionDetail?.items?.data[0]?.plan?.amount / 100
-                    : "... .."}{" "}
-                  <span className="uppercase">
-                    {subscriptionDetail?.items?.data[0]?.plan
-                      ? `${subscriptionDetail?.items?.data[0]?.plan?.currency}`
-                      : "... ..."}
+              {(subscriptionDetail?.status === "trialing" &&
+                currentInstallationStatus !== "completed") ||
+              subscriptionDetail?.status === "canceled" ? (
+                <></>
+              ) : (
+                <Text
+                  as="p"
+                  className="text-[1.13rem] font-normal leading-[1.69rem] text-[#6c7482] md:text-center "
+                >
+                  Your service will renew on{" "}
+                  <span className="font-medium text-[#1d293f]">
+                    {subscriptionDetail?.current_period_end
+                      ? new Date(
+                          subscriptionDetail.current_period_end * 1000
+                        ).toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })
+                      : "N/A"}
+                  </span>{" "}
+                  for
+                  <span className="font-medium text-[#1d293f]">
+                    {" "}
+                    {""}$
+                    {subscriptionDetail?.items?.data[0]?.plan?.amount
+                      ? subscriptionDetail?.items?.data[0]?.plan?.amount / 100
+                      : "... .."}{" "}
+                    <span className="uppercase">
+                      {subscriptionDetail?.items?.data[0]?.plan
+                        ? `${subscriptionDetail?.items?.data[0]?.plan?.currency}`
+                        : "... ..."}
+                    </span>
                   </span>
-                </span>
-                . Renewal price includes applicable taxes.
-              </Text>
+                  . Renewal price includes applicable taxes.
+                </Text>
+              )}
             </div>
             <div className="flex flex-col items-start gap-[0.63rem] pb-10 md:items-center">
               <Heading
@@ -294,6 +347,16 @@ function Page() {
               </div>
             </div>
           </div>
+          <UnsubscribeModal
+            isOpen={isUnsubscribedModal}
+            onOpenChange={setIsUnsubscribedModal}
+            subscriptionDetails={subscriptionDetail?.id}
+          />
+          <RenewModal
+            isOpen={isRenew}
+            onOpenChange={setIsRenew}
+            renewDetails={renewData}
+          />
         </TabPanel>
         <TabPanel className="absolute items-center">
           <BillingStatus transactionDetails={transactionDetails} />{" "}

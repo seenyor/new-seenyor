@@ -1,79 +1,74 @@
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import { OctagonAlert } from "lucide-react";
+import { CheckCircle } from "lucide-react"; // Import CheckCircle icon
 import { Button } from "@/components/Button/index";
 import { useUserService } from "@/services/userService";
 import { toast } from "react-toastify";
-export default function RefundModal({
-  isOpen,
-  onOpenChange,
-  transactionDetails,
-}) {
-  const { refundRequest } = useUserService();
-  function handleRefund() {
-    console.log("action", transactionDetails.action);
-    refundRequest(transactionDetails.action, {
-      is_refund_requested: true,
-    })
-      .then((res) => {
-        console.log("res", res);
-        toast.success("Refund request submitted successfully");
-        onOpenChange(false);
-      })
-      .catch((err) => {
-        console.log("err", err);
-        toast.error(err.message);
-        onOpenChange(false);
-      });
+
+export default function RenewModal({ isOpen, onOpenChange, renewDetails }) {
+  const { renewSubscription } = useUserService(); // Assuming renewSubscription is available
+
+  // Function to handle renewal
+  async function handleRenew() {
+    try {
+      await renewSubscription(renewDetails); // Call the renewal function
+      toast.success("Subscription renewed successfully!");
+      onOpenChange(false);
+      window.location.reload(); // Refresh page to reflect the updated subscription status
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to renew subscription.");
+    }
   }
+
   return (
     <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay
-          className="DialogOverlay "
+          className="DialogOverlay"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         />
         <Dialog.Content className="DialogContent !max-w-[600px] !md:w-[360px] overflow-auto">
           <Dialog.Title className="DialogTitle"></Dialog.Title>
           <Dialog.Description className="DialogDescription p-2">
+            {/* Updated Title */}
             <b className="text-xl md:text-lg font-semibold opacity-85 flex items-center gap-2">
-              <OctagonAlert style={{ color: "#FFB02E" }} />
-              Refund Request!
+              <CheckCircle style={{ color: "#4CAF50" }} />
+              Confirm Subscription Renewal
             </b>
-            <p className="mt-4 gap-2 flex flex-col bg-yellow-50 p-3 rounded-lg text-yellow-950">
-              <i className="leading-none m-0 font-semibold">Note:</i> Refund
-              requests must be made within 10 days of purchase and may take 5-10
-              business days for processing.
+
+            {/* Updated Description with Card Last Digits */}
+            <p className="mt-4 gap-2 flex flex-col bg-green-50 p-3 rounded-lg text-green-950">
+              Your subscription will be renewed, and your last used card will be
+              charged.
+              {/* Your subscription will be renewed, and your card ending with{" "}
+              <strong>{renewDetails?.cardLastFour || "N/A"}</strong> will be
+              charged. */}
             </p>
-            <p className="mt-6 ">
-              Please see our{" "}
-              <b
-                onClick={() => window.open("/terms-of-service", "_blank")}
-                className="cursor-pointer font-semibold "
-              >
-                terms and service
-              </b>{" "}
-              for more details. If you have any issues or need assistance,
-              contact our support team at{" "}
+            <p className="mt-2">
+              If you have any questions or need assistance, feel free to contact
+              our support team at{" "}
               <em
                 onClick={() =>
                   window.open("mailto:support@example.com", "_blank")
                 }
-                className="underline text-blue-500 cursor-pointer"
+                className="underline text-blue-500 cursor-pointer pl-2"
               >
                 support@seenyor.com
               </em>
               .
             </p>
+
+            {/* Updated Buttons */}
             <div className="mt-6 flex gap-4">
               <Button
-                onClick={handleRefund}
+                onClick={handleRenew}
                 shape="round"
                 color="green_200_green_400_01"
                 className="w-full"
               >
-                Submit Request
+                Confirm Renewal
               </Button>
               <Dialog.Close asChild>
                 <Button

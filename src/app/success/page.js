@@ -12,6 +12,7 @@ function Page() {
     createOrder,
     handlePaymentStatus,
     handlePaymentSubscription,
+    chnageDeviceStatus,
   } = useUserService();
   const [isProcessing, setIsProcessing] = useState(true);
   const [error, setError] = useState("");
@@ -26,6 +27,7 @@ function Page() {
     const installation_details = localStorage.getItem("installation_details");
     const user_credentials = localStorage.getItem("user_credentials");
     const addressPharsed = JSON.parse(installation_details);
+
     const order = {
       total: orderData.amount_total / 100,
       grand_total: orderData.amount_total / 100,
@@ -81,6 +83,9 @@ function Page() {
   };
   const hasRunRef = useRef(false); // Use useRef to persist the flag across renders
   useEffect(() => {
+    const devices = JSON.parse(localStorage.getItem("devices"));
+    const user_credentials = localStorage.getItem("user_credentials");
+
     if (typeof window !== "undefined") {
       const verified =
         JSON.parse(localStorage.getItem("isUserVerified")) || false;
@@ -92,12 +97,17 @@ function Page() {
     // Ensure this runs only once
     if (sessionId && !hasRunRef.current) {
       hasRunRef.current = true; // Set the ref to true to prevent future executions
-
       let customerId;
-
+      const chnageStatus = chnageDeviceStatus({
+        uids: devices.map((deviceId) => deviceId),
+        email: JSON.parse(user_credentials).email,
+        is_active: true,
+      });
+      console.log(chnageStatus);
       getSessionDetails(sessionId)
         .then((session) => {
           customerId = session.customer;
+
           return handleOrder(session);
         })
         .then(() => handlePaymentStatus(sessionId))
@@ -107,7 +117,6 @@ function Page() {
               localStorage.getItem("subscriptionProducts")
             );
             const user_credentials = localStorage.getItem("user_credentials");
-
             if (subscriptionProducts && subscriptionProducts.length > 0) {
               return handlePaymentSubscription(
                 customerId,
@@ -122,6 +131,7 @@ function Page() {
         })
         .then((response) => {
           if (response) console.log(response);
+
           setIsProcessing(false);
           // Clear localStorage
           [

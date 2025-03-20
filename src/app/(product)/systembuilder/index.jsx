@@ -47,8 +47,6 @@ export default function HomePage() {
       try {
         const fetchedProducts = await getProducts();
         setProducts(fetchedProducts);
-        console.log(fetchedProducts);
-
         // Set prices based on fetched products
         const kit = fetchedProducts.find(
           (p) => p.name === "Required with your system" && !isLogin
@@ -84,9 +82,6 @@ export default function HomePage() {
 
     fetchProducts();
   }, []);
-  useEffect(() => {
-    console.log(selecteInstallation, installationQuantity);
-  }, [selecteInstallation, installationQuantity]);
   // Total Price calculation
   useEffect(() => {
     const calculatedTotal =
@@ -169,8 +164,6 @@ export default function HomePage() {
     if (isLogin) {
       let userData = jwtDecode(isLogin);
       await getUserDetailsById(userData._id).then((res) => {
-        console.log(res);
-
         userDetails = res?.data;
       });
     }

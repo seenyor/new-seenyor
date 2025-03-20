@@ -57,6 +57,7 @@ export default function ProfileNav() {
       const userDetails = await getUserDetailsById(id);
       setUserName(userDetails.data.name + " " + userDetails.data.last_name);
       setEmail(userDetails.data.email);
+      localStorage.setItem("user_email", userDetails.data.email);
       setCustomerMail(userDetails.data.email);
       console.log("i am userdat", userDetails);
       localStorage.setItem("subscription_id", userDetails.data.subscription_id);

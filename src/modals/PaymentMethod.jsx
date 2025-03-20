@@ -19,7 +19,8 @@ import { useState } from "react";
 import "./style.css";
 
 const stripePromise = loadStripe(
-  "pk_test_51OcNAhAeKrofOvseCq6ZezE9JcZVSzmbL4GAF8Sc1JBKLwmx390ic38pxdFHi3whSuormQllJkhsFZiFNuYY0okq00ZKrJvln4"
+  "pk_test_51QASgrG2eKiLhL9BNwOGXIQOoke6EAZbm28ysR5hZeBf1IF7bnfEi0BFah2DlBwgXDml4kHXQSm4ffq6CN8ZK7cZ00uqC8MaKH"
+  // "pk_live_51QASgrG2eKiLhL9BrtG35rD3qh640iV7sclihskPlbQx3QAPHBkHZ8Hgx9pnh4IDJyf7o7QuU9T1DwhHGcuPJ4tC00dGB55dO"
 );
 
 const AddPaymentMethod = () => {
@@ -46,6 +47,7 @@ const AddPaymentMethod = () => {
       type: "card",
       card: cardElement,
     });
+    console.log(error, paymentMethod);
 
     if (error) {
       setError(error.message);

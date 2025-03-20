@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useUserService } from "@/services/userService";
 
 const RegisterHero = () => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const RegisterHero = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [isEmpty, setIsEmpty] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  const { checkUserExist } = useUserService();
   // Email validation function
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,7 +35,7 @@ const RegisterHero = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (emailValid && !isEmpty) {
       // Additional validation before submission
       if (email.trim() === "") {
@@ -50,10 +51,13 @@ const RegisterHero = () => {
         toast.error("Please enter a valid email address."); // Toast for invalid email
         return;
       }
-
-      // If all validations pass, proceed to the next page
-      toast.success("Email is valid. Redirecting..."); // Toast for success
-      router.push("/device-verification");
+      try {
+        const response = await checkUserExist(email);
+        toast.success("User Already Exist, Please Sign In!"); // Toast for success
+        router.push("/login");
+      } catch (error) {
+        router.push("/device-verification");
+      }
     } else {
       toast.error("Please enter a valid email address."); // Toast for invalid email
     }

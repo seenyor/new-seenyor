@@ -146,6 +146,9 @@ export const useUserService = () => {
   const createStripeSession = async (sessionData) => {
     return post("/orders/create-session", sessionData);
   };
+  const renewSubscription = async (data) => {
+    return post("/orders/renew-subscription", data);
+  };
 
   const getStripeCustomerId = async () => {
     try {
@@ -180,10 +183,16 @@ export const useUserService = () => {
   const getSessionDetails = async (sessionId) => {
     return get(`/orders/session-details/${sessionId}`);
   };
+  const getFirstOrderStatus = async (sessionId) => {
+    return get(`/orders/first-order`);
+  };
 
   //Nessesary API's For Make Subscription Stuff
   const handlePaymentStatus = async (sessionId) => {
     return post(`/orders/handle-payment-success`, { session_id: sessionId });
+  };
+  const cancelSubscription = async (subs_id) => {
+    return post(`/orders/cancel-subscription`, { subscriptionId: subs_id });
   };
   const handlePaymentSubscription = async (
     customerId,
@@ -332,6 +341,24 @@ export const useUserService = () => {
       throw error;
     }
   };
+  const checkUserExist = async (email) => {
+    try {
+      const response = await get(`/users/exit?email=${email}`);
+      return response;
+    } catch (error) {
+      console.error("Error updating password:", error);
+      throw error;
+    }
+  };
+  const chnageDeviceStatus = async (body) => {
+    try {
+      const response = await patch(`/deals/update-device-status`, body);
+      return response;
+    } catch (error) {
+      console.error("Error updating password:", error);
+      throw error;
+    }
+  };
 
   return {
     registerUser,
@@ -346,6 +373,9 @@ export const useUserService = () => {
     getCountries,
     getAgents,
     getSessionDetails,
+    renewSubscription,
+    chnageDeviceStatus,
+    checkUserExist,
     createOrder,
     handlePaymentStatus,
     handlePaymentSubscription,
@@ -354,9 +384,11 @@ export const useUserService = () => {
     getUserDetailsById,
     updatePassword,
     updateEmail,
+    getFirstOrderStatus,
     updateUserInfo,
     getTransactionDetails,
     refundRequest,
+    cancelSubscription,
     resetPassword,
     getCustomerId,
     authEmail,

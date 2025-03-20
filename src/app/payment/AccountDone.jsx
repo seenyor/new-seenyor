@@ -24,15 +24,12 @@ export default function AccountDone() {
   }
   const processPayment = async () => {
     const stripeCustomerId = await getStripeCustomerId();
-    console.log("i am stripeCustomerId", stripeCustomerId);
 
     if (!stripeCustomerId) {
       router.push("/register");
       return;
     }
-
     setIsProcessing(true);
-
     try {
       // const lineItems = [
       //   {
