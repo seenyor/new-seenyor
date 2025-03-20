@@ -1,5 +1,6 @@
 import React from "react";
 import msgbg from "@/assets/ai-care/msgBg1.png";
+import arrow from "@/assets/ai-care/svg/arrow.svg";
 import msgbgmob from "@/assets/ai-care/msgBg1mob.png";
 import Image from "next/image";
 import icon1 from "@/assets/ai-care/Icn/AiIcn1.png";
@@ -23,21 +24,31 @@ const challenges = [
 
 const MsgBg1 = () => {
   return (
-    <>
+    <div className="px-20 tab:px-4">
       <div
-        className="max-w-[1450px] w-full h-[425px] bg-cover bg-center p-4 tab:hidden"
-        style={{ backgroundImage: `url(${msgbg.src})` }}
+        className="max-w-[1450px] w-full bg-cover bg-center p-4 pb-8 shadow-md rounded-3xl relative"
+        // style={{ backgroundImage: `url(${msgbg.src})` }}
       >
+        <Image
+          src={arrow}
+          alt={`arrow-bottom`}
+          // width={80}
+          // height={80}
+          className="absolute left-[50%] -translate-x-[50%] -bottom-[27px] "
+        />
+        {/* <div class="w-0 h-0 border-l-8 border-r-8 border-t-8 border-t-transparent border-b-8 border-b-white shadow-md"></div> */}
         <div className="text-center flex flex-col gap-10">
           <div>
-            <h1 className="text-[48px] italic">Common Challenges</h1>
-            <h1 className="text-[30px]">of Ageing Adults</h1>
+            <h1 className="text-[48px] italic md:text-4xl">
+              Common Challenges
+            </h1>
+            <h1 className="text-[30px] md:text-3xl">of Ageing Adults</h1>
           </div>
-          <div className="flex px-10 justify-between">
+          <div className="flex px-10 justify-between gap-4 tab:flex-col items-center tab:gap-8">
             {challenges.map((challenge, index) => (
               <div
                 key={index}
-                className="max-w-[390px] flex flex-col gap-5 items-center"
+                className="max-w-[390px] w-full flex flex-col gap-5 items-center justify-center"
               >
                 <Image
                   src={challenge.icon}
@@ -69,7 +80,7 @@ const MsgBg1 = () => {
 
       {/* mobile */}
 
-      <div
+      {/* <div
         className="max-w-[687px] w-full h-[447px] sm:h-[350px] bg-cover bg-center p-4 py-8 sm:py-6 hidden tab:block"
         style={{ backgroundImage: `url(${msgbgmob.src})` }}
       >
@@ -113,8 +124,8 @@ const MsgBg1 = () => {
             ))}
           </div>
         </div>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 
