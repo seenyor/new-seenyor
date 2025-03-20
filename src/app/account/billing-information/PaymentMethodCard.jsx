@@ -1,6 +1,7 @@
 import { Heading } from "@/components"; // Adjust the import path based on your project structure
 import { Button, Img } from "@/components";
-import { useUserService } from "@/services/userService"; // Import the user service
+import { useUserService } from "@/services/userService";
+import { toast } from "react-toastify";
 // PaymentMethodCard Component
 export default function PaymentMethodCard({
   id,
@@ -21,13 +22,29 @@ export default function PaymentMethodCard({
   function paymentMethodDelete() {
     // Call the onDelete function with the paymentMethodId
     // onDelete(id);
-    const deleteMethod = DeletePaymentMethod({ paymentMethodId: id });
+    try {
+      const deleteMethod = DeletePaymentMethod({ paymentMethodId: id });
+      toast.error(" Payment Method Deleted Successfully!");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
   }
-  function paymentMethodSetDefault() {
-    const setDefault = SetDefaultPaymentMethod({
-      paymentMethodId: id,
-      customerId,
-    });
+  async function paymentMethodSetDefault() {
+    try {
+      const setDefault = await SetDefaultPaymentMethod({
+        paymentMethodId: id,
+        customerId,
+      });
+      toast.success("Default Payment Method Set Successfully!");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div

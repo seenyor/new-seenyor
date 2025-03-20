@@ -17,6 +17,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Calendar, CreditCard, Lock } from "lucide-react";
 import { useState } from "react";
 import "./style.css";
+import { toast } from "react-toastify";
 
 const stripePromise = loadStripe(
   "pk_test_51QASgrG2eKiLhL9BNwOGXIQOoke6EAZbm28ysR5hZeBf1IF7bnfEi0BFah2DlBwgXDml4kHXQSm4ffq6CN8ZK7cZ00uqC8MaKH"
@@ -47,8 +48,6 @@ const AddPaymentMethod = () => {
       type: "card",
       card: cardElement,
     });
-    console.log(error, paymentMethod);
-
     if (error) {
       setError(error.message);
       setIsLoading(false);
@@ -58,7 +57,6 @@ const AddPaymentMethod = () => {
         console.log("i am customer mail", customerMail);
         const customerData = await getCustomerId(customerMail);
         stripeCustomerId = customerData.id;
-        console.log(stripeCustomerId);
         const response = await fetch(
           "https://www.backend.elderlycareplatform.com/api/v1/orders/add-payment-method",
           {
@@ -75,7 +73,8 @@ const AddPaymentMethod = () => {
 
         const result = await response.json();
         if (response.ok) {
-          alert("Payment method added successfully!");
+          toast.success("Payment method added successfully");
+          window.location.reload();
         } else {
           setError("Failed to add payment method: " + result.message);
         }

@@ -136,7 +136,7 @@ function Page() {
     });
   };
   return (
-    <div className="w-full">
+    <div className="w-full mb-6">
       <PaymentMethod
         isOpen={isAddressModalOpen}
         onChange={handleAddressModalToggle}
