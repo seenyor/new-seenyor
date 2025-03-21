@@ -137,11 +137,11 @@ const Home = () => {
                 height={200}
                 alt="monitoring"
               />
-              <Link href="/systembuilder">
-                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
-                  Get Started
-                </button>
-              </Link>
+              {/* <Link href="/systembuilder"> */}
+              <button className="bg-[#2C3142] mt-5 text-white font-semibold px-2 py-2 rounded">
+                Get Started
+              </button>
+              {/* </Link> */}
             </div>
             <div className="w-[260px] md:w-[200px] tab:mx-auto h-auto">
               <Image

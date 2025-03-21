@@ -89,11 +89,11 @@ const Installation = () => {
               Choose professional installation or easy self-setup for complete
               peace of mind.
             </p>
-            <Link href="/systembuilder">
-              <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
-                Protect Them Now
-              </button>
-            </Link>
+            {/* <Link href="/systembuilder"> */}
+            <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#80CAA7] rounded-md">
+              Protect Them Now
+            </button>
+            {/* </Link> */}
           </div>
         </div>
         <p className="text-sm absolute bottom-5 left-5">
@@ -116,11 +116,11 @@ const Installation = () => {
               Choose professional installation or easy self-setup for complete
               peace of mind.
             </p>
-            <Link href="/systembuilder">
-              <button className="mt-10 px-4 text-white py-1 font-semibold text-lg bg-[#80CAA7] rounded-md">
-                Protect Them Now
-              </button>
-            </Link>
+            {/* <Link href="/systembuilder"> */}
+            <button className="mt-10 px-4 text-white py-1 font-semibold text-lg bg-[#80CAA7] rounded-md">
+              Protect Them Now
+            </button>
+            {/* </Link> */}
             <p className="mt-2 text-xs">*Limited Stock Available!</p>
           </div>
         </div>
@@ -269,11 +269,11 @@ const Installation = () => {
                 alt="monitoring"
                 quality={100}
               />
-              <Link href="/systembuilder">
-                <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
-                  Get Started
-                </button>
-              </Link>
+              {/* <Link href="/systembuilder"> */}
+              <button className="bg-[#2C3142] mt-5 text-white font-semibold px-5 md:px-2 py-2 rounded">
+                Get Started
+              </button>
+              {/* </Link> */}
             </div>
           </div>
         </div>

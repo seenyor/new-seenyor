@@ -60,7 +60,6 @@ export default function HomePage() {
         const aimonitoring = fetchedProducts.find(
           (p) => p.name === "AI Monitoring" && !p.isRecurring && !isLogin
         );
-        console.log(aimonitoring);
         if (kit) setKitPrice(kit.price);
         if (addon) setAddonDevicePrice(addon.price);
         if (installation) setInstallationPrice(installation.price * 3);

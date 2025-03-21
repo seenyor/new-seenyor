@@ -16,7 +16,7 @@ const AiHero = () => {
     <>
       <section className="relative tab:hidden w-full max-h-[805px] tab:max-h-auto overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 -top-80">
           <Image
             src={bg}
             alt="Background"
@@ -26,18 +26,18 @@ const AiHero = () => {
           />
         </div>
 
-        <div className="flex tab:flex-col items-center justify-between tab:justify-center w-full px-6 tab:px-3 mx-auto min-h-[905px] h-[500px] max-w-[1610px] tab:gap-14 relative z-10">
+        <div className="flex tab:flex-col items-center justify-between tab:justify-center w-full px-6 tab:px-3 mx-auto min-h-[700px] h-[500px] max-w-[1610px] tab:gap-14 relative z-10">
           {/* Text Section */}
           <div className="flex flex-col gap-8 w-[50%] tab:w-full items-center justify-center tab:text-center h-full">
             <div className="w-full flex justify-center items-center tab:hidden">
               {/* video */}
-              <Image src={logo} alt="logo" width={130} height={110} />
+              <Image src={logo} alt="logo" width={110} height={110} />
             </div>
             <div className="flex flex-col gap-3">
-              <h1 className="font-bold text-[3.75vw] tab:text-[40.5vw] sm:text-4xl text-[#10005B]">
+              <h1 className="font-bold text-[3.2vw] tab:text-[40.5vw] sm:text-4xl text-[#10005B]">
                 AI Care Guardian
               </h1>
-              <h6 className="font-medium text-[1.667vw] tab:text-[1.458vw]">
+              <h6 className="font-medium text-[1.5vw] tab:text-[1.458vw]">
                 Keep Your Loved Ones Safe with the <br />
                 <span className="font-bold">AI Guardian</span>
               </h6>
@@ -51,7 +51,7 @@ const AiHero = () => {
               alt="AI Guardian"
               width={840}
               height={495}
-              className="w-[840px] h-[495px] object-cover tab:rounded-b-[60px] sm:rounded-b-[40px]"
+              className="w-[700px] h-[455px] object-cover tab:rounded-b-[60px] sm:rounded-b-[40px]"
             />
           </div>
         </div>
