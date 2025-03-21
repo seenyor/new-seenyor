@@ -46,7 +46,7 @@ const AiMobileApp = () => {
 
   return (
     <section className="w-full flex justify-center items-center px-6 sm:px-0 py-16 bg-[#E4E3F8] overflow-hidden ">
-      <div className="w-full max-w-[1710px] flex flex-col gap-[98px] tab:gap-[60px] sm:gap-[30px] justify-center items-center">
+      <div className="w-full max-w-[1710px] flex flex-col gap-[98px] md:gap-[80px] tab:gap-[60px] sm:gap-[30px] justify-center items-center">
         <div className="text-center">
           <h1 className="text-5xl md:text-3xl font-bold text-[#16065F]">
             Mobile App

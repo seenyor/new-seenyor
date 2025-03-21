@@ -105,7 +105,7 @@ const AiActivities = () => {
                 />
                 <div className="text-[28px] xxl:text-[24px] tab:text-[16px] sm:text-[14px]">
                   <h1 className="font-bold">{activity.title}</h1>
-                  <p className="xxl:text-[20px] sm:text-[10px]">
+                  <p className="xxl:text-[20px] md:text-[14px] sm:text-[10px]">
                     {activity.description}
                   </p>
                 </div>

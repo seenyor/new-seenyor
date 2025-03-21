@@ -204,8 +204,8 @@ const AiCards = () => {
           No Wearables, Just Reliable Safety
         </h6>
         <div className="max-w-[1710px] w-full flex sm:flex-col justify-between items-center mt-24 tab:mt-16 sm:mt-10 mb-10">
-          <div className="min-w-[700px] tab:min-w-[350px] sm:hidden h-[50px] bg-transparent"></div>
-          <p className="max-w-[860px] text-[28px] tab:text-lg text-start sm:px-5 sm:text-center">
+          <div className="min-w-[700px] md:min-w-[440px] tab:min-w-[350px] sm:hidden h-[50px] bg-transparent"></div>
+          <p className="max-w-[860px] text-[28px] md:text-[26px] tab:text-lg text-start md:pr-1 sm:px-5 sm:text-center">
             Non-intrusive technology ensures comfort and ease while providing
             continuous <span className="font-bold">Fall Detection</span> and{" "}
             <span className="font-bold">valuable</span> insights into daily
@@ -219,15 +219,15 @@ const AiCards = () => {
           <div className="hidden sm:block min-w-[700px] tab:min-w-[300px] h-[240px] bg-transparent"></div>
         </div>
       </div>
-      <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen sm:min-h-full py-40 tab:py-10">
+      <div className="bg-[#F8E3EC] flex justify-center w-full mx-auto min-h-screen sm:min-h-full py-40 md:py-20 tab:py-10">
         <div className="max-w-[1710px] sm:max-w-full w-full relative">
-          <div className="bg-white w-[626px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center sm:hidden items-center absolute top-[-530px] left-10 sm:left-[12vw] tab:top-[-300px]">
+          <div className="bg-white w-[626px] md:w-[400px] md:h-[400px] tab:w-[300px] h-[626px] tab:h-[300px] rounded-full flex justify-center sm:hidden items-center absolute top-[-530px] left-10 sm:left-[12vw] md:top-[-400px] tab:top-[-300px]">
             <Image
               src={product}
               alt="product"
               width={557}
               height={557}
-              className="w-[557px] tab:w-[288px]"
+              className="w-[557px] md:w-[370px] tab:w-[288px]"
             />
           </div>
           <div className="hidden sm:flex w-full justify-center items-center relative">
@@ -241,13 +241,13 @@ const AiCards = () => {
               />
             </div>
           </div>
-          <div className="mt-20 tab:mt-0 sm:mt-6 max-w-[700px] tab:max-w-[380px] sm:max-w-full flex sm:hidden justify-center items-center">
+          <div className="mt-20 md:mt-0 tab:mt-0 sm:mt-6 max-w-[700px] md:max-w-[480px] tab:max-w-[380px] sm:max-w-full flex sm:hidden justify-center items-center">
             <Image
               src={line}
               alt="line"
               width={5}
               height={114}
-              className="h-[114px] tab:h-[51px] sm:h-8"
+              className="h-[114px] md:h-[75px] tab:h-[51px] sm:h-8"
             />
           </div>
 
