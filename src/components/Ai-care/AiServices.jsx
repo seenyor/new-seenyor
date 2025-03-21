@@ -44,7 +44,7 @@ const AiServices = () => {
   ];
   return (
     <section className="w-full flex justify-center items-center px-6 tab:px-3 mx-auto overflow-hidden">
-      <div className="w-full max-w-[1710px] flex flex-col gap-[98px] tab:gap-[60px] sm:gap-[30px]">
+      <div className="w-full max-w-[1710px] flex flex-col gap-[98px] md:gap-[80px] tab:gap-[60px] sm:gap-[30px]">
         {/* text */}
         <div className="w-full text-center">
           <h1 className="text-5xl text-[#16065F] md:text-3xl font-bold">
@@ -53,20 +53,20 @@ const AiServices = () => {
           <h1 className="text-[30px] md:text-2xl">Services</h1>
         </div>
         {/* cards */}
-        <div className="flex tab:hidden sm:flex-col items-center justify-center gap-[60px] tab:gap-5">
+        <div className="grid tab:hidden grid-cols-2 gap-[60px] xxl:gap-[40px] md:gap-[30px] tab:gap-5">
           {cardsData.map((card) => (
             <div
               key={card.id}
-              className="bg-[#ECECEC] rounded-[30px] sm:rounded-[20px] max-w-[825px] w-full text-[24px] tab:text-[18px] h-[685px]"
+              className="bg-[#ECECEC] rounded-[30px] sm:rounded-[20px] max-w-[825px] w-full text-[24px] tab:text-[18px] flex flex-col"
             >
               <Image
                 src={card.image}
                 alt="card"
                 width={824}
                 height={348}
-                className="h-[348px] w-auto rounded-t-[30px] sm:rounded-t-[20px] bg-cover bg-center bg-no-repeat"
+                className="h-auto w-auto rounded-t-[30px] sm:rounded-t-[20px] bg-cover bg-center bg-no-repeat"
               />
-              <div className="p-5 tab:p-3 tab:text-center flex flex-col justify-between h-[45%] tab:h-[40%]">
+              <div className="p-5 tab:p-3 tab:text-center flex flex-col justify-between flex-grow">
                 <h1 className="font-bold mt-4 text-[#10005B]">{card.title}</h1>
                 <p className="font-light xxl:text-[20px] mt-2">
                   {card.description}
@@ -79,7 +79,7 @@ const AiServices = () => {
 
         {/* Tab cards */}
 
-        <div className=" hidden tab:flex sm:flex-col items-center justify-center gap-[60px] tab:gap-5">
+        <div className="hidden tab:flex sm:flex-col items-center justify-center gap-[60px] tab:gap-5">
           {cardsDataTab.map((card) => (
             <div
               key={card.id}
