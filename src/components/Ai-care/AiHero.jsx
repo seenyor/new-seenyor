@@ -41,7 +41,7 @@ const AiHero = () => {
               <div className="flex items-center">
                 <Link
                   href="#"
-                  className="bg-[#EF086B] px-16 py-5 rounded-xl text-[1.458vw] font-bold text-white max-w-[275px] text-center"
+                  className="bg-[#EF086B] px-16 py-5 rounded-xl text-[1.458vw] font-bold text-white  text-center text-nowrap"
                 >
                   Learn How
                 </Link>
