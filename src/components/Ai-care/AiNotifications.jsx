@@ -9,7 +9,7 @@ const AiNotifications = () => {
         {/* text */}
         <div className="flex flex-col gap-3 text-center">
           <h1 className="text-5xl tab:text-4xl sm:text-2xl text-[#EE0066]">
-            <span className="font-bold">10 Dedicated </span>Notifications
+            <span className="font-bold">04 Dedicated </span>Notifications
           </h1>
           <h6 className="text-[30px] tab:text-[24px] sm:text-[20px]">
             For every situation

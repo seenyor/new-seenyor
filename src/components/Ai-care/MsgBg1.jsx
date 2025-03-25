@@ -24,7 +24,7 @@ const challenges = [
 
 const MsgBg1 = () => {
   return (
-    <div className="px-0 tab:px-4">
+    <div className="px-6 tab:px-4 max-w-[1700px] w-full">
       <div className="text-center mb-6">
         <h1 className="text-[48px] tab:text-[30px] sm:text-[25px] italic font-bold md:text-4xl">
           Common Challenges

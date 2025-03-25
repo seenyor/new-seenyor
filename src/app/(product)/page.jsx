@@ -13,7 +13,7 @@ const page = () => {
   return (
     <section className="flex justify-center items-center w-full tab:gap-14 overflow-x-hidden">
       <div className="w-full font-poppins flex flex-col gap-24 tab:gap-20 sm:gap-14">
-        <div className="flex flex-col gap-10 items-center">
+        <div className="flex flex-col gap-0 items-center">
           <AiHero />
           <MsgBg1 />
         </div>
@@ -25,7 +25,7 @@ const page = () => {
         </div>
         <AiServices />
         <AiMobileApp />
-        <AiSpecifications />
+        {/* <AiSpecifications /> */}
       </div>
     </section>
   );
