@@ -7,7 +7,13 @@ const page = () => {
   return (
     <div className="w-full h-[70%]">
       <RegisterHero />
-      <Image src={bg} alt="bg" className="w-full h-full" />
+      <Image
+        src={bg}
+        alt="bg"
+        className="w-full h-full"
+        width={1920}
+        height={500}
+      />
     </div>
   );
 };
