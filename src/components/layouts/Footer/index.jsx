@@ -107,7 +107,7 @@ const Footer = () => {
                           alt=""
                           height={10}
                           width={10}
-                          className="!w-7 !h-auto md:hidden"
+                          className="!w-7 min-w-5 !h-auto md:hidden"
                         />
                       </div>
                       <p>232 Unley Road,Unley SA 5061,Australia</p>
@@ -116,7 +116,27 @@ const Footer = () => {
                   <li className="mb-2 leading-6">
                     <div className="flex items-start gap-1">
                       <div className=" mt-1">
-                        <Phone fill="#000" className="!w-4 !h-auto md:hidden" />
+                        <Image
+                          src="/images/home/location.svg"
+                          alt=""
+                          height={10}
+                          width={10}
+                          className="!w-7 min-w-5 !h-auto md:hidden"
+                        />
+                      </div>
+                      <p>
+                        15442 VENTURA BLVD., STE 201-073 SHERMAN OAKS,
+                        CALIFORNIA 91403
+                      </p>
+                    </div>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <div className="flex items-start gap-1">
+                      <div className=" mt-1">
+                        <Phone
+                          fill="#000"
+                          className="!w-4 min-w-4 !h-auto md:hidden"
+                        />
                       </div>
                       <p>1800329162</p>
                     </div>
