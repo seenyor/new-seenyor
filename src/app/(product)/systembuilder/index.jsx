@@ -42,6 +42,8 @@ export default function HomePage() {
     getUserDetailsById,
   } = useUserService();
   const { country } = useAuth();
+  const expectedCurrency = country === "global" ? "usd" : "aud";
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -49,16 +51,24 @@ export default function HomePage() {
         setProducts(fetchedProducts);
         // Set prices based on fetched products
         const kit = fetchedProducts.find(
-          (p) => p.name === "Required with your system" && !isLogin
+          (p) =>
+            p.name === "Required with your system" &&
+            !isLogin &&
+            p.currency === expectedCurrency
         );
         const addon = fetchedProducts.find(
-          (p) => p.name === "All in One AI Sensor"
+          (p) =>
+            p.name === "All in One AI Sensor" && p.currency === expectedCurrency
         );
         const installation = fetchedProducts.find(
           (p) => p.name === "Installation"
         );
         const aimonitoring = fetchedProducts.find(
-          (p) => p.name === "AI Monitoring" && !p.isRecurring && !isLogin
+          (p) =>
+            p.name === "AI Monitoring" &&
+            !p.isRecurring &&
+            !isLogin &&
+            p.currency === expectedCurrency
         );
         if (kit) setKitPrice(kit.price);
         if (addon) setAddonDevicePrice(addon.price);
@@ -68,7 +78,7 @@ export default function HomePage() {
 
         //Store Subcription Product Details in Local Storage that has isRecurring true
         const subscriptionProducts = fetchedProducts.filter(
-          (p) => p.isRecurring
+          (p) => p.isRecurring && p.currency === expectedCurrency
         );
         localStorage.setItem(
           "subscriptionProducts",
@@ -112,7 +122,8 @@ export default function HomePage() {
               isLogin &&
               p.name === "AI Monitoring" &&
               p.name === "Required with your system"
-            )
+            ) &&
+            p.currency === expectedCurrency
         )
         .map((p) => ({
           id: p.id,
@@ -189,12 +200,13 @@ export default function HomePage() {
           ) {
             return false;
           }
+          if (p.currency !== expectedCurrency) return false;
 
           return true;
         })
         .map((p) => ({
           price_data: {
-            currency: country === "au" ? "aud" : "usd",
+            currency: p.currency,
             product_data: {
               name: p.name,
               ...(p.description && { description: p.description }), // Include description only if it exists

@@ -14,6 +14,8 @@ export default function AccountDone() {
   const router = useRouter();
   const [isProcessing, setIsProcessing] = useState(false);
   const { country } = useAuth();
+  const expectedCurrency = country === "global" ? "usd" : "aud";
+
   const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
   const isUserVerified =
     JSON.parse(localStorage.getItem("isUserVerified")) || false;
@@ -65,7 +67,7 @@ export default function AccountDone() {
       const lineItems = orderDetails.products
         .map((product) => ({
           price_data: {
-            currency: country === "au" ? "aud" : "usd",
+            currency: expectedCurrency,
             product_data: {
               name: product.name,
               description: product.description || " ",

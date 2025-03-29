@@ -24,10 +24,11 @@ const DeviceInfo = () => {
   const [installationPriceStatic, setInstallationPriceStatic] = useState(0);
 
   const { country, isLogin } = useAuth();
+  const expectedCurrency = country === "global" ? "usd" : "aud";
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const expectedCurrency = country === "global" ? "usd" : "aud";
         const fetchedProducts = await getProducts();
         setProducts(fetchedProducts);
         const installation = fetchedProducts.find(
@@ -89,7 +90,6 @@ const DeviceInfo = () => {
   // ]);
 
   const updateOrderDetails = () => {
-    const country = "global";
     setInstallationQuantity(devices.length);
     setInstallationPrice(installationPriceStatic * devices.length);
     const orderDetails = {
@@ -98,7 +98,7 @@ const DeviceInfo = () => {
           (p) =>
             ((p.name === "AI Monitoring" && p.isRecurring === false) ||
               (p.name === "Installation" && selecteInstallation === 1)) &&
-            p.currency === (country === "global" ? "usd" : "aud")
+            p.currency === expectedCurrency
         )
         .map((p) => ({
           id: p.id,
