@@ -9,7 +9,8 @@ import { loadStripe } from "@stripe/stripe-js";
 
 // Load your publishable key
 const stripePromise = loadStripe(
-  "pk_test_51Q5RdFGPITMkDJgUOb2iZNW2Y3MLWkIxYR06qC6Oww5ZyvYGJhqz8Cato4ggjhBpyC0iphT42LPT2tMGNljlzT2V00vE2KnUBP"
+  "pk_live_51QASgrG2eKiLhL9BrtG35rD3qh640iV7sclihskPlbQx3QAPHBkHZ8Hgx9pnh4IDJyf7o7QuU9T1DwhHGcuPJ4tC00dGB55dO2"
+  // "pk_test_51Q5RdFGPITMkDJgUOb2iZNW2Y3MLWkIxYR06qC6Oww5ZyvYGJhqz8Cato4ggjhBpyC0iphT42LPT2tMGNljlzT2V00vE2KnUBP"
 );
 
 const AddPaymentMethod = () => {
@@ -36,7 +37,8 @@ const AddPaymentMethod = () => {
       // Send payment method to backend
       try {
         const response = await fetch(
-          "https://www.backend.elderlycareplatform.com/api/v1/orders/add-payment-method",
+          "https://www.api.elderlycareplatform.com/api/v1/orders/add-payment-method",
+          // "https://www.backend.elderlycareplatform.com/api/v1/orders/add-payment-method",
           {
             method: "POST",
             headers: {
