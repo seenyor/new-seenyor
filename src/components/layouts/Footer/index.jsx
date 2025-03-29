@@ -87,7 +87,7 @@ const Footer = () => {
             <div className="flex justify-center">
               <nav
                 aria-labelledby="footer-docs-5-logo-sub"
-                className="max-w-[270px]"
+                className="max-w-[300px]"
               >
                 <h3
                   className="mb-2 font-bold text-xl md:text-lg tab:text-base "
@@ -110,7 +110,10 @@ const Footer = () => {
                           className="!w-7 min-w-5 !h-auto md:hidden"
                         />
                       </div>
-                      <p>232 Unley Road,Unley SA 5061,Australia</p>
+                      <p>
+                        <strong>Aus Address:</strong> 232 Unley Road, Unley SA
+                        5061, Australia
+                      </p>
                     </div>
                   </li>
                   <li className="mb-2 leading-6">
@@ -125,22 +128,22 @@ const Footer = () => {
                         />
                       </div>
                       <p>
-                        15442 VENTURA BLVD., STE 201-073 SHERMAN OAKS,
-                        CALIFORNIA 91403
+                        <strong>USA Address:</strong> 15442 Ventura Blvd., Ste
+                        201-073 Sherman Oaks, California 91403, USA
                       </p>
                     </div>
                   </li>
-                  <li className="mb-2 leading-6">
-                    <div className="flex items-start gap-1">
-                      <div className=" mt-1">
-                        <Phone
-                          fill="#000"
-                          className="!w-4 min-w-4 !h-auto md:hidden"
-                        />
-                      </div>
-                      <p>1800329162</p>
-                    </div>
-                  </li>
+                  {/* <li className="mb-2 leading-6">
+        <div className="flex items-start gap-1">
+          <div className=" mt-1">
+            <Phone
+              fill="#000"
+              className="!w-4 min-w-4 !h-auto md:hidden"
+            />
+          </div>
+          <p>1800329162</p>
+        </div>
+      </li> */}
                   <li className="mb-2 leading-6">
                     <div className="flex items-start gap-1">
                       <div className=" mt-1">
@@ -158,6 +161,7 @@ const Footer = () => {
                 </ul>
               </nav>
             </div>
+
             <div className="flex justify-center">
               <nav
                 aria-labelledby="footer-about-5-logo-sub"

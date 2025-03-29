@@ -38,14 +38,14 @@ const AiHero = () => {
                 Keep Your Loved Ones Safe with <br />
                 the <span className="font-bold">AI Care Guardian</span>
               </h6>
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <Link
                   href="#"
                   className="bg-[#EF086B] px-16 py-5 rounded-xl text-[1.458vw] font-bold text-white text-center text-nowrap"
                 >
                   Learn How
                 </Link>
-              </div>
+              </div> */}
               <p className="text-xl italic">*This is NOT a medical device.</p>
             </div>
           </div>
