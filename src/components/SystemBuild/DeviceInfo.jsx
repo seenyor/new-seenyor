@@ -181,13 +181,20 @@ const DeviceInfo = () => {
         setLoading(false);
         return;
       }
-
-      const updatedDevices = [...storedDevices, deviceUid];
-      localStorage.setItem("devices", JSON.stringify(updatedDevices));
-      setDevices(updatedDevices);
-      setVerified(true);
-      setDeviceUid("");
-      toast.success("Device UID Verified Successfully!");
+      if (data.message) {
+        setErrorMessage(data.message);
+        toast.error(data.message);
+        setLoading(false);
+        return;
+      }
+      if (data.is_active === false) {
+        const updatedDevices = [...storedDevices, deviceUid];
+        localStorage.setItem("devices", JSON.stringify(updatedDevices));
+        setDevices(updatedDevices);
+        setVerified(true);
+        setDeviceUid("");
+        toast.success("Device UID Verified Successfully!");
+      }
     } catch (error) {
       console.error("Error fetching device details:", error);
       setErrorMessage("An error occurred while verifying the device.");
