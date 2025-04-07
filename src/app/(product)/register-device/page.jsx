@@ -1,7 +1,7 @@
 import RegisterHero from "@/components/register-device/RegisterHero";
 import React from "react";
 import Image from "next/image";
-import bg from "@/assets/register/registerBg.png";
+import bg from "@/assets/register/register_bg.png";
 
 const page = () => {
   return (
