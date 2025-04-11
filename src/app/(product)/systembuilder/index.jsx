@@ -268,7 +268,7 @@ export default function HomePage() {
           console.error("Error during checkout process:", error);
         });
     } else {
-      router.push("/register");
+      router.push("/sign-up");
     }
   };
   const [terms, setTerms] = useState({

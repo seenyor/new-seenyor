@@ -310,10 +310,7 @@ export default function SecondaryNav() {
                 </li>
               ) : (
                 <li role="none" className="flex items-stretch">
-                  <Link
-                    onClick={() => setIsToggleOpen(false)}
-                    href="/register-device"
-                  >
+                  <Link onClick={() => setIsToggleOpen(false)} href="/register">
                     <Heading
                       as="p"
                       className="text-[1rem] font-bold !text-[#ffffff] hover:text-blue-600 transition-colors duration-200"

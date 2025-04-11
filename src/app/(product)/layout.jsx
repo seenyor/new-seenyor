@@ -11,7 +11,7 @@ export default function Layout({ children }) {
     <>
       <Header />
       <main>{children}</main>
-      {pathname !== "/register-device" && <Footer />}
+      {pathname !== "/register" && <Footer />}
     </>
   );
 }

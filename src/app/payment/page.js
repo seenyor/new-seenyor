@@ -12,7 +12,7 @@ export default function PaymentPage() {
   }
 
   if (!stripeCustomerId) {
-    redirect("/register");
+    redirect("/sign-up");
   }
 
   return <Page />;

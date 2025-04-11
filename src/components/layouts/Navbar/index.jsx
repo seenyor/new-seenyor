@@ -191,10 +191,7 @@ export default function Header() {
                 </li>
               ) : (
                 <li role="none" className="flex items-stretch">
-                  <Link
-                    onClick={() => setIsToggleOpen(false)}
-                    href="/register-device"
-                  >
+                  <Link onClick={() => setIsToggleOpen(false)} href="/register">
                     <Heading
                       as="p"
                       className="text-[1.3rem] gap-2 py-4 px-8 font-medium !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"
@@ -317,10 +314,7 @@ export default function Header() {
                 </li>
               ) : (
                 <li role="none" className="flex items-stretch">
-                  <Link
-                    onClick={() => setIsToggleOpen(false)}
-                    href="/register-device"
-                  >
+                  <Link onClick={() => setIsToggleOpen(false)} href="/register">
                     <Heading
                       as="p"
                       className="text-[1rem] font-bold !text-[#6c7482] hover:text-blue-600 transition-colors duration-200"

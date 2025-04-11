@@ -7,7 +7,7 @@ import mob2 from "@/assets/ai-care/mobileapp/mob2.png";
 import mob3 from "@/assets/ai-care/mobileapp/mob3.png";
 import mob4 from "@/assets/ai-care/mobileapp/mob4.png";
 import mob5 from "@/assets/ai-care/mobileapp/mob5.png";
-import mob6 from "@/assets/ai-care/mobileapp/mob6.png";
+import mob9 from "@/assets/ai-care/mobileapp/mob9.png";
 import mob7 from "@/assets/ai-care/mobileapp/mob7.png";
 import mob8 from "@/assets/ai-care/mobileapp/mob8.png";
 import "@/components/Ai-care/style.css";
@@ -27,7 +27,7 @@ const appScreens = [
   { title: "Sleep Insights", image: mob3 },
   { title: "Sleep Events", image: mob4 },
   // { title: "Pulse Rate", image: mob5 },
-  { title: "Wellness Score", image: mob6 },
+  { title: "Wellness Score", image: mob9 },
   // { title: "Breathing Rate", image: mob7 },
   { title: "Daytime Activity", image: mob8 },
 ];

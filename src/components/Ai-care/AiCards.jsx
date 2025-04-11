@@ -14,7 +14,7 @@ import cardimg3 from "@/assets/ai-care/cardImg/cardimg3.png";
 import cardimg4 from "@/assets/ai-care/cardImg/cardimg4.png";
 import cardimg5 from "@/assets/ai-care/cardImg/cardimg5.png";
 import cardimg6 from "@/assets/ai-care/cardImg/cardimg6.png";
-import cardimg7 from "@/assets/ai-care/cardImg/cardimg7.png";
+import cardimg7 from "@/assets/ai-care/cardImg/cardimg8.jpeg";
 import line from "@/assets/ai-care/stroke2.png";
 
 const cardData = [
