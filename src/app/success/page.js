@@ -43,11 +43,12 @@ function Page() {
         id: item.productId,
         name: item.productName,
         type:
-          item.productName === "AI Monitoring" ||
           item.productName === "Required with your system"
             ? "Seenyor Kit"
             : item.productName === "Installation"
             ? "Installation"
+            : item.productName === "AI Monitoring"
+            ? "AI Monitoring"
             : item.productName === "All in One AI Sensor"
             ? `AI Sensor ${item.quantity}x`
             : "package",
@@ -98,12 +99,13 @@ function Page() {
     if (sessionId && !hasRunRef.current) {
       hasRunRef.current = true; // Set the ref to true to prevent future executions
       let customerId;
-      const chnageStatus = chnageDeviceStatus({
-        uids: devices.map((deviceId) => deviceId),
-        email: JSON.parse(user_credentials).email,
-        is_active: true,
-      });
-      console.log(chnageStatus);
+      if (devices && isUserVerified) {
+        const chnageStatus = chnageDeviceStatus({
+          uids: devices.map((deviceId) => deviceId),
+          email: JSON.parse(user_credentials).email,
+          is_active: true,
+        });
+      }
       getSessionDetails(sessionId)
         .then((session) => {
           customerId = session.customer;

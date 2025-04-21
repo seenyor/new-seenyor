@@ -2,7 +2,7 @@
 import SingUpOpt from "@/components/SingUpOpt";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { forwardRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Heading, Input, Text } from "@/components";
@@ -20,7 +20,7 @@ const SourceofLeads = [
   { label: "Nursing Home", value: "nursing_home" },
 ];
 
-const Checkbox = ({ checked, onChange, disabled, id }) => (
+const Checkbox = ({ checked, onChange, disabled, id, label }) => (
   <>
     <div
       onClick={onChange}
@@ -46,7 +46,7 @@ const Checkbox = ({ checked, onChange, disabled, id }) => (
       )}
     </div>
     <p onClick={onChange} className="text-body text-slate-600 select-none">
-      Same as Customer Address
+      {label}
     </p>
   </>
 );
@@ -83,6 +83,7 @@ export default function RegisterPage() {
     reset,
   } = useForm();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { registerUser, verifyOtp, resendOtp, getCountries, getAgents } =
     useUserService();
   const [countries, setCountries] = useState([]);
@@ -95,7 +96,9 @@ export default function RegisterPage() {
   const [passwordStrength, setPasswordStrength] = useState("");
   const [orderDetails, setOrderDetails] = useState(null);
   const [useCustomerAddress, setUseCustomerAddress] = useState(false);
+  const [isAgentDisabled, setIsAgentDisabled] = useState(false);
   const [countryData, setCountryData] = useState([]);
+  const [isRegisterDeviceExist, setIsRegisterDeviceExist] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -190,6 +193,20 @@ export default function RegisterPage() {
       })
       .catch((error) => console.error("Error loading country data:", error));
   }, []);
+
+  useEffect(() => {
+    setIsRegisterDeviceExist(localStorage.getItem("devices"));
+    if (searchParams.get("isRegisterDevice") === "true") {
+      // URL has isRegisterDevice=true, show the checkbox
+      setIsAgentDisabled(false); // Allow the fields to be editable initially
+    }
+  }, [searchParams]);
+
+  const handleCheckboxChange = (e) => {
+    console.log(isAgentDisabled);
+
+    setIsAgentDisabled(!isAgentDisabled);
+  };
   const onSubmit = async (data) => {
     // // Perform client-side validation
     // const validationErrors = validateForm(data);
@@ -358,6 +375,7 @@ export default function RegisterPage() {
     options,
     required = true,
     customErrorMessage,
+    isDisabled,
     validate,
   }) => (
     <div className="w-full flex flex-col items-start gap-[0.25rem] self-stretch">
@@ -409,9 +427,10 @@ export default function RegisterPage() {
         <Input
           type={type}
           name={name}
+          disabled={isDisabled}
           placeholder={placeholder}
           {...register(name, { required, validate })}
-          className={`w-full rounded-[12px] !border px-[1.63rem] capitalize !text-text sm:px-[1.25rem] bg-white ${
+          className={`w-full rounded-[12px] !border px-[1.63rem] capitalize !text-text sm:px-[1.25rem] bg-white disabled:bg-red-300 ${
             type === "date" ? "!text-slate-500" : ""
           }`}
         />
@@ -591,6 +610,7 @@ export default function RegisterPage() {
                     checked={useCustomerAddress}
                     onChange={handleUseCustomerAddressChange}
                     id="sameAddress"
+                    label="Same as Customer Address"
                   />
                 </div>
                 <div id="Fields" className="flex flex-col gap-4">
@@ -676,6 +696,7 @@ export default function RegisterPage() {
                       type: "text",
                       placeholder: "Agent Name",
                       required: true,
+                      isDisabled: isAgentDisabled,
                     })}
                     {renderField({
                       label: "Agent ID",
@@ -683,8 +704,35 @@ export default function RegisterPage() {
                       type: "text",
                       placeholder: "Agent ID",
                       required: true,
+                      isDisabled: isAgentDisabled,
                     })}
                   </div>
+                  {/* Checkbox to disable fields */}
+                  {/* {searchParams.get("isRegisterDevice") === "true" && (
+                    <div className="flex items-center gap-2 mt-4">
+                      <input
+                        type="checkbox"
+                        id="noAgentInfo"
+                        onChange={handleCheckboxChange}
+                        className="mr-2"
+                      />
+                      <label htmlFor="noAgentInfo">
+                        I do not have agent ID and name at the moment
+                      </label>
+                    </div>
+                  )} */}
+                  {searchParams.get("isRegisterDevice") === "true" &&
+                    isRegisterDeviceExist &&
+                    isRegisterDeviceExist.length > 0 && (
+                      <div className="flex items-center gap-2 w-full mb-4 mt-4">
+                        <Checkbox
+                          checked={isAgentDisabled}
+                          onChange={handleCheckboxChange}
+                          id="isAgentDisable"
+                          label="I do not have agent ID and name at the moment!"
+                        />
+                      </div>
+                    )}
                 </div>
               </div>
               {/* <============= Live With - S.5 ==============> */}

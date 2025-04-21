@@ -90,6 +90,7 @@ export default function HomePage() {
     };
 
     fetchProducts();
+    localStorage.removeItem("devices");
   }, []);
   // Total Price calculation
   useEffect(() => {
@@ -358,7 +359,7 @@ export default function HomePage() {
                 className="text-end xxl:text-start w-[20%] tab:w-full px-7 xxl:mx-5"
               >
                 <h1 className="font-semibold  text-end xxl:text-start text-5xl xxl:text-3xl">
-                  ${kitPrice}
+                  {expectedCurrency === "aud" ? "AU" : ""}${kitPrice}
                 </h1>
                 <span className="font-normal text-xl text-[#000]/80">
                   For the set of 3x AI Devices
@@ -397,7 +398,10 @@ export default function HomePage() {
                   />
                 </div>
                 <div id="Price" className="text-center">
-                  <h1 className="font-bold  text-3xl ">${kitPrice}</h1>
+                  <h1 className="font-bold  text-3xl ">
+                    {" "}
+                    {expectedCurrency === "aud" ? "AU" : ""}${kitPrice}
+                  </h1>
                   <span className="font-normal pt-1 text-base text-[#000]/80">
                     For the set of 3x AI Devices
                   </span>
@@ -450,7 +454,7 @@ export default function HomePage() {
           >
             <div id="Price" className="text-start">
               <h1 className="font-semibold text-center text-5xl xxl:text-3xl">
-                ${addonDevicePrice}
+                {expectedCurrency === "aud" ? "AU" : ""}${addonDevicePrice}
               </h1>
               <p className="font-normal !text-center text-md text-[#000]/80 ">
                 For 1 Additional device
@@ -529,7 +533,7 @@ export default function HomePage() {
               <div id="Price" className="text-end  w-full px-2 ">
                 <div id="Price" className="text-start">
                   <h1 className="font-bold text-center text-3xl">
-                    ${addonDevicePrice}
+                    {expectedCurrency === "aud" ? "AU" : ""}${addonDevicePrice}
                   </h1>
                   <p className="font-normal !text-center text-md text-[#000]/80 ">
                     Per device
@@ -629,7 +633,8 @@ export default function HomePage() {
             className="text-end xxl:text-start w-[20%] tab:w-full px-2 xxl:mx-5"
           >
             <h1 className="font-semibold  text-end xxl:text-start text-5xl xxl:text-3xl">
-              ${selecteInstallation === 1 ? installationPrice : 0}
+              {expectedCurrency === "aud" ? "AU" : ""} $
+              {selecteInstallation === 1 ? installationPrice : 0}
             </h1>
             <span className="font-normal text-xl text-[#000]/80">
               Installation Price for {installationQuantity} Devices
@@ -667,7 +672,8 @@ export default function HomePage() {
             </div>
             <div id="Price" className="text-center">
               <h1 className="font-bold text-3xl">
-                ${selecteInstallation === 1 ? installationPrice : 0}
+                {expectedCurrency === "aud" ? "AU" : ""}$
+                {selecteInstallation === 1 ? installationPrice : 0}
               </h1>
               <span className="font-normal text-base text-[#000]/80">
                 Installation Price for {installationQuantity} Devices
@@ -823,7 +829,7 @@ export default function HomePage() {
                   </p>
                   <hr className="w-full border-2" />
                   <span className="text-nowrap text-lg font-normal">
-                    ${kitPrice}
+                    {expectedCurrency === "aud" ? "AU" : ""}${kitPrice}
                   </span>
                 </li>
               )}
@@ -833,7 +839,8 @@ export default function HomePage() {
                 </p>
                 <hr className="w-full border-2" />
                 <span className="text-nowrap text-lg md:text-base font-normal">
-                  ${addonDevicePrice * quantity}
+                  {expectedCurrency === "aud" ? "AU" : ""}$
+                  {addonDevicePrice * quantity}
                 </span>
               </li>
               <li className="flex items-center text-nowrap gap-5">
@@ -842,7 +849,8 @@ export default function HomePage() {
                 </p>
                 <hr className="w-full border-2" />
                 <span className="text-nowrap text-lg md:text-base font-normal">
-                  ${selecteInstallation === 1 ? installationPrice : 0}
+                  {expectedCurrency === "aud" ? "AU" : ""} $
+                  {selecteInstallation === 1 ? installationPrice : 0}
                 </span>
               </li>
               <li className="flex md:flex-col md:justify-center items-center text-nowrap gap-5 md:gap-1">
@@ -851,7 +859,7 @@ export default function HomePage() {
                 </p>
                 <hr className="w-full border-2 md:hidden" />
                 <span className="text-nowrap text-lg md:text-2xl font-normal md:font-semibold">
-                  ${total}
+                  {expectedCurrency === "aud" ? "AU" : ""}${total}
                 </span>
               </li>
             </ul>
@@ -863,12 +871,13 @@ export default function HomePage() {
                 <div className="flex flex-col items-start">
                   <h2 className="font-semibold text-xl md:md">AI Monitoring</h2>
                   <p className="font-normal text-md md:text-sm text-[#000]/80">
-                    ${aimonitoring * 24} Total Value Over 24 Months
+                    {expectedCurrency === "aud" ? "AU" : ""}${aimonitoring * 24}{" "}
+                    Total Value Over 24 Months
                   </p>
                 </div>
                 <div className="flex tab:block  items-end">
                   <h2 className="font-semibold text-xl md:text-md">
-                    ${aimonitoring}
+                    {expectedCurrency === "aud" ? "AU" : ""}${aimonitoring}
                   </h2>
                   <p className="font-normal text-md md:text-sm text-[#000]/80">
                     /Month

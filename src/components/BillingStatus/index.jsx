@@ -1,31 +1,36 @@
-"use client";
-
 import { createColumnHelper } from "@tanstack/react-table";
-import { Download, Undo2 } from "lucide-react"; // Import the Download icon from Lucide React
+import { Download, Undo2 } from "lucide-react";
 import React, { useState } from "react";
 import { Heading } from "../../components";
 import { ReactTable } from "../../components/ReactTable";
 import ActionPopover from "./ActionPopover";
 import RefundModal from "./RefundModal";
+
 export default function BillingStatus({ transactionDetails }) {
   const [openPopoverIndex, setOpenPopoverIndex] = useState(null);
   const [isRefundModalOpen, setIsRefundModalOpen] = useState(false);
   const [refundTransactionDetails, setRefundTransactionDetails] =
     useState(null);
-  console.log("i am billing info", transactionDetails);
 
-  // Check if transactionDetails is provided and has data
   const tableData =
-    transactionDetails?.data?.map((charge) => ({
-      // chargeId: charge.payment_method_details.card.last4, // Last four digits of the card
-      date: new Date(charge.created * 1000).toLocaleDateString(), // Convert timestamp to date
-      totalAmount: `${(charge.amount / 100).toFixed(
-        2
-      )} ${charge.currency.toUpperCase()}`,
-      status: charge.amount_refunded > 0 ? "Refunded" : charge.status,
-      receiptUrl: charge.receipt_url,
-      action: charge.payment_intent,
-    })) || [];
+    transactionDetails?.data?.map((charge) => {
+      const transactionDate = new Date(charge.created * 1000);
+      const currentDate = new Date();
+      const dateDifference = Math.floor(
+        (currentDate - transactionDate) / (1000 * 60 * 60 * 24)
+      ); // Calculate date difference in days
+
+      return {
+        date: transactionDate.toLocaleDateString(),
+        totalAmount: `${(charge.amount / 100).toFixed(
+          2
+        )} ${charge.currency.toUpperCase()}`,
+        status: charge.amount_refunded > 0 ? "Refunded" : charge.status,
+        receiptUrl: charge.receipt_url,
+        action: charge.payment_intent,
+        isActionVisible: dateDifference <= 10, // Only show action if the date difference is less than or equal to 10 days
+      };
+    }) || [];
 
   const tableColumnHelper = createColumnHelper();
 
@@ -34,13 +39,6 @@ export default function BillingStatus({ transactionDetails }) {
       tableColumnHelper.accessor("chargeId", {
         cell: (info) => (
           <div className="flex flex-col items-start">
-            {/* <Heading
-              size="headingxs"
-              as="p"
-              className="text-[0.88rem] font-semibold text-text"
-            >
-              **** **** **** {info.getValue()} 
-            </Heading> */}
             <Heading as="p" className="text-[1.00rem] font-normal text-text">
               {info.row.original.date}
             </Heading>
@@ -100,9 +98,9 @@ export default function BillingStatus({ transactionDetails }) {
         cell: (info) => (
           <div className="flex items-center">
             <a
-              href={info.getValue()} // Set the href to the URL of the receipt
-              target="_blank" // Open in a new tab
-              rel="noopener noreferrer" // Security best practice
+              href={info.getValue()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center text-blue-500 cursor-pointer"
             >
               <Download className="w-5 h-5" />
@@ -118,9 +116,12 @@ export default function BillingStatus({ transactionDetails }) {
         ),
         meta: { width: "8.00rem" },
       }),
-
       tableColumnHelper.accessor("action", {
         cell: (info) => {
+          if (!info.row.original.isActionVisible) {
+            return null; // Hide action if the item is more than 10 days old
+          }
+
           const options = [
             {
               label: "Refund Request",

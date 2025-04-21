@@ -7,7 +7,6 @@ import AiNotifications from "@/components/Ai-care/AiNotifications";
 import AiServices from "@/components/Ai-care/AiServices";
 import AiSpecifications from "@/components/Ai-care/AiSpecifications";
 import MsgBg1 from "@/components/Ai-care/MsgBg1";
-import React from "react";
 
 const page = () => {
   return (

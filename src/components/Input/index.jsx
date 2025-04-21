@@ -43,6 +43,7 @@ const Input = React.forwardRef(
       prefix,
       suffix,
       onChange,
+      disabled,
       shape,
       dateLimition,
       variant = "outline",
@@ -58,7 +59,7 @@ const Input = React.forwardRef(
       const tomorrow = new Date(today);
       tomorrow.setDate(today.getDate() + days);
 
-      return tomorrow.toLocaleDateString("en-CA"); // This returns YYYY-MM-DD format
+      return tomorrow.toLocaleDateString("en-CA");
     };
     if (type === "date" && ref.current) {
       ref.current.min = getTomorrowDate(1);
@@ -66,6 +67,7 @@ const Input = React.forwardRef(
     }
     return (
       <label
+        style={{ backgroundColor: disabled ? "#e2e6e6" : "white" }}
         className={`${className} flex items-center justify-center cursor-text
           ${shape && shapes[shape]} 
           ${variant && (variants[variant]?.[color] || variants[variant])} 
@@ -77,6 +79,7 @@ const Input = React.forwardRef(
           ref={ref}
           type={type}
           name={name}
+          disabled={disabled}
           placeholder={placeholder}
           onChange={onChange}
           className={`${type === "date" ? "!uppercase" : ""}`}

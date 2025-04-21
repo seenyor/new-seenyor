@@ -235,7 +235,7 @@ function Page() {
               </div>
 
               {/* Cancel Subscription */}
-              {!isUnsubscribed ? (
+              {/* {!isUnsubscribed ? (
                 <div className="flex items-center justify-between gap-[1.25rem] rounded-[14px] bg-orange-50 px-[1.13rem] py-[0.88rem] md:flex-col ">
                   <div className="flex w-full flex-col items-start md:w-full md:items-center md:text-center">
                     <Heading
@@ -289,7 +289,7 @@ function Page() {
                     Renew
                   </Button>
                 </div>
-              )}
+              )} */}
               {/* Billing Date */}
               {(subscriptionDetail?.status === "trialing" &&
                 currentInstallationStatus !== "completed") ||
@@ -342,21 +342,27 @@ function Page() {
                   as="p"
                   className="text-[1.13rem] font-normal text-[#1d293f]  md:text-center "
                 >
-                  Your upcoming charges will be billed to the card
+                  Your upcoming charges will be billed to the card{" "}
+                  <b>
+                    {
+                      paymentMethods?.filter((item) => item.isDefault)[0]?.card
+                        .last4
+                    }
+                  </b>
                 </Text>
               </div>
             </div>
           </div>
-          <UnsubscribeModal
+          {/* <UnsubscribeModal
             isOpen={isUnsubscribedModal}
             onOpenChange={setIsUnsubscribedModal}
             subscriptionDetails={subscriptionDetail?.id}
-          />
-          <RenewModal
+          /> */}
+          {/* <RenewModal
             isOpen={isRenew}
             onOpenChange={setIsRenew}
             renewDetails={renewData}
-          />
+          /> */}
         </TabPanel>
         <TabPanel className="absolute items-center">
           <BillingStatus transactionDetails={transactionDetails} />{" "}

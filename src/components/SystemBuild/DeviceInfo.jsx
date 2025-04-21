@@ -294,7 +294,8 @@ const DeviceInfo = () => {
                   </div>
                   <div id="Price" className="text-center">
                     <h1 className="font-bold text-3xl">
-                      ${selecteInstallation === 1 ? installationPrice : 0}
+                      {expectedCurrency === "aud" ? "AU" : ""}$
+                      {selecteInstallation === 1 ? installationPrice : 0}
                     </h1>
                     <span className="font-normal text-base text-[#000]/80">
                       Installation Price for {installationQuantity} Devices
@@ -323,7 +324,7 @@ const DeviceInfo = () => {
 
           {verified && devices.length > 0 && (
             <Link
-              href="/sign-up"
+              href="/sign-up?isRegisterDevice=true"
               onClick={() => updateOrderDetails()}
               className="max-w-[800px] w-full active:scale-95 text-center bg-gradient-to-r from-[#A2CDB9] to-[#5BAE87] text-white text-[18px] px-8 py-3 rounded-[15px]"
             >

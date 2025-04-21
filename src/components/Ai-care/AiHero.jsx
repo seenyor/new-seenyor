@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import hero from "@/assets/ai-care/heroImage.png";
 import bg from "@/assets/ai-care/heroBg.png";
