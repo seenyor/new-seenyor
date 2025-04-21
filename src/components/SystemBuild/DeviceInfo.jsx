@@ -9,7 +9,7 @@ import { useUserService } from "@/services/userService";
 import { useAuth } from "@/context/AuthContext";
 import RadioButtonGroup from "@/app/(product)/systembuilder/RadioGroupFInstallation";
 import Image from "next/image";
-
+// import uid_locate from "@/assets/uid_locate.mp4";
 const DeviceInfo = () => {
   const [deviceUid, setDeviceUid] = useState("");
   const [devices, setDevices] = useState([]);
@@ -209,11 +209,19 @@ const DeviceInfo = () => {
       {loading && <Loader />}
 
       {!loading && (
-        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8 mt-40 mb-10">
+        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8 mt-20 mb-10">
           <h1 className="text-[35px] md:text-[26px] font-bold">
             Device Information
           </h1>
-
+          <video
+            width="600"
+            autoPlay
+            loop
+            muted
+            className="border border-t-slate-200 w-[800px] md:w-full rounded-xl"
+          >
+            <source src="/assets/uid_locate.mp4" type="video/mp4" />
+          </video>
           <form
             onSubmit={handleSubmit}
             className="bg-[#F6F7F7] w-[800px] md:w-full rounded-[35px] flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-0"

@@ -2,6 +2,7 @@
 import RegisterPage from "./RegisterPage";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 export default function Page() {
   const router = useRouter();
 
@@ -12,7 +13,9 @@ export default function Page() {
   return (
     <div className="w-full bg-white">
       {/* <RegisterImage /> */}
-      <RegisterPage />
+      <Suspense fallback={() => <>asdasd</>}>
+        <RegisterPage />
+      </Suspense>
     </div>
   );
 }

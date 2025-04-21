@@ -2,7 +2,7 @@
 import SingUpOpt from "@/components/SingUpOpt";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { forwardRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Heading, Input, Text } from "@/components";
@@ -83,7 +83,7 @@ export default function RegisterPage() {
     reset,
   } = useForm();
   const router = useRouter();
-  // const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
   const { registerUser, verifyOtp, resendOtp, getCountries, getAgents } =
     useUserService();
   const [countries, setCountries] = useState([]);
@@ -194,13 +194,13 @@ export default function RegisterPage() {
       .catch((error) => console.error("Error loading country data:", error));
   }, []);
 
-  // useEffect(() => {
-  //   setIsRegisterDeviceExist(localStorage.getItem("devices"));
-  //   if (searchParams.get("isRegisterDevice") === "true") {
-  //     // URL has isRegisterDevice=true, show the checkbox
-  //     setIsAgentDisabled(false); // Allow the fields to be editable initially
-  //   }
-  // }, [searchParams]);
+  useEffect(() => {
+    setIsRegisterDeviceExist(localStorage.getItem("devices"));
+    if (searchParams.get("isRegisterDevice") === "true") {
+      // URL has isRegisterDevice=true, show the checkbox
+      setIsAgentDisabled(false); // Allow the fields to be editable initially
+    }
+  }, [searchParams]);
 
   const handleCheckboxChange = (e) => {
     console.log(isAgentDisabled);
@@ -721,7 +721,7 @@ export default function RegisterPage() {
                       </label>
                     </div>
                   )} */}
-                  {/* {searchParams.get("isRegisterDevice") === "true" &&
+                  {searchParams.get("isRegisterDevice") === "true" &&
                     isRegisterDeviceExist &&
                     isRegisterDeviceExist.length > 0 && (
                       <div className="flex items-center gap-2 w-full mb-4 mt-4">
@@ -732,7 +732,7 @@ export default function RegisterPage() {
                           label="I do not have agent ID and name at the moment!"
                         />
                       </div>
-                    )} */}
+                    )}
                 </div>
               </div>
               {/* <============= Live With - S.5 ==============> */}
