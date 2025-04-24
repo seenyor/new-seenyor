@@ -33,6 +33,20 @@ const Footer = () => {
                       Sleep Monitoring.
                     </p>
                   </li>
+                  <li className="mb-2 leading-6 py-3">
+                    <div className="flex items-center gap-1">
+                      <div className=" mt-1">
+                        <Image
+                          src="/images/home/mail.svg"
+                          alt=""
+                          height={10}
+                          width={10}
+                          className="!w-6 !h-6 md:hidden"
+                        />
+                      </div>
+                      <p className="mt-1 text-[14px]">Support@seenyor.com</p>
+                    </div>
+                  </li>
                 </ul>
 
                 <div className="flex justify-start gap-5 mt-3">
@@ -111,7 +125,24 @@ const Footer = () => {
                         />
                       </div>
                       <p>
-                        <strong>Aus Address:</strong> 232 Unley Road, Unley SA
+                        <strong>HQ-Ireland:</strong> Unit 4 First Floor, 84
+                        Strand Street, Skerries , Co.Dublin , K34VW93
+                      </p>
+                    </div>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <div className="flex items-start gap-1">
+                      <div className=" mt-1">
+                        <Image
+                          src="/images/home/location.svg"
+                          alt=""
+                          height={10}
+                          width={10}
+                          className="!w-7 min-w-5 !h-auto md:hidden"
+                        />
+                      </div>
+                      <p>
+                        <strong>Australia:</strong>  232 Unley Road, Unley SA
                         5061, Australia
                       </p>
                     </div>
@@ -128,8 +159,8 @@ const Footer = () => {
                         />
                       </div>
                       <p>
-                        <strong>USA Address:</strong> 15442 Ventura Blvd., Ste
-                        201-073 Sherman Oaks, California 91403, USA
+                        <strong>USA:</strong> 15442 Ventura Blvd., Ste 201-073
+                        Sherman Oaks, California 91403, USA
                       </p>
                     </div>
                   </li>
@@ -144,20 +175,6 @@ const Footer = () => {
           <p>1800329162</p>
         </div>
       </li> */}
-                  <li className="mb-2 leading-6">
-                    <div className="flex items-start gap-1">
-                      <div className=" mt-1">
-                        <Image
-                          src="/images/home/mail.svg"
-                          alt=""
-                          height={10}
-                          width={10}
-                          className="!w-5 !h-5 md:hidden"
-                        />
-                      </div>
-                      <p>Support@seenyor.com</p>
-                    </div>
-                  </li>
                 </ul>
               </nav>
             </div>
