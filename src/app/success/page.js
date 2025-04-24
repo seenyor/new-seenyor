@@ -20,7 +20,7 @@ function Page() {
   if (typeof window !== "undefined") {
     sessionId = new URLSearchParams(window.location.search).get("session_id");
   }
-  const [isUserVerified, setIsUserVerified] = useState(false);
+  const [isUserVerified, setIsUserVerified] = useState(null);
 
   const handleOrder = async (orderData) => {
     const agent_details = localStorage.getItem("agent_details");
@@ -87,24 +87,24 @@ function Page() {
     const devices = JSON.parse(localStorage.getItem("devices"));
     const user_credentials = localStorage.getItem("user_credentials");
 
+    const verified = JSON.parse(localStorage.getItem("isUserVerified"));
     if (typeof window !== "undefined") {
-      const verified =
-        JSON.parse(localStorage.getItem("isUserVerified")) || false;
-      setIsUserVerified(verified);
       if (!verified) {
         router.push("/");
       }
     }
-    // Ensure this runs only once
     if (sessionId && !hasRunRef.current) {
       hasRunRef.current = true; // Set the ref to true to prevent future executions
       let customerId;
-      if (devices && isUserVerified) {
+      if (devices && verified) {
+        console.log("================>", devices);
+
         const chnageStatus = chnageDeviceStatus({
           uids: devices.map((deviceId) => deviceId),
           email: JSON.parse(user_credentials).email,
           is_active: true,
         });
+        console.log("==================>", chnageStatus);
       }
       getSessionDetails(sessionId)
         .then((session) => {
