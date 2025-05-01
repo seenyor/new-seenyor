@@ -84,7 +84,7 @@ const Input = React.forwardRef(
           onChange={onChange}
           className={`${type === "date" ? "!uppercase" : ""}`}
           min={type === "date" ? getTomorrowDate(1) : undefined}
-          max={type === "date" ? getTomorrowDate(3) : undefined}
+          // max={}
           {...restProps}
         />
         {!!suffix && suffix}

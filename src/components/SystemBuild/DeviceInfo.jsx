@@ -93,6 +93,7 @@ const DeviceInfo = () => {
     setInstallationQuantity(devices.length);
     setInstallationPrice(installationPriceStatic * devices.length);
     const orderDetails = {
+      installationPrice: selecteInstallation,
       products: products
         .filter(
           (p) =>

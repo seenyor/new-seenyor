@@ -21,7 +21,7 @@ const SourceofLeads = [
 ];
 
 const Checkbox = ({ checked, onChange, disabled, id, label }) => (
-  <>
+  <div key={id} className="flex gap-2 items-center">
     <div
       onClick={onChange}
       className={`flex items-center justify-center !h-6 !w-6 border-2 rounded-md cursor-pointer transition-colors duration-300 ${
@@ -48,11 +48,12 @@ const Checkbox = ({ checked, onChange, disabled, id, label }) => (
     <p onClick={onChange} className="text-body text-slate-600 select-none">
       {label}
     </p>
-  </>
+  </div>
 );
 const SelectBox = forwardRef(
   ({ name, placeholder, options = [], onChange, className, ...rest }, ref) => (
     <select
+      key={ref}
       ref={ref}
       name={name}
       onChange={onChange}
@@ -203,11 +204,11 @@ export default function RegisterPage() {
   }, [searchParams]);
 
   const handleCheckboxChange = (e) => {
-    console.log(isAgentDisabled);
-
     setIsAgentDisabled(!isAgentDisabled);
   };
   const onSubmit = async (data) => {
+    console.log(data);
+
     // // Perform client-side validation
     // const validationErrors = validateForm(data);
     // if (Object.keys(validationErrors).length > 0) {
@@ -226,7 +227,7 @@ export default function RegisterPage() {
       return; // Stop submission if the password is invalid
     }
     const formattedData = {
-      agent_id: data.agent_id,
+      agent_id: isAgentDisabled ? null : data.agent_id,
       email: data.customer_email,
       name: data.customer_first_name,
       last_name: data.customer_last_name,
@@ -245,7 +246,6 @@ export default function RegisterPage() {
         city: data.installation_city,
         post_Code: data.installation_zipcode,
         state: data.installation_state,
-        agent_name: data.agent_name,
         installation_date: data.installation_date || null,
         elderly_Count: data.live_with === "alone" ? 1 : 2, // Assuming "alone" means 1, otherwise 2
         lead: data.source_lead,
@@ -275,7 +275,11 @@ export default function RegisterPage() {
     );
     try {
       setError("");
+      console.log("asd");
+
       const response = await registerUser(formattedData);
+      console.log(response);
+
       // Check if user registration was successful
       if (!response || !response.status) {
         throw new Error(response.message || "User registration failed.");
@@ -690,20 +694,20 @@ export default function RegisterPage() {
                     id="Field_Group"
                     className="flex gap-4 w-full sm:flex-col sm:gap-1"
                   >
-                    {renderField({
+                    {/* {renderField({
                       label: "Sales Agent Name",
                       name: "agent_name",
                       type: "text",
                       placeholder: "Agent Name",
-                      required: true,
+                      required: isAgentDisabled ? false : true,
                       isDisabled: isAgentDisabled,
-                    })}
+                    })} */}
                     {renderField({
                       label: "Agent ID",
                       name: "agent_id",
                       type: "text",
                       placeholder: "Agent ID",
-                      required: true,
+                      required: isAgentDisabled ? false : true,
                       isDisabled: isAgentDisabled,
                     })}
                   </div>
