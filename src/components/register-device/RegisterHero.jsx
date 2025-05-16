@@ -66,10 +66,10 @@ const RegisterHero = () => {
   return (
     <div className="w-full flex flex-col gap-[50px] items-center justify-center px-6">
       <div className="flex flex-col items-center gap-[18px]">
-        <h1 className="font-bold capitalize text-[48px] md:text-[30px] sm:text-[25px]">
+        <h1 className="font-bold capitalize text-center text-[48px] md:text-[30px] sm:text-[25px]">
           Register Your Seenyor Device
         </h1>
-        <p className="text-2xl text-center text-xl md:text-base sm:text-sm max-w-[1013px]">
+        <p className="text-center text-xl md:text-base sm:text-sm max-w-[1013px]">
           Activate your device and unlock all its features. Complete your
           registration now to receive updates, benefit from our dedicated
           customer support, and enhance elderly care with our Seenyor AI

@@ -9,6 +9,7 @@ import { useUserService } from "@/services/userService";
 import { useAuth } from "@/context/AuthContext";
 import RadioButtonGroup from "@/app/(product)/systembuilder/RadioGroupFInstallation";
 import Image from "next/image";
+import uid from "@/assets/uid.png";
 // import uid_locate from "@/assets/uid_locate.mp4";
 const DeviceInfo = () => {
   const [deviceUid, setDeviceUid] = useState("");
@@ -214,12 +215,19 @@ const DeviceInfo = () => {
           <h1 className="text-[35px] md:text-[28px] font-bold">
             Device Information
           </h1>
+          <Image
+            src={uid}
+            alt="uid guide"
+            className="border border-t-slate-200 w-[800px] md:w-full rounded-xl hidden md:block"
+            width={1920}
+            height={500}
+          />
           <video
             width="600"
             autoPlay
             loop
             muted
-            className="border border-t-slate-200 w-[800px] md:w-full rounded-xl"
+            className="border border-t-slate-200 w-[800px] md:w-full rounded-xl md:hidden"
           >
             <source src="/assets/uid_locate.mp4" type="video/mp4" />
           </video>
