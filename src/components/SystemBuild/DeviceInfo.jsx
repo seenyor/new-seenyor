@@ -210,8 +210,8 @@ const DeviceInfo = () => {
       {loading && <Loader />}
 
       {!loading && (
-        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8 mt-20 mb-10">
-          <h1 className="text-[35px] md:text-[26px] font-bold">
+        <div className="container font-poppins text-[#1D293F] items-center overflow-x-hidden justify-center flex flex-col gap-[60px] px-8 md:px-4 mt-20 mb-10">
+          <h1 className="text-[35px] md:text-[28px] font-bold">
             Device Information
           </h1>
           <video
@@ -225,7 +225,7 @@ const DeviceInfo = () => {
           </video>
           <form
             onSubmit={handleSubmit}
-            className="bg-[#F6F7F7] w-[800px] md:w-full rounded-[35px] flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-0"
+            className="bg-[#F6F7F7] w-[800px] md:w-full rounded-[35px] md:rounded-md flex flex-col items-center justify-center px-10 md:px-[15px] sm:px-1"
             noValidate
           >
             <div className="w-full mb-5 p-[30px] md:p-[15px] sm:p-3 flex flex-col gap-[30px]">
@@ -257,8 +257,10 @@ const DeviceInfo = () => {
             </div>
           </form>
 
-          <div className="bg-[#F6F7F7] w-[800px] md:w-full p-[30px] md:px-[15px] sm:px-2 rounded-[35px] flex flex-col gap-9">
-            <h1 className="text-[28px] font-semibold">Your Devices</h1>
+          <div className="bg-[#F6F7F7] w-[800px] md:w-full p-[30px] md:px-[15px] sm:px-2 rounded-[35px] flex flex-col gap-9 md:rounded-md">
+            <h1 className="text-[28px] md:text-[20px] sm:text-[16px] font-semibold">
+              Your Devices
+            </h1>
             {devices.length > 0 ? (
               devices.map((uid, index) => (
                 <DeviceCard

@@ -287,6 +287,15 @@ export const useUserService = () => {
       throw error; // Rethrow the error for handling in the component
     }
   };
+  const getDefualtAgentID = async (uid) => {
+    try {
+      const response = await get(`/deals/agent-id?uid=${uid}`);
+      return response; // Return the transaction details
+    } catch (error) {
+      console.error("Error fetching Agent ID:", error);
+      throw error; // Rethrow the error for handling in the component
+    }
+  };
   const getCustomerId = async (customeremail) => {
     try {
       const response = await get(`/orders/customer-email/${customeremail}`);
@@ -397,6 +406,7 @@ export const useUserService = () => {
     checkUserExist,
     createOrder,
     handlePaymentStatus,
+    getDefualtAgentID,
     handlePaymentSubscription,
     subscriptionDetails,
     updateUserName,

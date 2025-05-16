@@ -7,6 +7,7 @@ import { forwardRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Heading, Input, Text } from "@/components";
 import { useUserService } from "@/services/userService";
+import { toast } from "react-toastify";
 
 const liveWith = [
   { label: "Alone", value: "0" },
@@ -85,9 +86,16 @@ export default function RegisterPage() {
   } = useForm();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { registerUser, verifyOtp, resendOtp, getCountries, getAgents } =
-    useUserService();
+  const {
+    registerUser,
+    verifyOtp,
+    resendOtp,
+    getCountries,
+    getAgents,
+    getDefualtAgentID,
+  } = useUserService();
   const [countries, setCountries] = useState([]);
+  const [countriesForCode, setCountriesForCode] = useState([]);
   const [agents, setAgents] = useState([]);
   const { setEmail, email, user } = useAuth();
   const [error, setError] = useState("");
@@ -100,6 +108,7 @@ export default function RegisterPage() {
   const [isAgentDisabled, setIsAgentDisabled] = useState(false);
   const [countryData, setCountryData] = useState([]);
   const [isRegisterDeviceExist, setIsRegisterDeviceExist] = useState();
+  const [agentID, setAgentID] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -118,8 +127,15 @@ export default function RegisterPage() {
             label: country.country_name,
             value: country._id,
           }));
+          const formattedCountriesCode = countriesResponse.data.map(
+            (country) => ({
+              label: country.country_name,
+              value: country.country_code,
+            })
+          );
+          setCountriesForCode(formattedCountriesCode);
           setCountries(formattedCountries);
-          console.log("Formatted countries:", formattedCountries);
+          console.log("Formatted countries:", formattedCountriesCode);
         } else {
           console.error("Invalid country data structure:", countriesResponse);
           throw new Error(
@@ -202,9 +218,64 @@ export default function RegisterPage() {
       setIsAgentDisabled(false); // Allow the fields to be editable initially
     }
   }, [searchParams]);
+  const handleCheckboxChange = async (e) => {
+    // Get devices from localStorage
+    const devicesUID = JSON.parse(localStorage.getItem("devices")) || [];
+    if (isAgentDisabled) {
+      setIsAgentDisabled(!isAgentDisabled);
+      return;
+    }
+    try {
+      // If no devices, log error and return
+      if (!devicesUID || devicesUID.length === 0) {
+        console.error("No devices found in localStorage");
+        return;
+      }
 
-  const handleCheckboxChange = (e) => {
-    setIsAgentDisabled(!isAgentDisabled);
+      // Fetch agent ID for each device using getDefualtAgentID
+      const agentIds = await Promise.all(
+        devicesUID.map(async (deviceUID) => {
+          try {
+            const response = await getDefualtAgentID(deviceUID);
+            return response.agent_id; // Assuming response is { agent_id: "68244c3ce24c70c34f866442" }
+          } catch (error) {
+            console.error(
+              `Failed to fetch agent ID for device ${deviceUID}:`,
+              error
+            );
+            return null;
+          }
+        })
+      );
+
+      // Filter out any null responses (failed API calls)
+      const validAgentIds = agentIds.filter((id) => id !== null);
+
+      // Check if all valid agent IDs are the same
+      const allSameAgent =
+        validAgentIds.length > 0 &&
+        validAgentIds.every((id) => id === validAgentIds[0]);
+
+      if (!allSameAgent) {
+        console.error(
+          "Failed to toggle agent ID field: Devices are not under the same distributor. " +
+            "Please verify the devices or contact your senior."
+        );
+        toast.error(
+          "Devices are not from the same distributor. Please verify that the devices are from the same distributor or contact support."
+        );
+        return;
+      }
+
+      // If all agent IDs match, proceed with original logic
+      console.log(devicesUID);
+      const agentID = await getDefualtAgentID(devicesUID[0]);
+      console.log(agentID);
+      setAgentID(agentID.agent_id);
+      setIsAgentDisabled(!isAgentDisabled);
+    } catch (error) {
+      console.error("Error in handleCheckboxChange:", error);
+    }
   };
   const onSubmit = async (data) => {
     console.log(data);
@@ -227,7 +298,7 @@ export default function RegisterPage() {
       return; // Stop submission if the password is invalid
     }
     const formattedData = {
-      agent_id: isAgentDisabled ? null : data.agent_id,
+      agent_id: isAgentDisabled ? agentID : data.agent_id,
       email: data.customer_email,
       name: data.customer_first_name,
       last_name: data.customer_last_name,
@@ -237,13 +308,17 @@ export default function RegisterPage() {
       country_id: data.customer_country_id,
       post_Code: data.customer_zipcode,
       state: data.customer_state,
-      contact_number: data.country_code + data.customer_contact_number,
+      contact_code: data.country_code,
+      contact_number: data.customer_contact_number,
       password: data.password,
       customer_info: {
         country_id: data.installation_country_id,
         address: data.installation_address,
         address2: data.installation_address_2,
         city: data.installation_city,
+        contact_number: data.customer_contact_number,
+        contact_code: data.country_code,
+
         post_Code: data.installation_zipcode,
         state: data.installation_state,
         installation_date: data.installation_date || null,
@@ -398,9 +473,9 @@ export default function RegisterPage() {
         <SelectBox
           name={name}
           placeholder={placeholder}
-          options={countryData.map((country) => ({
-            value: country.dial_code,
-            label: `${country.name} (${country.dial_code})`,
+          options={countriesForCode.map((country) => ({
+            value: country.value,
+            label: `${country.label} (${country.value})`,
           }))}
           {...register(name, { required })}
           onChange={(e) => {
@@ -525,7 +600,7 @@ export default function RegisterPage() {
                     id="Field_Group"
                     className="flex gap-4 w-full sm:flex-col sm:gap-1"
                   >
-                    <div className="w-[45%]">
+                    <div className="w-[45%] md:w-full">
                       {renderField({
                         label: "Country Code",
                         name: "country_code",

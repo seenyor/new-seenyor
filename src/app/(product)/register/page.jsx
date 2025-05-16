@@ -5,12 +5,12 @@ import bg from "@/assets/register/register_bg.png";
 
 const page = () => {
   return (
-    <div className="w-full h-[70%]">
+    <div className="w-full flex flex-col justify-between !h-[90svh] mt-8">
       <RegisterHero />
       <Image
         src={bg}
         alt="bg"
-        className="w-full h-full"
+        className="w-full h-fit"
         width={1920}
         height={500}
       />

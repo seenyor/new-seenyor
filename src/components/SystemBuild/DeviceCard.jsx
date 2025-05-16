@@ -6,12 +6,12 @@ const DeviceCard = ({ number, id, handleRemoveDevice }) => {
   return (
     <div>
       <div className="bg-[#ffffff] w-full  flex sm:flex-col flex-row gap-[25px] px-[10px] py-[10px] rounded-[12px]">
-        <div className="flex">
+        <div className="flex sm:hidden">
           <Image
             src={product}
             width={140}
             height={122}
-            className="sm:w-full"
+            className="sm:w-full "
             alt="x"
           />
           <div className=" bg-[#F6F7F7] w-[3px] sm:hidden"></div>
