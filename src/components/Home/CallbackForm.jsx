@@ -242,7 +242,7 @@ const CallbackForm = ({ accessToken }) => {
                 </select>
                 <input
                   id="phone"
-                  type="text"
+                  type="number"
                   name="phone_number"
                   placeholder="Enter phone number"
                   value={formData.phone_number}

@@ -1,3 +1,4 @@
+import AiActNow from "@/components/Ai-care/AiActNow";
 import MonitoringCarousel from "@/components/Carousel/MonitoringCarousel";
 import GetStartArea from "@/components/GetStartArea";
 import Artnow from "@/components/Home/Artnow";
@@ -85,11 +86,11 @@ const ProfessionalMonitoring = () => {
             <p className="mt-4 text-xl md:text-lg">
               Ensuring immediate response and peace of mind, day and night.
             </p>
-            {/* <Link href="/systembuilder"> */}
-            <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#7F87FC] rounded-md">
-              Protect Them Now
-            </button>
-            {/* </Link> */}
+            <Link href="/systembuilder">
+              <button className="mt-6 px-6 text-white py-[10px] font-semibold text-lg bg-[#7F87FC] rounded-md">
+                Protect Them Now
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -107,11 +108,11 @@ const ProfessionalMonitoring = () => {
             <p className="mt-2 text-sm">
               Ensuring immediate response and peace of mind, day and night.
             </p>
-            {/* <Link href="/systembuilder"> */}
-            <button className="mt-10 px-4 text-white py-1 font-semibold text-lg bg-[#020288] rounded-md">
-              Protect Them Now
-            </button>
-            {/* </Link> */}
+            <Link href="/systembuilder">
+              <button className="mt-10 px-4 text-white py-1 font-semibold text-lg bg-[#020288] rounded-md">
+                Protect Them Now
+              </button>
+            </Link>
             <p className="mt-2 text-xs">*Limited Stock Available!</p>
           </div>
         </div>
@@ -450,7 +451,7 @@ const ProfessionalMonitoring = () => {
       </div>
 
       <div className="tab:mb-8">
-        <Artnow />
+        <AiActNow />
       </div>
       <GetStartArea />
       <CallbackForm accessToken={accessToken} />

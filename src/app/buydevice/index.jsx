@@ -34,19 +34,19 @@ export default function HomePage() {
     getCustomerId,
   } = useUserService();
   const { setEmail, email, user, accessToken, customerMail } = useAuth();
-
+  const { country } = useAuth();
+  const expectedCurrency = country === "global" ? "usd" : "aud";
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const fetchedProducts = await getProducts();
         setProducts(fetchedProducts);
-        console.log(fetchedProducts);
-
         const addon = fetchedProducts.find(
-          (p) => p.name === "All in One AI Sensor"
+          (p) =>
+            p.name === "All in One AI Sensor" && p.currency === expectedCurrency
         );
         const installation = fetchedProducts.find(
-          (p) => p.name === "Installation"
+          (p) => p.name === "Installation" && p.currency === expectedCurrency
         );
         if (addon) setAddonDevicePrice(addon.price);
         if (installation) setInstallationPrice(installation.price);
@@ -179,21 +179,21 @@ export default function HomePage() {
   const handleCheckout = async () => {
     let stripeCustomerId;
     // Attempt to get the Stripe customer ID
+    const email = localStorage.getItem("user_email");
     try {
-      stripeCustomerId = await getStripeCustomerId();
+      stripeCustomerId = await getStripeCustomerId(email);
       if (!stripeCustomerId) {
-        console.log(customerMail);
-        const customerData = await getCustomerId(customerMail);
+        const customerData = await getCustomerId(email);
         stripeCustomerId = customerData.id;
         if (!stripeCustomerId) {
           router.push("/login");
-          return; // Exit the function
+          return;
         }
       }
     } catch (error) {
       console.error("Error fetching customer ID:", error);
-      router.push("/login"); // Redirect to login if there's an error
-      return; // Exit the function
+      router.push("/login");
+      return;
     }
 
     // Ensure order details are up to date in localStorage
@@ -208,8 +208,11 @@ export default function HomePage() {
       const lineItems = [];
       if (quantity > 0) {
         const addonProduct = products.find(
-          (p) => p.name === "All in One AI Sensor"
+          (p) =>
+            p.name === "All in One AI Sensor" && p.currency === expectedCurrency
         );
+        console.log(addonProduct);
+
         if (addonProduct) {
           lineItems.push({
             price: addonProduct.priceId,
@@ -223,7 +226,7 @@ export default function HomePage() {
 
       if (selecteInstallation === 1) {
         const installationProduct = products.find(
-          (p) => p.name === "Installation"
+          (p) => p.name === "Installation" && p.currency === expectedCurrency
         );
         if (installationProduct) {
           lineItems.push({
@@ -239,10 +242,15 @@ export default function HomePage() {
       if (lineItems.length === 0) {
         throw new Error("No products selected for checkout");
       }
+      console.log(lineItems);
 
+      let successUrl = window.location.origin + "/success";
+      let cancelUrl = window.location.origin + "/cancel";
       const session = await createStripeSession({
         customer: stripeCustomerId,
         line_items: lineItems,
+        success_url: successUrl,
+        cancel_url: cancelUrl,
       });
 
       window.location.href = session.url;

@@ -10,7 +10,7 @@ export default function SixtySixPage() {
         <AccountDone />
         <div className="flex flex-col items-center">
           <div className="container-xs mb-[1.63rem] flex flex-col items-center gap-[1.25rem] px-[3.50rem] md:px-[1.25rem]">
-            <div className="flex w-[36%] flex-col items-center gap-[0.63rem] px-[2.25rem] md:w-full sm:px-[1.25rem]">
+            <div className="flex w-[100%] flex-col items-center gap-[0.63rem] px-[2.25rem] md:w-full sm:px-[1.25rem]">
               <Img
                 src="app_qr1.png"
                 width={110}

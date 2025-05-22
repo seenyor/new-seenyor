@@ -141,11 +141,11 @@ const page = () => {
         <p className="text-white">
           Your Journey to Safety and Peace of Mind Begins Here
         </p>
-        {/* <Link href="/systembuilder"> */}
-        <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
-          Get Started
-        </button>
-        {/* </Link> */}
+        <Link href="/systembuilder">
+          <button className="bg-[#7F87FC] min-w-24 text-white font-semibold px-2 sm:px-1 py-2 sm:text-xs rounded">
+            Get Started
+          </button>
+        </Link>
       </div>
     </div>
   );

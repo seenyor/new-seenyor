@@ -11,9 +11,9 @@ export default function PaymentPage() {
     redirect("/");
   }
 
-  if (!stripeCustomerId) {
-    redirect("/sign-up");
-  }
+  // if (!stripeCustomerId) {
+  //   redirect("/sign-up");
+  // }
 
   return <Page />;
 }

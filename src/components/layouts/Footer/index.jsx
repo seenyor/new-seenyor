@@ -125,8 +125,8 @@ const Footer = () => {
                         />
                       </div>
                       <p>
-                        <strong>HQ-Ireland:</strong> Unit 4 First Floor, 84
-                        Strand Street, Skerries , Co.Dublin , K34VW93
+                        <strong>HQ-Ireland:</strong> Unit 2, 2 Bridge St,
+                        Athlone, Co. Westmeath, N37 F1W4
                       </p>
                     </div>
                   </li>
@@ -142,8 +142,8 @@ const Footer = () => {
                         />
                       </div>
                       <p>
-                        <strong>Australia:</strong>  232 Unley Road, Unley SA
-                        5061, Australia
+                        <strong>Tim&apos;s Office:</strong>  232 Unley Road,
+                        Unley SA 5061, Australia
                       </p>
                     </div>
                   </li>
@@ -193,7 +193,7 @@ const Footer = () => {
                 <ul className="text-lg md:text-[16px] tab:text-sm">
                   <li className="mb-2 leading-6">
                     <a
-                      href="/knowledge"
+                      href="/faq"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
                       Help Center
@@ -242,7 +242,7 @@ const Footer = () => {
                 </ul>
               </nav>
             </div>
-            <div className="flex justify-start ">
+            <div className="flex justify-start flex-col">
               <nav
                 aria-labelledby="footer-get-in-touch-5-logo-sub"
                 className="max-w-[270px]"
@@ -251,7 +251,7 @@ const Footer = () => {
                   className="mb-2 font-bold text-xl md:text-lg tab:text-base "
                   id="footer-get-in-touch-5-logo-sub"
                 >
-                  COMPANY
+                  Company
                 </h3>
                 <ul className="text-lg md:text-[16px] tab:text-sm">
                   <li className="mb-2 leading-6">
@@ -278,6 +278,45 @@ const Footer = () => {
                       Blog
                     </a>
                   </li>
+                </ul>
+              </nav>
+              <nav
+                aria-labelledby="footer-docs-5-logo-sub mt-6"
+                className="max-w-[300px]"
+              >
+                <h3
+                  className="mb-2 font-bold text-xl md:text-lg tab:text-base "
+                  id="footer-docs-5-logo-sub"
+                >
+                  Customer Service
+                </h3>
+                <ul className="text-lg md:text-[16px] tab:text-sm">
+                  <li className="mb-2 leading-6">
+                    <div className="flex items-start gap-1">
+                      <p>
+                        <strong>Australia:</strong> +61 482 070 445
+                      </p>
+                    </div>
+                  </li>
+                  <li className="mb-2 leading-6">
+                    <div className="flex items-start gap-1">
+                      <p>
+                        <strong>USA:</strong> +1 425 697 9780
+                      </p>
+                    </div>
+                  </li>
+
+                  {/* <li className="mb-2 leading-6">
+        <div className="flex items-start gap-1">
+          <div className=" mt-1">
+            <Phone
+              fill="#000"
+              className="!w-4 min-w-4 !h-auto md:hidden"
+            />
+          </div>
+          <p>1800329162</p>
+        </div>
+      </li> */}
                 </ul>
               </nav>
             </div>

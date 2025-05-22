@@ -164,12 +164,12 @@ export default function SecondaryNav() {
                 </Link>
               </li>
               <li role="none" className="flex items-stretch">
-                <Link href="/knowledge">
+                <Link href="/faq">
                   <Heading
                     as="p"
                     className="text-[1.3rem] gap-2 py-4 px-8 font-medium text-white"
                   >
-                    Knowledge Base
+                    FAQs
                   </Heading>
                 </Link>
               </li>
@@ -177,7 +177,7 @@ export default function SecondaryNav() {
                 <li role="none" className="flex items-stretch">
                   <Link
                     onClick={() => setIsToggleOpen(false)}
-                    href="/systembuilder"
+                    href="/buydevice"
                   >
                     <Heading
                       as="p"
@@ -209,11 +209,11 @@ export default function SecondaryNav() {
                       Sign In
                     </button>
                   </Link>
-                  {/* <Link href="/systembuilder">
+                  <Link href="/systembuilder">
                     <button className="sm:px-3 sm:py-2 px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg">
                       Get Started
                     </button>
-                  </Link> */}
+                  </Link>
                 </li>
               ) : (
                 <Link href="/account" className="relative group">
@@ -285,12 +285,12 @@ export default function SecondaryNav() {
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge">
+                <Link href="/faq">
                   <Heading
                     as="p"
                     className="text-[1.125rem] font-bold text-white"
                   >
-                    Knowledge Base
+                    FAQs
                   </Heading>
                 </Link>
               </li>
@@ -298,7 +298,7 @@ export default function SecondaryNav() {
                 <li role="none" className="flex items-stretch">
                   <Link
                     onClick={() => setIsToggleOpen(false)}
-                    href="/system-builder"
+                    href="/buydevice"
                   >
                     <Heading
                       as="p"
@@ -329,12 +329,12 @@ export default function SecondaryNav() {
                   >
                     Sign In
                   </Link>
-                  {/* <Link
+                  <Link
                     className="sm:px-3 sm:py-2 sm:text-sm px-3 py-[10px] bg-[#2C3142] font-semibold text-white rounded-lg m-auto"
                     href="/systembuilder"
                   >
                     Get Started
-                  </Link> */}
+                  </Link>
                 </li>
               ) : (
                 <Link href="/account" className="relative group">

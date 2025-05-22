@@ -61,7 +61,7 @@ export default function HomePage() {
             p.name === "All in One AI Sensor" && p.currency === expectedCurrency
         );
         const installation = fetchedProducts.find(
-          (p) => p.name === "Installation"
+          (p) => p.name === "Installation" && p.currency === expectedCurrency
         );
         const aimonitoring = fetchedProducts.find(
           (p) =>
@@ -242,32 +242,32 @@ export default function HomePage() {
       console.log(lineItems);
 
       // Start the first API call
-      const stripeCustomerPromise = createStripeCustomer({
-        email: userDetails.email,
-        name: userDetails.name,
-      });
+      // const stripeCustomerPromise = createStripeCustomer({
+      //   email: userDetails.email,
+      //   name: userDetails.name,
+      // });
 
-      // Once the first API call is resolved, use its result for the second call
-      stripeCustomerPromise
-        .then((stripeCustomerResponse) => {
-          const stripeCustomerId = stripeCustomerResponse.id;
+      // // Once the first API call is resolved, use its result for the second call
+      // stripeCustomerPromise
+      //   .then((stripeCustomerResponse) => {
+      //     const stripeCustomerId = stripeCustomerResponse.id;
 
-          // Start the second API call
-          return createStripeSession({
-            customer: stripeCustomerId,
-            line_items: lineItems,
-            success_url: successUrl,
-            cancel_url: cancelUrl,
-          });
-        })
-        .then((session) => {
-          // Handle the session result
-          window.location.href = session.url;
-        })
-        .catch((error) => {
-          // Handle any errors
-          console.error("Error during checkout process:", error);
-        });
+      //     // Start the second API call
+      //     return createStripeSession({
+      //       customer: stripeCustomerId,
+      //       line_items: lineItems,
+      //       success_url: successUrl,
+      //       cancel_url: cancelUrl,
+      //     });
+      //   })
+      //   .then((session) => {
+      //     // Handle the session result
+      //     window.location.href = session.url;
+      //   })
+      //   .catch((error) => {
+      //     // Handle any errors
+      //     console.error("Error during checkout process:", error);
+      //   });
     } else {
       router.push("/sign-up");
     }

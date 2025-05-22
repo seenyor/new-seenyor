@@ -21,6 +21,21 @@ const RightSection = () => {
       const response = await login({ email, password });
       console.log("Login response:", response); // Debug log
       localStorage.setItem("user_id", response.data._id);
+      localStorage.setItem("isUserVerified", true);
+      localStorage.setItem(
+        "user_credentials",
+        JSON.stringify({
+          email,
+          password,
+        })
+      );
+      localStorage.setItem(
+        "agent_details",
+        JSON.stringify({
+          agent_id: response.data?.agent_id,
+        })
+      );
+
       if (response && response.data && response.data.access_token) {
         router.push("/account");
       } else {

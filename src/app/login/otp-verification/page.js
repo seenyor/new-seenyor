@@ -1,10 +1,12 @@
 "use client";
 
 import { Heading, Text } from "@/components"; // Adjust the import path as necessary
+import { useUserService } from "@/services/userService";
 import CryptoJS from "crypto-js"; // Import crypto-js for decryption
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Suspense } from "react";
+import { toast } from "react-toastify";
 const OtpVerification = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -13,7 +15,9 @@ const OtpVerification = () => {
   const inputRefs = useRef([]);
   const otpRef = useRef(["", "", "", "", "", ""]);
   const [error, setError] = useState("");
+  const [isResending, setIsResending] = useState(false);
   const [email, setEmail] = useState("");
+  const { verifyOtp, resendOtp } = useUserService();
   useEffect(() => {
     if (!encryptedEmail || !encryptedOtp) {
       console.log("Redirecting to Forgot Password page."); // Debugging log
@@ -67,25 +71,50 @@ const OtpVerification = () => {
       setError("Please enter all 6 digits.");
       return;
     }
+    handleOtpVerification(code);
+  };
+  const resendCode = async () => {
+    setIsResending(true);
+    await handleresendOTP();
+  };
 
-    if (code === decryptedOtp) {
-      // If the OTP matches, redirect to the Set Password page
-      const encryptedEmail = CryptoJS.AES.encrypt(
+  const handleOtpVerification = async (otp) => {
+    try {
+      const response = await verifyOtp({
         email,
-        "your-secret-key"
-      ).toString();
-      const encryptedOtp = CryptoJS.AES.encrypt(
-        code,
-        "your-secret-key"
-      ).toString();
-      router.push(
-        `/login/set-password?email=${encodeURIComponent(
-          encryptedEmail
-        )}&otp=${encodeURIComponent(encryptedOtp)}`
-      );
-    } else {
-      // If the OTP does not match, show an error
-      setError("Invalid OTP. Please try again.");
+        otp: otp,
+      });
+      if (response.status) {
+        console.log("verify");
+        router.push(
+          `/login/set-password?email=${encodeURIComponent(
+            email
+          )}&otp=${encodeURIComponent(otp)}`
+        );
+      } else {
+        setError(
+          response.message || "OTP verification failed. Please try again."
+        );
+        toast.error("OTP verification failed. Please try again.");
+      }
+    } catch (err) {
+      setError(err.message || "An error occurred during OTP verification");
+    }
+  };
+  const handleresendOTP = async () => {
+    try {
+      const response = await resendOtp({ email });
+      if (response.status) {
+        console.log("verify");
+        setIsResending(false);
+      } else {
+        setError(response.message || "Failed to send OTP Please try again.");
+        toast.error("Failed to send OTP Please try again.");
+        setIsResending(false);
+      }
+    } catch (err) {
+      setError(err.message || "An error occurred during OTP verification");
+      setIsResending(false);
     }
   };
 
@@ -132,6 +161,19 @@ const OtpVerification = () => {
         >
           Verify Code
         </button>
+        <Text
+          as="p"
+          className="text-[1.13rem] font-normal text-text text-center"
+        >
+          Didn&apos;t get the code?{" "}
+          <button
+            onClick={resendCode}
+            className="font-medium text-primary hover:underline"
+            disabled={isResending}
+          >
+            {isResending ? "Resending..." : "Resend Code"}
+          </button>
+        </Text>
       </div>
     </div>
   );

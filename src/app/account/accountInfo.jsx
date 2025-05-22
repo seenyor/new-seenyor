@@ -6,7 +6,7 @@ import * as Avatar from "@radix-ui/react-avatar";
 import { useState } from "react";
 import { toast } from "react-toastify";
 export default function AccountInfo() {
-  const { setUserName, userName } = useAuth();
+  const { setUserName, userName, lastUserName, setLastUserName } = useAuth();
   const [imageUrl, setImageUrl] = useState(null);
 
   const handleImageUpload = (event) => {
@@ -18,12 +18,17 @@ export default function AccountInfo() {
   };
   const { updateUserName, getUserDetailsById } = useUserService(); // Get the updateUserName and
   const [displayName, setDisplayName] = useState("");
+  const [displayLastName, setDisplayLastName] = useState("");
   const handleUpdateName = async () => {
     try {
-      const response = await updateUserName({ name: displayName });
+      const response = await updateUserName({
+        name: displayName || userName,
+        last_name: displayLastName || lastUserName,
+      });
       console.log(response);
       toast.success("User name updated successfully!");
       setUserName(displayName);
+      setLastUserName(displayLastName);
       setDisplayName("");
       console.log("User name updated successfully:", response);
     } catch (error) {
@@ -86,6 +91,14 @@ export default function AccountInfo() {
             placeholder={userName}
             value={displayName} // Bind the input value to state
             onChange={(e) => setDisplayName(e.target.value)} // Update state on input change
+            className="self-stretch rounded-[12px] !border px-[1.63rem] sm:px-[1.25rem]"
+          />
+          <Input
+            shape="round"
+            name="Label"
+            placeholder={lastUserName}
+            value={displayLastName} // Bind the input value to state
+            onChange={(e) => setDisplayLastName(e.target.value)} // Update state on input change
             className="self-stretch rounded-[12px] !border px-[1.63rem] sm:px-[1.25rem]"
           />
         </div>

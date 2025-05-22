@@ -63,7 +63,7 @@ const AiActNow = () => {
               />
               <div className="p-5 flex flex-col flex-grow justify-between">
                 <div>
-                  <button className="bg-[#EE0066] text-[16px] tab:text-[10px] text-white py-2 px-4 rounded-[10px]">
+                  <button className="bg-[#EE0066] text-[16px] tab:text-[10px] text-white py-2 px-4 rounded-[10px] cursor-default">
                     {card.badgeText}
                   </button>
                   <h1 className="font-bold mt-4 text-[#10005B] sm:text-lg">

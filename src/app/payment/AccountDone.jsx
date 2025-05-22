@@ -19,7 +19,6 @@ export default function AccountDone() {
   const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
   const isUserVerified =
     JSON.parse(localStorage.getItem("isUserVerified")) || false;
-  console.log("i am orderDetails", isUserVerified);
   if (!orderDetails || !isUserVerified) {
     router.push("/");
     return;
@@ -28,7 +27,7 @@ export default function AccountDone() {
     const stripeCustomerId = await getStripeCustomerId();
 
     if (!stripeCustomerId) {
-      router.push("/register");
+      router.push("/sign-up");
       return;
     }
     setIsProcessing(true);
@@ -66,17 +65,18 @@ export default function AccountDone() {
       let cancelUrl = window.location.origin + "/cancel";
       const lineItems = orderDetails.products
         .map((product) => ({
-          price_data: {
-            currency: expectedCurrency,
-            product_data: {
-              name: product.name,
-              description: product.description || " ",
-              metadata: {
-                category: product.isRecurring ? "subscription" : "one-time",
-              },
-            },
-            unit_amount: product.price * 100, // Assuming price is in dollars, convert to cents
-          },
+          // price_data: {
+          //   currency: expectedCurrency,
+          //   product_data: {
+          //     name: product.name,
+          //     description: product.description || " ",
+          //     metadata: {
+          //       category: product.isRecurring ? "subscription" : "one-time",
+          //     },
+          //   },
+          //   unit_amount: product.price * 100, // Assuming price is in dollars, convert to cents
+          // },
+          price: product.priceId,
           quantity: product.quantity,
           adjustable_quantity: product.adjustable_quantity
             ? {
@@ -87,6 +87,8 @@ export default function AccountDone() {
             : undefined,
         }))
         .filter((item) => item.quantity > 0);
+      console.log(lineItems, orderDetails);
+
       const session = await createStripeSession({
         customer: stripeCustomerId,
         line_items: lineItems,

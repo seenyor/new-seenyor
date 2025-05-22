@@ -65,7 +65,7 @@ const Knowledge = () => {
           <div className="grid grid-cols-4 sm:block md:grid-cols-2 gap-4">
             {helpTopics.map((topic, index) => (
               <Link
-                href={`knowledge/${topic?.title}`}
+                href={`faq/${topic?.title}`}
                 key={index}
                 className="flex sm:my-4 justify-center sm:justify-start items-center bg-white rounded-xl p-4 min-h-[140px] md:min-h-[100px]"
               >

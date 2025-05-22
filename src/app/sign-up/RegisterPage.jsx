@@ -267,10 +267,7 @@ export default function RegisterPage() {
         return;
       }
 
-      // If all agent IDs match, proceed with original logic
-      console.log(devicesUID);
       const agentID = await getDefualtAgentID(devicesUID[0]);
-      console.log(agentID);
       setAgentID(agentID.agent_id);
       setIsAgentDisabled(!isAgentDisabled);
     } catch (error) {
@@ -278,8 +275,6 @@ export default function RegisterPage() {
     }
   };
   const onSubmit = async (data) => {
-    console.log(data);
-
     // // Perform client-side validation
     // const validationErrors = validateForm(data);
     // if (Object.keys(validationErrors).length > 0) {
@@ -350,8 +345,6 @@ export default function RegisterPage() {
     );
     try {
       setError("");
-      console.log("asd");
-
       const response = await registerUser(formattedData);
       console.log(response);
 
@@ -373,17 +366,22 @@ export default function RegisterPage() {
         setError(response.message || "Registration failed. Please try again.");
       }
     } catch (err) {
-      console.log(err);
-      if (err?.message) setError(err.message);
-      if (err?.errorResponse?.keyValue) {
-        let key = Object.keys(err.errorResponse.keyValue)[0];
-        setError(
-          key === "contact_number"
-            ? "Phone Number Already Exist!"
-            : key === "email"
-            ? "E-mail Address Already Exist!"
-            : ""
-        );
+      // console.log(err);
+      // if (err?.errorResponse?.keyValue) {
+      //   let key = Object.keys(err.errorResponse.keyValue)[0];
+      //   setError(
+      //     key === "contact_number"
+      //       ? "Phone Number Already Exist!"
+      //       : key === "email"
+      //       ? "E-mail Address Already Exist!"
+      //       : ""
+      //   );
+      // }
+      if (err.errors) {
+        console.log(err.errors[0].message.matches);
+        toast.error(err.errors[0].message.matches);
+      } else {
+        if (err?.message) toast.error(err?.message);
       }
     }
   };

@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState("");
+  const [lastUserName, setLastUserName] = useState("");
   const [customerMail, setCustomerMail] = useState("");
   const [isLogin, setIsLogin] = useState(null);
   // Helper function to determine the appropriate cookie domain
@@ -85,6 +86,8 @@ export const AuthProvider = ({ children }) => {
         setUser,
         userName,
         setUserName,
+        lastUserName,
+        setLastUserName,
         customerMail,
         setCustomerMail,
         country,

@@ -14,7 +14,9 @@ export default function ProfileNav() {
     email,
     user,
     userName,
+    lastUserName,
     setUserName,
+    setLastUserName,
     setCustomerMail,
     customerMail,
   } = useAuth();
@@ -55,7 +57,8 @@ export default function ProfileNav() {
   const fetchUserDetails = async (id) => {
     try {
       const userDetails = await getUserDetailsById(id);
-      setUserName(userDetails.data.name + " " + userDetails.data.last_name);
+      setUserName(userDetails.data.name);
+      setLastUserName(userDetails.data.last_name);
       setEmail(userDetails.data.email);
       localStorage.setItem("user_email", userDetails.data.email);
       setCustomerMail(userDetails.data.email);
@@ -82,7 +85,7 @@ export default function ProfileNav() {
             as="h1"
             className="text-[#1d293f] md:items-center"
           >
-            {userName}
+            {userName} {lastUserName}
           </Heading>
           <Text
             as="p"

@@ -28,10 +28,7 @@ const SetPassword = () => {
     const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
     return bytes.toString(CryptoJS.enc.Utf8);
   };
-
-  // Decrypt the email and OTP
-  const email = decryptData(encryptedEmail);
-  const otp = decryptData(encryptedOtp);
+  console.log(encryptedEmail, encryptedOtp);
 
   const handleSetPassword = async (e) => {
     e.preventDefault();
@@ -48,14 +45,12 @@ const SetPassword = () => {
       return;
     }
 
-    console.log("Sending reset password request with:", {
-      otp,
-      email,
-      password,
-    }); // Debugging line
-
     try {
-      const response = await resetPassword({ otp, email, password });
+      const response = await resetPassword({
+        // otp: encryptedOtp,
+        email: encryptedEmail,
+        password,
+      });
 
       if (response && response.status) {
         setSuccessMessage("Password has been reset successfully!");

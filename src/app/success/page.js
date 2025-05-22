@@ -36,7 +36,7 @@ function Page() {
       payment_method: orderData.payment_method_types[0],
       transaction_id: orderData.payment_intent,
       agent_unique_id: JSON.parse(agent_details).agent_id,
-      installation_date: addressPharsed.installation_date,
+      installation_date: addressPharsed?.installation_date || "",
       email: JSON.parse(user_credentials).email,
       password: JSON.parse(user_credentials).password,
       products: orderData.line_items.map((item) => ({
@@ -52,7 +52,7 @@ function Page() {
             : item.productName === "All in One AI Sensor"
             ? `AI Sensor ${item.quantity}x`
             : "package",
-        price: item.price, // Convert from cents to dollars
+        price: item.price,
         quantity: item.quantity,
         priceId: item.productId,
       })),
@@ -97,14 +97,11 @@ function Page() {
       hasRunRef.current = true; // Set the ref to true to prevent future executions
       let customerId;
       if (devices && verified) {
-        console.log("================>", devices);
-
         const chnageStatus = chnageDeviceStatus({
           uids: devices.map((deviceId) => deviceId),
           email: JSON.parse(user_credentials).email,
           is_active: true,
         });
-        console.log("==================>", chnageStatus);
       }
       getSessionDetails(sessionId)
         .then((session) => {
@@ -310,7 +307,7 @@ function Page() {
                 as="p"
                 className="text-[1.13rem] font-medium text-text cursor-pointer"
               >
-                <Link href="/">Go Home</Link>
+                <Link href="/login">Sign In</Link>
               </Text>
 
               <Img
