@@ -19,7 +19,7 @@ const DeviceInfo = () => {
   const [verified, setVerified] = useState(false);
   const [products, setProducts] = useState([]);
   const { getProducts } = useUserService();
-  const [selecteInstallation, setSelecteInstallation] = useState(1);
+  const [selecteInstallation, setSelecteInstallation] = useState(0);
   const [installationQuantity, setInstallationQuantity] = useState(0);
   const [installationPrice, setInstallationPrice] = useState(0);
   const [installationPriceStatic, setInstallationPriceStatic] = useState(0);
@@ -36,7 +36,7 @@ const DeviceInfo = () => {
           (p) => p.name === "Installation" && p.currency === expectedCurrency
         );
         if (installation) {
-          setInstallationPriceStatic(installation.price);
+          // setInstallationPriceStatic(installation.price);
         }
 
         // Set prices based on fetched products
@@ -93,13 +93,14 @@ const DeviceInfo = () => {
   const updateOrderDetails = () => {
     setInstallationQuantity(devices.length);
     setInstallationPrice(installationPriceStatic * devices.length);
+
     const orderDetails = {
       installationPrice: selecteInstallation,
       products: products
         .filter(
           (p) =>
-            ((p.name === "AI Monitoring" && p.isRecurring === false) ||
-              (p.name === "Installation" && selecteInstallation === 1)) &&
+            p.name === "AI Monitoring" &&
+            p.isRecurring === false &&
             p.currency === expectedCurrency
         )
         .map((p) => ({
@@ -113,7 +114,26 @@ const DeviceInfo = () => {
           currency: p.currency,
         })),
     };
-
+    // const orderDetails = {
+    //   installationPrice: selecteInstallation,
+    //   products: products
+    //     .filter(
+    //       (p) =>
+    //         ((p.name === "AI Monitoring" && p.isRecurring === false) ||
+    //           (p.name === "Installation" && selecteInstallation === 1)) &&
+    //         p.currency === expectedCurrency
+    //     )
+    //     .map((p) => ({
+    //       id: p.id,
+    //       priceId: p.priceId,
+    //       name: p.name,
+    //       description: p.description,
+    //       price: p.price,
+    //       quantity: p.name === "AI Monitoring" ? 1 : devices.length,
+    //       adjustable_quantity: false,
+    //       currency: p.currency,
+    //     })),
+    // };
     localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
   };
 
@@ -283,7 +303,7 @@ const DeviceInfo = () => {
               </p>
             )}
           </div>
-          {devices.length > 0 && (
+          {/* {devices.length > 0 && (
             <div className="w-full max-w-[800px]">
               <div className="bg-[#F3F4F6] overflow-hidden relative h-fit w-full  mx-0 py-12 pb-0 rounded-xl">
                 <div className="flex flex-col gap-4 items-center h-full md:h-auto justify-between ">
@@ -330,16 +350,11 @@ const DeviceInfo = () => {
                       className="w-full h-auto mt-2 "
                     />
                   </div>
-                  {/* <div id="Price" className="text-center">
-              <h1 className="font-bold  text-3xl ">${kitPrice}</h1>
-              <span className="font-normal pt-1 text-base text-[#000]/80">
-                For the set of 3x AI Devices
-              </span>
-            </div> */}
+                
                 </div>
               </div>
             </div>
-          )}
+          )} */}
 
           {verified && devices.length > 0 && (
             <Link

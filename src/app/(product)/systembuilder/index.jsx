@@ -29,9 +29,9 @@ export default function HomePage() {
   let [addonDevicePrice, setAddonDevicePrice] = useState(0);
   let [aimonitoring, setAimonitoring] = useState(0);
   let [total, setTotal] = useState(0);
-  let [quantity, setQuantity] = useState(0);
+  let [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  let [selecteInstallation, setselecteInstallation] = useState(1);
+  let [selecteInstallation, setselecteInstallation] = useState(0);
   let [installationQuantity, setInstallationQuantity] = useState(3);
   const [isChecked, setIsChecked] = useState(false);
   const {
@@ -70,10 +70,10 @@ export default function HomePage() {
             !isLogin &&
             p.currency === expectedCurrency
         );
-        if (kit) setKitPrice(kit.price);
+        // if (kit) setKitPrice(kit.price);
         if (addon) setAddonDevicePrice(addon.price);
-        if (installation) setInstallationPrice(installation.price * 3);
-        if (installation) setInstallationPriceStatic(installation.price);
+        // if (installation) setInstallationPrice(installation.price * 3);
+        // if (installation) setInstallationPriceStatic(installation.price);
         if (aimonitoring) setAimonitoring(aimonitoring.price);
 
         //Store Subcription Product Details in Local Storage that has isRecurring true
@@ -118,12 +118,10 @@ export default function HomePage() {
       products: products
         .filter(
           (p) =>
+            p.name !== "Required with your system" &&
+            p.name !== "Installation" &&
             !p.isRecurring &&
-            !(
-              isLogin &&
-              p.name === "AI Monitoring" &&
-              p.name === "Required with your system"
-            ) &&
+            !(isLogin && p.name === "AI Monitoring") &&
             p.currency === expectedCurrency
         )
         .map((p) => ({
@@ -154,6 +152,54 @@ export default function HomePage() {
               : false,
         })),
     };
+    //    const orderDetails = {
+    //   kitPrice,
+    //   installationPrice: selecteInstallation === 1 ? installationPrice : 0,
+    //   addonDevicePrice,
+    //   addonQuantity: quantity,
+    //   aiMonitoringPrice: aimonitoring,
+    //   total: total + aimonitoring,
+    //   products: products
+    //     .filter(
+    //       (p) =>
+    //         !p.isRecurring &&
+    //         !(
+    //           isLogin &&
+    //           p.name === "AI Monitoring" &&
+    //           p.name === "Required with your system"
+    //         ) &&
+    //         p.currency === expectedCurrency
+    //     )
+    //     .map((p) => ({
+    //       id: p.id,
+    //       priceId: p.priceId,
+    //       name: p.name,
+    //       description: p.description,
+    //       price: p.price,
+    //       quantity:
+    //         p.name === "AI Monitoring"
+    //           ? 1
+    //           : p.name === "All in One AI Sensor"
+    //           ? quantity
+    //           : p.name === "Required with your system"
+    //           ? 1
+    //           : p.name === "Installation" && selecteInstallation === 1
+    //           ? installationQuantity
+    //           : 0,
+    //       adjustable_quantity:
+    //         p.name === "AI Monitoring"
+    //           ? false
+    //           : p.name === "All in One AI Sensor"
+    //           ? true
+    //           : p.name === "Installation" && selecteInstallation === 1
+    //           ? false
+    //           : p.name === "Required with your system"
+    //           ? false
+    //           : false,
+    //     })),
+    // };
+    console.log("orderDetisl======>", orderDetails);
+
     localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
   };
 
@@ -239,7 +285,7 @@ export default function HomePage() {
                 },
         }))
         .filter((item) => item.quantity > 0);
-      console.log(lineItems);
+      console.log("line items ======>", lineItems);
 
       // Start the first API call
       // const stripeCustomerPromise = createStripeCustomer({
@@ -323,7 +369,7 @@ export default function HomePage() {
     <div className="flex w-full flex-col gap-10 bg-white p-5 tab:px-2">
       {!isLogin && (
         <>
-          <div className="tab:hidden max-w-[1720px] w-full mx-auto">
+          {/* <div className="tab:hidden max-w-[1720px] w-full mx-auto">
             <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
               <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
                 <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
@@ -366,9 +412,9 @@ export default function HomePage() {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* mobile */}
-          <div className="hidden tab:block w-full">
+          {/* <div className="hidden tab:block w-full">
             <div className="bg-[#F3F4F6] overflow-hidden relative h-auto w-full  px-5  mx-0 py-12 rounded-xl">
               <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
                 <div className="w-full  ">
@@ -408,13 +454,97 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </>
       )}
 
       {/* second section */}
 
       <div className="tab:hidden max-w-[1720px] w-full mx-auto">
+        <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
+          <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
+            <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
+              <div className="w-[60%] tab:w-full  ">
+                <h3 className="font-bold text-[48px] md:text-2xl tab:text-center">
+                  AI Care Guardian
+                </h3>
+                <p className="text-[29px] md:text-[16px] md:pt-4 tab:pt-2 tab:text-center">
+                  All in One AI Sensor
+                </p>
+                <p className="text-xl my-7 tab:my-4 md:text-sm tab:text-center">
+                  You can always add more devices if you have more rooms.
+                </p>
+                <p className="cursor-text tab:flex tab:justify-center">
+                  <button className="w-auto cursor-text py-[10px] px-3 text-white bg-primary rounded-[10px]  font-semibold">
+                    1x AI Device
+                  </button>
+                </p>
+              </div>
+              <div className="w-[40%] tab:ms-[-30px] -mt-10 md:mt-0 tab:w-full">
+                <Image
+                  src="/images/1device.png"
+                  height={200}
+                  width={300}
+                  alt="Product"
+                  className="w-[95%] h-auto scale-150 tab:scale-100  ms-5   tab:ms:5"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            id="Price"
+            className="text-end  xxl:text-start w-[20%] tab:w-full px-7 md:px-2 xxl:mx-5"
+          >
+            <div id="Price" className="text-start">
+              <h1 className="font-semibold text-center text-5xl xxl:text-3xl">
+                {expectedCurrency === "aud" ? "AU" : ""}${addonDevicePrice}
+              </h1>
+              <p className="font-normal !text-center text-md text-[#000]/80 ">
+                per device
+              </p>
+            </div>
+            <div
+              id="Quantity_Selector"
+              className="flex items-center my-4 gap-3 border-gray-300 px-3 py-2 w-full max-w-44 mx-auto rounded-md border-2 h-fit"
+            >
+              <button
+                className="text-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isLogin ? quantity <= 1 : quantity == 0} // Prevent decrementing to 0 if logged in
+                onClick={() => {
+                  setQuantity(
+                    quantity > (isLogin ? 1 : 0) ? quantity - 1 : quantity
+                  );
+                  setInstallationPrice(
+                    installationPrice - installationPriceStatic
+                  );
+                  setInstallationQuantity(installationQuantity - 1);
+                }}
+              >
+                <MinusCircledIcon className="w-8 h-8" />
+              </button>
+              <span className="text-lg font-semibold text-main_color-primary border-gray-300 px-3 py-1 rounded-md border-2">
+                {quantity}
+              </span>
+              <button
+                className="text-primary"
+                onClick={() => {
+                  setQuantity(quantity + 1);
+                  setInstallationPrice(
+                    installationPrice + installationPriceStatic
+                  );
+                  setInstallationQuantity(installationQuantity + 1);
+                }}
+              >
+                <PlusCircledIcon className="w-8 h-8" />
+              </button>
+            </div>
+            {/* <span className="font-normal text-md text-[#000]/80 ">
+              {quantity} Device
+            </span> */}
+          </div>
+        </div>
+      </div>
+      {/* <div className="tab:hidden max-w-[1720px] w-full mx-auto">
         <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
           <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-auto w-[80%] tab:w-full  px-20 md:px-10 tab:px-5  md:mx-0 py-32 md:py-20 rounded-xl">
             <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
@@ -444,9 +574,6 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            {/* <p className="px-5 text-sm absolute bottom-5">
-              *GST is included in the price
-            </p> */}
           </div>
           <div
             id="Price"
@@ -500,7 +627,7 @@ export default function HomePage() {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* mobile */}
       <div className="hidden tab:block w-full">
         <div className="bg-[#F3F4F6] overflow-hidden relative h-auto w-full  px-5  mx-0 py-12 rounded-xl">
@@ -512,11 +639,9 @@ export default function HomePage() {
                 </button>
               </p>
               <h3 className="font-bold text-2xl text-center">
-                Need more devices?
+                AI Care Guardian
               </h3>
-              <p className="text-base pt-2 text-center">
-                All in One AI Sensor for additional rooms
-              </p>
+              <p className="text-base pt-2 text-center">All in One AI Sensor</p>
               <p className="mt-2 text-sm text-center">
                 You can always add more <br /> devices if you have more rooms.
               </p>
@@ -584,7 +709,7 @@ export default function HomePage() {
       </div>
 
       {/* 3rd section */}
-      <div className="max-w-[1720px] w-full mx-auto tab:hidden">
+      {/* <div className="max-w-[1720px] w-full mx-auto tab:hidden">
         <div className="flex justify-between tab:flex-col-reverse tab:gap-5 items-center  px-0">
           <div className="bg-[#F3F4F6] overflow-hidden relative h-[780px] md:h-[480px] tab:h-[790px] w-[80%] tab:w-full  ps-20 md:px-10 tab:px-5  md:mx-0 py-0 md:py-20 rounded-xl">
             <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
@@ -641,9 +766,9 @@ export default function HomePage() {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="hidden tab:block w-full">
+      {/* <div className="hidden tab:block w-full">
         <div className="bg-[#F3F4F6] overflow-hidden relative h-auto w-full    mx-0 py-12 rounded-xl">
           <div className="flex tab:flex-col gap-4 items-center h-full md:h-auto justify-between ">
             <div className="w-full px-5 ">
@@ -689,17 +814,12 @@ export default function HomePage() {
                 className="w-full h-auto mt-2 "
               />
             </div>
-            {/* <div id="Price" className="text-center">
-              <h1 className="font-bold  text-3xl ">${kitPrice}</h1>
-              <span className="font-normal pt-1 text-base text-[#000]/80">
-                For the set of 3x AI Devices
-              </span>
-            </div> */}
+          
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="py-14 w-full flex justify-center items-center bg-[#1D293F]">
+      {/* <div className="py-14 w-full flex justify-center items-center bg-[#1D293F]">
         <div className="max-w-[1920px] w-full px-[200px] flex xxl:flex-col flex-row justify-between items-center  text-[#ffffff]">
           <div>
             <h4 className="xxs:text-[28px] sm:text-[32px] md:text-[40px] text-[48px] text-start xxl:text-center font-semibold font-poppins">
@@ -710,7 +830,6 @@ export default function HomePage() {
             </h6>
           </div>
           <div>
-            {/* Skip Button */}
             <Link
               href="#"
               onClick={(e) => {
@@ -722,7 +841,6 @@ export default function HomePage() {
               Skip
             </Link>
 
-            {/* Popup (Only Shows if showPopup is true) */}
             {showPopup && (
               <div className="fixed inset-0 flex w-full h-screen z-50 items-center justify-center bg-[#00000021]">
                 <div className="bg-white p-6 rounded-[35px] max-w-[635px] w-full py-10">
@@ -744,7 +862,6 @@ export default function HomePage() {
                       value={email}
                       onChange={handleEmailChange}
                     />
-                    {/* Show error message if email is empty or invalid */}
                     {isEmpty && (
                       <p className="text-red-500 text-sm mb-4">
                         Email cannot be empty. Please enter your email.
@@ -757,7 +874,7 @@ export default function HomePage() {
                     )}
                     <button
                       onClick={handleContinue}
-                      disabled={isEmpty || !emailValid} // Disable button if email is empty or invalid
+                      disabled={isEmpty || !emailValid}
                       className={`w-[150px] h-[60px] mt-4 ${
                         isEmpty || !emailValid
                           ? "bg-gray-400 cursor-not-allowed"
@@ -772,7 +889,7 @@ export default function HomePage() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* 4th */}
       <div
@@ -796,7 +913,7 @@ export default function HomePage() {
           >
             <ul className="flex flex-col gap-4">
               {[
-                "10 Days cooling off period",
+                // "10 Days cooling off period",
                 "AI Monitoring & Alerts",
                 "24 Months Contract",
               ].map((item, ind) => {
@@ -811,18 +928,18 @@ export default function HomePage() {
                 );
               })}
             </ul>
-            <p className="text-sm opacity-80">
+            {/* <p className="text-sm opacity-80">
               Please note for the first few days the system will learn your
               routines and no alert services will work with monitoring company
               until after 7 days from going live while you test the system
-            </p>
+            </p> */}
           </div>
           <div
             id="Summary"
             className="w-[75%] bg-white p-8 py-10 rounded-xl md:w-full md:p-4"
           >
             <ul className="flex flex-col gap-5">
-              {!isLogin && (
+              {/* {!isLogin && (
                 <li className="flex items-center text-nowrap gap-5">
                   <p className="font-semibold text-lg md:text-base">
                     1 Seenyor Kit
@@ -832,8 +949,18 @@ export default function HomePage() {
                     {expectedCurrency === "aud" ? "AU" : ""}${kitPrice}
                   </span>
                 </li>
-              )}
+              )} */}
               <li className="flex items-center text-nowrap gap-5">
+                <p className="font-semibold text-lg md:text-base">
+                  {quantity} Devices
+                </p>
+                <hr className="w-full border-2" />
+                <span className="text-nowrap text-lg md:text-base font-normal">
+                  {expectedCurrency === "aud" ? "AU" : ""}$
+                  {addonDevicePrice * quantity}
+                </span>
+              </li>
+              {/* <li className="flex items-center text-nowrap gap-5">
                 <p className="font-semibold text-lg md:text-base">
                   {quantity} Additional Device
                 </p>
@@ -842,8 +969,8 @@ export default function HomePage() {
                   {expectedCurrency === "aud" ? "AU" : ""}$
                   {addonDevicePrice * quantity}
                 </span>
-              </li>
-              <li className="flex items-center text-nowrap gap-5">
+              </li> */}
+              {/* <li className="flex items-center text-nowrap gap-5">
                 <p className="font-semibold text-lg md:text-base">
                   Installation
                 </p>
@@ -852,7 +979,7 @@ export default function HomePage() {
                   {expectedCurrency === "aud" ? "AU" : ""} $
                   {selecteInstallation === 1 ? installationPrice : 0}
                 </span>
-              </li>
+              </li> */}
               <li className="flex md:flex-col md:justify-center items-center text-nowrap gap-5 md:gap-1">
                 <p className="font-semibold text-xl md:text-base">
                   TOTAL (One Time Payment)
@@ -870,10 +997,10 @@ export default function HomePage() {
               >
                 <div className="flex flex-col items-start">
                   <h2 className="font-semibold text-xl md:md">AI Monitoring</h2>
-                  <p className="font-normal text-md md:text-sm text-[#000]/80">
+                  {/* <p className="font-normal text-md md:text-sm text-[#000]/80">
                     {expectedCurrency === "aud" ? "AU" : ""}${aimonitoring * 24}{" "}
                     Total Value Over 24 Months
-                  </p>
+                  </p> */}
                 </div>
                 <div className="flex tab:block  items-end">
                   <h2 className="font-semibold text-xl md:text-md">

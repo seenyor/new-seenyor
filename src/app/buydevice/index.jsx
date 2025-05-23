@@ -19,13 +19,13 @@ import ProductHero from "./ProductHero";
 export default function HomePage() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
-  let [installationPrice, setInstallationPrice] = useState(300);
-  let [addonDevicePrice, setAddonDevicePrice] = useState(400);
+  let [installationPrice, setInstallationPrice] = useState(0);
+  let [addonDevicePrice, setAddonDevicePrice] = useState(0);
 
   let [total, setTotal] = useState(0);
   let [quantity, setQuantity] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [selecteInstallation, setselecteInstallation] = useState(1);
+  const [selecteInstallation, setselecteInstallation] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const {
     getProducts,
@@ -49,7 +49,7 @@ export default function HomePage() {
           (p) => p.name === "Installation" && p.currency === expectedCurrency
         );
         if (addon) setAddonDevicePrice(addon.price);
-        if (installation) setInstallationPrice(installation.price);
+        // if (installation) setInstallationPrice(installation.price);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -67,7 +67,6 @@ export default function HomePage() {
   }, [installationPrice, selecteInstallation, addonDevicePrice, quantity]);
 
   const updateOrderDetails = () => {
-    console.log(quantity);
     const orderDetails = {
       installationPrice: selecteInstallation === 1 ? installationPrice : 0,
       addonDevicePrice,
@@ -100,6 +99,7 @@ export default function HomePage() {
               : false,
         })),
     };
+
     localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
   };
 
@@ -224,20 +224,20 @@ export default function HomePage() {
         }
       }
 
-      if (selecteInstallation === 1) {
-        const installationProduct = products.find(
-          (p) => p.name === "Installation" && p.currency === expectedCurrency
-        );
-        if (installationProduct) {
-          lineItems.push({
-            price: installationProduct.priceId,
-            quantity: 1,
-            adjustable_quantity: { enabled: false },
-          });
-        } else {
-          throw new Error("Installation product not found");
-        }
-      }
+      // if (selecteInstallation === 1) {
+      //   const installationProduct = products.find(
+      //     (p) => p.name === "Installation" && p.currency === expectedCurrency
+      //   );
+      //   if (installationProduct) {
+      //     lineItems.push({
+      //       price: installationProduct.priceId,
+      //       quantity: 1,
+      //       adjustable_quantity: { enabled: false },
+      //     });
+      //   } else {
+      //     throw new Error("Installation product not found");
+      //   }
+      // }
 
       if (lineItems.length === 0) {
         throw new Error("No products selected for checkout");
@@ -306,7 +306,7 @@ export default function HomePage() {
             >
               <Img src="Product-1.png" width={250} height={180} alt="Product" />
               <div id="Product_Details">
-                <h4 className="font-semibold text-lg">All in One AI Sensor</h4>
+                <h4 className="font-semibold text-lg"> AI Care Guardian</h4>
                 <span className="text-[#000]/80">
                   Fall Detection + Sleep Monitoring
                 </span>
@@ -349,7 +349,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div
+      {/* <div
         id="Intallation_Section"
         className="relative flex md:flex-col gap-4 items-center justify-between bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
       >
@@ -373,7 +373,7 @@ export default function HomePage() {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
       <div
         id="CheckOut_Section"
         className="relative flex flex-col gap-6 items-start justify-between bg-[#F1F1F2] max-w-7xl my-0 mx-auto w-full p-10 rounded-xl px-16 md:p-5"
@@ -389,7 +389,7 @@ export default function HomePage() {
           >
             <ul className="flex flex-col gap-4">
               {[
-                "10 Days cooling off period",
+                // "10 Days cooling off period",
                 "AI Monitoring & Alerts",
                 "24 Months Contract",
               ].map((item, ind) => {
@@ -404,11 +404,11 @@ export default function HomePage() {
                 );
               })}
             </ul>
-            <p className="text-sm opacity-80">
+            {/* <p className="text-sm opacity-80">
               Please note for the first few days the system will learn your
               routines and no alert services will work with monitoring company
               until after 7 days from going live while you test the system
-            </p>
+            </p> */}
           </div>
           <div
             id="Summary"
@@ -433,7 +433,7 @@ export default function HomePage() {
                   ${addonDevicePrice * quantity}
                 </span>
               </li>
-              <li className="flex items-center text-nowrap gap-5">
+              {/* <li className="flex items-center text-nowrap gap-5">
                 <p className="font-semibold text-lg md:text-base">
                   {selecteInstallation !== 0 ? 1 : " "} Installation
                 </p>
@@ -441,7 +441,7 @@ export default function HomePage() {
                 <span className="text-nowrap text-lg md:text-base font-normal">
                   ${selecteInstallation === 1 ? installationPrice : 0}
                 </span>
-              </li>
+              </li> */}
               <li className="flex md:flex-col md:justify-center items-center text-nowrap gap-5 md:gap-1">
                 <p className="font-semibold text-xl md:text-base">
                   TOTAL (One Time Payment)

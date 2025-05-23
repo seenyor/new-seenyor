@@ -52,13 +52,17 @@ const Checkbox = ({ checked, onChange, disabled, id, label }) => (
   </div>
 );
 const SelectBox = forwardRef(
-  ({ name, placeholder, options = [], onChange, className, ...rest }, ref) => (
+  (
+    { name, placeholder, options = [], onChange, className, value, ...rest },
+    ref
+  ) => (
     <select
       key={ref}
       ref={ref}
       name={name}
       onChange={onChange}
       className={className}
+      value={value || null}
       {...rest}
     >
       <option value="">{placeholder}</option>
@@ -134,7 +138,12 @@ export default function RegisterPage() {
             })
           );
           setCountriesForCode(formattedCountriesCode);
-          setCountries(formattedCountries);
+          const tempAUS = formattedCountries.filter(
+            (i) => i.value === "682f6c3f2c67829ed16d8588"
+          );
+          // console.log(formattedCountries);
+
+          setCountries(tempAUS);
           console.log("Formatted countries:", formattedCountriesCode);
         } else {
           console.error("Invalid country data structure:", countriesResponse);
@@ -300,28 +309,62 @@ export default function RegisterPage() {
       address: data.customer_address,
       address2: data.customer_address_2,
       city: data.customer_city,
-      country_id: data.customer_country_id,
+      country_id: "682f6c3f2c67829ed16d8588",
+      // country_id: data.customer_country_id,
       post_Code: data.customer_zipcode,
       state: data.customer_state,
-      contact_code: data.country_code,
+      contact_code: "+61",
+      // contact_code: data.country_code,
       contact_number: data.customer_contact_number,
       password: data.password,
       customer_info: {
-        country_id: data.installation_country_id,
-        address: data.installation_address,
-        address2: data.installation_address_2,
-        city: data.installation_city,
+        country_id: "682f6c3f2c67829ed16d8588",
+        // country_id: data.installation_country_id,
+        address: data.customer_address,
+        address2: data.customer_address_2,
+        city: data.customer_city,
+        country_id: "682f6c3f2c67829ed16d8588",
+        // country_id: data.customer_country_id,
+        post_Code: data.customer_zipcode,
+        state: data.customer_state,
         contact_number: data.customer_contact_number,
-        contact_code: data.country_code,
-
-        post_Code: data.installation_zipcode,
-        state: data.installation_state,
         installation_date: data.installation_date || null,
+        contact_code: "+61",
+        // contact_code: data.country_code,
         elderly_Count: data.live_with === "alone" ? 1 : 2, // Assuming "alone" means 1, otherwise 2
         lead: data.source_lead,
         // installer_id: , // Using customer's country_id as installer_id for now
       },
     };
+    // const formattedData = {
+    //   agent_id: isAgentDisabled ? agentID : data.agent_id,
+    //   email: data.customer_email,
+    //   name: data.customer_first_name,
+    //   last_name: data.customer_last_name,
+    //   address: data.customer_address,
+    //   address2: data.customer_address_2,
+    //   city: data.customer_city,
+    //   country_id: data.customer_country_id,
+    //   post_Code: data.customer_zipcode,
+    //   state: data.customer_state,
+    //   contact_code: data.country_code,
+    //   contact_number: data.customer_contact_number,
+    //   password: data.password,
+    //   customer_info: {
+    //     country_id: data.installation_country_id,
+    //     address: data.installation_address,
+    //     address2: data.installation_address_2,
+    //     city: data.installation_city,
+    //     contact_number: data.customer_contact_number,
+    //     contact_code: data.country_code,
+    //     post_Code: data.installation_zipcode,
+    //     state: data.installation_state,
+    //     installation_date: data.installation_date || null,
+    //     elderly_Count: data.live_with === "alone" ? 1 : 2, // Assuming "alone" means 1, otherwise 2
+    //     lead: data.source_lead,
+    //     // installer_id: , // Using customer's country_id as installer_id for now
+    //   },
+    // };
     console.log(formattedData);
 
     localStorage.setItem(
@@ -462,9 +505,9 @@ export default function RegisterPage() {
         className="text-[1.13rem] font-semibold capitalize text-text"
       >
         {label}{" "}
-        {required ? null : (
+        {/* {!required && type !== "country_code" && (
           <span className="text-sm font-normal italic">(optional)</span>
-        )}
+        )} */}
       </Heading>
       {name === "country_code" && type === "select" ? (
         // Phone number input with country code selection
@@ -475,6 +518,7 @@ export default function RegisterPage() {
             value: country.value,
             label: `${country.label} (${country.value})`,
           }))}
+          value={"+61"}
           {...register(name, { required })}
           onChange={(e) => {
             setValue(name, e.target.value);
@@ -494,6 +538,7 @@ export default function RegisterPage() {
               : options
           }
           {...register(name, { required })}
+          value={"682f6c3f2c67829ed16d8588"}
           onChange={(e) => {
             setValue(name, e.target.value);
             trigger(name);
@@ -562,6 +607,61 @@ export default function RegisterPage() {
 
           <div className="flex w-full flex-col items-center justify-center gap-[3.25rem] md:w-full sm:gap-[1.63rem] ">
             <div className="flex flex-col items-center self-stretch gap-7">
+              {/* <============= Agent Name and Badge ID - S.4 ==============> */}
+              <div
+                id="Agent_Name&Badge_ID"
+                className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
+              >
+                <div id="Fields" className="flex flex-col">
+                  <div
+                    id="Field_Group"
+                    className="flex gap-4 w-full sm:flex-col sm:gap-1"
+                  >
+                    {/* {renderField({
+                      label: "Sales Agent Name",
+                      name: "agent_name",
+                      type: "text",
+                      placeholder: "Agent Name",
+                      required: isAgentDisabled ? false : true,
+                      isDisabled: isAgentDisabled,
+                    })} */}
+                    {renderField({
+                      label: "Agent ID",
+                      name: "agent_id",
+                      type: "text",
+                      placeholder: "Agent ID",
+                      required: isAgentDisabled ? false : true,
+                      isDisabled: isAgentDisabled,
+                    })}
+                  </div>
+                  {/* Checkbox to disable fields */}
+                  {/* {searchParams.get("isRegisterDevice") === "true" && (
+                    <div className="flex items-center gap-2 mt-4">
+                      <input
+                        type="checkbox"
+                        id="noAgentInfo"
+                        onChange={handleCheckboxChange}
+                        className="mr-2"
+                      />
+                      <label htmlFor="noAgentInfo">
+                        I do not have agent ID and name at the moment
+                      </label>
+                    </div>
+                  )} */}
+                  {searchParams.get("isRegisterDevice") === "true" &&
+                    isRegisterDeviceExist &&
+                    isRegisterDeviceExist.length > 0 && (
+                      <div className="flex items-center gap-2 w-full mb-4 mt-4">
+                        <Checkbox
+                          checked={isAgentDisabled}
+                          onChange={handleCheckboxChange}
+                          id="isAgentDisable"
+                          label="I do not have agent ID and name at the moment!"
+                        />
+                      </div>
+                    )}
+                </div>
+              </div>
               {/* <============= Customer Information Fields - S.1 ==============> */}
               <div
                 id="Customer_info"
@@ -604,7 +704,8 @@ export default function RegisterPage() {
                         name: "country_code",
                         type: "select",
                         placeholder: "Select Country Code",
-                        options: countryData,
+                        options: countries,
+                        required: false,
                       })}
                     </div>
                     {renderField({
@@ -639,6 +740,7 @@ export default function RegisterPage() {
                       type: "select",
                       placeholder: "Select Country",
                       options: countries,
+                      required: false,
                     })}
                     {renderField({
                       label: "City",
@@ -667,7 +769,7 @@ export default function RegisterPage() {
                 </div>
               </div>
               {/* <============= Installation Addresses Fields - S.2 ==============> */}
-              <div
+              {/* <div
                 id="EndUser_info"
                 className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
               >
@@ -741,7 +843,7 @@ export default function RegisterPage() {
                     })}
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* <============= Preferred Installation Date - S.3 ==============> */}
               {orderDetails?.installationPrice !== 0 && (
                 <div
@@ -757,63 +859,9 @@ export default function RegisterPage() {
                   </div>
                 </div>
               )}
-              {/* <============= Agent Name and Badge ID - S.4 ==============> */}
-              <div
-                id="Agent_Name&Badge_ID"
-                className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
-              >
-                <div id="Fields" className="flex flex-col">
-                  <div
-                    id="Field_Group"
-                    className="flex gap-4 w-full sm:flex-col sm:gap-1"
-                  >
-                    {/* {renderField({
-                      label: "Sales Agent Name",
-                      name: "agent_name",
-                      type: "text",
-                      placeholder: "Agent Name",
-                      required: isAgentDisabled ? false : true,
-                      isDisabled: isAgentDisabled,
-                    })} */}
-                    {renderField({
-                      label: "Agent ID",
-                      name: "agent_id",
-                      type: "text",
-                      placeholder: "Agent ID",
-                      required: isAgentDisabled ? false : true,
-                      isDisabled: isAgentDisabled,
-                    })}
-                  </div>
-                  {/* Checkbox to disable fields */}
-                  {/* {searchParams.get("isRegisterDevice") === "true" && (
-                    <div className="flex items-center gap-2 mt-4">
-                      <input
-                        type="checkbox"
-                        id="noAgentInfo"
-                        onChange={handleCheckboxChange}
-                        className="mr-2"
-                      />
-                      <label htmlFor="noAgentInfo">
-                        I do not have agent ID and name at the moment
-                      </label>
-                    </div>
-                  )} */}
-                  {searchParams.get("isRegisterDevice") === "true" &&
-                    isRegisterDeviceExist &&
-                    isRegisterDeviceExist.length > 0 && (
-                      <div className="flex items-center gap-2 w-full mb-4 mt-4">
-                        <Checkbox
-                          checked={isAgentDisabled}
-                          onChange={handleCheckboxChange}
-                          id="isAgentDisable"
-                          label="I do not have agent ID and name at the moment!"
-                        />
-                      </div>
-                    )}
-                </div>
-              </div>
+
               {/* <============= Live With - S.5 ==============> */}
-              <div
+              {/* <div
                 id="Live_With"
                 className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
               >
@@ -827,9 +875,9 @@ export default function RegisterPage() {
                     required: false,
                   })}
                 </div>
-              </div>
+              </div> */}
               {/* <============= Source of Lead - S.6 ==============> */}
-              <div
+              {/* <div
                 id="Live_With"
                 className="w-full flex flex-col gap-2 p-8 bg-[#F6F7F7] rounded-3xl"
               >
@@ -842,7 +890,7 @@ export default function RegisterPage() {
                     required: false,
                   })}
                 </div>
-              </div>
+              </div> */}
               {/* <============= Password - S.7 ==============> */}
               <div
                 id="Password"
