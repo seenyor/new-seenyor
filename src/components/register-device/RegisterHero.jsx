@@ -53,11 +53,14 @@ const RegisterHero = () => {
       }
       try {
         const response = await checkUserExist(email);
-        toast.success("User Already Exist, Please Sign In!"); // Toast for success
-        router.push("/login");
-      } catch (error) {
-        router.push("/device-verification");
-      }
+        console.log(response);
+        if (response?.userExits) {
+          toast.success("User Already Exist, Please Sign In!");
+          router.push("/login");
+        } else {
+          router.push("/device-verification");
+        }
+      } catch (error) {}
     } else {
       toast.error("Please enter a valid email address."); // Toast for invalid email
     }

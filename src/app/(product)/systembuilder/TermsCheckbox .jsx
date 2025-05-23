@@ -40,6 +40,7 @@ const TermsCheckbox = ({ onMainCheckboxChange }) => {
     term6: false,
     term7: false,
     term8: false,
+    term9: false,
   });
   const allChecked = Object.values(termChecks).every(Boolean);
 
@@ -78,6 +79,11 @@ const TermsCheckbox = ({ onMainCheckboxChange }) => {
       title: "No Refunds After Cooling-Off Period",
       description:
         "I agree to the no-refund policy after the 10-day cooling-off period.",
+    },
+    {
+      title: "Device Installed",
+      description:
+        "By proceeding with installation and activation of the device, you acknowledge that the statutory cooling-off period no longer applies and you are entering into a binding two-year contract.",
     },
     {
       title: "Liability Disclaimer",
