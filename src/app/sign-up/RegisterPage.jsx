@@ -53,27 +53,50 @@ const Checkbox = ({ checked, onChange, disabled, id, label }) => (
 );
 const SelectBox = forwardRef(
   (
-    { name, placeholder, options = [], onChange, className, value, ...rest },
+    {
+      name,
+      placeholder,
+      options = [],
+      onChange,
+      className,
+      defaultValue,
+      ...rest
+    },
     ref
-  ) => (
-    <select
-      key={ref}
-      ref={ref}
-      name={name}
-      onChange={onChange}
-      className={className}
-      value={value || null}
-      {...rest}
-    >
-      <option value="">{placeholder}</option>
-      {Array.isArray(options) &&
-        options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-    </select>
-  )
+  ) => {
+    const [selectedValue, setSelectedValue] = useState(defaultValue);
+
+    // Update selected value whenever defaultValue changes (only for the initial setup)
+    useEffect(() => {
+      setSelectedValue(defaultValue);
+    }, [defaultValue]);
+
+    const handleChange = (e) => {
+      const value = e.target.value;
+      setSelectedValue(value);
+      onChange(e); // Call the parent onChange handler
+    };
+
+    return (
+      <select
+        key={ref}
+        ref={ref}
+        name={name}
+        onChange={onChange}
+        className={className}
+        value={defaultValue}
+        {...rest}
+      >
+        <option value="">{placeholder}</option>
+        {Array.isArray(options) &&
+          options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+      </select>
+    );
+  }
 );
 
 SelectBox.displayName = "SelectBox";
@@ -117,10 +140,7 @@ export default function RegisterPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch countries
-        console.log("Fetching countries...");
         const countriesResponse = await getCountries();
-        console.log("Countries response:", countriesResponse);
 
         if (
           countriesResponse &&
@@ -141,8 +161,6 @@ export default function RegisterPage() {
           const tempAUS = formattedCountries.filter(
             (i) => i.value === "682f6cca2c67829ed16d85eb"
           );
-          // console.log(formattedCountries);
-
           setCountries(tempAUS);
           console.log("Formatted countries:", formattedCountriesCode);
         } else {
@@ -313,8 +331,8 @@ export default function RegisterPage() {
       // country_id: data.customer_country_id,
       post_Code: data.customer_zipcode,
       state: data.customer_state,
-      contact_code: "+61",
-      // contact_code: data.country_code,
+      // contact_code: "+61",
+      contact_code: data.country_code,
       contact_number: data.customer_contact_number,
       password: data.password,
       customer_info: {
@@ -329,8 +347,8 @@ export default function RegisterPage() {
         state: data.customer_state,
         contact_number: data.customer_contact_number,
         installation_date: data.installation_date || null,
-        contact_code: "+61",
-        // contact_code: data.country_code,
+        // contact_code: "+61",
+        contact_code: data.country_code,
         elderly_Count: data.live_with === "alone" ? 1 : 2, // Assuming "alone" means 1, otherwise 2
         lead: data.source_lead,
         // installer_id: , // Using customer's country_id as installer_id for now
@@ -518,7 +536,6 @@ export default function RegisterPage() {
             value: country.value,
             label: `${country.label} (${country.value})`,
           }))}
-          value={"+61"}
           {...register(name, { required })}
           onChange={(e) => {
             setValue(name, e.target.value);
