@@ -82,9 +82,9 @@ const SelectBox = forwardRef(
         key={ref}
         ref={ref}
         name={name}
-        onChange={onChange}
+        onChange={handleChange}
         className={className}
-        value={defaultValue}
+        value={selectedValue}
         {...rest}
       >
         <option value="">{placeholder}</option>
@@ -541,6 +541,7 @@ export default function RegisterPage() {
             setValue(name, e.target.value);
             trigger(name);
           }}
+          defaultValue={"+61"}
           className="w-full rounded-[12px] !border border-solid border-gray-200 px-[1.63rem] capitalize !text-text sm:px-[1.25rem] h-[3.75rem] bg-white"
         />
       ) : type === "select" ? (
