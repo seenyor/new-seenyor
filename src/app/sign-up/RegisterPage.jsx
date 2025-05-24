@@ -139,7 +139,7 @@ export default function RegisterPage() {
           );
           setCountriesForCode(formattedCountriesCode);
           const tempAUS = formattedCountries.filter(
-            (i) => i.value === "682f6c3f2c67829ed16d8588"
+            (i) => i.value === "682f6cca2c67829ed16d85eb"
           );
           // console.log(formattedCountries);
 
@@ -309,7 +309,7 @@ export default function RegisterPage() {
       address: data.customer_address,
       address2: data.customer_address_2,
       city: data.customer_city,
-      country_id: "682f6c3f2c67829ed16d8588",
+      country_id: "682f6cca2c67829ed16d85eb",
       // country_id: data.customer_country_id,
       post_Code: data.customer_zipcode,
       state: data.customer_state,
@@ -318,12 +318,12 @@ export default function RegisterPage() {
       contact_number: data.customer_contact_number,
       password: data.password,
       customer_info: {
-        country_id: "682f6c3f2c67829ed16d8588",
+        country_id: "682f6cca2c67829ed16d85eb",
         // country_id: data.installation_country_id,
         address: data.customer_address,
         address2: data.customer_address_2,
         city: data.customer_city,
-        country_id: "682f6c3f2c67829ed16d8588",
+        country_id: "682f6cca2c67829ed16d85eb",
         // country_id: data.customer_country_id,
         post_Code: data.customer_zipcode,
         state: data.customer_state,
@@ -538,7 +538,7 @@ export default function RegisterPage() {
               : options
           }
           {...register(name, { required })}
-          value={"682f6c3f2c67829ed16d8588"}
+          value={"682f6cca2c67829ed16d85eb"}
           onChange={(e) => {
             setValue(name, e.target.value);
             trigger(name);
