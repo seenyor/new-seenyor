@@ -142,8 +142,8 @@ const Footer = () => {
                         />
                       </div>
                       <p>
-                        <strong>Tim&apos;s Office:</strong>  232 Unley Road,
-                        Unley SA 5061, Australia
+                        <strong>Australia:</strong>  33 foster street, surry
+                        hills , NSW
                       </p>
                     </div>
                   </li>
@@ -228,7 +228,7 @@ const Footer = () => {
                       href="/shipping-and-returns"
                       className="transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600"
                     >
-                      Shipping & Reurns
+                      Shipping and Returns
                     </a>
                   </li>
                   <li className="mb-2 leading-6">

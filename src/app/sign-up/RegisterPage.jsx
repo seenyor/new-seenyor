@@ -66,7 +66,6 @@ const SelectBox = forwardRef(
   ) => {
     const [selectedValue, setSelectedValue] = useState(defaultValue);
 
-    // Update selected value whenever defaultValue changes (only for the initial setup)
     useEffect(() => {
       setSelectedValue(defaultValue);
     }, [defaultValue]);
@@ -74,7 +73,7 @@ const SelectBox = forwardRef(
     const handleChange = (e) => {
       const value = e.target.value;
       setSelectedValue(value);
-      onChange(e); // Call the parent onChange handler
+      onChange(e);
     };
 
     return (
@@ -100,7 +99,6 @@ const SelectBox = forwardRef(
 );
 
 SelectBox.displayName = "SelectBox";
-
 export default function RegisterPage() {
   const {
     register,
