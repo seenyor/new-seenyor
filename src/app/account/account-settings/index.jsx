@@ -33,7 +33,6 @@ const AccountSetting = () => {
     getCountries,
     authEmail,
   } = useUserService();
-
   const handleAddressModalToggle = (isOpen) => {
     setIsAddressModalOpen(isOpen);
   };
@@ -52,8 +51,8 @@ const AccountSetting = () => {
     try {
       const userDetails = await getUserDetailsById(id);
       setAddressInfo(userDetails);
+
       setMail(userDetails.data.email);
-      console.log(userDetails);
     } catch (error) {
       console.error("Failed to fetch user details:", error);
     }

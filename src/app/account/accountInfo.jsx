@@ -30,6 +30,7 @@ export default function AccountInfo() {
       setUserName(displayName);
       setLastUserName(displayLastName);
       setDisplayName("");
+      setDisplayLastName("");
       console.log("User name updated successfully:", response);
     } catch (error) {
       toast.error("Failed to update user name");

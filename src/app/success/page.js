@@ -1,5 +1,6 @@
 "use client";
 import { Heading, Img, Text } from "@/components";
+import { useAuth } from "@/context/AuthContext";
 import { useUserService } from "@/services/userService";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,18 +16,21 @@ function Page() {
     chnageDeviceStatus,
   } = useUserService();
   const [isProcessing, setIsProcessing] = useState(true);
+  const { isLogin } = useAuth();
+
   const [error, setError] = useState("");
   let sessionId;
   if (typeof window !== "undefined") {
     sessionId = new URLSearchParams(window.location.search).get("session_id");
   }
   const [isUserVerified, setIsUserVerified] = useState(null);
-
   const handleOrder = async (orderData) => {
     const agent_details = localStorage.getItem("agent_details");
     const installation_details = localStorage.getItem("installation_details");
     const user_credentials = localStorage.getItem("user_credentials");
     const addressPharsed = JSON.parse(installation_details);
+    const address = localStorage.getItem("user_add");
+    const existingUserAddressPharsed = JSON.parse(address);
 
     const order = {
       total: orderData.amount_total / 100,
@@ -62,12 +66,19 @@ function Page() {
         amount_tax: orderData.total_details.amount_tax,
       },
       address: {
-        city: addressPharsed?.city || "",
+        city: addressPharsed?.city || existingUserAddressPharsed.city || "",
         country: orderData?.customer_details?.address?.country || "",
-        line1: addressPharsed?.address || "",
-        line2: addressPharsed?.address2 || "",
-        postal_code: addressPharsed?.postal_code || "",
-        state: addressPharsed?.state || "",
+        line1:
+          addressPharsed?.address || existingUserAddressPharsed?.address || "",
+        line2:
+          addressPharsed?.address2 ||
+          existingUserAddressPharsed?.address2 ||
+          "",
+        postal_code:
+          addressPharsed?.postal_code ||
+          existingUserAddressPharsed.post_Code ||
+          "",
+        state: addressPharsed?.state || existingUserAddressPharsed.state || "",
       },
     };
     try {
@@ -93,8 +104,10 @@ function Page() {
         router.push("/");
       }
     }
+    console.log("================>");
+
     if (sessionId && !hasRunRef.current) {
-      hasRunRef.current = true; // Set the ref to true to prevent future executions
+      hasRunRef.current = true;
       let customerId;
       if (devices && verified) {
         const chnageStatus = chnageDeviceStatus({
@@ -307,7 +320,11 @@ function Page() {
                 as="p"
                 className="text-[1.13rem] font-medium text-text cursor-pointer"
               >
-                <Link href="/login">Sign In</Link>
+                {isLogin ? (
+                  <Link href="/">Go Back</Link>
+                ) : (
+                  <Link href="/login">Sign In</Link>
+                )}
               </Text>
 
               <Img

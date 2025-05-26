@@ -1,6 +1,7 @@
 "use client";
 import { Heading, Img } from "@/components";
 import { useAuth } from "@/context/AuthContext";
+import { useUserService } from "@/services/userService";
 import * as Avatar from "@radix-ui/react-avatar";
 
 import { ArrowDown } from "lucide-react";
@@ -11,6 +12,7 @@ export default function Header() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { getUserDetailsById } = useUserService();
   const { isLogin } = useAuth();
   // Toggle dropdown open or close
   const handleToggle = () => {
@@ -34,6 +36,26 @@ export default function Header() {
 
   const toggleSubMenu = () => {
     setIsSubMenuOpen(!isSubMenuOpen);
+  };
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("user_id");
+    if (storedUserId) {
+      fetchUserDetails(storedUserId);
+    }
+  }, []);
+
+  const fetchUserDetails = async (id) => {
+    try {
+      const userDetails = await getUserDetailsById(id);
+      localStorage.setItem(
+        "user_add",
+        JSON.stringify(userDetails?.data?.customer_info)
+      );
+      localStorage.setItem("isUserVerified", true);
+    } catch (error) {
+      console.error("Failed to fetch user details:", error);
+    }
   };
   return (
     <>
