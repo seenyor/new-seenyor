@@ -9,7 +9,6 @@ import AiSpecifications from "@/components/Ai-care/AiSpecifications";
 import MsgBg1 from "@/components/Ai-care/MsgBg1";
 import CallbackForm from "@/components/Home/CallbackForm";
 import { cookies } from "next/headers";
-
 const page = () => {
   const cookieStore = cookies();
   const accessToken = cookieStore.get("access_token");

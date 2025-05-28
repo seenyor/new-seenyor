@@ -329,6 +329,7 @@ const Footer = () => {
           </p>
         </div>
       </footer>
+
       <Script src="https://app.dante-ai.com/bubble-embed.js?kb_id=8b2a09ee-37ab-45c5-b71a-2138b9aeef1e&token=6ae50532-9067-4704-99a4-5128593690d4&modeltype=gpt-4-omnimodel-mini&tabs=false" />
       {/*    <!-- End Five Columns Footer with Logo and Sub Footer --> */}
     </>
