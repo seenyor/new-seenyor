@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Poppins } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import CountryModal from "@/components/CountrySelectModal/CountrySelectModal";
 export const metadata = {
   title: "Seenyor",
   description: "Elderly Care Solution",
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
           <body>
             {children}
             <ToastContainer />
+            <CountryModal />
           </body>
         </html>
       </AuthProvider>

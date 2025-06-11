@@ -16,8 +16,8 @@ function Page() {
     chnageDeviceStatus,
   } = useUserService();
   const [isProcessing, setIsProcessing] = useState(true);
-  const { isLogin } = useAuth();
-
+  const { isLogin, country } = useAuth();
+  const expectedCurrency = country === "global" ? "usd" : "aud";
   const [error, setError] = useState("");
   let sessionId;
   if (typeof window !== "undefined") {
@@ -42,6 +42,7 @@ function Page() {
       agent_unique_id: JSON.parse(agent_details).agent_id,
       installation_date: addressPharsed?.installation_date || "",
       email: JSON.parse(user_credentials).email,
+      // currency: expectedCurrency === "aud" ? "AU$" : "$",
       password: JSON.parse(user_credentials).password,
       products: orderData.line_items.map((item) => ({
         id: item.productId,
@@ -90,7 +91,6 @@ function Page() {
       // router.push("/");
     } catch (error) {
       console.error("Error creating order:", error);
-      // Handle error (e.g., show error message to user)
     }
   };
   const hasRunRef = useRef(false); // Use useRef to persist the flag across renders
@@ -119,7 +119,6 @@ function Page() {
       getSessionDetails(sessionId)
         .then((session) => {
           customerId = session.customer;
-
           return handleOrder(session);
         })
         .then(() => handlePaymentStatus(sessionId))
