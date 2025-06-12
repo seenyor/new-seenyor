@@ -61,7 +61,6 @@ export default function CountryModal() {
           open={isOpen}
           onToggle={() => setIsOpen(!isOpen)}
           onChange={(val) => setCountry(val)}
-          // We use this type assertion because we are always sure this find will return a value but need to let TS know since it could technically return null
           selectedValue={COUNTRIES.find((option) => option.value === country)}
         />
         <button

@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
           <body>
             {children}
             <ToastContainer />
-            <CountryModal />
+            {/* <CountryModal /> */}
           </body>
         </html>
       </AuthProvider>
